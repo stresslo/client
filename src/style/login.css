@@ -64,9 +64,7 @@ input {
     gap: 15px;
     align-items: center;
     cursor: pointer;
-    animation: backslide 0.3s ease-in-out;
 }
-@keyframes backslide { from { left: 70px; } }
 
 @media (max-width : 420px) {
     .back {
