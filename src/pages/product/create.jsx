@@ -7,6 +7,7 @@ import Loading from "../../../utils/loading"
 import swalert from "../../../utils/swalert"
 import axios from "axios"
 import "../../style/create.css"
+import Topback from '../../components/topback'
 
 const Create = () => {
   const navigate = useNavigate()
@@ -66,10 +67,7 @@ const Create = () => {
 
   return (
     <div className='page-max' style={{gap:'30px', paddingBottom: '5px'}}>
-      <div className="back" onClick={() => navigate('/')}>
-        <div className="fa-solid fa-arrow-left fa-xl active"></div>
-        <div className="nav-logo" style={{fontFamily: 'var(--caveat)'}}>stresslo</div>
-      </div>
+     <Topback/>
       <div className='form'>
         <div className='input-form'>
           <div>

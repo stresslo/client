@@ -56,7 +56,7 @@ const Confirm = {
             <div className="page">
                 <div className="back" onClick={() => navigate('/')}>
                     <div className="fa-solid fa-arrow-left fa-xl active"></div>
-                    <div className="nav-logo" style={{fontFamily: 'var(--caveat)'}}>stresslo</div>
+                    <div className="nav-logo"><h1>stresslo</h1></div>
                 </div>
                 <div className="form" style={{ textAlign: 'center', gap: '50px' }}>
                     <div style={{display: 'flex', gap: '20px', justifyContent: 'center'}}>

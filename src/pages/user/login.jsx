@@ -6,6 +6,7 @@ import getvxsrf from '../../../service/getvxsrf'
 import { useContext, useEffect, useState } from "react"
 import { NavLink, useNavigate } from "react-router-dom"
 import "../../style/login.css"
+import Topback from "../../components/topback"
 
 const Login = () => {
     
@@ -48,10 +49,7 @@ const Login = () => {
 
     return(
         <div className="page">
-            <div className="back" onClick={() => navigate('/')}>
-                <div className="fa-solid fa-arrow-left fa-xl active"></div>
-                <div className="nav-logo" style={{fontFamily: 'var(--caveat)'}}>stresslo</div>
-            </div>
+            <Topback/>
             <div className="login-box">
                 <div className="login-top">
                     <div className="title"><span>Sign</span> in</div>

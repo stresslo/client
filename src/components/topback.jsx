@@ -5,9 +5,11 @@ const Topback = () => {
     let navigate = useNavigate()
 
     return(
-        <div className="back" onClick={() => navigate('/products')}>
+        <div className="back" onClick={() => navigate('/')}>
             <div className="fa-solid fa-arrow-left fa-xl active"></div>
-            <div className="nav-logo"><p style={{fontFamily : "var(--caveat)"}}>stresslo</p></div>
+            <div className="nav-logo">
+                <h1>stresslo</h1>
+            </div>
         </div>
     )
 }
