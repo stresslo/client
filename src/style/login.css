@@ -64,6 +64,7 @@ input {
     gap: 15px;
     align-items: center;
     cursor: pointer;
+    font-family: var(--mono);
 }
 
 @media (max-width : 420px) {
