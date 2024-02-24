@@ -180,7 +180,7 @@
 }
 
 .text-container h3 {
-    color: var(--blue);
+    color: var(--text);
     font-family: var(--poppins);
     font-weight: 500;
 }
