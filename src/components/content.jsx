@@ -50,7 +50,7 @@ const Content = ({data, setData, setCount}) => {
                             return (
                                 <div className="notification-box" key={k}>
                                     <LazyLoadImage src="/img/vixcera.png" className="nimg" style={{width: '30px'}} loading="lazy" effect="blur"/>
-                                    <div onClick={() => navigate(`/transaction/success/${i.order_id}`)} className="text-container" style={{ padding: '0', margin: '0', gap: '4px', width: '90%', cursor: 'pointer' }}>
+                                    <div onClick={() => navigate(`/transaction/result/${i.order_id}`)} className="text-container" style={{ padding: '0', margin: '0', gap: '4px', width: '90%', cursor: 'pointer' }}>
                                         <div className="text">{i.transaction_status == "settlement" ? 'success' : i.transaction_status} transaction</div>
                                         <p style={{ fontSize: '0.8rem' }}><span style={{fontFamily: 'var(--poppins)'}}>Order ID : {i.order_id}</span></p>
                                     </div>
