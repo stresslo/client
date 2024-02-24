@@ -51,7 +51,7 @@ const AuthTransaction = () => {
                 background: 'var(--primary)',
                 color: 'var(--blue)',
                 confirmButtonColor: "none",
-                text: 'Transaction complete!, thanks for your order on Voxlab.',
+                text: 'Transaction complete!, thanks for your order on stresslo.',
                 customClass: { container: "alertext" },
                 confirmButtonText: 'download product',
             })

@@ -32,7 +32,7 @@ const checkvxsrf = async () => {
                 swal.fire({
                     icon : 'info',
                     title: 'cookie disabled',
-                    text: 'vixcera requires third-party cookies, please enable on your browser settings.',
+                    text: 'stresslo requires third-party cookies, please enable on your browser settings.',
                     background: 'var(--primary)',
                     color : 'var(--blue)',
                     showDenyButton: true,
@@ -48,7 +48,7 @@ const checkvxsrf = async () => {
                             background: 'var(--primary)',
                             color : 'var(--blue)',
                             title : name,
-                            text : `we detected you are using ${name}, let's configure and start exploring vixcera.`,
+                            text : `we detected you are using ${name}, let's configure and start exploring stresslo.`,
                             confirmButtonText: "check it out",
                             allowOutsideClick: false
                         })
@@ -78,7 +78,7 @@ const checkvxsrf = async () => {
                                     background: 'var(--primary)',
                                     color : 'var(--blue)',
                                     title : name,
-                                    text : `we detected you are using ${name}, let's configure and start exploring vixcera.`,
+                                    text : `we detected you are using ${name}, let's configure and start exploring stresslo.`,
                                     confirmButtonText: 'check it out',
                                     allowOutsideClick: false
                                 })
