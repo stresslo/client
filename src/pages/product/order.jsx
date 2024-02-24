@@ -142,7 +142,7 @@ const Order = () => {
               </div>
               <div>
                 <div>Phone Number :</div>
-                <input className='productinput' value={phone} type="text" placeholder='input your phone number' onChange={(e) => setPhone(e.target.value)} required/>
+                <input className='productinput' onClick={() => getWarning()} value={phone} type="text" placeholder='input your phone number' onChange={(e) => setPhone(e.target.value)} required/>
               </div>
               <div>
                 <div>Email :</div>
