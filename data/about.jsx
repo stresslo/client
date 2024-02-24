@@ -14,6 +14,19 @@ const about =
         ]
     },
     {
+        ctg : "Partner",
+        data : 
+        [
+            {
+                title : "Vixcera",
+                text : "stresslo is part of vixcera.",
+                img : "img/vx.png",
+                color : "var(--yellow)",
+                pricing : ['Partner', 'Tech']
+            },
+        ]
+    },
+    {
         ctg : "Superiority",
         data : 
         [
