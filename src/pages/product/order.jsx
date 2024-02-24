@@ -49,6 +49,8 @@ const Order = () => {
     }
 
     const showPlaceOrder = async () => {
+      const tax = i.price * 0.11
+      const total = i.price + tax
       if (email && phone && name) {
         return Swal.fire({
           html: `
@@ -61,9 +63,9 @@ const Order = () => {
             <h4 style="text-align: left;"><span>Product ID</span> : ${vid}</h4>
             <h4 style="text-align: left;"><span>Quantity</span> : 1</h4>
             <h4 style="text-align: left;"><span>Price</span> : ${convertPrice(i.price)}</h4>
-            <h4 style="text-align: left;"><span>PPN</span> : 11%</h4>
+            <h4 style="text-align: left;"><span>TAX</span> : ${convertPrice(tax)}</h4>
             <div style="width: 100%; height: 1px; background-color: var(--blue)"></div>
-            <h4><span>Total Amount</span> : ${convertPrice(i.price * 0.11 + i.price)}</h4>
+            <h4><span>Total Amount</span> : ${convertPrice(total)}</h4>
           </div>  
           `,
           confirmButtonText: 'Confirm & Pay',
