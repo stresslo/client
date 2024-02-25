@@ -93,7 +93,7 @@ const Order = () => {
           vid     : vid,
           name    : name,
           email   : email,
-          phone   : phone,
+          phone   : phone.length >= 10 ? phone : '087800000000',
         }, 
         { headers : { "xsrf-token" : vxsrf } })
         localStorage.setItem('transaction_mode', "true")
@@ -143,12 +143,12 @@ const Order = () => {
                 <input className='productinput' onClick={() => getWarning()} value={name} type="text" placeholder='input your name' onChange={(e) => setName(e.target.value)} readOnly required/>
               </div>
               <div>
-                <div>Phone Number :</div>
-                <input className='productinput' onClick={() => getWarning()} value={phone} type="text" placeholder='input your phone number' onChange={(e) => setPhone(e.target.value)} required/>
-              </div>
-              <div>
                 <div>Email :</div>
                 <input className='productinput' onClick={() => getWarning()} value={email} type="email" placeholder='input your email' onChange={(e) => setEmail(e.target.value)} readOnly required/>
+              </div>
+              <div>
+                <div>Phone Number :</div>
+                <input className='productinput' onClick={() => getWarning()} value={phone} type="text" placeholder='(Optional)' onChange={(e) => setPhone(e.target.value)} required/>
               </div>
               <div className='button-max' onClick={() => context.token ? showPlaceOrder() : getWarning()} style={(name && phone && email) ? { backgroundColor: 'var(--yellow)' } : { backgroundColor: "#aaa" }}>Checkout</div>
             </div>
@@ -158,7 +158,7 @@ const Order = () => {
                 <LazyLoadImage className='product-img' src={data.img} loading='lazy' effect='blur'/>
                 <div className='wrapped-text'>
                     <div className='product-title'>{data.title}</div>
-                    <div className='product-desc'>{data.desc}</div>
+                    <div className='product-desc' style={{marginTop: '10px'}}>{data.desc}</div>
                     <div className='wrapped-details'>
                         <div className='button price'>{convertPrice(data.price)}</div>
                     </div>
