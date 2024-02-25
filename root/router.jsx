@@ -25,10 +25,10 @@ const Routing = () => {
   const [img, setImg] = useState('/img/dui.jpg')
   const [token, setToken] = useState('')
   const [email, setEmail] = useState('')
-  const [status, setStatus] = useState('')
   const [expires, setExpires] = useState('')
   const [username, setUsername] = useState('')
   const [loading, setLoading] = useState(false)
+  const [status, setStatus] = useState(localStorage.getItem('status'))
   
   axtoken.interceptors.request.use(async (config) => {
     const current = new Date().getTime()

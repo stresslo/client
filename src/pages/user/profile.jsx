@@ -26,6 +26,7 @@ const Profile = () => {
             setLoading(true)
             const response = await axios.get(filterUrl)
             context.setToken('')
+            localStorage.removeItem('status')
             swalert(response.data, "success", 1500)
             .then((res) =>  { if(res.dismiss) { location.href = '/' } })
         } 
