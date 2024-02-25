@@ -5,6 +5,7 @@ import convertPrice from "../../../utils/price"
 import Handle from "../../../service/handle"
 import Swaload from '../../../utils/swaload'
 import axios from "axios"
+import jwt from "jwt-decode"
 import "../../style/product.css"
 
 const Product = () => {
@@ -20,7 +21,9 @@ const Product = () => {
             setLoading(true)
             const response = await axios.get(`${import.meta.env.VITE_API}/products/${ctg}/${page}`)
             !response.data.length && setStatus(404)
-            setData(response.data)
+            const result = response.data
+            const decode = jwt(result)
+            setData(decode.data)
         }   catch (error) {
             setStatus(error.response ? 404 : 500)
         }
@@ -73,7 +76,7 @@ const Product = () => {
                     </div>
                 :
                     <div style={{ display: 'flex', gap: '20px', marginTop: '50px', alignItems: 'center', justifyContent: 'center' }}>
-                        <div className='desc' style={{fontFamily: 'var(--quicksand)',fontSize: '0.75rem', color: 'var(--blue)'}}>already displays all products</div>
+                        <div className='desc' style={{fontFamily: 'var(--quicksand)',fontSize: '0.85rem', color: 'var(--blue)'}}>already displays all products</div>
                     </div>
                 }
             </div>
