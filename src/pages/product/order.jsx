@@ -51,14 +51,14 @@ const Order = () => {
     const showPlaceOrder = async () => {
       const tax = i.price * 0.11
       const total = i.price + tax
-      if (email && phone && name) {
+      if (email && name) {
         return Swal.fire({
           html: `
           <div style="width: 100%; display: flex; flex-direction: column; gap: 8px;">
             <h2 style="text-align: center;">Shipping Details</h2>
             <div style="width: 100%; height: 1px; background-color: var(--blue);"></div>
             <h4 style="margin-top: 5px; text-align: left;"><span>Customer</span> : ${name}</h4>
-            <h4 style="text-align: left;"><span>Phone Number</span> : ${phone}</h4>
+            <h4 style="text-align: left;"><span>Phone Number</span> : ${phone.length >= 10 ? phone : '087800000000'}</h4>
             <h4 style="text-align: left;"><span>Email Address</span> : ${email}</h4>
             <h4 style="text-align: left;"><span>Product ID</span> : ${vid}</h4>
             <h4 style="text-align: left;"><span>Quantity</span> : 1</h4>
@@ -150,7 +150,7 @@ const Order = () => {
                 <div>Phone Number :</div>
                 <input className='productinput' onClick={() => getWarning()} value={phone} type="text" placeholder='(Optional)' onChange={(e) => setPhone(e.target.value)} required/>
               </div>
-              <div className='button-max' onClick={() => context.token ? showPlaceOrder() : getWarning()} style={(name && phone && email) ? { backgroundColor: 'var(--yellow)' } : { backgroundColor: "#aaa" }}>Checkout</div>
+              <div className='button-max' onClick={() => context.token ? showPlaceOrder() : getWarning()} style={(name && email) ? { backgroundColor: 'var(--yellow)' } : { backgroundColor: "#aaa" }}>Checkout</div>
             </div>
             <div className='prev-form'>
               <div className='itext'>Product</div>
