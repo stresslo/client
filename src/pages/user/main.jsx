@@ -22,6 +22,7 @@ const Main = () => {
             setCount(response.data.length)
             response.data.length === 0 && localStorage.removeItem('transaction_mode')
         } catch (error) {
+            localStorage.removeItem('transaction_mode')
             return false;
         }
     }
