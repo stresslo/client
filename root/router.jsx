@@ -53,7 +53,8 @@ const Routing = () => {
 
   useEffect(() => {
       context.setLoading(true)
-      axios.get(`${import.meta.env.VITE_API}/vxrft`)
+      const endpoint = status === 'contributor' ? 'vxrft/contributor' : 'vxrft/user'
+      axios.get(`${import.meta.env.VITE_API}/${endpoint}`)
       .then((response) => setToken(response.data.token))
       .then(() => checkvxsrf())
       .catch((error) => {console.log(error.message)})
