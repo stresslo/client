@@ -23,7 +23,8 @@ const products =
                 text : "assets 3d for your projects",
                 img : "img/3d.png",
                 color : "var(--yellow)",
-                pricing : ["paid"]
+                pricing : ["paid"],
+                ctg : "3d"
             },
             {
                 title : "Motion graphic",
@@ -38,7 +39,8 @@ const products =
                 text : "find vector assets template",
                 img : "img/vector.png",
                 color : "#FF4B63",
-                pricing : ["paid", "free"]
+                pricing : ["paid", "free"],
+                ctg : "vector"
             },
         ]
     }

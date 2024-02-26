@@ -19,7 +19,7 @@ const Confirm = {
                     const response = await axios.post(`${import.meta.env.VITE_API}/confirm/user`, {OTP}, 
                     { headers: {'xsrf-token': vxsrf} })
                     localStorage.removeItem('register_mode_user')
-                    swalert("verification success, let's start exploring voxlab.", "success", 5500)
+                    swalert("verification success, let's start exploring stresslo.", "success", 5500)
                     .then((res) => res.dismiss && navigate('/login'))
                 } catch (error) {
                     if (error || error.response) {
