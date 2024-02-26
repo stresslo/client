@@ -19,7 +19,7 @@ const History = () => {
     const getData = async () => {
         try {
             setLoading(true)
-            const response = await axios.get(`${import.meta.env.VITE_API}/transaction/history${page}`)
+            const response = await axios.get(`${import.meta.env.VITE_API}/transaction/history/${page}`)
             if (response.data.length !== 0) {
                 setData(response.data)
                 let plus = 0
