@@ -46,14 +46,14 @@ const History = () => {
                 <div className="product-container">
                 {(data.length >= 10) ? 
                     <div style={{ display: 'flex', gap: '20px', marginTop: '50px', alignItems: 'center', justifyContent: 'center' }}>
-                        {(page !== 1) && <div className='button' onClick={() => setPage(page -1)} style={{borderRadius: '10px', height : '30px', backgroundColor: 'var(--primary)', color: 'var(--blue)'}}>
-                            <h3 style={{fontFamily: 'var(--quicksand)', fontSize: '1rem', color: 'var(--blue)'}}>{page}</h3>
+                        {(page !== 1) && <div className='button' onClick={() => setPage(page -1)} style={{borderRadius: '10px', height : '35px', backgroundColor: 'var(--primary)', color: 'var(--blue)'}}>
+                            <h3 style={{fontFamily: 'var(--quicksand)', fontSize: '1.2rem', color: 'var(--blue)'}}>{page -1}</h3>
                             <div className='fa-solid fa-left-long fa-xl'/>
                         </div>}
-                        {(page !== 1) && <h3 style={{fontFamily: 'var(--quicksand)', fontSize: '1rem', color: 'var(--blue)', margin: '0 10px'}}>{page}</h3>}
-                        <div className='button' onClick={() => setPage(page +1)} style={{borderRadius: '10px', height : '30px', backgroundColor: 'var(--primary)', color: 'var(--blue)'}}>
+                        {(page !== 1) && <h3 style={{fontFamily: 'var(--quicksand)', fontSize: '1.2rem', color: 'var(--blue)', margin: '0 10px'}}>{page}</h3>}
+                        <div className='button' onClick={() => setPage(page +1)} style={{borderRadius: '10px', height : '35px', backgroundColor: 'var(--primary)', color: 'var(--blue)'}}>
                             <div className='fa-solid fa-right-long fa-xl'/>
-                            <h3 style={{fontFamily: 'var(--quicksand)', fontSize: '1rem', color: 'var(--blue)'}}>{page}</h3>
+                            <h3 style={{fontFamily: 'var(--quicksand)', fontSize: '1.2rem', color: 'var(--blue)'}}>{page +1}</h3>
                         </div>
                     </div>
                 :
@@ -61,8 +61,8 @@ const History = () => {
                         {(page === 1) ? 
                         <div className='desc' style={{fontFamily: 'var(--quicksand)',fontSize: '0.85rem', color: 'var(--text)'}}>- already displays all transaction -</div>
                         :
-                        <div className='button' onClick={() => setPage(page -1)} style={{borderRadius: '10px', height : '30px', backgroundColor: 'var(--primary)', color: 'var(--blue)'}}>
-                            <h3 style={{fontFamily: 'var(--quicksand)', fontSize: '1rem', color: 'var(--blue)'}}>{page}</h3>
+                        <div className='button' onClick={() => setPage(page -1)} style={{borderRadius: '10px', height : '35px', backgroundColor: 'var(--primary)', color: 'var(--blue)'}}>
+                            <h3 style={{fontFamily: 'var(--quicksand)', fontSize: '1.2rem', color: 'var(--blue)'}}>{page -1}</h3>
                             <div className='fa-solid fa-left-long fa-xl'/>
                         </div>
                         }
