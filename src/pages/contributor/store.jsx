@@ -7,9 +7,10 @@ const Store = () => {
 
     const context = useContext(Context)
     const [data, setData] = useState([])
+    const [page, setPage] = useState(1)
 
     useEffect(() => {
-        axios.get(`${import.meta.env.VITE_API}/contributor/all/products`)
+        axios.get(`${import.meta.env.VITE_API}/products/contributor/${page}`)
         .then((response) => console.log(response.data))
     }, [])
 

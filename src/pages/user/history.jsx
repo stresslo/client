@@ -12,13 +12,14 @@ const History = () => {
 
     const navigate = useNavigate()
     const [total, setTotal] = useState(0)
+    const [page, setPage] = useState(1)
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(false)
 
     const getData = async () => {
         try {
             setLoading(true)
-            const response = await axios.get(`${import.meta.env.VITE_API}/transaction/history`)
+            const response = await axios.get(`${import.meta.env.VITE_API}/transaction/history${page}`)
             if (response.data.length !== 0) {
                 setData(response.data)
                 let plus = 0
@@ -34,12 +35,24 @@ const History = () => {
         } finally {setLoading(false)}
     }
 
-    useEffect(() => {getData()}, [])
+    useEffect(() => {getData()}, [page])
 
     return (
         <div className="page-max">
             <Topback/>
             <div className="form" style={{marginTop: '70px'}}>
+                <div className="product-container">
+                {(data.length >= 10) ? 
+                    <div style={{ display: 'flex', gap: '20px', marginTop: '50px', alignItems: 'center', justifyContent: 'center' }}>
+                        {(page !== 1) && <div className='button' onClick={() => setPage(page -1)} style={{borderRadius: '10px'}}><div className='fa-solid fa-left-long fa-xl'/></div>}
+                        <div className='button' onClick={() => setPage(page +1)} style={{borderRadius: '10px'}}><div className='fa-solid fa-right-long fa-xl'/></div>
+                    </div>
+                :
+                    <div style={{ display: 'flex', gap: '20px', marginTop: '45px', alignItems: 'center', justifyContent: 'center' }}>
+                        <div className='desc' style={{fontFamily: 'var(--quicksand)',fontSize: '0.85rem', color: 'var(--text)'}}>- already displays all transaction -</div>
+                    </div>
+                }
+                </div>
                 <div className="input-form" style={{marginTop: '40px', flexDirection: 'column-reverse'}}>
                     {loading ? (<Swaload.Transaction/>) : 
                         data.length !== 0 && data.map((i, k) => {
