@@ -61,7 +61,7 @@ const Profile = () => {
     return (
         <div className='page' style={{flexDirection: 'column', gap : '10px'}}>
             <Topback/>
-            <LazyLoadImage onClick={() => inputref.current.click()} src={(file) ? URL.createObjectURL(file) : context.img} width={155} height={155} style={{borderRadius : '50%', objectFit: 'cover', cursor : 'pointer'}}/>
+            <LazyLoadImage onClick={() => inputref.current.click()} src={(file) ? URL.createObjectURL(file) : context.img} width={150} height={150} style={{borderRadius : '50%', objectFit: 'cover', cursor : 'pointer'}}/>
             <div className='title'>{context.username}</div>
             <form style={{display: 'flex', alignItems: "center", flexDirection: 'column'}} onSubmit={updateImage}>
                 <input type="file" onChange={(e) => setFile(e.target.files[0])} ref={inputref} style={{display: 'none'}}/>
@@ -69,7 +69,7 @@ const Profile = () => {
                 {(file || email) ? <button style={{margin: '30px 0'}} className='button' type='submit'>update</button> : 
                 <div style={{margin: '30px 0', display: 'flex', gap: '20px'}}>
                     {(context.status == 'contributor') ? 
-                        <div className='button'><i style={{cursor: 'pointer'}} className='fa-solid fa-store fa-xl'/></div>
+                        <div className='button' onClick={() => navigate('/contributor/store')}><i style={{cursor: 'pointer'}} className='fa-solid fa-store fa-xl'/></div>
                         :
                         <div className='button' onClick={() => navigate('/transaction/history')}><i style={{cursor: 'pointer'}} className='fa-solid fa-money-bill-transfer fa-xl'/></div>
                     }

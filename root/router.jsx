@@ -9,6 +9,7 @@ import Context from "../utils/context"
 import Order from "../src/pages/product/order"
 import Profile from "../src/pages/user/profile"
 import Create from "../src/pages/product/create"
+import Store from "../src/pages/contributor/store"
 import Details from "../src/pages/product/details"
 import Product from "../src/pages/product/product"
 import Register from "../src/pages/user/register"
@@ -31,11 +32,12 @@ const Routing = () => {
   const [status, setStatus] = useState(localStorage.getItem('status'))
   
   axtoken.interceptors.request.use(async (config) => {
+    const endpoint = status === 'contributor' ? 'vxrft/contributor' : 'vxrft/user'
     const current = new Date().getTime()
     if (expires * 1000 < current) {
-      const response = await axios.get(`${import.meta.env.VITE_API}/vxrft`)
+      const response = await axios.get(`${import.meta.env.VITE_API}/${endpoint}`)
+      config.headers.authorization = `bearer ${token}`
       setToken(response.data.token)}
-      config.headers.Authorization = `bearer ${token}`
       return config
   }, (error) => { return Promise.reject(error) })
 
@@ -77,6 +79,7 @@ const Routing = () => {
           <Route path="/products" element={<Main/>}/>
           <Route path="/about" element={<Main/>}/>
           
+          <Route path="/contributor/store" element={<Store/>}/>
           <Route path="/product/details/:vid" element={<Details/>}/>
 
           <Route path="/confirm/user" element={<Confirm.user/>}/>
