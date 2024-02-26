@@ -50,6 +50,12 @@ const Routing = () => {
       setEmail(decoded.email)
       setExpires(decoded.exp)
       setUsername(decoded.username)
+      axtoken.get(`${import.meta.env.VITE_API}/products/contributor`, {
+        headers: {
+          authorization: `bearer ${token}`
+        }
+      })
+      .then((res) => console.log(res.data))
     } 
   }, [token])
 
@@ -63,7 +69,7 @@ const Routing = () => {
       .finally(() => {context.setLoading(false)})
   }, [])
 
-  const context = {vid, img, email, username, status, token, setToken, axtoken, loading, setLoading}
+  const context = {vid, img, email, username, status, token, setToken, loading, setLoading}
 
   return (
     <Context.Provider value={context}>
