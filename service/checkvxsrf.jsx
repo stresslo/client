@@ -38,7 +38,9 @@ const checkvxsrf = async () => {
                     showDenyButton: true,
                     denyButtonText: 'dismiss',
                     confirmButtonText: "how's that?",
-                    allowOutsideClick: false
+                    allowOutsideClick: false,
+                    customClass : {container: 'alertext'},
+                    focusDeny : false
                 })
                 .then((result) => {
                     if (result.isConfirmed) {
@@ -50,7 +52,9 @@ const checkvxsrf = async () => {
                             title : name,
                             text : `we detected you are using ${name}, let's configure and start exploring stresslo.`,
                             confirmButtonText: "check it out",
-                            allowOutsideClick: false
+                            allowOutsideClick: false,
+                            customClass : {container: 'alertext'},
+                            focusDeny : false
                         })
                         .then((res) => {
                             if (res.isConfirmed) return window.open(endpoint, "_blank")
@@ -59,13 +63,15 @@ const checkvxsrf = async () => {
                     if (result.isDenied) {
                         swal.fire({
                             icon: 'warning',
-                            text : "some features may not work properly. or you can try on another browser.",
+                            text : "some features may not work properly. you can try on another browser.",
                             background: 'var(--primary)',
                             color : 'var(--blue)',
                             showDenyButton: true,
                             denyButtonText: "don't show again!",
                             confirmButtonText: "how's that?",
-                            allowOutsideClick: false
+                            allowOutsideClick: false,
+                            customClass : {container: 'alertext'},
+                            focusDeny : false
                         })
                         .then((res) => {
                             if (res.isDenied) {
@@ -80,7 +86,9 @@ const checkvxsrf = async () => {
                                     title : name,
                                     text : `we detected you are using ${name}, let's configure and start exploring stresslo.`,
                                     confirmButtonText: 'check it out',
-                                    allowOutsideClick: false
+                                    allowOutsideClick: false,
+                                    customClass : {container: 'alertext'},
+                                    focusDeny : false
                                 })
                                 .then((show) => {
                                     if (show.isConfirmed) return window.open(endpoint, "_blank")
