@@ -43,6 +43,7 @@ html { background-color: var(--background);}
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 10px;
     background-color: var(--yellow);
     font-size: 0.95rem;
     color: var(--primary);
