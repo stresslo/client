@@ -57,7 +57,7 @@ const History = () => {
                     </div>
                 }
                 </div>
-                <div className="input-form" style={{marginTop: '40px', flexDirection: 'column-reverse'}}>
+                <div className="input-form" style={{marginTop: '40px', flexDirection: 'column'}}>
                     {loading ? (<Swaload.Transaction/>) : 
                         data.length !== 0 && data.map((i, k) => {
                             return (
