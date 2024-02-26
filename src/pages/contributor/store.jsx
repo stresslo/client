@@ -1,17 +1,16 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Context from '../../../utils/context'
 import Topback from '../../components/topback'
+import axios from "axios"
 
 const Store = () => {
 
     const context = useContext(Context)
+    const [data, setData] = useState([])
+
     useEffect(() => {
-        context.axtoken.get(`${import.meta.env.VITE_API}/products/contributor/${context.vid}`, {
-            headers : {
-                authorization : `bearer ${context.token}`
-            }
-        })
-        .then((res) => console.log(res))
+        axios.get(`${import.meta.env.VITE_API}/contributor/all/products`)
+        .then((response) => console.log(response.data))
     }, [])
 
     return (
