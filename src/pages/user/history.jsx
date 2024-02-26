@@ -49,7 +49,11 @@ const History = () => {
                     </div>
                 :
                     <div style={{ display: 'flex', gap: '20px', marginTop: '45px', alignItems: 'center', justifyContent: 'center' }}>
+                        {(page === 1) ? 
                         <div className='desc' style={{fontFamily: 'var(--quicksand)',fontSize: '0.85rem', color: 'var(--text)'}}>- already displays all transaction -</div>
+                        :
+                        <div className='button' onClick={() => setPage(page -1)} style={{borderRadius: '10px'}}><div className='fa-solid fa-left-long fa-xl'/></div>
+                        }
                     </div>
                 }
                 </div>
