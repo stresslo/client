@@ -6,7 +6,11 @@ const Store = () => {
 
     const context = useContext(Context)
     useEffect(() => {
-        context.axtoken(`${import.meta.env.VITE_API}/products/contributor/${context.vid}`)
+        context.axtoken.get(`${import.meta.env.VITE_API}/products/contributor/${context.vid}`, {
+            headers : {
+                authorization : `bearer ${context.token}`
+            }
+        })
         .then((res) => console.log(res))
     }, [])
 
