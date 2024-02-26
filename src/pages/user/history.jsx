@@ -4,6 +4,7 @@ import convertPrice from "../../../utils/price"
 import Topback from "../../components/topback"
 import swalert from "../../../utils/swalert"
 import Swaload from "../../../utils/swaload"
+import jwt from "jwt-decode"
 import moment from "moment"
 import axios from "axios"
 import "../../style/history.css"
@@ -20,10 +21,11 @@ const History = () => {
         try {
             setLoading(true)
             const response = await axios.get(`${import.meta.env.VITE_API}/transaction/history/${page}`)
-            if (response.data.length !== 0) {
-                setData(response.data)
+            const decode = jwt(response.data)
+            if (decode.data.length !== 0) {
+                setData(decode.data)
                 let plus = 0
-                response.data.forEach(index => {
+                decode.data.forEach(index => {
                     plus += index.product_amount
                 })
                 setTotal(plus)
