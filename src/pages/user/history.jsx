@@ -75,7 +75,7 @@ const History = () => {
                         })
                     }
                 </div>
-                <div style={{fontSize: '1.1rem', fontFamily: 'var(--quicksand)', color: 'var(--blue)', textAlign: 'center'}}>Total of all expenses : {convertPrice(total)}</div>
+                <div style={{fontSize: '1.1rem', fontFamily: 'var(--quicksand)', color: 'var(--blue)', textAlign: 'center'}}>Total of expenses : {convertPrice(total)}</div>
                 <div className="title" style={{textAlign: 'center'}}><span>Order</span> History</div>
             </div>
         </div>
