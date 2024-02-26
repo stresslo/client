@@ -21,6 +21,7 @@ import AuthTransaction from "../middleware/authTransaction"
 const Routing = () => {
 
   const axtoken = axios.create()
+  const history = localStorage.getItem('status')
   
   const [vid, setVid] = useState('')
   const [img, setImg] = useState('/img/dui.jpg')
@@ -29,7 +30,7 @@ const Routing = () => {
   const [expires, setExpires] = useState('')
   const [username, setUsername] = useState('')
   const [loading, setLoading] = useState(false)
-  const [status, setStatus] = useState(localStorage.getItem('status'))
+  const [status, setStatus] = useState(history ? history : '')
   
   axtoken.interceptors.request.use(async (config) => {
     const endpoint = status === 'contributor' ? 'vxrft/contributor' : 'vxrft/user'
@@ -51,7 +52,7 @@ const Routing = () => {
       setExpires(decoded.exp)
       setUsername(decoded.username)
     } else {
-      setStatus('user')
+      localStorage.removeItem('status')
     }
   }, [token])
 
