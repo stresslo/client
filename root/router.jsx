@@ -50,7 +50,9 @@ const Routing = () => {
       setEmail(decoded.email)
       setExpires(decoded.exp)
       setUsername(decoded.username)
-    } 
+    } else {
+      setStatus('user')
+    }
   }, [token])
 
   useEffect(() => {
