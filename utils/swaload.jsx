@@ -1,6 +1,6 @@
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css"
-const lenght = Array.from({ length: count || 5 }, () => ({}))
+const lenght = Array.from({ length: 5 }, () => ({}))
 
 const Swaload = {
     Product : ({number}) => {
