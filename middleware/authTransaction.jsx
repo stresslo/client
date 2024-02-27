@@ -134,6 +134,7 @@ const AuthTransaction = () => {
                 </div>
             </div>
             }
+            <div className='title' style={{textAlign: 'center', marginTop: '20px'}}>Product</div>
             <div style={{width: '100%', display: 'flex', gap: '5px', fontFamily: 'var(--quicksand)'}}>
                 <div style={{width: '50%', display: 'flex', flexDirection: 'column', gap: '5px', color: 'var(--yellow)'}}>
                     <h4 style={{border: '1px solid var(--blue)', padding: '10px', borderRadius: '5px'}}>Customer :</h4>
