@@ -112,10 +112,9 @@ const AuthTransaction = () => {
                 {data.transaction_status == 'settlement' && <div className='button-max' onClick={() => { donwloadProduct() }} style={{ backgroundColor: 'var(--yellow)' }}>Get product file</div>}
                 {data.transaction_status == 'pending' && <div className='button-max' onClick={() => repay()} style={{ backgroundColor: 'var(--yellow)' }}>Pay now</div>}
                 {data.transaction_status == 'created' && <div className='button-max' onClick={() => repay()} style={{ backgroundColor: 'var(--yellow)' }}>Pay now</div>}
-                {data.transaction_status == 'settlement' && <p style={{color: 'var(--blue)', textAlign: 'center', cursor: 'pointer'}}>*Screenshot if needed</p>}
             </>
             }
-            { (loading) ? (<Swaload.Product/>)
+            { (loading) ? (<Swaload.Product count={1}/>)
             : (product) && 
             <div className='product-card' style={{margin: 'auto'}} onClick={() => navigate(`/product/details/${product.vid}`, {state: product})}>
                 <LazyLoadImage className='product-img' src={(product.img) || ('img/img404.jpg')} effect='blur'/>
@@ -135,6 +134,7 @@ const AuthTransaction = () => {
             </div>
             }
             <div className='title' style={{textAlign: 'center', marginTop: '20px'}}>Product</div>
+            {data.transaction_status == 'settlement' && <p style={{color: 'var(--blue)', textAlign: 'center', cursor: 'pointer'}}>*Screenshot if needed</p>}
             <div style={{width: '100%', display: 'flex', gap: '5px', fontFamily: 'var(--quicksand)'}}>
                 <div style={{width: '50%', display: 'flex', flexDirection: 'column', gap: '5px', color: 'var(--yellow)'}}>
                     <h4 style={{border: '1px solid var(--blue)', padding: '10px', borderRadius: '5px'}}>Customer :</h4>

@@ -1,9 +1,10 @@
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css"
-const lenghtData = Array.from({ length: 5 }, () => ({}))
+const lenght = Array.from({ length: count || 5 }, () => ({}))
 
 const Swaload = {
-    Product : () => {
+    Product : ({count}) => {
+        const lenghtData = Array.from({ length: count || 5 }, () => ({}))
         return lenghtData.map((i, index) => {
             return(
             <div className='product-card' key={index}>
@@ -24,7 +25,7 @@ const Swaload = {
     },
 
     Transaction : () => {
-        return lenghtData.map((i, index) => {
+        return lenght.map((i, index) => {
             return (
                 <div className="box-history">
                     <Skeleton style={{boxShadow: 'var(--softshadow)'}} className='itext' count={2} width={250} height={25} baseColor='var(--primary)' highlightColor='var(--prime)'/>
