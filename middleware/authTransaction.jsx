@@ -126,7 +126,7 @@ const AuthTransaction = () => {
                         <h4 style={{border: '1px solid var(--blue)', padding: '10px', borderRadius: '5px'}}>{data.product_amount && convertPrice(data.product_amount)}</h4>
                         <h4 style={{border: '1px solid var(--blue)', padding: '10px', borderRadius: '5px'}}>{data.transaction_token? data.transaction_token.substring(0,5) + "*****" : '*****'}</h4>
                         <h4 style={{border: '1px solid var(--blue)', padding: '10px', borderRadius: '5px'}}>{data.updatedAt && moment(data.updatedAt.slice(0, 10)).format('MMM DD, YYYY')}</h4>
-                        <h4 style={{border: '1px solid var(--blue)', padding: '10px', borderRadius: '5px'}}>{data.updatedAt && moment.utc(data.updatedAt).utcOffset("+07:00").format("HH.mm")}</h4>
+                        <h4 style={{border: '1px solid var(--blue)', padding: '10px', borderRadius: '5px'}}>{data.updatedAt && moment.utc(data.updatedAt).utcOffset("+07:00").format("HH.mm A")}</h4>
                     </div>
                 }
                 {(i) && 
@@ -139,7 +139,7 @@ const AuthTransaction = () => {
                         <h4 style={{border: '1px solid var(--blue)', padding: '10px', borderRadius: '5px'}}>{i.product_amount && convertPrice(i.product_amount)}</h4>
                         <h4 style={{border: '1px solid var(--blue)', padding: '10px', borderRadius: '5px'}}>{i.transaction_token? i.transaction_token.substring(0,5) + "*****" : '*****'}</h4>
                         <h4 style={{border: '1px solid var(--blue)', padding: '10px', borderRadius: '5px'}}>{i.updatedAt && moment(i.updatedAt.slice(0, 10)).format('MMM DD, YYYY')}</h4>
-                        <h4 style={{border: '1px solid var(--blue)', padding: '10px', borderRadius: '5px'}}>{i.updatedAt && moment.utc(i.updatedAt).utcOffset("+07:00").format("HH.mm")}</h4>
+                        <h4 style={{border: '1px solid var(--blue)', padding: '10px', borderRadius: '5px'}}>{i.updatedAt && moment.utc(i.updatedAt).utcOffset("+07:00").format("HH.mm A")}</h4>
                     </div>
                 }
             </div>
