@@ -11,6 +11,7 @@ import swalert from "../utils/swalert"
 import swal from "sweetalert2"
 import axios from 'axios'
 import snap from '../utils/snap'
+import Swaload from '../utils/swaload'
 
 const AuthTransaction = () => {
 
@@ -114,20 +115,24 @@ const AuthTransaction = () => {
                 {data.transaction_status == 'settlement' && <p style={{color: 'var(--blue)', textAlign: 'center', cursor: 'pointer'}}>*Screenshot if needed</p>}
             </>
             }
-            {(product) && 
+            { (loading) ? (<Swaload.Product/>)
+            : (product) && 
             <div className='product-card' style={{margin: 'auto'}} onClick={() => navigate(`/product/details/${product.vid}`, {state: product})}>
-                    <LazyLoadImage className='product-img' src={(product.img) || ('img/img404.jpg')} effect='blur'/>
-                    <div className='wrapped-text'>
-                        <div className='product-title'>{product.title}</div>
-                        <div style={{ display: 'flex', flexWrap : 'wrap', flexDirection : 'column'}}>
-                            <div className='product-desc'>{product.desc.length >= 40 ? product.desc.substring(0,40) + '...' : product.desc}</div>
-                            <div className='wrapdet' style={{ position: 'unset', marginTop: '15px', marginLeft: '5px', gap: '5px' }}>
-                                <div style={{ backgroundColor: 'var(--background)', width: '95px', height: '30px' }}>{product.tech}</div>
-                                <div style={{ backgroundColor: 'var(--background)', width: '95px', height: '30px' }}>{product.tech.toLowerCase().includes('html') ? "only" : 'JS'}</div>
-                            </div>
+                <LazyLoadImage className='product-img' src={(product.img) || ('img/img404.jpg')} effect='blur'/>
+                <div className='wrapped-text'>
+                    <div className='product-title'>{product.title}</div>
+                    <div style={{ display: 'flex', flexWrap : 'wrap', flexDirection : 'column'}}>
+                        <div className='product-desc'>{product.desc.length >= 40 ? product.desc.substring(0,40) + '...' : product.desc}</div>
+                        <div className='wrapdet' style={{ position: 'unset', marginTop: '15px', marginLeft: '5px', gap: '5px' }}>
+                            <div style={{ backgroundColor: 'var(--background)', width: '95px', height: '30px' }}>{product.tech}</div>
+                            <div style={{ backgroundColor: 'var(--background)', width: '95px', height: '30px' }}>{product.tech.toLowerCase().includes('html') ? "only" : 'JS'}</div>
                         </div>
                     </div>
+                    <div className='wrapped-details'>
+                        <div className='button price'>Details</div>
+                    </div>
                 </div>
+            </div>
             }
             <div style={{width: '100%', display: 'flex', gap: '5px', fontFamily: 'var(--quicksand)'}}>
                 <div style={{width: '50%', display: 'flex', flexDirection: 'column', gap: '5px', color: 'var(--yellow)'}}>
