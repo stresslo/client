@@ -114,7 +114,7 @@ const AuthTransaction = () => {
                 {data.transaction_status == 'created' && <div className='button-max' onClick={() => repay()} style={{ backgroundColor: 'var(--yellow)' }}>Pay now</div>}
             </>
             }
-            { (loading) ? (<Swaload.Product count={1}/>)
+            { (loading) ? (<Swaload.Product number={1}/>)
             : (product) && 
             <div className='product-card' style={{margin: 'auto'}} onClick={() => navigate(`/product/details/${product.vid}`, {state: product})}>
                 <LazyLoadImage className='product-img' src={(product.img) || ('img/img404.jpg')} effect='blur'/>

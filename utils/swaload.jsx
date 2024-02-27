@@ -3,8 +3,8 @@ import "react-loading-skeleton/dist/skeleton.css"
 const lenght = Array.from({ length: count || 5 }, () => ({}))
 
 const Swaload = {
-    Product : ({count}) => {
-        const lenghtData = Array.from({ length: count || 5 }, () => ({}))
+    Product : ({number}) => {
+        const lenghtData = Array.from({ length: number || 5 }, () => ({}))
         return lenghtData.map((i, index) => {
             return(
             <div className='product-card' key={index}>
