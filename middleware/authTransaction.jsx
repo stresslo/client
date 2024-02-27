@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { useLocation, useNavigate, useParams } from "react-router-dom"
-import { LazyLoadImage } from 'react-lazy-load-image-component' 
 import convertPrice from '../utils/price'
 import html2canvas from "html2canvas"
 import jspdf from "jspdf"
@@ -11,18 +10,16 @@ import swalert from "../utils/swalert"
 import swal from "sweetalert2"
 import axios from 'axios'
 import snap from '../utils/snap'
-import Swaload from '../utils/swaload'
 
 const AuthTransaction = () => {
 
     const navigate = useNavigate()
+    const [ loading, setLoading ] = useState(false)
+    const [ vxsrf, setVxsrf] = useState('')
+    const [ data, setData ] = useState('')
+    const { order_id } = useParams()
     const loc = useLocation()
     const i = loc.state
-    const [ loading, setLoading ] = useState(false)
-    const [ product, setProduct ] = useState('')
-    const [ vxsrf, setVxsrf] = useState('')
-    const [ data, setData ] = useState(i)
-    const { order_id } = useParams()
 
     const getData = async () => {
         try {
@@ -75,30 +72,16 @@ const AuthTransaction = () => {
         onPending : () => { window.location.reload() }
     })}
 
-    const getProducts = async () => {
-        try {
-            setLoading(true)
-            const response = await axios.get(`${import.meta.env.VITE_API}/products/vid/${data.product_id}`)
-            setProduct(response.data)
-        }   catch (error) {
-            if (error || error.response) {
-              swalert(error.response.data, "error", 1500)
-            }
-        } finally {
-          setLoading(false)
-        }
-    }
-
     useEffect(() => {
         if (!i) { getData().then((res) => setData(res.data)) }
         getvxsrf().then((result) => setVxsrf(result))
     } , [])
 
     useEffect(() => { if(data) {
-        if (data.transaction_status && data.transaction_status == 'pending' || data.transaction_status == 'created') { snap() } 
-        data.product_id && getProducts()
-    }
+        if (data.transaction_status == 'pending' || data.transaction_status == 'created') { snap() } }
     } , [data])
+
+    if (loading) return <Loading/>
 
     return(
         <div className='page-max'>
@@ -112,37 +95,14 @@ const AuthTransaction = () => {
                 {data.transaction_status == 'settlement' && <div className='button-max' onClick={() => { donwloadProduct() }} style={{ backgroundColor: 'var(--yellow)' }}>Get product file</div>}
                 {data.transaction_status == 'pending' && <div className='button-max' onClick={() => repay()} style={{ backgroundColor: 'var(--yellow)' }}>Pay now</div>}
                 {data.transaction_status == 'created' && <div className='button-max' onClick={() => repay()} style={{ backgroundColor: 'var(--yellow)' }}>Pay now</div>}
-            </>
-            }
-            {(data) && 
-            <>
-                {(data.transaction_status == 'settlement') && 
-                (loading) ? (<Swaload.Product number={1}/>)
-                : (product) && 
-                <div className='product-card' style={{margin: 'auto'}} onClick={() => navigate(`/product/details/${product.vid}`, {state: product})}>
-                    <LazyLoadImage className='product-img' src={(product.img) || ('img/img404.jpg')} effect='blur'/>
-                    <div className='wrapped-text'>
-                        <div className='product-title'>{product.title}</div>
-                        <div style={{ display: 'flex', flexWrap : 'wrap', flexDirection : 'column'}}>
-                            <div className='product-desc'>{product.desc.length >= 40 ? product.desc.substring(0,40) + '...' : product.desc}</div>
-                            <div className='wrapdet' style={{ position: 'unset', marginTop: '15px', marginLeft: '5px', gap: '5px' }}>
-                                <div style={{ backgroundColor: 'var(--background)', width: '95px', height: '30px' }}>{product.tech}</div>
-                                <div style={{ backgroundColor: 'var(--background)', width: '95px', height: '30px' }}>{product.tech.toLowerCase().includes('html') ? "only" : 'JS'}</div>
-                            </div>
-                        </div>
-                        <div className='wrapped-details'>
-                            <div className='button price'>Details</div>
-                        </div>
-                    </div>
-                </div>
-                }
-            </>
-            }
-            <div className='title' style={{textAlign: 'center', marginTop: '20px'}}>Product</div>
-            {(data) && 
-                <>
                 {data.transaction_status == 'settlement' && <p style={{color: 'var(--blue)', textAlign: 'center', cursor: 'pointer'}}>*Screenshot if needed</p>}
-                </>
+            </>
+            }
+            {(i) && 
+            <>
+                {i.transaction_status == 'settlement' && <div className='button-max' onClick={() => { donwloadProduct() }} style={{ backgroundColor: 'var(--yellow)' }}>Get product file</div>}
+                {i.transaction_status == 'settlement' && <p style={{color: 'var(--blue)', textAlign: 'center', cursor: 'pointer'}}>*Screenshot if needed</p>}
+            </>
             }
             <div style={{width: '100%', display: 'flex', gap: '5px', fontFamily: 'var(--quicksand)'}}>
                 <div style={{width: '50%', display: 'flex', flexDirection: 'column', gap: '5px', color: 'var(--yellow)'}}>
@@ -169,7 +129,27 @@ const AuthTransaction = () => {
                         <h4 style={{border: '1px solid var(--blue)', padding: '10px', borderRadius: '5px'}}>{data.updatedAt && moment.utc(data.updatedAt).utcOffset("+07:00").format("HH.mm A")}</h4>
                     </div>
                 }
+                {(i) && 
+                    <div style={{width: '50%', display: 'flex', flexDirection: 'column', gap: '5px', color: 'var(--blue)'}}>
+                        <h4 style={{border: '1px solid var(--blue)', padding: '10px', borderRadius: '5px'}}>{i.name}</h4>
+                        <h4 style={{border: '1px solid var(--blue)', padding: '10px', borderRadius: '5px'}}>{i.email && i.email.substring(0, 1) + '***@gmail.com'}</h4>
+                        <h4 style={{border: '1px solid var(--blue)', padding: '10px', borderRadius: '5px'}}>{i.transaction_status}</h4>
+                        <h4 style={{border: '1px solid var(--blue)', padding: '10px', borderRadius: '5px'}}>{i.order_id && i.order_id.substring(0,5) + '*****'}</h4>
+                        <h4 style={{border: '1px solid var(--blue)', padding: '10px', borderRadius: '5px'}}>{i.product_id}</h4>
+                        <h4 style={{border: '1px solid var(--blue)', padding: '10px', borderRadius: '5px'}}>{i.product_amount && convertPrice(i.product_amount)}</h4>
+                        <h4 style={{border: '1px solid var(--blue)', padding: '10px', borderRadius: '5px'}}>{i.transaction_token? i.transaction_token.substring(0,5) + "*****" : '*****'}</h4>
+                        <h4 style={{border: '1px solid var(--blue)', padding: '10px', borderRadius: '5px'}}>{i.updatedAt && moment(i.updatedAt.slice(0, 10)).format('MMM DD, YYYY')}</h4>
+                        <h4 style={{border: '1px solid var(--blue)', padding: '10px', borderRadius: '5px'}}>{i.updatedAt && moment.utc(i.updatedAt).utcOffset("+07:00").format("HH.mm A")}</h4>
+                    </div>
+                }
             </div>
+            {(i) && 
+                i.transaction_status == 'settlement' && 
+                    <div style={{textAlign: 'center', lineHeight: '35px'}}>
+                        <div className='fa-solid fa-circle-check fa-2xl' style={{fontSize: '2.5rem', color: 'var(--blue)'}}></div>
+                        <div className='desc' style={{color: 'var(--yellow)'}}>Transaction Success</div>
+                    </div>
+            }
             {(data) &&
             <>
                 {data.transaction_status == 'settlement' && 
