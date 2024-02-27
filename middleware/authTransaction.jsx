@@ -114,25 +114,29 @@ const AuthTransaction = () => {
                 {data.transaction_status == 'created' && <div className='button-max' onClick={() => repay()} style={{ backgroundColor: 'var(--yellow)' }}>Pay now</div>}
             </>
             }
-            {(data.transaction_status == 'settlement') && 
-            (loading) ? (<Swaload.Product number={1}/>)
-            : (product) && 
-            <div className='product-card' style={{margin: 'auto'}} onClick={() => navigate(`/product/details/${product.vid}`, {state: product})}>
-                <LazyLoadImage className='product-img' src={(product.img) || ('img/img404.jpg')} effect='blur'/>
-                <div className='wrapped-text'>
-                    <div className='product-title'>{product.title}</div>
-                    <div style={{ display: 'flex', flexWrap : 'wrap', flexDirection : 'column'}}>
-                        <div className='product-desc'>{product.desc.length >= 40 ? product.desc.substring(0,40) + '...' : product.desc}</div>
-                        <div className='wrapdet' style={{ position: 'unset', marginTop: '15px', marginLeft: '5px', gap: '5px' }}>
-                            <div style={{ backgroundColor: 'var(--background)', width: '95px', height: '30px' }}>{product.tech}</div>
-                            <div style={{ backgroundColor: 'var(--background)', width: '95px', height: '30px' }}>{product.tech.toLowerCase().includes('html') ? "only" : 'JS'}</div>
+            {(data) && 
+            <>
+                {(data.transaction_status == 'settlement') && 
+                (loading) ? (<Swaload.Product number={1}/>)
+                : (product) && 
+                <div className='product-card' style={{margin: 'auto'}} onClick={() => navigate(`/product/details/${product.vid}`, {state: product})}>
+                    <LazyLoadImage className='product-img' src={(product.img) || ('img/img404.jpg')} effect='blur'/>
+                    <div className='wrapped-text'>
+                        <div className='product-title'>{product.title}</div>
+                        <div style={{ display: 'flex', flexWrap : 'wrap', flexDirection : 'column'}}>
+                            <div className='product-desc'>{product.desc.length >= 40 ? product.desc.substring(0,40) + '...' : product.desc}</div>
+                            <div className='wrapdet' style={{ position: 'unset', marginTop: '15px', marginLeft: '5px', gap: '5px' }}>
+                                <div style={{ backgroundColor: 'var(--background)', width: '95px', height: '30px' }}>{product.tech}</div>
+                                <div style={{ backgroundColor: 'var(--background)', width: '95px', height: '30px' }}>{product.tech.toLowerCase().includes('html') ? "only" : 'JS'}</div>
+                            </div>
+                        </div>
+                        <div className='wrapped-details'>
+                            <div className='button price'>Details</div>
                         </div>
                     </div>
-                    <div className='wrapped-details'>
-                        <div className='button price'>Details</div>
-                    </div>
                 </div>
-            </div>
+                }
+            </>
             }
             <div className='title' style={{textAlign: 'center', marginTop: '20px'}}>Product</div>
             {(data) && 
