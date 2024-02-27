@@ -95,7 +95,7 @@ const AuthTransaction = () => {
     } , [])
 
     useEffect(() => { if(data) {
-        if (data.transaction_status == 'pending' || data.transaction_status == 'created') { snap() } 
+        if (data.transaction_status && data.transaction_status == 'pending' || data.transaction_status == 'created') { snap() } 
         data.product_id && getProducts()
     }
     } , [data])
