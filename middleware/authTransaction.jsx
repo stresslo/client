@@ -115,7 +115,7 @@ const AuthTransaction = () => {
             </>
             }
             {(product) && 
-            <div className='product-card' onClick={() => navigate(`/product/details/${product.vid}`, {state: product})}>
+            <div className='product-card' style={{margin: 'auto'}} onClick={() => navigate(`/product/details/${product.vid}`, {state: product})}>
                     <LazyLoadImage className='product-img' src={(product.img) || ('img/img404.jpg')} effect='blur'/>
                     <div className='wrapped-text'>
                         <div className='product-title'>{product.title}</div>
@@ -125,10 +125,6 @@ const AuthTransaction = () => {
                                 <div style={{ backgroundColor: 'var(--background)', width: '95px', height: '30px' }}>{product.tech}</div>
                                 <div style={{ backgroundColor: 'var(--background)', width: '95px', height: '30px' }}>{product.tech.toLowerCase().includes('html') ? "only" : 'JS'}</div>
                             </div>
-                        </div>
-                        <div className='wrapped-details'>
-                            <div className='button price'>{convertPrice(product.price)}</div>
-                            <div style={{ color : 'var(--text)', cursor: 'pointer'}} className='fa-solid fa-cart-plus fa-xl' />
                         </div>
                     </div>
                 </div>
