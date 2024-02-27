@@ -99,8 +99,6 @@ const AuthTransaction = () => {
     }
     } , [data])
 
-    if (loading) return <Loading/>
-
     return(
         <div className='page-max'>
             <div className="back" onClick={() => navigate('/transaction/history')}>
@@ -108,6 +106,14 @@ const AuthTransaction = () => {
                 <div className="nav-logo"><h1>stresslo</h1></div>
           </div>
           <div className='form invoice' style={{justifyContent: 'center',  gap: '30px', textAlign: 'left', marginTop: '70px'}}>
+            {(data) && 
+            <>
+                {data.transaction_status == 'settlement' && <div className='button-max' onClick={() => { donwloadProduct() }} style={{ backgroundColor: 'var(--yellow)' }}>Get product file</div>}
+                {data.transaction_status == 'pending' && <div className='button-max' onClick={() => repay()} style={{ backgroundColor: 'var(--yellow)' }}>Pay now</div>}
+                {data.transaction_status == 'created' && <div className='button-max' onClick={() => repay()} style={{ backgroundColor: 'var(--yellow)' }}>Pay now</div>}
+                {data.transaction_status == 'settlement' && <p style={{color: 'var(--blue)', textAlign: 'center', cursor: 'pointer'}}>*Screenshot if needed</p>}
+            </>
+            }
             {(product) && 
             <div className='product-card' onClick={() => navigate(`/product/details/${product.vid}`, {state: product})}>
                     <LazyLoadImage className='product-img' src={(product.img) || ('img/img404.jpg')} effect='blur'/>
@@ -126,20 +132,6 @@ const AuthTransaction = () => {
                         </div>
                     </div>
                 </div>
-            }
-            {(data) && 
-            <>
-                {data.transaction_status == 'settlement' && <div className='button-max' onClick={() => { donwloadProduct() }} style={{ backgroundColor: 'var(--yellow)' }}>Get product file</div>}
-                {data.transaction_status == 'pending' && <div className='button-max' onClick={() => repay()} style={{ backgroundColor: 'var(--yellow)' }}>Pay now</div>}
-                {data.transaction_status == 'created' && <div className='button-max' onClick={() => repay()} style={{ backgroundColor: 'var(--yellow)' }}>Pay now</div>}
-                {data.transaction_status == 'settlement' && <p style={{color: 'var(--blue)', textAlign: 'center', cursor: 'pointer'}}>*Screenshot if needed</p>}
-            </>
-            }
-            {(i) && 
-            <>
-                {i.transaction_status == 'settlement' && <div className='button-max' onClick={() => { donwloadProduct() }} style={{ backgroundColor: 'var(--yellow)' }}>Get product file</div>}
-                {i.transaction_status == 'settlement' && <p style={{color: 'var(--blue)', textAlign: 'center', cursor: 'pointer'}}>*Screenshot if needed</p>}
-            </>
             }
             <div style={{width: '100%', display: 'flex', gap: '5px', fontFamily: 'var(--quicksand)'}}>
                 <div style={{width: '50%', display: 'flex', flexDirection: 'column', gap: '5px', color: 'var(--yellow)'}}>
