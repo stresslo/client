@@ -8,7 +8,7 @@ const Handle = ({ status }) => {
             {(status == 404) ? (
                 <LazyLoadImage src="/img/404page.png" style={{width: '220px'}} effect="blur" loading="lazy"/>
             ) : (
-                <LazyLoadImage src="/img/500.png" style={{width: '310px'}} effect="blur" loading="lazy"/>
+                <LazyLoadImage src="/img/500.png" style={{width: '270px'}} effect="blur" loading="lazy"/>
             )}
         </div>
     )
