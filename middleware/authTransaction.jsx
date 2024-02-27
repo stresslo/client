@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useLocation, useNavigate, useParams } from "react-router-dom"
+import { LazyLoadImage } from 'react-lazy-load-image-component' 
 import convertPrice from '../utils/price'
 import html2canvas from "html2canvas"
 import jspdf from "jspdf"
