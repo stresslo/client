@@ -14,12 +14,13 @@ import snap from '../utils/snap'
 const AuthTransaction = () => {
 
     const navigate = useNavigate()
-    const [ loading, setLoading ] = useState(false)
-    const [ vxsrf, setVxsrf] = useState('')
-    const [ data, setData ] = useState('')
-    const { order_id } = useParams()
     const loc = useLocation()
     const i = loc.state
+    const [ loading, setLoading ] = useState(false)
+    const [ product, setProduct ] = useState('')
+    const [ vxsrf, setVxsrf] = useState('')
+    const [ data, setData ] = useState(i)
+    const { order_id } = useParams()
 
     const getData = async () => {
         try {
@@ -72,13 +73,29 @@ const AuthTransaction = () => {
         onPending : () => { window.location.reload() }
     })}
 
+    const getProducts = async () => {
+        try {
+            setLoading(true)
+            const response = await axios.get(`${import.meta.env.VITE_API}/products/vid/${data.product_id}`)
+            setProduct(response.data)
+        }   catch (error) {
+            if (error || error.response) {
+              swalert(error.response.data, "error", 1500)
+            }
+        } finally {
+          setLoading(false)
+        }
+    }
+
     useEffect(() => {
         if (!i) { getData().then((res) => setData(res.data)) }
         getvxsrf().then((result) => setVxsrf(result))
     } , [])
 
     useEffect(() => { if(data) {
-        if (data.transaction_status == 'pending' || data.transaction_status == 'created') { snap() } }
+        if (data.transaction_status == 'pending' || data.transaction_status == 'created') { snap() } 
+        data.product_id && getProducts()
+    }
     } , [data])
 
     if (loading) return <Loading/>
@@ -90,6 +107,25 @@ const AuthTransaction = () => {
                 <div className="nav-logo"><h1>stresslo</h1></div>
           </div>
           <div className='form invoice' style={{justifyContent: 'center',  gap: '30px', textAlign: 'left', marginTop: '70px'}}>
+            {(product) && 
+            <div className='product-card' onClick={() => navigate(`/product/details/${product.vid}`, {state: product})}>
+                    <LazyLoadImage className='product-img' src={(product.img) || ('img/img404.jpg')} effect='blur'/>
+                    <div className='wrapped-text'>
+                        <div className='product-title'>{product.title}</div>
+                        <div style={{ display: 'flex', flexWrap : 'wrap', flexDirection : 'column'}}>
+                            <div className='product-desc'>{product.desc.length >= 40 ? product.desc.substring(0,40) + '...' : product.desc}</div>
+                            <div className='wrapdet' style={{ position: 'unset', marginTop: '15px', marginLeft: '5px', gap: '5px' }}>
+                                <div style={{ backgroundColor: 'var(--background)', width: '95px', height: '30px' }}>{product.tech}</div>
+                                <div style={{ backgroundColor: 'var(--background)', width: '95px', height: '30px' }}>{product.tech.toLowerCase().includes('html') ? "only" : 'JS'}</div>
+                            </div>
+                        </div>
+                        <div className='wrapped-details'>
+                            <div className='button price'>{convertPrice(product.price)}</div>
+                            <div style={{ color : 'var(--text)', cursor: 'pointer'}} className='fa-solid fa-cart-plus fa-xl' />
+                        </div>
+                    </div>
+                </div>
+            }
             {(data) && 
             <>
                 {data.transaction_status == 'settlement' && <div className='button-max' onClick={() => { donwloadProduct() }} style={{ backgroundColor: 'var(--yellow)' }}>Get product file</div>}
@@ -129,27 +165,7 @@ const AuthTransaction = () => {
                         <h4 style={{border: '1px solid var(--blue)', padding: '10px', borderRadius: '5px'}}>{data.updatedAt && moment.utc(data.updatedAt).utcOffset("+07:00").format("HH.mm A")}</h4>
                     </div>
                 }
-                {(i) && 
-                    <div style={{width: '50%', display: 'flex', flexDirection: 'column', gap: '5px', color: 'var(--blue)'}}>
-                        <h4 style={{border: '1px solid var(--blue)', padding: '10px', borderRadius: '5px'}}>{i.name}</h4>
-                        <h4 style={{border: '1px solid var(--blue)', padding: '10px', borderRadius: '5px'}}>{i.email && i.email.substring(0, 1) + '***@gmail.com'}</h4>
-                        <h4 style={{border: '1px solid var(--blue)', padding: '10px', borderRadius: '5px'}}>{i.transaction_status}</h4>
-                        <h4 style={{border: '1px solid var(--blue)', padding: '10px', borderRadius: '5px'}}>{i.order_id && i.order_id.substring(0,5) + '*****'}</h4>
-                        <h4 style={{border: '1px solid var(--blue)', padding: '10px', borderRadius: '5px'}}>{i.product_id}</h4>
-                        <h4 style={{border: '1px solid var(--blue)', padding: '10px', borderRadius: '5px'}}>{i.product_amount && convertPrice(i.product_amount)}</h4>
-                        <h4 style={{border: '1px solid var(--blue)', padding: '10px', borderRadius: '5px'}}>{i.transaction_token? i.transaction_token.substring(0,5) + "*****" : '*****'}</h4>
-                        <h4 style={{border: '1px solid var(--blue)', padding: '10px', borderRadius: '5px'}}>{i.updatedAt && moment(i.updatedAt.slice(0, 10)).format('MMM DD, YYYY')}</h4>
-                        <h4 style={{border: '1px solid var(--blue)', padding: '10px', borderRadius: '5px'}}>{i.updatedAt && moment.utc(i.updatedAt).utcOffset("+07:00").format("HH.mm A")}</h4>
-                    </div>
-                }
             </div>
-            {(i) && 
-                i.transaction_status == 'settlement' && 
-                    <div style={{textAlign: 'center', lineHeight: '35px'}}>
-                        <div className='fa-solid fa-circle-check fa-2xl' style={{fontSize: '2.5rem', color: 'var(--blue)'}}></div>
-                        <div className='desc' style={{color: 'var(--yellow)'}}>Transaction Success</div>
-                    </div>
-            }
             {(data) &&
             <>
                 {data.transaction_status == 'settlement' && 
