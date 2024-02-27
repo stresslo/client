@@ -7,7 +7,7 @@ const stresslo =
             {
                 title : "Material Web",
                 text : "Template for your UI web",
-                img : "img/web.png",
+                img : "img/web.webp",
                 color : "var(--yellow)",
                 pricing : ["paid", "free"],
                 ctg : "web"
@@ -21,21 +21,21 @@ const stresslo =
             {
                 title : "High quality",
                 text : "get file with the best quality.",
-                img : "img/star.png",
+                img : "img/star.webp",
                 color : "var(--yellow)",
                 pricing : ["HD"],
             },
             {
                 title : "Ready to use",
                 text : "make your project faster.",
-                img : "img/ready.png",
+                img : "img/ready.webp",
                 color : "#FAEDCA",
                 pricing : ["usable", "easy"]
             },
             {
                 title : "Simple & efficient",
                 text : "don't waste your time",
-                img : "img/simple.png",
+                img : "img/simple.webp",
                 color : "#30D5C8",
                 pricing : ["simple"]
             },

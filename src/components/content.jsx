@@ -49,7 +49,7 @@ const Content = ({data, setData, setCount}) => {
                         {data.map((i, k) => {
                             return (
                                 <div className="notification-box" key={k}>
-                                    <LazyLoadImage src="/img/stresslo.png" className="nimg" style={{width: '30px'}} loading="lazy" effect="blur"/>
+                                    <LazyLoadImage src="/img/stresslo.png" className="nimg" style={{width: '30px'}} loading="lazy" effect="blur" alt="stresslo logo"/>
                                     <div onClick={() => navigate(`/transaction/result/${i.order_id}`)} className="text-container" style={{ padding: '0', margin: '0', gap: '4px', width: '90%', cursor: 'pointer' }}>
                                         <div className="text">{i.transaction_status == "settlement" ? 'success' : i.transaction_status} transaction</div>
                                         <p style={{ fontSize: '0.8rem' }}><span style={{fontFamily: 'var(--poppins)'}}>Order ID : {i.order_id}</span></p>
@@ -67,7 +67,7 @@ const Content = ({data, setData, setCount}) => {
             <div>
                 {(context.token) ? 
                 <div className="developer">
-                    <img src="/img/greeti.png" className="dimasputra" alt="" />
+                    <img src="/img/greeting.webp" className="dimasputra" alt="stresslo greeting" />
                     <div className="text-wrapper">
                     <div>Hi {context.username}!,</div>
                     <div>Welcome back.</div>
@@ -76,7 +76,7 @@ const Content = ({data, setData, setCount}) => {
                 </div>
                 : 
                 <div className="developer">
-                    <img src="/img/greeti.png" className="dimasputra" alt="" />
+                    <img src="/img/greeting.webp" className="dimasputra" alt="stresslo greeting" />
                     <div className="text-wrapper">
                     <h1>Welcome to stresslo</h1>
                     <div>Let's explore with us.</div>
@@ -90,7 +90,7 @@ const Content = ({data, setData, setCount}) => {
                         {i.data.map((p, l) => 
                             <div className="sbox" key={l} onClick={() => {p.ctg && navigate(`/product/${p.ctg}`)}} style={{borderRight : `2px solid ${p.color}`}}>
                                 <div className="image-container" style={{backgroundColor : `${p.color}`}}>
-                                    {p.img && <LazyLoadImage src={p.img} className="simg" style={{width: '60px'}} loading="lazy" effect="blur"/>}
+                                    {p.img && <LazyLoadImage src={p.img} className="simg" style={{width: '60px'}} loading="lazy" effect="blur" alt="service logo"/>}
                                 </div>
                                 <div className="text-container">
                                     <h3>{p.title}</h3>
@@ -112,7 +112,7 @@ const Content = ({data, setData, setCount}) => {
                         {i.data.map((p, l) => 
                             <div className="sbox" key={l} style={{borderRight : `2px solid ${p.color}`}}>
                                 <div className="image-container" style={{backgroundColor : `${p.color}`}}>
-                                    {p.img && <LazyLoadImage src={p.img} className="simg" style={{width: '50px'}} loading="lazy" effect="blur"/>}
+                                    {p.img && <LazyLoadImage src={p.img} className="simg" style={{width: '50px'}} loading="lazy" effect="blur" alt="about logo"/>}
                                 </div>
                                 <div className="text-container">
                                     <h3>{p.title}</h3>

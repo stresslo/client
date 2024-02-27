@@ -51,7 +51,7 @@ const Navbar = ({ count }) => {
         <div className="nav-logo">
           {context.loading ? <ScaleLoader height={25} color="#EBE76C"/> : 
           <>
-            <img src="/img/stresslo.png"/>
+            <img src="/img/stresslo.png" alt="stresslo logo"/>
             <h1>stresslo</h1>
           </>
           }
