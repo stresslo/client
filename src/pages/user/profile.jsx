@@ -66,7 +66,7 @@ const Profile = () => {
             <form style={{display: 'flex', alignItems: "center", flexDirection: 'column'}}>
                 <input type="file" onChange={(e) => setFile(e.target.files[0])} ref={inputref} style={{display: 'none'}}/>
                 <input id='changemail' type="text" style={{width : '300px'}} placeholder={context.email} readOnly/>
-                {(file || email) ? <button style={{margin: '30px 0'}} onClick={() => updateImage()} className='button' type='submit'>update</button> : 
+                {(file || email) ? <button style={{margin: '30px 0'}} onClick={() => updateImage()} className='button'>update</button> : 
                 <div style={{margin: '30px 0', display: 'flex', gap: '20px'}}>
                     {(context.status == 'contributor') ? 
                         <div className='button' onClick={() => navigate('/contributor/store')}><i style={{cursor: 'pointer'}} className='fa-solid fa-store fa-xl'/></div>
