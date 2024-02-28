@@ -3,6 +3,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component'
 import Swaload from '../../../utils/swaload'
 import Context from '../../../utils/context'
 import Topback from '../../components/topback'
+import convertPrice from "../../../utils/price"
 import axios from "axios"
 import { useNavigate } from 'react-router-dom'
 
@@ -15,10 +16,15 @@ const Store = () => {
     const [data, setData] = useState([])
     const [page, setPage] = useState(1)
 
-    useEffect(() => {
+    const getYours = async () => {
+        setLoading(true)
         axios.get(`${import.meta.env.VITE_API}/products/contributor/${page}`)
-        .then((response) => setData(response.data))
-    }, [])
+        .then(response => setData(response.data))
+        .catch(error => Promise.reject(error))
+        .finally(() => setLoading(false))
+    }
+
+    useEffect(() => { getYours() }, [page])
 
     return (
         <div className='page-max'>
