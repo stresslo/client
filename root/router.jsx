@@ -30,7 +30,7 @@ const Routing = () => {
   const [expires, setExpires] = useState('')
   const [username, setUsername] = useState('')
   const [loading, setLoading] = useState(false)
-  const [status, setStatus] = useState(history ? history : 'user')
+  const [status, setStatus] = useState(history ? history : '')
   
   axtoken.interceptors.request.use(async (config) => {
     const endpoint = status === 'contributor' ? 'vxrft/contributor' : 'vxrft/user'
