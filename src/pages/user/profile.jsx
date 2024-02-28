@@ -34,8 +34,7 @@ const Profile = () => {
         finally{setLoading(false)}
     }
 
-    const updateImage = async(e) => {
-        e.preventDefault()
+    const updateImage = async() => {
         setLoading(true)
         const filterUrl = context.status == 'contributor' ? `${url}/contributor/update` : `${url}/user/update`
         let formData = new FormData();
