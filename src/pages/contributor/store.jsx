@@ -1,11 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { LazyLoadImage } from 'react-lazy-load-image-component' 
+import { useNavigate } from 'react-router-dom'
 import Swaload from '../../../utils/swaload'
 import Context from '../../../utils/context'
 import Topback from '../../components/topback'
 import convertPrice from "../../../utils/price"
+import moment from "moment"
 import axios from "axios"
-import { useNavigate } from 'react-router-dom'
 
 const Store = () => {
 
@@ -42,10 +43,10 @@ const Store = () => {
                                     <div className='wrapped-text'>
                                         <div className='product-title'>{i.title}</div>
                                         <div style={{ display: 'flex', flexWrap : 'wrap', flexDirection : 'column'}}>
-                                            <div className='product-desc'>{i.desc.length >= 40 ? i.desc.substring(0,40) + '...' : i.desc}</div>
+                                            <div className='product-desc'>Verified on : {moment.utc(i.createdAt).utcOffset('+07:00').format('MMM DDD, YYYY \t HH.mm A')}</div>
                                             <div className='wrapdet' style={{ position: 'unset', marginTop: '15px', marginLeft: '5px', gap: '5px' }}>
-                                                <div style={{ backgroundColor: 'var(--background)', width: '95px', height: '30px', color: 'var(--blue)' }}><i className='fa-solid fa-circle-check fa-lg'/></div>
                                                 <div style={{ backgroundColor: 'var(--background)', width: '95px', height: '30px', color: 'var(--blue)' }}>active</div>
+                                                <div style={{ backgroundColor: 'var(--background)', width: '95px', height: '30px', color: 'var(--blue)' }}><i className='fa-solid fa-circle-check fa-lg'/></div>
                                              </div>
                                         </div>
                                         <div className='wrapped-details'>
