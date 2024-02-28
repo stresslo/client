@@ -35,11 +35,11 @@ const Profile = () => {
     }
 
     const updateImage = async() => {
-        setLoading(true)
         const filterUrl = context.status == 'contributor' ? `${url}/contributor/update` : `${url}/user/update`
-        let formData = new FormData();
-        formData.append('img', file);
         try {
+            let formData = new FormData();
+            formData.append('img', file);
+            setLoading(true)
             const response = await axios.put(filterUrl, formData, {
                 headers : {"Content-Type" : "multipart/form-data", "xsrf-token" : vxsrf}, 
                 withCredentials : true
