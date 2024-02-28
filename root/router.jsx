@@ -52,7 +52,7 @@ const Routing = () => {
       setExpires(decoded.exp)
       setUsername(decoded.username)
     }
-  }, [token])
+  }, [token, history])
 
   useEffect(() => {
       context.setLoading(true)
