@@ -50,8 +50,6 @@ const Routing = () => {
       setEmail(decoded.email)
       setExpires(decoded.exp)
       setUsername(decoded.username)
-    } else {
-      localStorage.removeItem('status')
     }
   }, [token])
 
