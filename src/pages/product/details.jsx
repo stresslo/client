@@ -52,7 +52,7 @@ const Details = () => {
 
     return (
         <div className='page-max'>
-            <div className="back" onClick={() => navigate(`/product/${i.ctg}`)}>
+            <div className="back" onClick={() => navigate(-1)}>
                 <div className="fa-solid fa-arrow-left fa-xl active"></div>
                 <div className="nav-logo"><h1>stresslo</h1></div>
             </div>
