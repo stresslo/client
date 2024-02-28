@@ -44,13 +44,12 @@ const Store = () => {
                                         <div style={{ display: 'flex', flexWrap : 'wrap', flexDirection : 'column'}}>
                                             <div className='product-desc'>{i.desc.length >= 40 ? i.desc.substring(0,40) + '...' : i.desc}</div>
                                             <div className='wrapdet' style={{ position: 'unset', marginTop: '15px', marginLeft: '5px', gap: '5px' }}>
-                                                <div style={{ backgroundColor: 'var(--background)', width: '95px', height: '30px' }}>{i.tech}</div>
-                                                <div style={{ backgroundColor: 'var(--background)', width: '95px', height: '30px' }}>{i.tech.toLowerCase().includes('html') ? "only" : 'JS'}</div>
+                                                <div style={{ backgroundColor: 'var(--background)', width: '95px', height: '30px', color: 'var(--blur)' }}><div className='fa-solid fa-circle-check fa-md'/></div>
+                                                <div style={{ backgroundColor: 'var(--background)', width: '95px', height: '30px', color: 'var(--blue)' }}>active</div>
                                              </div>
                                         </div>
                                         <div className='wrapped-details'>
                                             <div className='button price'>{convertPrice(i.price)}</div>
-                                            <div style={{ color : 'var(--text)', cursor: 'pointer'}} className='fa-solid fa-cart-plus fa-xl' />
                                         </div>
                                     </div>
                                 </div>
