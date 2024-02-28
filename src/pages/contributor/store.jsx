@@ -12,7 +12,6 @@ const Store = () => {
 
     const navigate = useNavigate()
     const context = useContext(Context)
-
     const [loading, setLoading] = useState(false)
     const [data, setData] = useState([])
     const [page, setPage] = useState(1)
