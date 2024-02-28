@@ -40,7 +40,8 @@ const checkvxsrf = async () => {
                     confirmButtonText: "how's that?",
                     allowOutsideClick: false,
                     customClass : {container: 'alertext'},
-                    focusDeny : false
+                    focusDeny : false,
+                    focusConfirm: false
                 })
                 .then((result) => {
                     if (result.isConfirmed) {
@@ -52,9 +53,12 @@ const checkvxsrf = async () => {
                             title : name,
                             text : `we detected you are using ${name}, let's configure and start exploring stresslo.`,
                             confirmButtonText: "check it out",
+                            showDenyButton : true,
+                            denyButtonText: false,
                             allowOutsideClick: false,
                             customClass : {container: 'alertext'},
-                            focusDeny : false
+                            focusDeny : false,
+                            focusConfirm: false
                         })
                         .then((res) => {
                             if (res.isConfirmed) return window.open(endpoint, "_blank")
@@ -87,8 +91,11 @@ const checkvxsrf = async () => {
                                     text : `we detected you are using ${name}, let's configure and start exploring stresslo.`,
                                     confirmButtonText: 'check it out',
                                     allowOutsideClick: false,
+                                    showDenyButton : true,
+                                    denyButtonText: false,
                                     customClass : {container: 'alertext'},
-                                    focusDeny : false
+                                    focusDeny : false,
+                                    focusConfirm: false
                                 })
                                 .then((show) => {
                                     if (show.isConfirmed) return window.open(endpoint, "_blank")
