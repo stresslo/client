@@ -46,7 +46,6 @@ const Routing = () => {
     if (token) {
       const decoded = jwt_decode(token)
       decoded.img && setImg(decoded.img)
-      decoded.status ? setStatus(decoded.status) : setStatus('user')
       setVid(decoded.vid)
       setEmail(decoded.email)
       setExpires(decoded.exp)
