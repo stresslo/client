@@ -17,7 +17,6 @@ import Confirm from "../middleware/confirm"
 import checkvxsrf from "../service/checkvxsrf"
 import History from "../src/pages/user/history"
 import AuthTransaction from "../middleware/authTransaction"
-import changeclass from "../utils/randomize"
 
 const Routing = () => {
 
@@ -58,7 +57,6 @@ const Routing = () => {
   }, [token, history])
 
   useEffect(() => {
-      changeclass()
       context.setLoading(true)
       const endpoint = status === 'contributor' ? 'vxrft/contributor' : 'vxrft/user'
       axios.get(`${import.meta.env.VITE_API}/${endpoint}`)
