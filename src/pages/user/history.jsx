@@ -5,7 +5,6 @@ import Topback from "../../components/topback"
 import swalert from "../../../utils/swalert"
 import Swaload from "../../../utils/swaload"
 import jwt from "jwt-decode"
-import date from "date-time"
 import moment from "moment"
 import axios from "axios"
 import "../../style/history.css"
@@ -13,8 +12,6 @@ import "../../style/history.css"
 const History = () => {
 
     const navigate = useNavigate()
-    const now = moment(date({ date: new Date() })).format("MMM DD, YYYY")
-
     const [total, setTotal] = useState(0)
     const [page, setPage] = useState(1)
     const [data, setData] = useState([])
@@ -75,7 +72,8 @@ const History = () => {
                 <div className="input-form" style={{marginTop: '40px', flexDirection: 'column'}}>
                     {loading ? (<Swaload.Transaction/>) : 
                         data.length !== 0 && data.map((i, k) => {
-                            const date = moment(i.updatedAt).format("MMM DD, YYYY")
+                            const now = moment(i.updatedAt)
+                            const date = now.isSame(moment(), 'day') ? "Today" : now.subtract(1, 'days').isSame(moment(), 'day') ? "Yesterday" : now.format("MMM DD, YYYY");
                             const time = moment.utc(i.updatedAt).utcOffset("+07:00").format("HH:mm A")
                             return (
                             <div className="box-history" key={k} onClick={() => navigate(`/transaction/result/${i.order_id}`, {state: i})}>
