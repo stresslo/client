@@ -17,7 +17,6 @@ const Details = () => {
     const [i, seti] = useState(location.state)
     const [loading, setLoading] = useState(false)
     const date = moment(i.createdAt.slice(0, 10)).format('MMM DD, YYYY')
-    console.log(location.state)
 
     const getContributor = async () => {
         try {
@@ -53,7 +52,7 @@ const Details = () => {
 
     return (
         <div className='page-max'>
-            <div className="back" onClick={() => navigate(-1)}>
+            <div className="back" onClick={() => navigate(`/products/${i.ctg}`)}>
                 <div className="fa-solid fa-arrow-left fa-xl active"></div>
                 <div className="nav-logo"><h1>stresslo</h1></div>
             </div>
