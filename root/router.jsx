@@ -30,7 +30,6 @@ const Routing = () => {
   const [email, setEmail] = useState('')
   const [expires, setExpires] = useState('')
   const [username, setUsername] = useState('')
-  const [first, setFirst] = useState(false)
   const [loading, setLoading] = useState(false)
   const [status, setStatus] = useState(history ? history : '')
   
@@ -59,6 +58,7 @@ const Routing = () => {
   }, [token, history])
 
   useEffect(() => {
+      changeclass()
       context.setLoading(true)
       const endpoint = status === 'contributor' ? 'vxrft/contributor' : 'vxrft/user'
       axios.get(`${import.meta.env.VITE_API}/${endpoint}`)
@@ -67,8 +67,6 @@ const Routing = () => {
       .catch((error) => {console.log(error.message)})
       .finally(() => {context.setLoading(false)})
   }, [])
-
-  useEffect(() => { changeclass() }, [first])
 
   const context = {vid, img, email, username, status, token, setToken, loading, setLoading}
 
