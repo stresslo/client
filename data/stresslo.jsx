@@ -35,7 +35,7 @@ const stresslo =
             {
                 title : "Simple & efficient",
                 text : "don't waste your time",
-                img : "img/simple.webp",
+                img : "img/simple.png",
                 color : "#30D5C8",
                 pricing : ["simple"]
             },
