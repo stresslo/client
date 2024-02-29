@@ -5,6 +5,7 @@ import Topback from "../../components/topback"
 import swalert from "../../../utils/swalert"
 import Swaload from "../../../utils/swaload"
 import jwt from "jwt-decode"
+import date from "date-time"
 import moment from "moment"
 import axios from "axios"
 import "../../style/history.css"
@@ -12,6 +13,8 @@ import "../../style/history.css"
 const History = () => {
 
     const navigate = useNavigate()
+    const now = moment(date({ date: new Date() })).format("MMM DD, YYYY")
+
     const [total, setTotal] = useState(0)
     const [page, setPage] = useState(1)
     const [data, setData] = useState([])
@@ -72,13 +75,15 @@ const History = () => {
                 <div className="input-form" style={{marginTop: '40px', flexDirection: 'column'}}>
                     {loading ? (<Swaload.Transaction/>) : 
                         data.length !== 0 && data.map((i, k) => {
+                            const date = moment(i.updatedAt).format("MMM DD, YYYY")
+                            const time = moment.utc(i.updatedAt).utcOffset("+07:00").format("HH:mm A")
                             return (
                             <div className="box-history" key={k} onClick={() => navigate(`/transaction/result/${i.order_id}`, {state: i})}>
                                 <div className="itext" style={{color: 'var(--yellow)'}}>{convertPrice(i.product_amount)}</div>
                                 <div className="itext" style={{fontFamily: 'var(--quicksand)', fontSize: '1.1rem', translate: '0 -5px'}}> <span>Order ID</span> : {i.order_id}</div>
                                 <div className= "badge" style={{position: 'absolute', bottom: '0', left: '15px', display: 'flex', alignItems: 'center', gap: '10px'}}>
                                     <div className="fa-solid fa-circle-check fa-lg" style={{color: 'var(--blue)'}}/>
-                                    <div className="desc" style={{color: 'var(--blue)', fontFamily: 'var(--quicksand)', fontSize: '0.9rem'}}>{moment.utc(i.updatedAt).utcOffset('+07:00').format("MMM DD, YYYY \t HH.mm A")}</div>
+                                    <div className="desc" style={{color: 'var(--blue)', fontFamily: 'var(--quicksand)', fontSize: '0.9rem'}}>{date} {time}</div>
                                 </div>
                             </div>
                             )
