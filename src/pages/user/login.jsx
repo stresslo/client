@@ -53,8 +53,8 @@ const Login = () => {
             <Topback/>
             <div className="login-box">
                 <div className="login-top">
-                    <div className="title"><span>Sign</span> in</div>
-                    <p className="desc">Design assets to make your <span>work easier.</span></p>
+                    <h1 className="title"><span>Sign</span> in</h1>
+                    <p className="desc">design assets to make your <span>work easier.</span></p>
                 </div>
                 <form className="login-input" onSubmit={handleLogin}>
                     <input type="email" placeholder="email" value={email} onChange={(e) => setEmail(e.target.value)} required/>

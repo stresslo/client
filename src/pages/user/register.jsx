@@ -42,8 +42,8 @@ const Register = () => {
             <Topback/>
             <div className="login-box">
                 <div className="login-top">
-                    <div className="title"><span>Regis</span>ter</div>
-                    <p className="desc">Design assets to make your <span>work easier.</span></p>
+                    <h1 className="title"><span>Regis</span>ter</h1>
+                    <p className="desc">design assets to make your <span>work easier.</span></p>
                 </div>
                 <form onSubmit={createUser} className="login-input">
                     <input type="email" placeholder="email" value={email} onChange={(e) => setEmail(e.target.value)} required/>
