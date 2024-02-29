@@ -83,7 +83,7 @@ const History = () => {
                                 <div className="itext" style={{fontFamily: 'var(--quicksand)', fontSize: '1.1rem', translate: '0 -5px'}}> <span>Order ID</span> : {i.order_id}</div>
                                 <div className= "badge" style={{position: 'absolute', bottom: '0', left: '15px', display: 'flex', alignItems: 'center', gap: '10px'}}>
                                     <div className="fa-solid fa-circle-check fa-lg" style={{color: 'var(--blue)'}}/>
-                                    <div className="desc" style={{color: 'var(--blue)', fontFamily: 'var(--quicksand)', fontSize: '0.9rem'}}>{date} {time}</div>
+                                    <div className="desc" style={{color: 'var(--blue)', fontFamily: 'var(--quicksand)', fontSize: '0.9rem'}}>{date == now ? "Today" : date} {time}</div>
                                 </div>
                             </div>
                             )
