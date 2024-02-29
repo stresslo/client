@@ -10,6 +10,7 @@
     Content-Security-Policy = "default-src 'self'; connect-src https://api.vixcera.bid ; script-src 'self' ; style-src 'self' https://fonts.googleapis.com unsafe-inline; font-src 'self' https://fonts.gstatic.com ; img-src 'self' https://api.vixcera.bid "
     Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
     Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(self 'https://api.vixcera.bid')"
 [[redirects]]
     from = "/*"
     to = "/index.html"
