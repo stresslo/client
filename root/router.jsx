@@ -81,8 +81,9 @@ const Routing = () => {
   return (
     <Context.Provider value={context}>
       <Router>
+        <CleanHtml>
         <Routes>
-          <Route path="/" element={<CleanHtml><Main/></CleanHtml>}/>
+          <Route path="/" element={<Main/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/create" element={<Create/>}/>
           <Route path="/Profile" element={<Profile/>}/>
@@ -100,6 +101,7 @@ const Routing = () => {
           <Route path="/transaction/history" element={<History/>}/>
           <Route path="/transaction/result/:order_id" element={<AuthTransaction/>}/>
         </Routes>
+        </CleanHtml>
       </Router>
     </Context.Provider>
   )
