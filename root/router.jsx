@@ -16,11 +16,13 @@ import Register from "../src/pages/user/register"
 import Confirm from "../middleware/confirm"
 import checkvxsrf from "../service/checkvxsrf"
 import History from "../src/pages/user/history"
+import changeclass from "../utils/randomize"
 import AuthTransaction from "../middleware/authTransaction"
 
 const Routing = () => {
 
   const axtoken = axios.create()
+  const path = location.pathname;
   const history = localStorage.getItem('status')
   
   const [vid, setVid] = useState('')
@@ -65,6 +67,8 @@ const Routing = () => {
       .catch((error) => {console.log(error.message)})
       .finally(() => {context.setLoading(false)})
   }, [])
+
+  useEffect(() => { changeclass() } ,[path])
 
   const context = {vid, img, email, username, status, token, setToken, loading, setLoading}
 
