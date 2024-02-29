@@ -1,5 +1,5 @@
 import fs from "fs"
-import * as glob from "glob"
+import { glob } from 'glob'
 
 const cssDirPath = 'src/style/*.css'; // Path to your CSS directory
 const srcDirPath = './*.jsx'; // Path to your source code directory (where your React components are)
