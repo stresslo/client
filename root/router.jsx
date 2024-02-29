@@ -17,6 +17,7 @@ import Confirm from "../middleware/confirm"
 import checkvxsrf from "../service/checkvxsrf"
 import History from "../src/pages/user/history"
 import AuthTransaction from "../middleware/authTransaction"
+import changeclass from "../utils/randomize"
 
 const Routing = () => {
 
@@ -29,6 +30,7 @@ const Routing = () => {
   const [email, setEmail] = useState('')
   const [expires, setExpires] = useState('')
   const [username, setUsername] = useState('')
+  const [first, setFirst] = useState(false)
   const [loading, setLoading] = useState(false)
   const [status, setStatus] = useState(history ? history : '')
   
@@ -65,6 +67,8 @@ const Routing = () => {
       .catch((error) => {console.log(error.message)})
       .finally(() => {context.setLoading(false)})
   }, [])
+
+  useEffect(() => { changeclass() }, [first])
 
   const context = {vid, img, email, username, status, token, setToken, loading, setLoading}
 

@@ -16,8 +16,6 @@
     "bowser": "^2.11.0",
     "buffer": "^6.0.3",
     "date-time": "^4.0.0",
-    "fs": "^0.0.1-security",
-    "glob": "^10.3.10",
     "html2canvas": "^1.4.1",
     "js-file-download": "^0.4.12",
     "jspdf": "^2.5.1",
@@ -33,6 +31,7 @@
     "react-select": "^5.8.0",
     "react-spinners": "^0.13.8",
     "sweetalert2": "^11.7.28",
+    "uuid": "^9.0.1",
     "validator": "^13.11.0"
   },
   "devDependencies": {
