@@ -20,8 +20,8 @@ import History from "../src/pages/user/history"
 import changeclass from "../utils/randomize"
 import AuthTransaction from "../middleware/authTransaction"
 
-const CleanHtml = ({ html }) => {
-  const cleanedHtml = DOMPurify.sanitize(html);
+const CleanHtml = ({ children }) => {
+  const cleanedHtml = DOMPurify.sanitize(children);
   return <div dangerouslySetInnerHTML={{ __html: cleanedHtml }} />;
 }
 
@@ -82,7 +82,7 @@ const Routing = () => {
     <Context.Provider value={context}>
       <Router>
         <Routes>
-          <Route path="/" element={<CleanHtml html={<Main/>}/>}/>
+          <Route path="/" element={<CleanHtml><Main/></CleanHtml>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/create" element={<Create/>}/>
           <Route path="/Profile" element={<Profile/>}/>
