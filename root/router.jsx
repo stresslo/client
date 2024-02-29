@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import { useEffect, useState } from "react"
 import jwt_decode from "jwt-decode"
+import DOMPurify from 'dompurify';
 import axios from "axios"
 
 import Main from "../src/pages/user/main"
@@ -18,6 +19,11 @@ import checkvxsrf from "../service/checkvxsrf"
 import History from "../src/pages/user/history"
 import changeclass from "../utils/randomize"
 import AuthTransaction from "../middleware/authTransaction"
+
+const CleanHtml = ({ html }) => {
+  const cleanedHtml = DOMPurify.sanitize(html);
+  return <div dangerouslySetInnerHTML={{ __html: cleanedHtml }} />;
+}
 
 const Routing = () => {
 
@@ -76,7 +82,7 @@ const Routing = () => {
     <Context.Provider value={context}>
       <Router>
         <Routes>
-          <Route path="/" element={<Main/>}/>
+          <Route path="/" element={<CleanHtml html={<Main/>}/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/create" element={<Create/>}/>
           <Route path="/Profile" element={<Profile/>}/>
