@@ -17,6 +17,7 @@ const Details = () => {
     const [i, seti] = useState(location.state)
     const [loading, setLoading] = useState(false)
     const date = moment(i.createdAt.slice(0, 10)).format('MMM DD, YYYY')
+    console.log(location.state)
 
     const getContributor = async () => {
         try {
