@@ -154,8 +154,8 @@ const Order = () => {
                   <div>{email}</div>
                 </div>
                 <div style={{display: 'flex', justifyContent: 'space-between'}}>
-                  <div>Phone Number : </div>
-                  <div>{phone}</div>
+                  <div>Product ID : </div>
+                  <div>{vid}</div>
                 </div>
               </div>
               <div style={{margin: '10px 0' , width: '100%', height: '2px', backgroundColor: 'var(--primary)'}}/>
