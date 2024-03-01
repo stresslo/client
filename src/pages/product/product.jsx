@@ -55,7 +55,7 @@ const Product = () => {
                                             <div className='product-desc'>{i.desc.length >= 40 ? i.desc.substring(0,40) + '...' : i.desc}</div>
                                             <div className='wrapdet' style={{ position: 'unset', marginTop: '15px', marginLeft: '5px', gap: '5px' }}>
                                                 <div style={{ backgroundColor: 'var(--background)', width: '95px', height: '30px' }}>{i.tech}</div>
-                                                {(i.price == 0) && <div style={{ backgroundColor: 'var(--background)', width: '95px', height: '30px', color: 'var(--green)' }}>Free</div>}
+                                                <div style={{ backgroundColor: 'var(--background)', width: '95px', height: '30px', color: i.price == 0 ? 'var(--green)' : 'var(--oren)' }}>{i.price == 0 ? 'Free' : 'Paid'}</div>
                                              </div>
                                         </div>
                                         <div className='wrapped-details'>
