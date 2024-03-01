@@ -100,11 +100,11 @@ const Order = () => {
               <div style={{margin: '5px', marginTop: '10px', fontFamily: 'var(--quicksand)', fontSize: '1rem', color: '#aaa', lineHeight : '35px'}}>
                 <div style={{display: 'flex', justifyContent: 'space-between'}}>
                   <div>Name : </div>
-                  <div style={!name && {color: 'var(--oren)', cursor: 'pointer'}} onClick={() => !name && navigate('/login')}>{name || "Login"}</div>
+                  <div style={{color: 'var(--green)'}} onClick={() => !name && navigate('/login')}>{name || "Login"}</div>
                 </div>
                 <div style={{display: 'flex', justifyContent: 'space-between'}}>
                   <div>Email Address : </div>
-                  <div style={!name && {color: 'var(--oren)', cursor: 'pointer'}} onClick={() => !name && navigate('/login')}>{email || "Login"}</div>
+                  <div style={{color: 'var(--green)'}} onClick={() => !name && navigate('/login')}>{email || "Login"}</div>
                 </div>
                 <div style={{display: 'flex', justifyContent: 'space-between'}}>
                   <div>Product ID : </div>
