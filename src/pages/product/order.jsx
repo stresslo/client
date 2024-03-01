@@ -143,15 +143,15 @@ const Order = () => {
               <div style={{margin: '5px', marginTop: '10px'}}></div>
             </div>
             <div>
-              <div className='itext' style={{color: 'var(--yellow)'}}>Order Details : </div>
+              <div className='itext' style={{color: 'var(--yellow)'}}>Shipping Details</div>
               <div style={{margin: '5px', marginTop: '10px', fontFamily: 'var(--quicksand)', fontSize: '1rem', color: '#aaa', lineHeight : '35px'}}>
                 <div style={{display: 'flex', justifyContent: 'space-between'}}>
                   <div>Name : </div>
-                  <div onClick={() => !name && navigate('/login')}>{name || "please login"}</div>
+                  <div style={!name && {color: 'var(--green)', cursor: 'pointer'}} onClick={() => !name && navigate('/login')}>{name || "Login"}</div>
                 </div>
                 <div style={{display: 'flex', justifyContent: 'space-between'}}>
                   <div>Email Address : </div>
-                  <div onClick={() => !name && navigate('/login')}>{email || "please login"}</div>
+                  <div style={!name && {color: 'var(--green)', cursor: 'pointer'}} onClick={() => !name && navigate('/login')}>{email || "Login"}</div>
                 </div>
                 <div style={{display: 'flex', justifyContent: 'space-between'}}>
                   <div>Product ID : </div>
