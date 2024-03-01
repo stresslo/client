@@ -41,10 +41,10 @@ const Store = () => {
             <div className='product-page' style={{paddingBottom: '0'}}>
                 <div style={{width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: '10px', marginBottom: '50px'}}>
                     <div className='itext' style={{color: 'var(--yellow)'}}>Status</div>
-                    <div style={{marginTop: '5px', width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '20px', fontFamily: 'var(--quicksand)'}}>
-                        <div className='button' onClick={() => setStatus('active')} style={{backgroundColor: 'var(--primary)', height: '35px', color: 'var(--green)', fontSize: '0.9rem'}}>Active</div>
-                        <div className='button' onClick={() => setStatus('pending')} style={{backgroundColor: 'var(--primary)', height: '35px', color: 'var(--blue)', fontSize: '0.9rem'}}>Pending</div>
-                        <div className='button' onClick={() => setStatus('rejected')} style={{backgroundColor: 'var(--primary)', height: '35px', color: 'var(--oren)', fontSize: '0.9rem'}}>Rejected</div>
+                    <div style={{marginTop: '5px', width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '15px', fontFamily: 'var(--quicksand)'}}>
+                        <div className='button' onClick={() => setStatus('active')} style={{backgroundColor: 'var(--primary)', height: '35px', color: 'var(--green)', fontSize: '0.8rem'}}>Active</div>
+                        <div className='button' onClick={() => setStatus('pending')} style={{backgroundColor: 'var(--primary)', height: '35px', color: 'var(--blue)', fontSize: '0.8rem'}}>Pending</div>
+                        <div className='button' onClick={() => setStatus('rejected')} style={{backgroundColor: 'var(--primary)', height: '35px', color: 'var(--oren)', fontSize: '0.8rem'}}>Rejected</div>
                     </div>
                 </div>
                 <div className='product-container' style={{flexDirection: 'column-reverse'}}>
