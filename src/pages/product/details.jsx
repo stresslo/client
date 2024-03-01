@@ -77,7 +77,7 @@ const Details = () => {
                             <div className='wrapped-text'>
                                 <div className='wrapped-details' style={{margin: 0, paddingTop: '0', display: 'flex',alignItems: 'unset', flexDirection: "column", gap: '10px'}}>
                                     <div className="product-desc-product"><span>VID</span>          : {i.vid}</div>
-                                    <div className="product-desc-product"><span>Price</span>        : {convertPrice(i.price)}</div>
+                                    <div className="product-desc-product"><span>Price</span>        : {i.price == 0 ? 'Free' : convertPrice(i.price)}</div>
                                     <div className="product-desc-product"><span>Category</span>     : {i.ctg}</div>
                                     {i.ctg == 'web' && <div className="product-desc-product"><span>Framework</span>  : {i.tech} {i.tech.toLowerCase().includes('html') ? "" : 'JS'}</div>}
                                     <div className="product-desc-product"><span>Date created</span>  : {date}</div>
