@@ -151,14 +151,15 @@ const Order = () => {
                 <div>Email : {email}</div>
                 <div>Phone : {phone}</div>
               </div>
+              <div style={{margin: '5px 0' , width: '100%', height: '1.2px', backgroundColor: '#aaa'}}/>
               <div style={{margin: '5px', fontFamily: 'var(--quicksand)', fontSize: '1rem', color: 'var(--blue)', lineHeight : '30px'}}>
                 <div>Product ID : {vid}</div>
                 <div>Quantity : 1</div>
               </div>
+              <div style={{margin: '5px 0' , width: '100%', height: '1.2px', backgroundColor: '#aaa'}}/>
               <div style={{margin: '5px', fontFamily: 'var(--quicksand)', fontSize: '1rem', color: 'var(--blue)', lineHeight : '30px'}}>
                 <div>Price : {convertPrice(i.price)}</div>
                 <div>TAX : {convertPrice(i.price * 0.11)}</div>
-                <div style={{width: '100%', height: '1.2px', backgroundColor: 'var(--yellow)'}}/>
                 <div>Total : {convertPrice(i.price * 0.11 + i.price)}</div>
               </div>
             </div>
