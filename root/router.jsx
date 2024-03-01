@@ -1,7 +1,7 @@
+import axios from "axios"
+import jwt_decode from "jwt-decode"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import { useEffect, useState } from "react"
-import jwt_decode from "jwt-decode"
-import axios from "axios"
 
 import Main from "../src/pages/user/main"
 import Login from "../src/pages/user/login"
