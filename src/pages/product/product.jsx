@@ -13,8 +13,24 @@ const Product = () => {
     const { ctg } = useParams()
     const [ page, setPage ] = useState(1)
     const [ data, setData ] = useState([])
+    const [ value, setValue] = useState('')
     const [ status, setStatus ] = useState(200)
     const [ loading, setLoading ] = useState(false)
+
+    const searchProduct = async () => {
+        try {
+            if (value && value.length >= 3) {
+                setLoading(true)
+                const response = await axios.get(`${import.meta.env.VITE_API}/product/search/${value}/${page}`)
+                setData(response.data)
+            }
+        } catch (error) {
+            setValue('')
+            return false;
+        } finally {
+            setLoading(false)
+        }
+    }
     
     const getProducts = async () => {
         try {
@@ -29,7 +45,7 @@ const Product = () => {
         finally { setLoading(false) }
     }
 
-    useEffect(() => { getProducts() }, [page])
+    useEffect(() => { !value && getProducts() }, [page, value])
     if (status !== 200) return <Handle status={status}/> 
 
     return (
@@ -41,8 +57,8 @@ const Product = () => {
                 </div>
             <div className='form' style={{marginTop: '70px', marginBottom: '0', paddingBottom: '0'}}>
                 <div style={{width: '100%', display: 'flex', alignItems: 'center', position: 'relative', gap: '15px'}}>
-                    <input type="text" placeholder='search product' className='search' style={{width: '100%'}}/>
-                    <div className='button' style={{width: '90px', height: '45px', backgroundColor: 'var(--primary)'}}>
+                    <input type="text" onChange={(e) => setValue(e.target.value)} placeholder='search product' className='search' style={{width: '100%'}}/>
+                    <div onClick={() => searchProduct()} className='button' style={{width: '110px', height: '45px', backgroundColor: 'var(--primary)'}}>
                         <div className='fa-solid fa-search fa-xl' style={{color: 'var(--text)'}}/>
                     </div>
                 </div>
