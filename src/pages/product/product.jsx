@@ -80,7 +80,7 @@ const Product = () => {
                                 <div className='fa-solid fa-caret-down fa-lg' style={{color: 'var(--blue)'}}></div>
                             </div>
                         </div>
-                        <div onClick={() => search.show()} style={{display: 'flex', alignItems: 'center', gap: '5px', cursor: 'pointer'}}>
+                        <div onClick={() => search.show()} style={{display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer'}}>
                             <div className='fa-solid fa-search fa-lg' style={{color: 'var(--text)'}}/>
                             <div style={window.innerWidth >= 500 ? {color: 'var(--text)', fontSize: '1rem', fontFamily: 'var(--poppins)'} : { display: 'none' }}>Search</div>
                         </div>
