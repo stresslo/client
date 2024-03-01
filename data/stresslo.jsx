@@ -71,40 +71,6 @@ const stresslo =
             },
         ]
     },
-    {
-        ctg : "How to download on",
-        data : 
-        [
-            {
-                title : "Find assets",
-                text : "find the assets what you need.",
-                img : "img/find.png",
-                color : "var(--yellow)",
-                pricing : ["search"],
-            },
-            {
-                title : "Complete the form",
-                text : "complete with valid data",
-                img : "img/form2.png",
-                color : "#FF4B63",
-                pricing : ["email", "phone"]
-            },
-            {
-                title : "Payment method",
-                text : "choose method and pay the amount.",
-                img : "img/pay.png",
-                color : "#FAEDCA",
-                pricing : ["pay"]
-            },
-            {
-                title : "Get the file",
-                text : "finish, file will downloaded.",
-                img : "img/df.png",
-                color : "#30D5C8",
-                pricing : ["finish"]
-            },
-        ]
-    }
 ]
 
 export default stresslo

@@ -31,7 +31,7 @@ const Sidebar = () => {
                     </NavLink>
                     <NavLink className="sidelist" to="/about">
                         <i className="fa-solid fa-circle-info fa-xl"></i>
-                        <div className="sidetext">About</div>
+                        <div className="sidetext">Introduction</div>
                     </NavLink>
                     {(context.status == 'contributor') && 
                         <NavLink className="sidelist" to="/create">

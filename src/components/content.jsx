@@ -90,7 +90,7 @@ const Content = ({data, setData, setCount}) => {
                         {i.data.map((p, l) => 
                             <div className="sbox" key={l} onClick={() => {p.ctg && navigate(`/product/${p.ctg}`)}} style={{borderRight : `2px solid ${p.color}`}}>
                                 <div className="image-container" style={{backgroundColor : `${p.color}`}}>
-                                    {p.img && <LazyLoadImage src={p.img} className="simg" style={{width: '60px'}} effect="blur" alt="service logo"/>}
+                                    {p.img && <LazyLoadImage src={p.img} className="simg" style={{width: '60px'}} effect="blur" alt="stresslo service logo"/>}
                                 </div>
                                 <div className="text-container">
                                     <h3>{p.title}</h3>
@@ -112,7 +112,7 @@ const Content = ({data, setData, setCount}) => {
                         {i.data.map((p, l) => 
                             <div className="sbox" key={l} style={{borderRight : `2px solid ${p.color}`}}>
                                 <div className="image-container" style={{backgroundColor : `${p.color}`}}>
-                                    {p.img && <LazyLoadImage src={p.img} className="simg" style={{width: '50px'}} effect="blur" alt="about logo"/>}
+                                    {p.img && <LazyLoadImage src={p.img} className="simg" style={{width: '50px'}} effect="blur" alt="stresslo about logo"/>}
                                 </div>
                                 <div className="text-container">
                                     <h3>{p.title}</h3>
@@ -150,7 +150,7 @@ const Content = ({data, setData, setCount}) => {
                             {i.data.map((p, l) => 
                                 <div className="sbox" key={l} onClick={() => navigate(`/product/${p.ctg}`)}  style={{borderRight : `2px solid ${p.color}`}}>
                                     <div className="image-container" style={{backgroundColor : `${p.color}`}}>
-                                        {p.img && <LazyLoadImage src={p.img} className="simg" effect="blur"/>}
+                                        {p.img && <LazyLoadImage src={p.img} alt="stresslo product logo" className="simg" effect="blur"/>}
                                     </div>
                                     <div className="text-container">
                                         <h3>{p.title}</h3>
