@@ -18,7 +18,7 @@ const Store = () => {
     const [page, setPage] = useState(1)
 
     const endpoint = () => {
-        const url = `${import.meta.env.VITE_API}`
+        let url = `${import.meta.env.VITE_API}`
         if (status == 'active') url += `/products/contributor/${page}`
         if (status == 'pending') url += `/products/contributor/pending/${page}`
         if (status == 'active') url += `/products/contributor/rejected/${page}`
