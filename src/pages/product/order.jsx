@@ -52,11 +52,15 @@ const Order = () => {
         { headers : { "xsrf-token" : vxsrf } })
         localStorage.setItem('transaction_mode', "true")
         const token = response.data.transactionToken
+        const orderID = response.data.order_id
         if (token) {
           window.snap.pay(token, {
             onSuccess: (result) => { window.location.href = `/transaction/result/${result.order_id}`},
             onPending : () => {window.location.href = '/'}
         })
+        if (orderID) {
+          navigate(`/transaction/result/${orderID}`)
+        }
         }
       } 
       catch (error) {
