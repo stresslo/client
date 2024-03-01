@@ -33,15 +33,18 @@ const Product = () => {
         }
     }
 
-    const handleControl = () => {
-        const control = document.getElementById('control')
-        const find = document.getElementById('find')
-        if (control.style.display = 'flex') {
-            control.style.display = 'none'
+    const search = {
+        show : () => {
+            const control = document.getElementById('control')
+            const find = document.getElementById('find')
             find.style.display = 'flex'
-        } else {
-            find.style.display = 'none'
+            control.style.display = 'none'
+        },
+        hide : () => {
+            const control = document.getElementById('control')
+            const find = document.getElementById('find')
             control.style.display = 'flex'
+            find.style.display = 'none'
         }
     }
     
@@ -85,7 +88,7 @@ const Product = () => {
                                 <div className='fa-solid fa-caret-down fa-lg' style={{color: 'var(--blue)'}}></div>
                             </div>
                         </div>
-                        <div onClick={() => handleControl()} style={{display: 'flex', alignItems: 'center', gap: '5px', cursor: 'pointer'}}>
+                        <div onClick={() => search.show()} style={{display: 'flex', alignItems: 'center', gap: '5px', cursor: 'pointer'}}>
                             <div className='fa-solid fa-search fa-lg' style={{color: 'var(--text)'}}/>
                             <div style={{color: 'var(--text)', fontSize: '1rem', fontFamily: 'var(--poppins)'}}>Search</div>
                         </div>
@@ -94,7 +97,7 @@ const Product = () => {
                 <form id='find' className='form' style={{margin: 'auto', display: 'none'}}>
                     <div style={{width: '100%', display: 'flex', alignItems: 'center', position: 'relative', gap: '5px'}}>
                         <input type="text" onChange={(e) => setValue(e.target.value)} placeholder='search product' className='search' style={{width: '100%', backgroundColor: 'unset', boxShadow: 'unset', border: '2px solid var(--primary)'}}/>
-                        <div onClick={() => handleControl()} className='button' style={{width: '80px', height: '45px', backgroundColor: 'var(--primary)'}}>
+                        <div onClick={() => search.hide()} className='button' style={{width: '80px', height: '45px', backgroundColor: 'var(--primary)'}}>
                             <div className='fa-solid fa-close fa-xl' style={{color: 'var(--text)'}}/>
                         </div>
                     </div>
