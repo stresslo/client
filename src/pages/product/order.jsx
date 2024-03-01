@@ -140,26 +140,30 @@ const Order = () => {
             <div className='input-form' >
               <div>
                 <div>Phone Number :</div>
-                <input className='productinput' onClick={() => getWarning()} value={phone} type="text" placeholder='(Optional)' onChange={(e) => setPhone(e.target.value)} required/>
+                <input className='productinput' value={phone} type="text" placeholder='(Optional)' onChange={(e) => setPhone(e.target.value)} required/>
               </div>
               <div className='button-max' onClick={() => context.token ? showPlaceOrder() : getWarning()} style={(name && email) ? { backgroundColor: 'var(--yellow)' } : { backgroundColor: "#aaa" }}>Checkout</div>
             </div>
             <div>
               <div className='itext' style={{color: 'var(--yellow)'}}>Order Details : </div>
+              <div style={{margin: '10px 0' , width: '100%', height: '1.5px', backgroundColor: 'var(--primary)'}}/>
               <div style={{margin: '5px', fontFamily: 'var(--quicksand)', fontSize: '1rem', color: 'var(--blue)', lineHeight : '30px'}}>
                 <div>Name : {name}</div>
                 <div>Email : {email}</div>
                 <div>Phone : {phone}</div>
               </div>
-              <div style={{margin: '5px 0' , width: '100%', height: '1.2px', backgroundColor: '#aaa'}}/>
-              <div style={{margin: '5px', fontFamily: 'var(--quicksand)', fontSize: '1rem', color: 'var(--blue)', lineHeight : '30px'}}>
+              <div style={{margin: '10px 0' , width: '100%', height: '1.5px', backgroundColor: 'var(--primary)'}}/>
+              <div style={{margin: '5px', fontFamily: 'var(--quicksand)', fontSize: '1rem', color: 'var(--text)', lineHeight : '30px'}}>
                 <div>Product ID : {vid}</div>
                 <div>Quantity : 1</div>
               </div>
-              <div style={{margin: '5px 0' , width: '100%', height: '1.2px', backgroundColor: '#aaa'}}/>
-              <div style={{margin: '5px', fontFamily: 'var(--quicksand)', fontSize: '1rem', color: 'var(--blue)', lineHeight : '30px'}}>
+              <div style={{margin: '10px 0' , width: '100%', height: '1.5px', backgroundColor: 'var(--primary)'}}/>
+              <div style={{margin: '5px', fontFamily: 'var(--quicksand)', fontSize: '1rem', color: 'var(--text)', lineHeight : '30px'}}>
                 <div>Price : {convertPrice(i.price)}</div>
                 <div>TAX : {convertPrice(i.price * 0.11)}</div>
+              </div>
+              <div style={{margin: '10px 0' , width: '100%', height: '1.5px', backgroundColor: 'var(--primary)'}}/>
+              <div style={{margin: '5px', fontFamily: 'var(--quicksand)', fontSize: '1rem', color: 'var(--text)', lineHeight : '30px'}}>
                 <div>Total : {convertPrice(i.price * 0.11 + i.price)}</div>
               </div>
             </div>
