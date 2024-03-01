@@ -64,8 +64,10 @@ const Product = () => {
     }
 
     useEffect(() => { 
-        search.show()
-        searchProduct()
+        if (value) {
+            search.show()
+            searchProduct()
+        }
     }, [])
     useEffect(() => { localStorage.setItem('search', value) }, [value])
     useEffect(() => { !value && getProducts() }, [page, value])
