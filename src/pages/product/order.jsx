@@ -137,21 +137,20 @@ const Order = () => {
             <div className='snap-container'></div>
           </div>
           <div className='form'>
-            <div>
-              <div className='itext' style={{color: 'var(--yellow)'}}>Transaction Details : </div>
-              <div style={{margin: '10px 5px', fontFamily: 'var(--quicksand)', fontSize: '1rem', color: 'var(--blue)'}}>
-                <div>Product ID : {vid}</div>
-                <div>Customer : {name}</div>
-                <div>Email : {email}</div>
-                <div>Phone : {phone}</div>
-              </div>
-            </div>
             <div className='input-form' >
               <div>
                 <div>Phone Number :</div>
                 <input className='productinput' onClick={() => getWarning()} value={phone} type="text" placeholder='(Optional)' onChange={(e) => setPhone(e.target.value)} required/>
               </div>
               <div className='button-max' onClick={() => context.token ? showPlaceOrder() : getWarning()} style={(name && email) ? { backgroundColor: 'var(--yellow)' } : { backgroundColor: "#aaa" }}>Checkout</div>
+            </div>
+            <div>
+              <div className='itext' style={{color: 'var(--yellow)'}}>Order Details : </div>
+              <div style={{margin: '10px 5px', fontFamily: 'var(--quicksand)', fontSize: '1rem', color: 'var(--blue)', lineHeight : '27px'}}>
+                <div>Name : {name}</div>
+                <div>Email : {email}</div>
+                <div>Phone : {phone}</div>
+              </div>
             </div>
             <div className='prev-form'>
               <div className='itext'>Product</div>
