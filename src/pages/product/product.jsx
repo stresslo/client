@@ -39,12 +39,10 @@ const Product = () => {
                     <div className="fa-solid fa-arrow-left fa-xl active"></div>
                     <div className="nav-logo"><h1>stresslo</h1></div>
                 </div>
-            <div className='form' style={{marginTop: '50px', marginBottom: '0', paddingBottom: '0'}}>
-                <div style={{width: '100%', display: 'flex', justifyContent: 'space-between', gap:'10px', alignItems: 'center', position: 'relative'}}>
-                    <div style={{display: 'flex', alignItems: 'center', gap: '15px'}}>
-                        <input type="text" className='search'/>
-                        <div className='fa-solid fa-search fa-xl' style={{color: 'var(--yellow)', cursor: 'pointer'}}/>
-                    </div>
+            <div className='form' style={{marginTop: '70px', marginBottom: '0', paddingBottom: '0'}}>
+                <div style={{width: '100%', display: 'flex', alignItems: 'center', position: 'relative', gap: '10px'}}>
+                    <input type="text" className='search' style={{width: '100%'}}/>
+                    <div className='fa-solid fa-search fa-xl' style={{color: 'var(--yellow)', cursor: 'pointer'}}/>
                 </div>
             </div>
             <div className='product-page' style={{paddingBottom: '0'}}>
