@@ -39,11 +39,9 @@ const Product = () => {
         if (control.style.display = 'flex') {
             control.style.display = 'none'
             find.style.display = 'flex'
-            return;
-        } else if (find.style.display = 'flex') {
+        } else {
             find.style.display = 'none'
             control.style.display = 'flex'
-            return;
         }
     }
     
