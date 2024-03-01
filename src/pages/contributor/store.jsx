@@ -38,7 +38,7 @@ const Store = () => {
     return (
         <div className='page-max'>
             <Topback/>
-            <div className='go' style={{position: 'absolute', top: '20px', right: '40px', color: 'var(--yellow)', cursor: 'pointer'}}><div className='fa-solid fa-circle-plus fa-2xl'/></div>
+            <div className='go' style={{position: 'fixed', bottom: '20px', right: '20px', color: 'var(--yellow)', cursor: 'pointer'}}><div className='fa-solid fa-circle-plus fa-2xl'/></div>
             <div className='product-page' style={{paddingBottom: '0'}}>
                 <div style={{width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: '10px', marginBottom: '50px'}}>
                     <div className='itext' style={{color: 'var(--yellow)'}}>Status</div>
