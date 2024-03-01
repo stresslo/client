@@ -40,12 +40,12 @@ const Product = () => {
                     <div className="nav-logo"><h1>stresslo</h1></div>
                 </div>
             <div className='form' style={{marginTop: '70px', marginBottom: '0', paddingBottom: '0'}}>
-                <div style={{width: '100%', display: 'flex', alignItems: 'center', position: 'relative', gap: '10px'}}>
+                <div style={{width: '100%', display: 'flex', alignItems: 'center', position: 'relative', gap: '20px'}}>
                     <input type="text" className='search' style={{width: '100%'}}/>
                     <div className='fa-solid fa-search fa-xl' style={{color: 'var(--yellow)', cursor: 'pointer'}}/>
                 </div>
             </div>
-            <div className='product-page' style={{paddingBottom: '0'}}>
+            <div className='product-page' style={{paddingBottom: '0', paddingTop: '0'}}>
                 <div className='product-container' style={{flexDirection: 'column-reverse'}}>
                     {(loading) ? (
                     <Swaload.Product/>
