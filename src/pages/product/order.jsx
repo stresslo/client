@@ -137,7 +137,7 @@ const Order = () => {
             <div className='snap-container'></div>
           </div>
           <div className='form'>
-          <div className='button-max' onClick={() => context.token ? showPlaceOrder() : getWarning()} style={(name && email) ? { backgroundColor: 'var(--yellow)', marginTop: '20px' } : { backgroundColor: "#aaa", marginTop: '20px' }}>Checkout</div>
+          <div className='button-max' onClick={() => context.token ? showPlaceOrder() : getWarning()} style={(name && email) ? { backgroundColor: 'var(--yellow)', marginTop: '30px' } : { backgroundColor: "#aaa", marginTop: '30px' }}>Checkout</div>
             <div style={{marginTop: '10px'}}>
               <div className='itext' style={{color: 'var(--yellow)'}}>Order Details : </div>
               <div style={{margin: '5px', marginTop: '10px', fontFamily: 'var(--quicksand)', fontSize: '1rem', color: 'var(--text)', lineHeight : '30px'}}>
@@ -168,7 +168,7 @@ const Order = () => {
               <div style={{margin: '10px 0' , width: '100%', height: '2px', backgroundColor: 'var(--primary)'}}/>
               <div style={{margin: '5px', fontFamily: 'var(--quicksand)', fontSize: '1rem', color: 'var(--text)', lineHeight : '30px'}}>
                 <div style={{display: 'flex', justifyContent: 'space-between'}}>
-                  <div>Total : </div>
+                  <div style={{fontSize: '2rem'}}><span>Total :</span> </div>
                   <div>{convertPrice(i.price * 0.11 + i.price)}</div>
                 </div>
               </div>
