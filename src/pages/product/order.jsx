@@ -100,11 +100,7 @@ const Order = () => {
             <div className='snap-container'></div>
           </div>
           <div className='form'>
-          <div className='button-max' onClick={() => context.token ? checkout() : getWarning()} style={(name && email) ? { backgroundColor: 'var(--yellow)', marginTop: '30px' } : { backgroundColor: "#aaa", marginTop: '30px' }}>Checkout</div>
-            <div style={{marginTop: '40px'}}>
-              <div className='itext' style={{color: 'var(--yellow)'}}>Payment Method</div>
-              <div style={{margin: '5px', marginTop: '10px'}}></div>
-            </div>
+          <div className='button-max' onClick={() => context.token ? checkout() : getWarning()} style={(name && email) ? { backgroundColor: 'var(--yellow)', marginTop: '30px' } : { backgroundColor: "#aaa", marginTop: '30px' }}>Payment Method</div>
             <div>
               <div className='itext' style={{color: 'var(--yellow)'}}>Shipping Details</div>
               <div style={{margin: '5px', marginTop: '10px', fontFamily: 'var(--quicksand)', fontSize: '1rem', color: '#aaa', lineHeight : '35px'}}>
