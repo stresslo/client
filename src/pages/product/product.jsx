@@ -21,7 +21,7 @@ const Product = () => {
         try {
             if (value && value.length >= 3) {
                 setLoading(true)
-                const response = await axios.get(`${import.meta.env.VITE_API}/product/search/${value}/${page}`)
+                const response = await axios.get(`${import.meta.env.VITE_API}/search/product/${value}/${page}`)
                 setData(response.data)
             }
         } catch (error) {
