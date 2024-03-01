@@ -3,7 +3,7 @@ import getvxsrf from "../service/getvxsrf"
 import swalert from "../utils/swalert"
 import Loading from "../utils/loading"
 import { useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const Confirm = {
     user : () => {
