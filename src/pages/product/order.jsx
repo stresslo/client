@@ -53,7 +53,8 @@ const Order = () => {
         link.click()
         document.body.removeChild(link)
       } catch (error) {
-        swalert(error.response.data, 'error', 3000)
+        error.response && swalert(error.response.data, 'error', 3000)
+        return false;
       } finally {
         setLoading(false)
       }
