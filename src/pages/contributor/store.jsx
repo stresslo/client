@@ -13,6 +13,7 @@ const Store = () => {
     const navigate = useNavigate()
     const context = useContext(Context)
     const [loading, setLoading] = useState(false)
+    const [status, setStatus] = useState('active')
     const [data, setData] = useState([])
     const [page, setPage] = useState(1)
 
@@ -31,7 +32,7 @@ const Store = () => {
             <Topback/>
             <div className='product-page' style={{paddingBottom: '0'}}>
                 <div className='product-container' style={{flexDirection: 'column-reverse'}}>
-                    <input type="text" className='search'/>
+                    <div className='itext' style={{color: 'var(--yellow)'}}>Status</div>
                     {(loading) ? (
                     <Swaload.Product/>
                     ) : (
@@ -71,14 +72,10 @@ const Store = () => {
                     </div>
                 :
                 <div style={{ display: 'flex', gap: '20px', marginTop: '45px', alignItems: 'center', justifyContent: 'center' }}>
-                        {(page === 1) ? 
-                        <div className='desc' style={{fontFamily: 'var(--quicksand)',fontSize: '0.85rem', color: 'var(--text)'}}>- already displays your products -</div>
-                        :
                         <div className='button' onClick={() => setPage(page -1)} style={{borderRadius: '10px', height : '35px', backgroundColor: 'var(--primary)', color: 'var(--blue)'}}>
                             <h3 style={{fontFamily: 'var(--quicksand)', fontSize: '1.2rem', color: 'var(--blue)'}}>{page -1}</h3>
                             <div className='fa-solid fa-left-long fa-xl'/>
                         </div>
-                        }
                     </div>
                 }
             </div>

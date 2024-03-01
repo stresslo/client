@@ -136,7 +136,7 @@ const Content = ({data, setData, setCount}) => {
             {(path == '/products') && 
             <div>
                 <div className="developer">
-                <img src="/img/cont.webp" alt="" className="dimasputra"/> 
+                <img src="/img/cont.webp" alt="stresslo contributor" className="dimasputra"/> 
                 <div className="text-wrapper">
                 <h1>Become a contributor</h1>
                 <div>Sell your best work</div>
