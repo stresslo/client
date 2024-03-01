@@ -18,6 +18,25 @@ const Details = () => {
     const [loading, setLoading] = useState(false)
     const date = moment(i.createdAt.slice(0, 10)).format('MMM DD, YYYY')
 
+    const freeDonwload = async () => {
+        try {
+          setLoading(true)
+          const response = await axios.get(`${import.meta.env.VITE_API}/product/free/donwload/${vid}`)
+          const url = response.data.file;
+          const link = document.createElement('a');
+          link.href = url;
+          link.setAttribute('download', `${response.data.name}`);
+          document.body.appendChild(link);
+          link.click()
+          document.body.removeChild(link)
+        } catch (error) {
+          error.response && swalert(error.response.data, 'error', 3000)
+          return false;
+        } finally {
+          setLoading(false)
+        }
+    }
+
     const getContributor = async () => {
         try {
             setLoading(true)
@@ -104,10 +123,14 @@ const Details = () => {
                                 </div>
                             </div>
                         </div>
+                        {(i.price == 0) ?
+                        <div className='button-max' onClick={() =>  freeDonwload() } style={{marginTop : '30px', backgroundColor: 'var(--yellow)'}}>Free Download</div>
+                        :
                         <div className="button-max" onClick={() => navigate(`/order/${vid}`, {state: i})} style={{ marginTop: '30px', backgroundColor: 'var(--yellow)' }}>
                             <div className="i fa-solid fa-cart-shopping fa-xl" style={{color: 'var(--background)'}}/>
                             Order now
                         </div>
+                        }
                         </>
                 </div>
             </div>

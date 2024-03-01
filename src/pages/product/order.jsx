@@ -40,25 +40,6 @@ const Order = () => {
           setLoading(false)
         }
     }
-
-    const freeDonwload = async () => {
-      try {
-        setLoading(true)
-        const response = await axios.get(`${import.meta.env.VITE_API}/product/free/donwload/${vid}`)
-        const url = response.data.file;
-        const link = document.createElement('a');
-        link.href = url;
-        link.setAttribute('download', `${response.data.name}`);
-        document.body.appendChild(link);
-        link.click()
-        document.body.removeChild(link)
-      } catch (error) {
-        error.response && swalert(error.response.data, 'error', 3000)
-        return false;
-      } finally {
-        setLoading(false)
-      }
-    }
     
     const checkout = async () => {
       try {
@@ -93,9 +74,9 @@ const Order = () => {
     }
 
     useEffect(() => {
-      if (!i) { getProducts() }
-      snap()
       getvxsrf().then((result) => setVxsrf(result))
+      snap()
+      if (!i) { getProducts() }
     }, [])
 
     useEffect(() => {
@@ -113,11 +94,7 @@ const Order = () => {
             <div className='snap-container'></div>
           </div>
           <div className='form'>
-          {(i.price == 0) ? 
-          <div className='button-max' onClick={() => context.token ? freeDonwload() : getWarning()} style={(name && email) ? { backgroundColor: 'var(--yellow)', marginTop: '30px' } : { backgroundColor: "#aaa", marginTop: '30px' }}>Free Donwload</div>
-          : 
           <div className='button-max' onClick={() => context.token ? checkout() : getWarning()} style={(name && email) ? { backgroundColor: 'var(--yellow)', marginTop: '30px' } : { backgroundColor: "#aaa", marginTop: '30px' }}>Payment Method</div>
-          }
             <div>
               <div className='itext' style={{color: 'var(--yellow)'}}>Shipping Details</div>
               <div style={{margin: '5px', marginTop: '10px', fontFamily: 'var(--quicksand)', fontSize: '1rem', color: '#aaa', lineHeight : '35px'}}>
