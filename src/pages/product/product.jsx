@@ -57,7 +57,7 @@ const Product = () => {
                 </div>
             <div className='form' style={{marginTop: '60px', marginBottom: '0', paddingBottom: '0'}}>
                 <div style={{width: '100%', display: 'flex', alignItems: 'center', position: 'relative', gap: '5px'}}>
-                    <input type="text" onChange={(e) => setValue(e.target.value)} placeholder='search product' className='search' style={{width: '100%', backgroundColor: 'unset', boxShadow: 'unset', border: '2px solid var(--primary)', borderRadius: '5px'}}/>
+                    <input type="text" onChange={(e) => setValue(e.target.value)} placeholder='search product' className='search' style={{width: '100%', backgroundColor: 'unset', boxShadow: 'unset', border: '2px solid var(--primary)'}}/>
                     <div onClick={() => searchProduct()} className='button' style={{width: '100px', height: '45px', backgroundColor: 'var(--primary)'}}>
                         <div className='fa-solid fa-search fa-lg' style={{color: 'var(--text)'}}/>
                     </div>
