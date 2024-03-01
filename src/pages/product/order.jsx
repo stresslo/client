@@ -113,9 +113,9 @@ const Order = () => {
           </div>
           <div className='form'>
           {(i.price == 0) ? 
-          <div className='button-max' onClick={() => context.token ? freeDonwload() : getWarning()} style={(name && email) ? { backgroundColor: 'var(--yellow)', marginTop: '30px' } : { backgroundColor: "#aaa", marginTop: '30px' }}>Payment Method</div>
+          <div className='button-max' onClick={() => context.token ? freeDonwload() : getWarning()} style={(name && email) ? { backgroundColor: 'var(--yellow)', marginTop: '30px' } : { backgroundColor: "#aaa", marginTop: '30px' }}>Free Donwload</div>
           : 
-          <div className='button-max' onClick={() => context.token ? checkout() : getWarning()} style={(name && email) ? { backgroundColor: 'var(--yellow)', marginTop: '30px' } : { backgroundColor: "#aaa", marginTop: '30px' }}>Download File</div>
+          <div className='button-max' onClick={() => context.token ? checkout() : getWarning()} style={(name && email) ? { backgroundColor: 'var(--yellow)', marginTop: '30px' } : { backgroundColor: "#aaa", marginTop: '30px' }}>Payment Method</div>
           }
             <div>
               <div className='itext' style={{color: 'var(--yellow)'}}>Shipping Details</div>
