@@ -23,7 +23,7 @@ const Details = () => {
 
     const freeDonwload = async () => {
         if (!context.token) {
-            swalert('please login before download this product', 'info', 3000)
+            swalert('please login to download this product', 'info', 3000)
             return false;
         }
         try {
