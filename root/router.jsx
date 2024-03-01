@@ -90,7 +90,6 @@ const Routing = () => {
           <Route path="/product/details/:vid" element={<Details/>}/>
 
           <Route path="/confirm/user" element={<Confirm.user/>}/>
-          {/* <Route path="/confirm/contributor" element={<AuthRegisterCont/>}/> */}
           <Route path="/transaction/history" element={<History/>}/>
           <Route path="/transaction/result/:order_id" element={<AuthTransaction/>}/>
         </Routes>
