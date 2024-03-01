@@ -33,7 +33,7 @@ const Store = () => {
         .finally(() => setLoading(false))
     }
 
-    useEffect(() => { getYours() }, [page])
+    useEffect(() => { getYours() }, [page, status])
 
     return (
         <div className='page-max'>
