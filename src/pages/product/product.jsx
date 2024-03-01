@@ -42,7 +42,7 @@ const Product = () => {
             <div className='form' style={{marginTop: '70px', marginBottom: '0', paddingBottom: '0'}}>
                 <div style={{width: '100%', display: 'flex', alignItems: 'center', position: 'relative', gap: '15px'}}>
                     <input type="text" placeholder='search product' className='search' style={{width: '100%'}}/>
-                    <div className='button' style={{width: '80px', height: '100%', backgroundColor: 'var(--primary)'}}>
+                    <div className='button' style={{width: '80px', backgroundColor: 'var(--primary)'}}>
                         <div className='fa-solid fa-search fa-xl' style={{color: 'var(--text)'}}/>
                     </div>
                 </div>
