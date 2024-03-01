@@ -46,6 +46,7 @@ const Product = () => {
             const find = document.getElementById('find')
             control.style.display = 'flex'
             find.style.display = 'none'
+            setValue('')
         }
     }
     
