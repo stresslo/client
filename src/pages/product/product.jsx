@@ -56,7 +56,7 @@ const Product = () => {
                     <div className="nav-logo"><h1>stresslo</h1></div>
                 </div>
                 <div style={{position: 'absolute', top: '20px', right: '30px', display: 'flex', alignItems: 'center'}}>
-                    <div className='fa-solid fa-search fa-lg' style={{color: 'var(--text)'}}></div>
+                    <div className='fa-solid fa-search fa-xl' style={{color: 'var(--text)'}}></div>
                 </div>
             <div className='form' style={{marginTop: '60px', marginBottom: '0', paddingBottom: '0'}}>
                 <div style={{width: '100%', display: 'flex', alignItems: 'center', position: 'relative', gap: '5px'}}>
