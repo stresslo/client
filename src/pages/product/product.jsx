@@ -67,18 +67,18 @@ const Product = () => {
                 <div id='control' className='form' style={{margin: 'auto'}}>
                     <div style={{width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '15px'}}>
                         <div style={{display: 'flex', alignItems: 'center', gap: '10px'}}>
-                            <div className='fa-solid fa-search fa-xl' style={{color: 'var(--text)'}}/>
-                            <div style={{color: 'var(--text)', fontSize: '1rem', fontFamily: 'var(--poppins)'}}>Search</div>
-                        </div>
-                        <div style={{display: 'flex', alignItems: 'center', gap: '10px'}}>
-                            <div className='button' style={{height: '40px', backgroundColor: 'var(--primary)'}}>
+                            <div className='button' style={{height: '35px', backgroundColor: 'var(--primary)'}}>
                                 <div style={{fontFamily: 'var(--quicksand)', color: 'var(--yellow)', fontSize: '1rem'}}>Filter</div>
                                 <div className='fa-solid fa-caret-down fa-lg' style={{color: 'var(--yellow)'}}></div>
                             </div>
                         </div>
+                        <div style={{display: 'flex', alignItems: 'center', gap: '10px'}}>
+                            <div style={{color: 'var(--text)', fontSize: '1rem', fontFamily: 'var(--poppins)'}}>Search</div>
+                            <div className='fa-solid fa-search fa-xl' style={{color: 'var(--text)'}}/>
+                        </div>
                     </div>
                 </div>
-                <div className='product-container' style={{flexDirection: 'column-reverse', marginTop: '20px'}}>
+                <div className='product-container' style={{flexDirection: 'column-reverse', marginTop: '30px'}}>
                     {(loading) ? (
                     <Swaload.Product/>
                     ) : (
