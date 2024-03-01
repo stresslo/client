@@ -44,7 +44,7 @@ const Order = () => {
     const freeDonwload = async () => {
       try {
         setLoading(true)
-        const response = await axios.get(`${import.meta.env.VITE_API}/download/free/product/${vid}`)
+        const response = await axios.get(`${import.meta.env.VITE_API}/product/free/donwload/${vid}`)
         const url = response.data.file;
         const link = document.createElement('a');
         link.href = url;
