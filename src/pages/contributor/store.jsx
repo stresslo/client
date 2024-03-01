@@ -29,7 +29,7 @@ const Store = () => {
         setLoading(true)
         axios.get(endpoint())
         .then(response => setData(response.data))
-        .catch(error => Promise.reject(error))
+        .catch(error => Promise.reject(error) && setData([]))
         .finally(() => setLoading(false))
     }
 
