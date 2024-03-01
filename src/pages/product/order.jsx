@@ -146,25 +146,28 @@ const Order = () => {
             </div>
             <div>
               <div className='itext' style={{color: 'var(--yellow)'}}>Order Details : </div>
-              <div style={{margin: '10px 0' , width: '100%', height: '1.5px', backgroundColor: 'var(--primary)'}}/>
-              <div style={{margin: '5px', fontFamily: 'var(--quicksand)', fontSize: '1rem', color: 'var(--blue)', lineHeight : '30px'}}>
+              <div style={{margin: '5px', fontFamily: 'var(--quicksand)', fontSize: '1rem', color: 'var(--text)', lineHeight : '30px'}}>
                 <div>Name : {name}</div>
                 <div>Email : {email}</div>
                 <div>Phone : {phone}</div>
               </div>
-              <div style={{margin: '10px 0' , width: '100%', height: '1.5px', backgroundColor: 'var(--primary)'}}/>
+              <div style={{margin: '10px 0' , width: '100%', height: '2px', backgroundColor: 'var(--primary)'}}/>
               <div style={{margin: '5px', fontFamily: 'var(--quicksand)', fontSize: '1rem', color: 'var(--text)', lineHeight : '30px'}}>
-                <div>Product ID : {vid}</div>
-                <div>Quantity : 1</div>
+                <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                  <div>Price : </div>
+                  <div>{i.price}</div>
+                </div>
+                <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                  <div>Tax : </div>
+                  <div>{i.price * 0.11}</div>
+                </div>
               </div>
-              <div style={{margin: '10px 0' , width: '100%', height: '1.5px', backgroundColor: 'var(--primary)'}}/>
+              <div style={{margin: '10px 0' , width: '100%', height: '2px', backgroundColor: 'var(--primary)'}}/>
               <div style={{margin: '5px', fontFamily: 'var(--quicksand)', fontSize: '1rem', color: 'var(--text)', lineHeight : '30px'}}>
-                <div>Price : {convertPrice(i.price)}</div>
-                <div>TAX : {convertPrice(i.price * 0.11)}</div>
-              </div>
-              <div style={{margin: '10px 0' , width: '100%', height: '1.5px', backgroundColor: 'var(--primary)'}}/>
-              <div style={{margin: '5px', fontFamily: 'var(--quicksand)', fontSize: '1rem', color: 'var(--text)', lineHeight : '30px'}}>
-                <div>Total : {convertPrice(i.price * 0.11 + i.price)}</div>
+                <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                  <div>Total : </div>
+                  <div>{i.price * 0.11 + i.price}</div>
+                </div>
               </div>
             </div>
             <div className='prev-form'>
