@@ -114,7 +114,7 @@ const Details = () => {
                             <div className='wrapped-text'>
                                 <div className='wrapped-details' style={{margin: 0, paddingTop: '0', display: 'flex',alignItems: 'unset', flexDirection: "column", gap: '10px'}}>
                                     <div className="product-desc-product">
-                                        <span>Contributor : </span>
+                                        <span>Contributor </span>
                                         {(loading) ? 
                                             <div style={{marginTop: '10px',display: 'flex', gap: '10px', alignItems: 'center'}}>
                                                 <Skeleton style={{boxShadow: 'var(--softshadow)', width: '30px', height: '30px', borderRadius: '50%'}} baseColor='var(--primary)' highlightColor='var(--prime)'/> 

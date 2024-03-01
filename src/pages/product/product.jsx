@@ -41,7 +41,10 @@ const Product = () => {
                 </div>
             <div className='product-page' style={{paddingBottom: '0'}}>
                 <div className='product-container' style={{flexDirection: 'column-reverse'}}>
-                    <input type="text" className='search'/>
+                    <div style={{width: '100%', display: 'flex', justifyContent: 'space-between', gap:'10px', alignItems: 'center'}}>
+                        <input type="text" className='search'/>
+                        <div className='fa-solid fa-search fa-xl'/>
+                    </div>
                     {(loading) ? (
                     <Swaload.Product/>
                     ) : (
