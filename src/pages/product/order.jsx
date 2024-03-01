@@ -142,16 +142,16 @@ const Order = () => {
               <div className='itext' style={{color: 'var(--yellow)'}}>Payment Method</div>
               <div style={{margin: '5px', marginTop: '10px'}}></div>
             </div>
-            <div style={{marginTop: '10px'}}>
+            <div>
               <div className='itext' style={{color: 'var(--yellow)'}}>Order Details : </div>
               <div style={{margin: '5px', marginTop: '10px', fontFamily: 'var(--quicksand)', fontSize: '1rem', color: '#aaa', lineHeight : '35px'}}>
                 <div style={{display: 'flex', justifyContent: 'space-between'}}>
                   <div>Name : </div>
-                  <div>{name}</div>
+                  <div onClick={() => !name && navigate('/login')}>{name || "please login"}</div>
                 </div>
                 <div style={{display: 'flex', justifyContent: 'space-between'}}>
                   <div>Email Address : </div>
-                  <div>{email}</div>
+                  <div onClick={() => !name && navigate('/login')}>{email || "please login"}</div>
                 </div>
                 <div style={{display: 'flex', justifyContent: 'space-between'}}>
                   <div>Product ID : </div>
