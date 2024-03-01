@@ -17,9 +17,17 @@ const Store = () => {
     const [data, setData] = useState([])
     const [page, setPage] = useState(1)
 
+    const endpoint = () => {
+        const url = `${import.meta.env.VITE_API}`
+        if (status == 'active') url += `/products/contributor/${page}`
+        if (status == 'pending') url += `/products/contributor/pending/${page}`
+        if (status == 'active') url += `/products/contributor/rejected/${page}`
+        return url;
+    }
+
     const getYours = async () => {
         setLoading(true)
-        axios.get(`${import.meta.env.VITE_API}/products/contributor/${page}`)
+        axios.get(endpoint())
         .then(response => setData(response.data))
         .catch(error => Promise.reject(error))
         .finally(() => setLoading(false))
@@ -34,9 +42,9 @@ const Store = () => {
                 <div style={{width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: '10px', marginBottom: '50px'}}>
                     <div className='itext' style={{color: 'var(--yellow)'}}>Status</div>
                     <div style={{marginTop: '5px', width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '20px', fontFamily: 'var(--quicksand)', fontSize: '0.85rem'}}>
-                        <div className='button' style={{backgroundColor: 'var(--primary)', height: '35px', color: 'var(--green)'}}>Active</div>
-                        <div className='button' style={{backgroundColor: 'var(--primary)', height: '35px', color: 'var(--blue)'}}>Pending</div>
-                        <div className='button' style={{backgroundColor: 'var(--primary)', height: '35px', color: 'var(--oren)'}}>Rejected</div>
+                        <div className='button' onClick={() => setStatus('active')} style={{backgroundColor: 'var(--primary)', height: '35px', color: 'var(--green)'}}>Active</div>
+                        <div className='button' onClick={() => setStatus('pending')} style={{backgroundColor: 'var(--primary)', height: '35px', color: 'var(--blue)'}}>Pending</div>
+                        <div className='button' onClick={() => setStatus('rejected')} style={{backgroundColor: 'var(--primary)', height: '35px', color: 'var(--oren)'}}>Rejected</div>
                     </div>
                 </div>
                 <div className='product-container' style={{flexDirection: 'column-reverse'}}>
