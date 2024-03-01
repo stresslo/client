@@ -1,3 +1,5 @@
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
 import React, { useContext } from 'react'
 import axios from 'axios'
 import snap from "../../../utils/snap"
@@ -6,8 +8,6 @@ import Loading from "../../../utils/loading"
 import convertPrice from '../../../utils/price'
 import getvxsrf from '../../../service/getvxsrf'
 import Context from "../../../utils/context"
-import { useLocation, useNavigate, useParams } from 'react-router-dom'
-import { LazyLoadImage } from 'react-lazy-load-image-component'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import Swal from 'sweetalert2'
