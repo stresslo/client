@@ -87,7 +87,7 @@ const Product = () => {
                                 <div className='fa-solid fa-caret-down fa-lg' style={{color: 'var(--blue)'}}></div>
                             </div>
                         </div>
-                        <div onClick={() => handleControl()} style={{display: 'flex', alignItems: 'center', gap: '5px'}}>
+                        <div onClick={() => handleControl()} style={{display: 'flex', alignItems: 'center', gap: '5px', cursor: 'pointer'}}>
                             <div className='fa-solid fa-search fa-lg' style={{color: 'var(--text)'}}/>
                             <div style={{color: 'var(--text)', fontSize: '1rem', fontFamily: 'var(--poppins)'}}>Search</div>
                         </div>
