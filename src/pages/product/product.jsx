@@ -19,7 +19,7 @@ const Product = () => {
     const [ value, setValue] = useState(historySearch ? historySearch : '')
 
     const searchProduct = async (e) => {
-        e.preventDefault()
+        e && e.preventDefault()
         try {
             if (value && value.length >= 3) {
                 setLoading(true)
