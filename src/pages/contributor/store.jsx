@@ -31,12 +31,12 @@ const Store = () => {
         <div className='page-max'>
             <Topback/>
             <div className='product-page' style={{paddingBottom: '0'}}>
-                <div>
+                <div style={{width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: '10px'}}>
                     <div className='itext' style={{color: 'var(--yellow)'}}>Status</div>
-                    <div style={{marginTop: '5px', width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                        <div className='button' style={{backgroundColor: 'var(--primary)', height: '35px'}}>Active</div>
-                        <div className='button' style={{backgroundColor: 'var(--primary)', height: '35px'}}>Pending</div>
-                        <div className='button' style={{backgroundColor: 'var(--primary)', height: '35px'}}>Rejected</div>
+                    <div style={{marginTop: '5px', width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px'}}>
+                        <div className='button' style={{backgroundColor: 'var(--primary)', height: '35px', color: 'var(--green)'}}>Active</div>
+                        <div className='button' style={{backgroundColor: 'var(--primary)', height: '35px', color: 'var(--blue)'}}>Pending</div>
+                        <div className='button' style={{backgroundColor: 'var(--primary)', height: '35px', color: 'var(--oren)'}}>Rejected</div>
                     </div>
                 </div>
                 <div className='product-container' style={{flexDirection: 'column-reverse'}}>
