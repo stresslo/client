@@ -27,7 +27,7 @@ const Profile = () => {
             const response = await axios.get(filterUrl)
             context.setToken('')
             localStorage.removeItem('status')
-            swalert(response.data, "success", 1500)
+            swalert(response.data, "success", 3000)
             .then((res) =>  { if(res.dismiss) { location.href = '/' } })
         } 
         catch (error) {{error.response && console.log(error.response.data)}}
@@ -48,7 +48,7 @@ const Profile = () => {
         } 
         catch (error) {
             if (error || error.response) {
-                swalert(error.response.data, "error", 1500)
+                swalert(error.response.data, "error", 2000)
             }
         }
         finally {setLoading(false)}
