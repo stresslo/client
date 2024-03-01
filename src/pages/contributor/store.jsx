@@ -21,7 +21,7 @@ const Store = () => {
         let url = `${import.meta.env.VITE_API}`
         if (status == 'active') url += `/products/contributor/${page}`
         if (status == 'pending') url += `/products/contributor/pending/${page}`
-        if (status == 'active') url += `/products/contributor/rejected/${page}`
+        if (status == 'rejected') url += `/products/contributor/rejected/${page}`
         return url;
     }
 
