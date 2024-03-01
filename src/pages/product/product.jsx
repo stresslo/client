@@ -17,7 +17,8 @@ const Product = () => {
     const [ status, setStatus ] = useState(200)
     const [ loading, setLoading ] = useState(false)
 
-    const searchProduct = async () => {
+    const searchProduct = async (e) => {
+        e.preventDefault()
         try {
             if (value && value.length >= 3) {
                 setLoading(true)
@@ -29,6 +30,20 @@ const Product = () => {
             return false;
         } finally {
             setLoading(false)
+        }
+    }
+
+    const handleControl = () => {
+        const control = document.getElementById('control')
+        const find = document.getElementById('find')
+        if (control.style.display == 'flex') {
+            control.style.display = 'none'
+            find.style.display = 'flex'
+            return;
+        } else if (find.style.display == 'flex') {
+            find.style.display = 'none'
+            control.style.display = 'flex'
+            return;
         }
     }
     
@@ -68,16 +83,24 @@ const Product = () => {
                     <div style={{width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '15px'}}>
                         <div style={{display: 'flex', alignItems: 'center', gap: '10px'}}>
                             <div className='button' style={{height: '35px', backgroundColor: 'var(--primary)'}}>
-                                <div style={{fontFamily: 'var(--quicksand)', color: 'var(--yellow)', fontSize: '1rem'}}>Filter</div>
-                                <div className='fa-solid fa-caret-down fa-lg' style={{color: 'var(--yellow)'}}></div>
+                                <div style={{fontFamily: 'var(--quicksand)', color: 'var(--blue)', fontSize: '1rem'}}>Filter</div>
+                                <div className='fa-solid fa-caret-down fa-lg' style={{color: 'var(--blue)'}}></div>
                             </div>
                         </div>
-                        <div style={{display: 'flex', alignItems: 'center', gap: '10px'}}>
+                        <div onClick={() => handleControl()} style={{display: 'flex', alignItems: 'center', gap: '5px'}}>
                             <div className='fa-solid fa-search fa-lg' style={{color: 'var(--text)'}}/>
                             <div style={{color: 'var(--text)', fontSize: '1rem', fontFamily: 'var(--poppins)'}}>Search</div>
                         </div>
                     </div>
                 </div>
+                <form id='find' className='form' style={{margin: 'auto', display: 'none'}}>
+                    <div style={{width: '100%', display: 'flex', alignItems: 'center', position: 'relative', gap: '5px'}}>
+                        <input type="text" onChange={(e) => setValue(e.target.value)} placeholder='search product' className='search' style={{width: '100%', backgroundColor: 'unset', boxShadow: 'unset', border: '2px solid var(--primary)'}}/>
+                        <div onClick={() => handleControl()} className='button' style={{width: '80px', height: '45px', backgroundColor: 'var(--primary)'}}>
+                            <div className='fa-solid fa-close fa-xl' style={{color: 'var(--text)'}}/>
+                        </div>
+                    </div>
+                </form>
                 <div className='product-container' style={{flexDirection: 'column-reverse', marginTop: '30px'}}>
                     {(loading) ? (
                     <Swaload.Product/>
