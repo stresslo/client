@@ -138,8 +138,8 @@ const Order = () => {
           </div>
           <div className='form'>
           <div className='button-max' onClick={() => context.token ? showPlaceOrder() : getWarning()} style={(name && email) ? { backgroundColor: 'var(--yellow)', marginTop: '30px' } : { backgroundColor: "#aaa", marginTop: '30px' }}>Checkout</div>
-            <div style={{marginTop: '20px'}}>
-              <div className='itext' style={{color: 'var(--yellow)'}}>Choose Payment Method</div>
+            <div style={{marginTop: '40px'}}>
+              <div className='itext' style={{color: 'var(--yellow)'}}>Payment Method</div>
               <div style={{margin: '5px', marginTop: '10px'}}></div>
             </div>
             <div style={{marginTop: '20px'}}>
@@ -175,12 +175,6 @@ const Order = () => {
                   <div><span>Total :</span> </div>
                   <div>{convertPrice(i.price * 0.11 + i.price)}</div>
                 </div>
-              </div>
-            </div>
-            <div className='input-form' >
-              <div>
-                <div>Phone Number :</div>
-                <input className='productinput' value={phone} type="text" placeholder='(Optional)' onChange={(e) => setPhone(e.target.value)} required/>
               </div>
             </div>
             <div className='prev-form'>
