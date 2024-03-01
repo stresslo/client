@@ -137,38 +137,47 @@ const Order = () => {
             <div className='snap-container'></div>
           </div>
           <div className='form'>
-            <div className='input-form' >
-              <div>
-                <div>Phone Number :</div>
-                <input className='productinput' value={phone} type="text" placeholder='(Optional)' onChange={(e) => setPhone(e.target.value)} required/>
-              </div>
-              <div className='button-max' onClick={() => context.token ? showPlaceOrder() : getWarning()} style={(name && email) ? { backgroundColor: 'var(--yellow)' } : { backgroundColor: "#aaa" }}>Checkout</div>
-            </div>
-            <div>
+            <div style={{marginTop: '10px'}}>
               <div className='itext' style={{color: 'var(--yellow)'}}>Order Details : </div>
               <div style={{margin: '5px', fontFamily: 'var(--quicksand)', fontSize: '1rem', color: 'var(--text)', lineHeight : '30px'}}>
-                <div>Name : {name}</div>
-                <div>Email : {email}</div>
-                <div>Phone : {phone}</div>
+                <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                  <div>Customer Name : </div>
+                  <div>{name}</div>
+                </div>
+                <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                  <div>Customer Email : </div>
+                  <div>{email}</div>
+                </div>
+                <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                  <div>Customer Phone : </div>
+                  <div>{phone}</div>
+                </div>
               </div>
               <div style={{margin: '10px 0' , width: '100%', height: '2px', backgroundColor: 'var(--primary)'}}/>
               <div style={{margin: '5px', fontFamily: 'var(--quicksand)', fontSize: '1rem', color: 'var(--text)', lineHeight : '30px'}}>
                 <div style={{display: 'flex', justifyContent: 'space-between'}}>
                   <div>Price : </div>
-                  <div>{i.price}</div>
+                  <div>{convertPrice(i.price)}</div>
                 </div>
                 <div style={{display: 'flex', justifyContent: 'space-between'}}>
                   <div>Tax : </div>
-                  <div>{i.price * 0.11}</div>
+                  <div>{convertPrice(i.price * 0.11)}</div>
                 </div>
               </div>
               <div style={{margin: '10px 0' , width: '100%', height: '2px', backgroundColor: 'var(--primary)'}}/>
               <div style={{margin: '5px', fontFamily: 'var(--quicksand)', fontSize: '1rem', color: 'var(--text)', lineHeight : '30px'}}>
                 <div style={{display: 'flex', justifyContent: 'space-between'}}>
                   <div>Total : </div>
-                  <div>{i.price * 0.11 + i.price}</div>
+                  <div>{convertPrice(i.price * 0.11 + i.price)}</div>
                 </div>
               </div>
+            </div>
+            <div className='input-form' >
+              <div>
+                <div>Phone Number :</div>
+                <input className='productinput' value={phone} type="text" placeholder='(Optional)' onChange={(e) => setPhone(e.target.value)} required/>
+              </div>
+              <div className='button-max' onClick={() => context.token ? showPlaceOrder() : getWarning()} style={(name && email) ? { backgroundColor: 'var(--yellow)' } : { backgroundColor: "#aaa" }}>Checkout</div>
             </div>
             <div className='prev-form'>
               <div className='itext'>Product</div>
