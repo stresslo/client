@@ -63,7 +63,7 @@ const Confirm = {
                         <div className="button" onClick={() => resend_otp()} style={{width: '180px', backgroundColor: '#aaa'}}>Resend OTP</div>
                         <div className="button" onClick={() => confirm()}>Verify</div>
                     </div>
-                    <input type="text" onChange={(e) => setOTP(e.target.value)} placeholder="input your OTP Code here" required/>
+                    <input type="text" value={`VX${OTP}`} onChange={(e) => setOTP(e.target.value)} placeholder="input your OTP Code here" required/>
                     <div>
                         <div className="title">OTP <span>Verification</span></div>
                         <div className="desc" style={{ fontFamily: 'var(--quicksand)', fontSize: '0.9rem', marginTop: '7px', letterSpacing: '1px' }}>Hi <span>{register_mode_user ? register_mode_user.username : ''}!</span>, your OTP Code was successfully <br/> sent to <span>{register_mode_user? register_mode_user.email : ''}</span>. Let's check your email.</div>
