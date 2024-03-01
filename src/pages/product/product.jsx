@@ -10,19 +10,20 @@ import "../../style/product.css"
 
 const Product = () => {
     const navigate = useNavigate()
+    const historySearch = localStorage.getItem('search')
     const { ctg } = useParams()
     const [ page, setPage ] = useState(1)
     const [ data, setData ] = useState([])
-    const [ value, setValue] = useState('')
     const [ status, setStatus ] = useState(200)
     const [ loading, setLoading ] = useState(false)
+    const [ value, setValue] = useState(historySearch ? historySearch : '')
 
     const searchProduct = async (e) => {
         e.preventDefault()
         try {
             if (value && value.length >= 3) {
                 setLoading(true)
-                const response = await axios.get(`${import.meta.env.VITE_API}/search/product/${value}/${page}`)
+                const response = await axios.get(`${import.meta.env.VITE_API}/product/search/${value}/${page}`)
                 setData(response.data)
             }
         } catch (error) {
@@ -61,6 +62,7 @@ const Product = () => {
         finally { setLoading(false) }
     }
 
+    useEffect(() => { value && localStorage.setItem('search', value) }, [value])
     useEffect(() => { !value && getProducts() }, [page, value])
     if (status !== 200) return <Handle status={status}/> 
 
@@ -88,7 +90,7 @@ const Product = () => {
                 </div>
                 <form onSubmit={(e) => { searchProduct(e) }} id='find' className='form' style={{margin: 'auto', display: 'none'}}>
                     <div style={{width: '100%', display: 'flex', alignItems: 'center', position: 'relative', gap: '5px'}}>
-                        <input type="text" onChange={(e) => setValue(e.target.value)} placeholder='search product' className='search' style={{width: '100%', backgroundColor: 'unset', boxShadow: 'unset', border: '2px solid var(--primary)'}}/>
+                        <input value={value} type="text" onChange={(e) => setValue(e.target.value)} placeholder='search product' className='search' style={{width: '100%', backgroundColor: 'unset', boxShadow: 'unset', border: '2px solid var(--primary)'}}/>
                         <div onClick={() => search.hide()} className='button' style={{width: '70px', height: '45px', backgroundColor: 'var(--primary)'}}>
                             <div className='fa-solid fa-close fa-xl' style={{color: 'var(--text)'}}/>
                         </div>
