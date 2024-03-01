@@ -73,8 +73,8 @@ const Product = () => {
                             </div>
                         </div>
                         <div style={{display: 'flex', alignItems: 'center', gap: '10px'}}>
+                            <div className='fa-solid fa-search fa-lg' style={{color: 'var(--text)'}}/>
                             <div style={{color: 'var(--text)', fontSize: '1rem', fontFamily: 'var(--poppins)'}}>Search</div>
-                            <div className='fa-solid fa-search fa-xl' style={{color: 'var(--text)'}}/>
                         </div>
                     </div>
                 </div>
