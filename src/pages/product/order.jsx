@@ -139,6 +139,10 @@ const Order = () => {
           <div className='form'>
           <div className='button-max' onClick={() => context.token ? showPlaceOrder() : getWarning()} style={(name && email) ? { backgroundColor: 'var(--yellow)', marginTop: '30px' } : { backgroundColor: "#aaa", marginTop: '30px' }}>Checkout</div>
             <div style={{marginTop: '20px'}}>
+              <div className='itext' style={{color: 'var(--yellow)'}}>Choose Payment Method</div>
+              <div style={{margin: '5px', marginTop: '10px'}}></div>
+            </div>
+            <div style={{marginTop: '20px'}}>
               <div className='itext' style={{color: 'var(--yellow)'}}>Order Details : </div>
               <div style={{margin: '5px', marginTop: '10px', fontFamily: 'var(--quicksand)', fontSize: '1rem', color: '#aaa', lineHeight : '35px'}}>
                 <div style={{display: 'flex', justifyContent: 'space-between'}}>
@@ -172,10 +176,6 @@ const Order = () => {
                   <div>{convertPrice(i.price * 0.11 + i.price)}</div>
                 </div>
               </div>
-            </div>
-            <div style={{marginTop: '20px'}}>
-              <div className='itext'>Choose Payment Method</div>
-              <div style={{margin: '5px', marginTop: '10px'}}></div>
             </div>
             <div className='input-form' >
               <div>
