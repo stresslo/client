@@ -2,14 +2,17 @@ import moment from "moment"
 import Skeleton from "react-loading-skeleton"
 import convertPrice from "../../../utils/price"
 import { useLocation, useParams } from "react-router-dom"
+import { useContext, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { LazyLoadImage } from "react-lazy-load-image-component"
-import { useEffect, useState } from "react"
+import Context from "../../../utils/context"
+import swalert from "../../../utils/swalert"
 import axios from "axios"
 import "../../style/create.css"
 
 const Details = () => {
 
+    const context = useContext(Context)
     const { vid } = useParams()
     const location = useLocation()
     const navigate = useNavigate()
@@ -19,6 +22,7 @@ const Details = () => {
     const date = moment(i.createdAt.slice(0, 10)).format('MMM DD, YYYY')
 
     const freeDonwload = async () => {
+        !context.token && swalert('please login before download this product', 'info', 3000)
         try {
           setLoading(true)
           const response = await axios.get(`${import.meta.env.VITE_API}/product/free/donwload/${vid}`)
