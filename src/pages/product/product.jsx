@@ -63,7 +63,7 @@ const Product = () => {
     }
 
     useEffect(() => { value && search.show() }, [])
-    useEffect(() => { value && localStorage.setItem('search', value) }, [value])
+    useEffect(() => { localStorage.setItem('search', value) }, [value])
     useEffect(() => { !value && getProducts() }, [page, value])
     if (status !== 200) return <Handle status={status}/> 
 
