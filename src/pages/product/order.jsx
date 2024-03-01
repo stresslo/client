@@ -137,15 +137,16 @@ const Order = () => {
             <div className='snap-container'></div>
           </div>
           <div className='form'>
+            <div>
+              <div className='itext' style={{color: 'var(--yellow)'}}>Transaction Details : </div>
+              <div style={{margin: '10px 5px', fontFamily: 'var(--quicksand)', fontSize: '1rem', color: 'var(--blue)'}}>
+                <div>Product ID : {vid}</div>
+                <div>Customer : {name}</div>
+                <div>Email : {email}</div>
+                <div>Phone : {phone}</div>
+              </div>
+            </div>
             <div className='input-form' >
-              <div>
-                <div>Name :</div>
-                <input className='productinput' onClick={() => getWarning()} value={name} type="text" placeholder='input your name' onChange={(e) => setName(e.target.value)} readOnly required/>
-              </div>
-              <div>
-                <div>Email :</div>
-                <input className='productinput' onClick={() => getWarning()} value={email} type="email" placeholder='input your email' onChange={(e) => setEmail(e.target.value)} readOnly required/>
-              </div>
               <div>
                 <div>Phone Number :</div>
                 <input className='productinput' onClick={() => getWarning()} value={phone} type="text" placeholder='(Optional)' onChange={(e) => setPhone(e.target.value)} required/>
@@ -159,9 +160,6 @@ const Order = () => {
                 <div className='wrapped-text'>
                     <div className='product-title'>{data.title}</div>
                     <div className='product-desc' style={{marginTop: '10px'}}>{data.desc}</div>
-                    <div className='wrapped-details'>
-                        <div className='button price'>{convertPrice(data.price)}</div>
-                    </div>
                 </div>
               </div>
             </div>
