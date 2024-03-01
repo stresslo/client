@@ -183,7 +183,7 @@ const Order = () => {
                 <LazyLoadImage className='product-img' src={data.img} loading='lazy' effect='blur'/>
                 <div className='wrapped-text'>
                     <div className='product-title'>{data.title}</div>
-                    <div className='product-desc' style={{marginTop: '10px'}}>{data.desc}</div>
+                    <div className='product-desc' style={{marginTop: '10px', color: 'var(--blue)'}}>{data.desc}</div>
                 </div>
               </div>
             </div>
