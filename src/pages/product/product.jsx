@@ -71,14 +71,6 @@ const Product = () => {
                     <div className="fa-solid fa-arrow-left fa-xl active"></div>
                     <div className="nav-logo"><h1>stresslo</h1></div>
                 </div>
-            {/* <div className='form' style={{marginTop: '60px', height: '0', marginBottom: '0', paddingBottom: '0', overflow: 'hidden'}}>
-                <div style={{width: '100%', display: 'flex', alignItems: 'center', position: 'relative', gap: '5px'}}>
-                    <input type="text" onChange={(e) => setValue(e.target.value)} placeholder='search product' className='search' style={{width: '100%', backgroundColor: 'unset', boxShadow: 'unset', border: '2px solid var(--primary)'}}/>
-                    <div onClick={() => searchProduct()} className='button' style={{width: '80px', height: '45px', backgroundColor: 'var(--primary)'}}>
-                        <div className='fa-solid fa-close fa-xl' style={{color: 'var(--text)'}}/>
-                    </div>
-                </div>
-            </div> */}
             <div className='product-page' style={{paddingBottom: '0', paddingTop: '10px'}}>
                 <div id='control' className='form' style={{margin: 'auto'}}>
                     <div style={{width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '15px'}}>
@@ -94,10 +86,10 @@ const Product = () => {
                         </div>
                     </div>
                 </div>
-                <form id='find' className='form' style={{margin: 'auto', display: 'none'}}>
+                <form onSubmit={() => { searchProduct() }} id='find' className='form' style={{margin: 'auto', display: 'none'}}>
                     <div style={{width: '100%', display: 'flex', alignItems: 'center', position: 'relative', gap: '5px'}}>
                         <input type="text" onChange={(e) => setValue(e.target.value)} placeholder='search product' className='search' style={{width: '100%', backgroundColor: 'unset', boxShadow: 'unset', border: '2px solid var(--primary)'}}/>
-                        <div onClick={() => search.hide()} className='button' style={{width: '80px', height: '45px', backgroundColor: 'var(--primary)'}}>
+                        <div onClick={() => search.hide()} className='button' style={{width: '70px', height: '45px', backgroundColor: 'var(--primary)'}}>
                             <div className='fa-solid fa-close fa-xl' style={{color: 'var(--text)'}}/>
                         </div>
                     </div>
