@@ -138,9 +138,9 @@ const Order = () => {
           </div>
           <div className='form'>
           <div className='button-max' onClick={() => context.token ? showPlaceOrder() : getWarning()} style={(name && email) ? { backgroundColor: 'var(--yellow)', marginTop: '30px' } : { backgroundColor: "#aaa", marginTop: '30px' }}>Checkout</div>
-            <div style={{marginTop: '10px'}}>
+            <div style={{marginTop: '20px'}}>
               <div className='itext' style={{color: 'var(--yellow)'}}>Order Details : </div>
-              <div style={{margin: '5px', marginTop: '20px', fontFamily: 'var(--quicksand)', fontSize: '1rem', color: '#ccc', lineHeight : '30px'}}>
+              <div style={{margin: '5px', marginTop: '10px', fontFamily: 'var(--quicksand)', fontSize: '1rem', color: '#ccc', lineHeight : '30px'}}>
                 <div style={{display: 'flex', justifyContent: 'space-between'}}>
                   <div>Name : </div>
                   <div>{name}</div>
