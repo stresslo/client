@@ -167,11 +167,15 @@ const Order = () => {
               </div>
               <div style={{margin: '10px 0' , width: '100%', height: '2px', backgroundColor: 'var(--primary)'}}/>
               <div style={{margin: '5px', fontFamily: 'var(--quicksand)', fontSize: '1rem', color: 'var(--text)', lineHeight : '30px'}}>
-                <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                <div style={{display: 'flex', justifyContent: 'space-between', fontWeight: 'bolder'}}>
                   <div><span>Total :</span> </div>
                   <div>{convertPrice(i.price * 0.11 + i.price)}</div>
                 </div>
               </div>
+            </div>
+            <div style={{marginTop: '20px'}}>
+              <div className='itext'>Choose Payment Method</div>
+              <div style={{margin: '5px', marginTop: '10px'}}></div>
             </div>
             <div className='input-form' >
               <div>
