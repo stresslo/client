@@ -10,7 +10,6 @@ import getvxsrf from '../../../service/getvxsrf'
 import Context from "../../../utils/context"
 import { useEffect } from 'react'
 import { useState } from 'react'
-import Swal from 'sweetalert2'
 import "../../style/create.css"
 
 const Order = () => {
@@ -47,44 +46,6 @@ const Order = () => {
           setLoading(false)
         }
     }
-
-    const showPlaceOrder = async () => {
-      const tax = i.price * 0.11
-      const total = i.price + tax
-      if (email && name) {
-        return Swal.fire({
-          html: `
-          <div style="width: 100%; display: flex; flex-direction: column; gap: 8px;">
-            <h2 style="text-align: center;">Shipping Details</h2>
-            <div style="width: 100%; height: 1px; background-color: var(--blue);"></div>
-            <h4 style="margin-top: 5px; text-align: left;"><span>Customer</span> : ${name}</h4>
-            <h4 style="text-align: left;"><span>Phone Number</span> : ${phone.length >= 10 ? phone : '087800000000'}</h4>
-            <h4 style="text-align: left;"><span>Email Address</span> : ${email}</h4>
-            <h4 style="text-align: left;"><span>Product ID</span> : ${vid}</h4>
-            <h4 style="text-align: left;"><span>Quantity</span> : 1</h4>
-            <h4 style="text-align: left;"><span>Price</span> : ${convertPrice(i.price)}</h4>
-            <h4 style="text-align: left;"><span>TAX</span> : ${convertPrice(tax)}</h4>
-            <div style="width: 100%; height: 1px; background-color: var(--blue)"></div>
-            <h4><span>Total Amount</span> : ${convertPrice(total)}</h4>
-          </div>  
-          `,
-          confirmButtonText: 'Confirm & Pay',
-          cancelButtonText: "Cancel",
-          reverseButtons : true,
-          allowOutsideClick: false,
-          showCancelButton: true,
-          focusConfirm: false,
-          color: 'var(--blue)',
-          background: 'var(--primary)',
-          customClass: {container: 'alertext'},
-        })
-        .then((res) => {
-          if (res.isConfirmed) {
-            checkout()
-          }
-        })
-      }
-    }
     
     const checkout = async () => {
       try {
@@ -93,14 +54,16 @@ const Order = () => {
           vid     : vid,
           name    : name,
           email   : email,
-          phone   : phone.length >= 10 ? phone : '087800000000',
         }, 
         { headers : { "xsrf-token" : vxsrf } })
         localStorage.setItem('transaction_mode', "true")
-        window.snap.pay(response.data, {
-          onSuccess: (result) => { window.location.href = `/transaction/result/${result.order_id}`},
-          onPending : () => {window.location.href = '/'}
-      })
+        const token = response.data.transactionToken
+        if (token) {
+          window.snap.pay(token, {
+            onSuccess: (result) => { window.location.href = `/transaction/result/${result.order_id}`},
+            onPending : () => {window.location.href = '/'}
+        })
+        }
       } 
       catch (error) {
         if (error || error.response) {
@@ -137,7 +100,7 @@ const Order = () => {
             <div className='snap-container'></div>
           </div>
           <div className='form'>
-          <div className='button-max' onClick={() => context.token ? showPlaceOrder() : getWarning()} style={(name && email) ? { backgroundColor: 'var(--yellow)', marginTop: '30px' } : { backgroundColor: "#aaa", marginTop: '30px' }}>Checkout</div>
+          <div className='button-max' onClick={() => context.token ? checkout() : getWarning()} style={(name && email) ? { backgroundColor: 'var(--yellow)', marginTop: '30px' } : { backgroundColor: "#aaa", marginTop: '30px' }}>Checkout</div>
             <div style={{marginTop: '40px'}}>
               <div className='itext' style={{color: 'var(--yellow)'}}>Payment Method</div>
               <div style={{margin: '5px', marginTop: '10px'}}></div>
