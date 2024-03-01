@@ -16,7 +16,6 @@ const Order = () => {
 
     const context = useContext(Context)
     const location = useLocation()
-    const history = JSON.parse(localStorage.getItem("inputOrder"))
     const navigate = useNavigate()
     const {vid} = useParams()
     const i = location.state
@@ -26,11 +25,6 @@ const Order = () => {
     const [data, setData] = useState(i)
     const [name, setName] = useState(context.username ? context.username : '')
     const [email, setEmail] = useState(context.email ? context.email : '')
-    const [phone, setPhone] = useState(history ? history.phone : '')
-    
-    if (name || email || phone) {
-      localStorage.setItem('inputOrder', JSON.stringify({ name, email, phone }))
-    }
     
     const getProducts = async () => {
         try {
