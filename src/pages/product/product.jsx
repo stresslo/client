@@ -40,8 +40,8 @@ const Product = () => {
                     <div className="nav-logo"><h1>stresslo</h1></div>
                 </div>
             <div className='product-page' style={{paddingBottom: '0'}}>
-                <div style={{width: '100%', display: 'flex', justifyContent: 'center', gap:'10px', alignItems: 'center', marginBottom: '40px'}}>
-                    <div style={{display: 'flex', alignItems: 'center', gap: '10px'}}>
+                <div style={{width: '100%', display: 'flex', justifyContent: 'center', gap:'10px', alignItems: 'center', marginBottom: '50px', position: 'relative'}}>
+                    <div style={{display: 'flex', alignItems: 'center', gap: '15px'}}>
                         <input type="text" className='search'/>
                         <div className='fa-solid fa-search fa-xl' style={{color: 'var(--yellow)'}}/>
                     </div>
