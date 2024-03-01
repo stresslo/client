@@ -31,8 +31,15 @@ const Store = () => {
         <div className='page-max'>
             <Topback/>
             <div className='product-page' style={{paddingBottom: '0'}}>
-                <div className='product-container' style={{flexDirection: 'column-reverse'}}>
+                <div>
                     <div className='itext' style={{color: 'var(--yellow)'}}>Status</div>
+                    <div style={{marginTop: '5px', width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                        <div className='button' style={{backgroundColor: 'var(--primary)', height: '35px'}}>Active</div>
+                        <div className='button' style={{backgroundColor: 'var(--primary)', height: '35px'}}>Pending</div>
+                        <div className='button' style={{backgroundColor: 'var(--primary)', height: '35px'}}>Rejected</div>
+                    </div>
+                </div>
+                <div className='product-container' style={{flexDirection: 'column-reverse'}}>
                     {(loading) ? (
                     <Swaload.Product/>
                     ) : (
@@ -72,10 +79,12 @@ const Store = () => {
                     </div>
                 :
                 <div style={{ display: 'flex', gap: '20px', marginTop: '45px', alignItems: 'center', justifyContent: 'center' }}>
+                    {(page !== 1) && 
                         <div className='button' onClick={() => setPage(page -1)} style={{borderRadius: '10px', height : '35px', backgroundColor: 'var(--primary)', color: 'var(--blue)'}}>
                             <h3 style={{fontFamily: 'var(--quicksand)', fontSize: '1.2rem', color: 'var(--blue)'}}>{page -1}</h3>
                             <div className='fa-solid fa-left-long fa-xl'/>
                         </div>
+                    }
                     </div>
                 }
             </div>
