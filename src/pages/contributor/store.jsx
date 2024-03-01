@@ -38,6 +38,7 @@ const Store = () => {
     return (
         <div className='page-max'>
             <Topback/>
+            <div className='go' style={{position: 'absolute', top: '20px', right: '40px', color: 'var(--yellow)', cursor: 'pointer'}}><div className='fa-solid fa-circle-plus fa-2xl'/></div>
             <div className='product-page' style={{paddingBottom: '0'}}>
                 <div style={{width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: '10px', marginBottom: '50px'}}>
                     <div className='itext' style={{color: 'var(--yellow)'}}>Status</div>
@@ -58,9 +59,9 @@ const Store = () => {
                                     <div className='wrapped-text'>
                                         <div className='product-title'>{i.title}</div>
                                         <div style={{ display: 'flex', flexWrap : 'wrap', flexDirection : 'column'}}>
-                                            <div className='product-desc' style={{color: 'var(--blue)',fontFamily: 'var(--quicksand)', fontSize: '0.9rem'}}>Verified : {moment.utc(i.createdAt).utcOffset('+07:00').format('MMM DD, YYYY \t HH.mm A')}</div>
+                                            <div className='product-desc' style={{color: 'var(--blue)',fontFamily: 'var(--quicksand)', fontSize: '0.9rem'}}>{moment.utc(i.createdAt).utcOffset('+07:00').format('MMM DD, YYYY \t HH.mm A')}</div>
                                             <div className='wrapdet' style={{ position: 'unset', marginTop: '15px', marginLeft: '5px', gap: '5px' }}>
-                                                <div style={{ backgroundColor: 'var(--background)', width: '95px', height: '30px', color: 'var(--blue)' }}>active</div>
+                                                <div style={{ backgroundColor: 'var(--background)', width: '95px', height: '30px', color: 'var(--blue)' }}>{status}</div>
                                                 <div style={{ backgroundColor: 'var(--background)', width: '95px', height: '30px', color: 'var(--blue)' }}><i className='fa-solid fa-circle-check fa-lg'/></div>
                                              </div>
                                         </div>
