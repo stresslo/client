@@ -22,7 +22,10 @@ const Details = () => {
     const date = moment(i.createdAt.slice(0, 10)).format('MMM DD, YYYY')
 
     const freeDonwload = async () => {
-        !context.token && swalert('please login before download this product', 'info', 3000)
+        if (!context.token) {
+            swalert('please login before download this product', 'info', 3000)
+            return false;
+        }
         try {
           setLoading(true)
           const response = await axios.get(`${import.meta.env.VITE_API}/product/free/donwload/${vid}`)
