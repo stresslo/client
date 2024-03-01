@@ -36,11 +36,11 @@ const Product = () => {
     const handleControl = () => {
         const control = document.getElementById('control')
         const find = document.getElementById('find')
-        if (control.style.display == 'flex') {
+        if (control.style.display = 'flex') {
             control.style.display = 'none'
             find.style.display = 'flex'
             return;
-        } else if (find.style.display == 'flex') {
+        } else if (find.style.display = 'flex') {
             find.style.display = 'none'
             control.style.display = 'flex'
             return;
