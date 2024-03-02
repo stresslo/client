@@ -16,3 +16,6 @@
 .filter-box.show {
     bottom: 0;
 }
+
+#find { animation: opfind 0.3s ease-in-out;}
+@keyframes opfind { from {opacity: 0;} }
