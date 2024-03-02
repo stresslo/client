@@ -17,6 +17,7 @@ const Product = () => {
     const [ page, setPage ] = useState(1)
     const [ data, setData ] = useState([])
     const [ status, setStatus ] = useState(200)
+    const [ update, setUpdate] = useState(false)
     const [ loading, setLoading ] = useState(false)
     const [ value, setValue] = useState(historySearch ? historySearch : '')
     const [ filterHistory, setFilterHistory ] = useState(filter ?  filter : '')
@@ -74,11 +75,12 @@ const Product = () => {
     }, [])
     useEffect(() => { localStorage.setItem('search', value) }, [value])
     useEffect(() => { !value && getProducts() }, [page, value])
+    useEffect(() => {return () => { setUpdate(false) }}, [update])
     if (status !== 200) return <Handle status={status}/> 
 
     return (
         <>
-        <FilterBox/>
+        <FilterBox setUpdate={setUpdate}/>
         <div className='page-max' style={{flexDirection: 'column'}}>
             <div id='snap-container'></div>
                 <div className="back" onClick={() => navigate('/')}>

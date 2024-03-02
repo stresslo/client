@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import "../../style/filterbox.css"
 import convertPrice from "../../../utils/price"
 
-const FilterBox = () => {
+const FilterBox = ({ setUpdate }) => {
 
     const filterHistory = JSON.parse(localStorage.getItem('filterHistory'))
     const [forceUpdate, setForceUpdate] = useState(false)
@@ -17,7 +17,11 @@ const FilterBox = () => {
         setForceUpdate(true)
     }
 
-    useEffect(() => { return () => setForceUpdate(false) }, [forceUpdate])
+    useEffect(() => { return () => {
+        setUpdate(false)
+        setForceUpdate(false)
+    } 
+    }, [forceUpdate])
 
     return (
         <div className='filter-box'>
