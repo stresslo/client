@@ -6,10 +6,10 @@ const FilterBox = () => {
 
     const filterHistory = JSON.parse(localStorage.getItem('filterProduct'))
 
-    const [tech, setTech] = useState(filterHistory.tech ? filterHistory.tech : '')
-    const [price, setPrice] = useState(filterHistory.price ? filterHistory.price : 0)
-    const [pricing, setPricing] = useState(filterHistory.pricing ? filterHistory.pricing : '')
-    const [optprice, setOptprice] =  useState(filterHistory.optprice ? filterHistory.optprice : '')
+    const [tech, setTech] = useState(filterHistory ? filterHistory.tech : '')
+    const [price, setPrice] = useState(filterHistory ? filterHistory.price : 0)
+    const [pricing, setPricing] = useState(filterHistory ? filterHistory.pricing : '')
+    const [optprice, setOptprice] =  useState(filterHistory ? filterHistory.optprice : '')
     if (tech || price || optprice || pricing) {
         localStorage.setItem('filterProduct', JSON.stringify({tech, price, pricing, optprice}))
     }
