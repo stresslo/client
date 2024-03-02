@@ -12,14 +12,13 @@ import FilterBox from './filterbox'
 const Product = () => {
     const navigate = useNavigate()
     const historySearch = localStorage.getItem('search')
-    const filterHistory = localStorage.getItem('filterProduct')
     const { ctg } = useParams()
     const [ page, setPage ] = useState(1)
     const [ data, setData ] = useState([])
     const [ status, setStatus ] = useState(200)
     const [ loading, setLoading ] = useState(false)
     const [ value, setValue] = useState(historySearch ? historySearch : '')
-    const [ filter, setFilter ] = useState(filterHistory ? filterHistory : '')
+    const [ filter, setFilter ] = useState('')
 
     const searchProduct = async (e) => {
         e && e.preventDefault()
@@ -74,7 +73,7 @@ const Product = () => {
     }, [])
     useEffect(() => { localStorage.setItem('search', value) }, [value])
     useEffect(() => { !value && getProducts() }, [page, value])
-    useEffect(() => {}, [filter])
+    useEffect(() => { setFilter(localStorage.getItem('filterProduct')) }, [filter])
     if (status !== 200) return <Handle status={status}/> 
 
     return (
