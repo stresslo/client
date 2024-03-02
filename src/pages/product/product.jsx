@@ -85,7 +85,7 @@ const Product = () => {
                     <div style={{width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '15px'}}>
                         <div style={{display: 'flex', alignItems: 'center', gap: '10px'}}>
                             <div className='button' style={{height: '35px', backgroundColor: 'var(--primary)'}}>
-                                <div style={{fontFamily: 'var(--quicksand)', color: 'var(--blue)', fontSize: '1rem'}}>Filter</div>
+                                <div style={{fontFamily: 'var(--quicksand)', color: 'var(--blue)', fontSize: '1rem'}}>Sort</div>
                                 <div className='fa-solid fa-caret-down fa-lg' style={{color: 'var(--blue)'}}></div>
                             </div>
                         </div>
@@ -117,7 +117,11 @@ const Product = () => {
                                             <div className='product-desc'>{i.desc.length >= 35 ? i.desc.substring(0,35) + '...' : i.desc}</div>
                                             <div className='wrapdet' style={{ position: 'unset', marginTop: '15px', marginLeft: '5px', gap: '5px' }}>
                                                 <div style={{ backgroundColor: 'var(--background)', width: '95px', height: '30px' }}>{i.tech}</div>
-                                                <div style={{ backgroundColor: 'var(--background)', width: '95px', height: '30px'}}>{i.price == 0 ? 'Free' : 'Paid'}</div>
+                                                {(i.price == 0) ? 
+                                                <div style={{ backgroundColor: 'var(--background)', width: '95px', height: '30px', color: 'var(--green)'}}>Free</div>
+                                                : 
+                                                <div style={{ backgroundColor: 'var(--background)', width: '95px', height: '30px'}}>Paid</div>
+                                                }
                                              </div>
                                         </div>
                                         <div className='wrapped-details'>
