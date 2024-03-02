@@ -96,7 +96,7 @@ const Product = () => {
                                 <div className='fa-solid fa-caret-down fa-lg'></div>
                             </div>
                             {(filterHistory) && (
-                                <div className='fa-solid fa-trash fa-lg' style={{color: 'var(--yellow)'}}/>
+                                <div onClick={() => localStorage.removeItem('filterProduct')} className='fa-solid fa-trash fa-lg' style={{color: 'var(--text)', cursor: 'pointer'}}/>
                             )}
                         </div>
                         <div onClick={() => search.show()} style={{display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer'}}>
