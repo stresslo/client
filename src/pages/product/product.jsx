@@ -12,13 +12,14 @@ import FilterBox from './filterbox'
 const Product = () => {
     const navigate = useNavigate()
     const historySearch = localStorage.getItem('search')
-    const filterHistory = localStorage.getItem('filterProduct')
+    const filterHistory = JSON.parse(localStorage.getItem('filterProduct'))
     const { ctg } = useParams()
     const [ page, setPage ] = useState(1)
     const [ data, setData ] = useState([])
     const [ status, setStatus ] = useState(200)
     const [ loading, setLoading ] = useState(false)
     const [ value, setValue] = useState(historySearch ? historySearch : '')
+    const [ filter, setFilter ] = useState(filterHistory ? filterHistory : '')
 
     const searchProduct = async (e) => {
         e && e.preventDefault()
@@ -73,7 +74,7 @@ const Product = () => {
     }, [])
     useEffect(() => { localStorage.setItem('search', value) }, [value])
     useEffect(() => { !value && getProducts() }, [page, value])
-    useEffect(() => {}, [filterHistory])
+    useEffect(() => {}, [filter])
     if (status !== 200) return <Handle status={status}/> 
 
     return (
@@ -89,15 +90,15 @@ const Product = () => {
                 <div id='control' className='form' style={{margin: 'auto'}}>
                     <div style={{width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '15px'}}>
                         <div style={{display: 'flex', alignItems: 'center', gap: '10px'}}>
-                            <div className='button' style={filterHistory ? {height: '35px', backgroundColor: 'var(--primary)', color: 'var(--yellow)'} : {height: '35px', backgroundColor: 'var(--primary)', color: 'var(--blue)'}} onClick={() => {
+                            <div className='button' style={filter ? {height: '35px', backgroundColor: 'var(--primary)', color: 'var(--yellow)'} : {height: '35px', backgroundColor: 'var(--primary)', color: 'var(--blue)'}} onClick={() => {
                                 const boxfilter = document.querySelector('.filter-box')
                                 boxfilter.classList.contains('show') ? boxfilter.classList.remove('show') : boxfilter.classList.add('show')
                             }}>
                                 <div style={{fontFamily: 'var(--quicksand)', fontSize: '1rem'}}>Filter</div>
                                 <div className='fa-solid fa-caret-down fa-lg'></div>
                             </div>
-                            {(filterHistory) && (
-                                <div onClick={() => localStorage.removeItem('filterProduct')} className='fa-solid fa-trash fa-lg' style={{color: 'var(--text)', cursor: 'pointer'}}/>
+                            {(filter) && (
+                                <div onClick={() => {localStorage.removeItem('filterProduct'); setFilter('')}} className='fa-solid fa-trash fa-lg' style={{color: 'var(--text)', cursor: 'pointer'}}/>
                             )}
                         </div>
                         <div onClick={() => search.show()} style={{display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer'}}>
