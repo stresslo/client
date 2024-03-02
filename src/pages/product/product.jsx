@@ -98,7 +98,7 @@ const Product = () => {
                             </div>
                             {(filterHistory) && (
                                 <div onClick={() => {
-                                    setFilter('')
+                                    setFilterHistory('')
                                     localStorage.removeItem('filterProduct')}
                                 } className='fa-solid fa-trash fa-lg' style={{color: 'var(--text)', cursor: 'pointer'}}/>
                             )}

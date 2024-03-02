@@ -14,7 +14,7 @@ const FilterBox = ({ filterHistory }) => {
         if (tech || price || optprice || pricing) {
             localStorage.setItem('filterHistory', JSON.stringify({tech, price, pricing, optprice}))
         }
-    } , [price, tech, pricing])
+    } , [price, tech, pricing, filterHistory])
 
     return (
         <div className='filter-box'>
