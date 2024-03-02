@@ -19,6 +19,7 @@ const Product = () => {
     const [ loading, setLoading ] = useState(false)
     const [ value, setValue] = useState(historySearch ? historySearch : '')
     const [ filterHistory, setFilterHistory ] = useState('')
+    console.log(filterHistory)
     
     const searchProduct = async (e) => {
         e && e.preventDefault()
