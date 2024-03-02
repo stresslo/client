@@ -120,6 +120,41 @@ span {
     color: var(--yellow);
 }
 
+input[type="range"] {
+    /* Warna track saat tidak dislide */
+    background: #ccc;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  /* Warna pegangan pada WebKit (Chrome, Safari, dll.) */
+  background: var(--yellow);
+}
+
+input[type="range"]::-moz-range-thumb {
+  /* Warna pegangan pada Firefox */
+  background: var(--yellow);
+}
+
+input[type="range"]::-ms-thumb {
+  /* Warna pegangan pada Internet Explorer/Edge */
+  background: var(--yellow);
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  /* Warna track pada WebKit (Chrome, Safari, dll.) */
+  background: var(--yellow);
+}
+
+input[type="range"]::-moz-range-track {
+  /* Warna track pada Firefox */
+  background: var(--yellow);
+}
+
+input[type="range"]::-ms-track {
+  /* Warna track pada Internet Explorer/Edge */
+  background: var(--yellow);
+}
+
 @media (max-width : 768px) {
     .itext, .desc {
         font-size: 1.2rem;
