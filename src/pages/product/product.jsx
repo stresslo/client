@@ -84,8 +84,8 @@ const Product = () => {
                 <div id='control' className='form' style={{margin: 'auto'}}>
                     <div style={{width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '15px'}}>
                         <div style={{display: 'flex', alignItems: 'center', gap: '10px'}}>
-                            <div className='button' style={{height: '35px', backgroundColor: 'var(--primary)'}}>
-                                <div style={{fontFamily: 'var(--quicksand)', color: 'var(--blue)', fontSize: '1rem'}}>Sort</div>
+                            <div className='button' style={{height: '35px', backgroundColor: 'var(--primary)'}} onClick={() => { document.querySelector('.filter-box').classList.add('show') }}>
+                                <div style={{fontFamily: 'var(--quicksand)', color: 'var(--blue)', fontSize: '1rem'}}>Filter</div>
                                 <div className='fa-solid fa-caret-down fa-lg' style={{color: 'var(--blue)'}}></div>
                             </div>
                         </div>
