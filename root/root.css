@@ -53,6 +53,7 @@ html { background-color: var(--background);}
     border-radius: 30px;
     font-weight: bold;
     cursor: pointer;
+    box-sizing: border-box;
 }
 
 .button-max {
