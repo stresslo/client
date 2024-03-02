@@ -12,7 +12,7 @@ const FilterBox = () => {
 
     return (
         <div className='filter-box'>
-            <div onClick={() => { document.querySelector('.filter-box').classList.remove('show') }} className="fa-solid fa-close fa-2xl" style={{position : 'absolute', top: '30px', right: '30px', color: 'var(--text)', cursor: 'pointer'}}/>
+            <div onClick={() => { document.querySelector('.filter-box').classList.remove('show') }} className="fa-solid fa-close fa-2xl" style={{position : 'absolute', top: '30px', right: '20px', color: 'var(--text)', cursor: 'pointer'}}/>
             <div style={{width: '100%', height: 'max-content'}}>
                 <div className="itext" style={{fontSize: '1.2rem', color: 'var(--blue)'}}>Pricing</div>
                 <div style={{display: 'flex', flexWrap: 'wrap', gap: '10px', padding: '15px 0px', paddingBottom: '35px'}}>
