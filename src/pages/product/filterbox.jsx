@@ -2,8 +2,9 @@ import { useEffect, useState } from "react"
 import "../../style/filterbox.css"
 import convertPrice from "../../../utils/price"
 
-const FilterBox = ({ filterHistory }) => {
+const FilterBox = () => {
 
+    const filterHistory = JSON.parse(localStorage.getItem('filterHistory'))
     const [tech, setTech] = useState(filterHistory ? filterHistory.tech : '')
     const [price, setPrice] = useState(filterHistory ? filterHistory.price : 0)
     const [pricing, setPricing] = useState(filterHistory ? filterHistory.pricing : '')
@@ -14,7 +15,7 @@ const FilterBox = ({ filterHistory }) => {
         if (tech || price || optprice || pricing) {
             localStorage.setItem('filterHistory', JSON.stringify({tech, price, pricing, optprice}))
         }
-    } , [price, tech, pricing, filterHistory])
+    } , [price, tech, pricing])
 
     return (
         <div className='filter-box'>
