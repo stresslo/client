@@ -16,6 +16,7 @@ const FilterBox = ({ update, setUpdate }) => {
         localStorage.setItem('filterHistory', JSON.stringify({tech, price, pricing, optprice}))
         setForceUpdate(true)
         setUpdate(true)
+        document.querySelector('.filter-box').classList.remove('show')
     }
 
     useEffect(() => { return () => setForceUpdate(false) }, [forceUpdate])
