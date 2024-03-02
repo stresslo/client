@@ -10,7 +10,7 @@
     border-top-right-radius: 20px;
     box-sizing: border-box;
     padding: 20px;
-    transition: 0.5s ease-in-out;
+    transition: 0.5s linear;
 }
 
 .filter-box.show {
