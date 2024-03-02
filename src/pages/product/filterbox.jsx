@@ -15,13 +15,10 @@ const FilterBox = ({ setUpdate }) => {
     const getFilteredData = async () => {
         localStorage.setItem('filterHistory', JSON.stringify({tech, price, pricing, optprice}))
         setForceUpdate(true)
+        setUpdate(true)
     }
 
-    useEffect(() => { {
-        setForceUpdate(false)
-        setUpdate(false)
-    } 
-    }, [forceUpdate])
+    useEffect(() => { return () => setForceUpdate(false) }, [forceUpdate])
 
     return (
         <div className='filter-box'>
