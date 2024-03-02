@@ -12,7 +12,7 @@ const FilterBox = ({ setFilter }) => {
     const [optprice, setOptprice] =  useState(filterHistory ? filterHistory.optprice : '')
     if (tech || price || optprice || pricing) {
         localStorage.setItem('filterProduct', JSON.stringify({tech, price, pricing, optprice}))
-        setFilter(localStorage.setItem('filterProduct', JSON.stringify({tech, price, pricing, optprice})))
+        setFilter({tech, price, pricing, optprice})
     }
 
     return (
