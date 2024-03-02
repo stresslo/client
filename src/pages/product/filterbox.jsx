@@ -42,7 +42,7 @@ const FilterBox = () => {
                     <div className="button" style={ tech === 'next' ? {borderRadius: '5px', width: '90px', height: '35px', boxShadow: 'unset', backgroundColor: 'var(--background)', color : 'var(--blue)'} : {borderRadius: '5px', width: '90px', height: '35px', boxShadow: 'unset', backgroundColor: 'unset', border: '1px solid var(--blue)', color : 'var(--blue)'}} onClick={() => setTech('next')}>Next JS</div>
                 </div>
                 <div style={{display: 'flex', flexWrap: 'wrap', alignItems: 'center', padding: '20px 0'}}>
-                    <div style={{width: '500px'}}><div className="button-max">Apply</div></div>
+                    <div style={{width: '500px'}}><div className="button-max" style={(tech || price || pricing ) ? {backgroundColor: 'var(--yellow)'} : ''}>Apply</div></div>
                 </div>
             </div>
         </div>
