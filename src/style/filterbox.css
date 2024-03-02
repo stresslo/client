@@ -11,7 +11,7 @@
     box-sizing: border-box;
     padding: 20px;
     transition: 0.4s ease-in-out;
-    overflow: hidden;
+    overflow: hidden scroll;
 }
 
 .filter-box.show {
