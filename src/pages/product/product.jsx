@@ -12,7 +12,7 @@ import FilterBox from './filterbox'
 const Product = () => {
     const navigate = useNavigate()
     const historySearch = localStorage.getItem('search')
-    const filterHistory = JSON.parse(localStorage.getItem('filterProduct'))
+    const filterHistory = localStorage.getItem('filterProduct')
     const { ctg } = useParams()
     const [ page, setPage ] = useState(1)
     const [ data, setData ] = useState([])
