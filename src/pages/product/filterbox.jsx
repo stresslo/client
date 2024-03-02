@@ -13,10 +13,14 @@ const FilterBox = ({ setUpdate }) => {
     const [optprice, setOptprice] =  useState(filterHistory ? filterHistory.optprice : '')
 
     const getFilteredData = async () => {
-        localStorage.setItem('filterHistory', JSON.stringify({tech, price, pricing, optprice}))
-        setForceUpdate(true)
-        setUpdate(true)
-        document.querySelector('.filter-box').classList.remove('show')
+        if (tech || price || pricing || optprice) {
+            localStorage.setItem('filterHistory', JSON.stringify({tech, price, pricing, optprice}))
+            setForceUpdate(true)
+            setUpdate(true)
+            document.querySelector('.filter-box').classList.remove('show')
+        } else {
+            return false;
+        }
     }
 
     useEffect(() => { return () => setForceUpdate(false) }, [forceUpdate])
