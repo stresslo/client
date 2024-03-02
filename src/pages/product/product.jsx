@@ -109,7 +109,7 @@ const Product = () => {
                         </div>
                     </div>
                 </form>
-                <div className='product-container' style={{flexDirection: 'column-reverse', marginTop: '30px'}}>
+                <div className='product-container' style={{flexDirection: 'column', marginTop: '30px'}}>
                     {(loading) ? (
                     <Swaload.Product/>
                     ) : (
