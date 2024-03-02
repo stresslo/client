@@ -6,6 +6,7 @@ const FilterBox = () => {
     const [tech, setTech] = useState('')
     const [price, setPrice] = useState(0)
     const [pricing, setPricing] = useState('')
+    console.log(price)
 
     return (
         <div className='filter-box'>
