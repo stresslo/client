@@ -18,8 +18,7 @@ const Product = () => {
     const [ status, setStatus ] = useState(200)
     const [ loading, setLoading ] = useState(false)
     const [ value, setValue] = useState(historySearch ? historySearch : '')
-    const [ filterHistory, setFilterHistory ] = useState('')
-    console.log(filterHistory)
+    const [ filterHistory, setFilterHistory ] = useState(JSON.parse(localStorage.getItem('filterHistory') || ''))
     
     const searchProduct = async (e) => {
         e && e.preventDefault()
@@ -74,7 +73,6 @@ const Product = () => {
     }, [])
     useEffect(() => { localStorage.setItem('search', value) }, [value])
     useEffect(() => { !value && getProducts() }, [page, value])
-    useEffect(() => { setFilterHistory(JSON.parse(localStorage.getItem('filterHistory'))) }, [filterHistory])
     if (status !== 200) return <Handle status={status}/> 
 
     return (
@@ -98,10 +96,7 @@ const Product = () => {
                                 <div className='fa-solid fa-caret-down fa-lg'></div>
                             </div>
                             {(filterHistory) && (
-                                <div onClick={() => {
-                                    setFilterHistory('')
-                                    localStorage.removeItem('filterHistory')}
-                                } className='fa-solid fa-trash fa-lg' style={{color: 'var(--text)', cursor: 'pointer'}}/>
+                                <div onClick={() => { localStorage.removeItem('filterHistory')}} className='fa-solid fa-trash fa-lg' style={{color: 'var(--text)', cursor: 'pointer'}}/>
                             )}
                         </div>
                         <div onClick={() => search.show()} style={{display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer'}}>
