@@ -1,5 +1,6 @@
 import { useState } from "react"
 import "../../style/filterbox.css"
+import convertPrice from "../../../utils/price"
 
 const FilterBox = () => {
 
@@ -21,11 +22,12 @@ const FilterBox = () => {
                 {(pricing === 'paid') && (
                 <>
                 <div className="itext" style={{fontSize: '1.2rem', color: 'var(--blue)'}}>Price Range</div>
-                <div style={{display: 'flex', flexWrap: 'wrap', flexDirection: 'column', gap: '10px', padding: '15px 0px', paddingBottom: '30px'}}>
+                <div style={{display: 'flex', flexWrap: 'wrap', gap: '10px', padding: '15px 0px', paddingBottom: '30px'}}>
                     <input type="range" value={price} min={10000} max={1000000} step={5000} onChange={(e) => setPrice(e.target.value)} style={{width: '400px'}}/>
-                    <div style={{display: 'flex', flexWrap: 'wrap', gap: '10px', padding: '15px 0px', paddingBottom: '30px'}}>
-                        <div className="button" style={ optprice === 'under' ? {borderRadius: '5px', width: '90px', height: '35px', boxShadow: 'unset', backgroundColor: 'var(--background)', color : 'var(--green)'} : {borderRadius: '5px', width: '90px', height: '35px', boxShadow: 'unset', backgroundColor: 'unset', border: '1px solid var(--blue)', color : 'var(--blue)'}} onClick={() => setOptprice('under')}>Free</div>
-                        <div className="button" style={ optprice === 'above' ? {borderRadius: '5px', width: '90px', height: '35px', boxShadow: 'unset', backgroundColor: 'var(--background)', color : 'var(--oren)'} : {borderRadius: '5px', width: '90px', height: '35px', boxShadow: 'unset', backgroundColor: 'unset', border: '1px solid var(--blue)', color : 'var(--blue)'}} onClick={() => setOptprice('above')}>Paid</div>
+                    <div className="itext" style={{fontSize: '0.95rem', color: 'var(--blue)'}}>{convertPrice(price)}</div>
+                    <div style={{display: 'flex', flexWrap: 'wrap', gap: '10px', padding: '15px 0px'}}>
+                        <div className="button" style={ optprice === 'under' ? {borderRadius: '5px', width: '90px', height: '35px', boxShadow: 'unset', backgroundColor: 'var(--background)', color : 'var(--green)'} : {borderRadius: '5px', width: '90px', height: '35px', boxShadow: 'unset', backgroundColor: 'unset', border: '1px solid var(--blue)', color : 'var(--blue)'}} onClick={() => setOptprice('under')}>Under</div>
+                        <div className="button" style={ optprice === 'above' ? {borderRadius: '5px', width: '90px', height: '35px', boxShadow: 'unset', backgroundColor: 'var(--background)', color : 'var(--oren)'} : {borderRadius: '5px', width: '90px', height: '35px', boxShadow: 'unset', backgroundColor: 'unset', border: '1px solid var(--blue)', color : 'var(--blue)'}} onClick={() => setOptprice('above')}>Above</div>
                     </div>
                 </div>
                 </>
