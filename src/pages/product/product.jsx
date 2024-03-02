@@ -7,6 +7,7 @@ import Swaload from '../../../utils/swaload'
 import axios from "axios"
 import jwt from "jwt-decode"
 import "../../style/product.css"
+import FilterBox from './filterbox'
 
 const Product = () => {
     const navigate = useNavigate()
@@ -75,6 +76,7 @@ const Product = () => {
 
     return (
         <div className='page-max' style={{flexDirection: 'column'}}>
+            <FilterBox/>
             <div id='snap-container'></div>
                 <div className="back" onClick={() => navigate('/')}>
                     <div className="fa-solid fa-arrow-left fa-xl active"></div>
