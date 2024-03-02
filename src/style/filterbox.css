@@ -17,5 +17,6 @@
     bottom: 0;
 }
 
-#find { animation: opfind 0.3s ease-in-out;}
+#find { animation: opfind 0.4s ease-in-out;}
+#control { animation: opfind 0.4s ease-in-out; }
 @keyframes opfind { from {opacity: 0;} }
