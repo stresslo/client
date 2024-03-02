@@ -12,6 +12,7 @@ import FilterBox from './filterbox'
 const Product = () => {
     const navigate = useNavigate()
     const historySearch = localStorage.getItem('search')
+    const filterHistory = localStorage.getItem('filterHistory')
     const { ctg } = useParams()
     const [ page, setPage ] = useState(1)
     const [ data, setData ] = useState([])
@@ -87,13 +88,16 @@ const Product = () => {
                 <div id='control' className='form' style={{margin: 'auto'}}>
                     <div style={{width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '15px'}}>
                         <div style={{display: 'flex', alignItems: 'center', gap: '10px'}}>
-                            <div className='button' style={{height: '35px', backgroundColor: 'var(--primary)'}} onClick={() => {
+                            <div className='button' style={filterHistory ? {height: '35px', backgroundColor: 'var(--primary)', color: 'var(--oren)'} : {height: '35px', backgroundColor: 'var(--primary)', color: 'var(--blue)'}} onClick={() => {
                                 const boxfilter = document.querySelector('.filter-box')
                                 boxfilter.classList.contains('show') ? boxfilter.classList.remove('show') : boxfilter.classList.add('show')
                             }}>
-                                <div style={{fontFamily: 'var(--quicksand)', color: 'var(--blue)', fontSize: '1rem'}}>Filter</div>
-                                <div className='fa-solid fa-caret-down fa-lg' style={{color: 'var(--blue)'}}></div>
+                                <div style={{fontFamily: 'var(--quicksand)', fontSize: '1rem'}}>Filter</div>
+                                <div className='fa-solid fa-caret-down fa-lg'></div>
                             </div>
+                            {(filterHistory) && (
+                                <div className='fa-solid fa-trash fa-xl' style={{color: 'var(--blue)'}}/>
+                            )}
                         </div>
                         <div onClick={() => search.show()} style={{display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer'}}>
                             <div className='fa-solid fa-search fa-lg' style={{color: 'var(--text)'}}/>
