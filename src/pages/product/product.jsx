@@ -75,8 +75,9 @@ const Product = () => {
     if (status !== 200) return <Handle status={status}/> 
 
     return (
+        <>
+        <FilterBox/>
         <div className='page-max' style={{flexDirection: 'column'}}>
-            <FilterBox/>
             <div id='snap-container'></div>
                 <div className="back" onClick={() => navigate('/')}>
                     <div className="fa-solid fa-arrow-left fa-xl active"></div>
@@ -162,6 +163,7 @@ const Product = () => {
                 }
             </div>
         </div>
+        </>
     )
 }
 
