@@ -83,7 +83,7 @@ const Product = () => {
 
     return (
         <>
-        <FilterBox update={update} setUpdate={setUpdate}/>
+        <FilterBox setUpdate={setUpdate}/>
         <div className='page-max' style={{flexDirection: 'column'}}>
             <div id='snap-container'></div>
                 <div className="back" onClick={() => navigate('/')}>
