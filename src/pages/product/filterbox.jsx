@@ -1,8 +1,8 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import "../../style/filterbox.css"
 import convertPrice from "../../../utils/price"
 
-const FilterBox = ({ setFilter }) => {
+const FilterBox = () => {
 
     const filterHistory = JSON.parse(localStorage.getItem('filterProduct'))
 
@@ -10,9 +10,13 @@ const FilterBox = ({ setFilter }) => {
     const [price, setPrice] = useState(filterHistory ? filterHistory.price : 0)
     const [pricing, setPricing] = useState(filterHistory ? filterHistory.pricing : '')
     const [optprice, setOptprice] =  useState(filterHistory ? filterHistory.optprice : '')
-    if (tech || price || optprice || pricing) {
-        localStorage.setItem('filterProduct', JSON.stringify({tech, price, pricing, optprice}))
-    }
+
+
+    useEffect(() => {
+        if (tech || price || optprice || pricing) {
+            localStorage.setItem('filterProduct', JSON.stringify({tech, price, pricing, optprice}))
+        }
+    } , [price, tech, pricing])
 
     return (
         <div className='filter-box'>

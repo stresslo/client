@@ -79,7 +79,7 @@ const Product = () => {
 
     return (
         <>
-        <FilterBox setFilter={setFilter}/>
+        <FilterBox/>
         <div className='page-max' style={{flexDirection: 'column'}}>
             <div id='snap-container'></div>
                 <div className="back" onClick={() => navigate('/')}>
@@ -98,7 +98,7 @@ const Product = () => {
                                 <div className='fa-solid fa-caret-down fa-lg'></div>
                             </div>
                             {(filter) && (
-                                <div onClick={() => {localStorage.removeItem('filterProduct'); setFilter('')}} className='fa-solid fa-trash fa-lg' style={{color: 'var(--text)', cursor: 'pointer'}}/>
+                                <div onClick={() => {localStorage.removeItem('filterProduct')}} className='fa-solid fa-trash fa-lg' style={{color: 'var(--text)', cursor: 'pointer'}}/>
                             )}
                         </div>
                         <div onClick={() => search.show()} style={{display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer'}}>
