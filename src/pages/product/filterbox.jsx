@@ -41,8 +41,8 @@ const FilterBox = () => {
                     <div className="button" style={ tech === 'svelte' ? {borderRadius: '5px', width: '90px', height: '35px', boxShadow: 'unset', backgroundColor: 'var(--background)', color : 'var(--blue)'} : {borderRadius: '5px', width: '90px', height: '35px', boxShadow: 'unset', backgroundColor: 'unset', border: '1px solid var(--blue)', color : 'var(--blue)'}} onClick={() => setTech('svelte')}>Svelte</div>
                     <div className="button" style={ tech === 'next' ? {borderRadius: '5px', width: '90px', height: '35px', boxShadow: 'unset', backgroundColor: 'var(--background)', color : 'var(--blue)'} : {borderRadius: '5px', width: '90px', height: '35px', boxShadow: 'unset', backgroundColor: 'unset', border: '1px solid var(--blue)', color : 'var(--blue)'}} onClick={() => setTech('next')}>Next JS</div>
                 </div>
-                <div style={{width: '400px'}}>
-                    <div className="button-max">Apply</div>
+                <div style={{display: 'flex', flexWrap: 'wrap', alignItems: 'center'}}>
+                    <div style={{width: '500px'}}><div className="button-max">Apply</div></div>
                 </div>
             </div>
         </div>
