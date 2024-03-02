@@ -5,7 +5,7 @@ import convertPrice from "../../../utils/price"
 const FilterBox = ({ update, setUpdate }) => {
 
     const [filterHistory, setFilterHistory] = useState(JSON.parse(localStorage.getItem('filterHistory')))
-    const [forceUpdate, setForceUpdate] = useState(false)
+    const [forceUpdate, setForceUpdate] = useState(update)
 
     const [tech, setTech] = useState(filterHistory ? filterHistory.tech : '')
     const [price, setPrice] = useState(filterHistory ? filterHistory.price : 0)
@@ -20,7 +20,6 @@ const FilterBox = ({ update, setUpdate }) => {
     }
 
     useEffect(() => { return () => setForceUpdate(false) }, [forceUpdate])
-    useEffect(() => { setFilterHistory(JSON.parse(localStorage.getItem('filterHistory'))) }, [update])
 
     return (
         <div className='filter-box'>
