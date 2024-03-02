@@ -4,8 +4,9 @@ import "../../style/filterbox.css"
 const FilterBox = () => {
 
     const [tech, setTech] = useState('')
-    const [price, setPrice] = useState(0)
+    const [price, setPrice] = useState(10000)
     const [pricing, setPricing] = useState('')
+    const [optprice, setOptprice] =  useState('')
     console.log(price)
 
     return (
@@ -20,8 +21,12 @@ const FilterBox = () => {
                 {(pricing === 'paid') && (
                 <>
                 <div className="itext" style={{fontSize: '1.2rem', color: 'var(--blue)'}}>Price Range</div>
-                <div style={{display: 'flex', flexWrap: 'wrap', gap: '10px', padding: '15px 0px', paddingBottom: '30px'}}>
-                    <input type="range" min={10000} max={1000000} step={5000} onChange={(e) => setPrice(e.target.value)} style={{width: '400px'}}/>
+                <div style={{display: 'flex', flexWrap: 'wrap', flexDirection: 'column', gap: '10px', padding: '15px 0px', paddingBottom: '30px'}}>
+                    <input type="range" value={price} min={10000} max={1000000} step={5000} onChange={(e) => setPrice(e.target.value)} style={{width: '400px'}}/>
+                    <div style={{display: 'flex', flexWrap: 'wrap', gap: '10px', padding: '15px 0px', paddingBottom: '30px'}}>
+                        <div className="button" style={ optprice === 'under' ? {borderRadius: '5px', width: '90px', height: '35px', boxShadow: 'unset', backgroundColor: 'var(--background)', color : 'var(--green)'} : {borderRadius: '5px', width: '90px', height: '35px', boxShadow: 'unset', backgroundColor: 'unset', border: '1px solid var(--blue)', color : 'var(--blue)'}} onClick={() => setOptprice('under')}>Free</div>
+                        <div className="button" style={ optprice === 'above' ? {borderRadius: '5px', width: '90px', height: '35px', boxShadow: 'unset', backgroundColor: 'var(--background)', color : 'var(--oren)'} : {borderRadius: '5px', width: '90px', height: '35px', boxShadow: 'unset', backgroundColor: 'unset', border: '1px solid var(--blue)', color : 'var(--blue)'}} onClick={() => setOptprice('above')}>Paid</div>
+                    </div>
                 </div>
                 </>
                 )}
