@@ -17,9 +17,9 @@ const FilterBox = ({ setUpdate }) => {
         setForceUpdate(true)
     }
 
-    useEffect(() => { return () => {
-        setUpdate(false)
+    useEffect(() => { {
         setForceUpdate(false)
+        setUpdate(false)
     } 
     }, [forceUpdate])
 
