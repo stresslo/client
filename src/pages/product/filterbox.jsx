@@ -21,7 +21,7 @@ const FilterBox = () => {
                 <>
                 <div className="itext" style={{fontSize: '1.2rem', color: 'var(--blue)'}}>Price Range</div>
                 <div style={{display: 'flex', flexWrap: 'wrap', gap: '10px', padding: '15px 0px', paddingBottom: '30px'}}>
-                    <input type="range" min={0} max={100} step={1} onChange={(e) => setPrice(e.target.value)} style={{width: '400px'}}/>
+                    <input type="range" min={10000} max={1000000} step={5000} onChange={(e) => setPrice(e.target.value)} style={{width: '400px'}}/>
                 </div>
                 </>
                 )}
