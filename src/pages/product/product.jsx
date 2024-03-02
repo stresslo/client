@@ -88,7 +88,7 @@ const Product = () => {
                 <div id='control' className='form' style={{margin: 'auto'}}>
                     <div style={{width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '15px'}}>
                         <div style={{display: 'flex', alignItems: 'center', gap: '10px'}}>
-                            <div className='button' style={filterHistory ? {height: '35px', backgroundColor: 'var(--primary)', color: 'var(--oren)'} : {height: '35px', backgroundColor: 'var(--primary)', color: 'var(--blue)'}} onClick={() => {
+                            <div className='button' style={filterHistory ? {height: '35px', backgroundColor: 'var(--primary)', color: 'var(--yellow)'} : {height: '35px', backgroundColor: 'var(--primary)', color: 'var(--blue)'}} onClick={() => {
                                 const boxfilter = document.querySelector('.filter-box')
                                 boxfilter.classList.contains('show') ? boxfilter.classList.remove('show') : boxfilter.classList.add('show')
                             }}>
@@ -96,7 +96,7 @@ const Product = () => {
                                 <div className='fa-solid fa-caret-down fa-lg'></div>
                             </div>
                             {(filterHistory) && (
-                                <div className='fa-solid fa-trash fa-xl' style={{color: 'var(--blue)'}}/>
+                                <div className='fa-solid fa-trash fa-lg' style={{color: 'var(--yellow)'}}/>
                             )}
                         </div>
                         <div onClick={() => search.show()} style={{display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer'}}>
