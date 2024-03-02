@@ -79,7 +79,7 @@ const Product = () => {
 
     return (
         <>
-        <FilterBox/>
+        <FilterBox setFilter={setFilter}/>
         <div className='page-max' style={{flexDirection: 'column'}}>
             <div id='snap-container'></div>
                 <div className="back" onClick={() => navigate('/')}>
