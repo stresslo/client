@@ -4,7 +4,8 @@
     position: absolute;
     left: 0;
     bottom: -1000px;
-    background-color: var(--background);
+    background-color: var(--second);
+    z-index: 10;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     box-sizing: border-box;
