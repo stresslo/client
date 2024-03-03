@@ -37,8 +37,17 @@ const FilterBox = ({ filterHistory , setLoading, setUpdate, setData, page, ctg }
 
     return (
         <div className='filter-box'>
-            <div onClick={() => { document.querySelector('.filter-box').classList.remove('show') }} className="fa-solid fa-close fa-2xl" style={{position : 'absolute', top: '30px', right: '20px', color: 'var(--text)', cursor: 'pointer'}}/>
-            <div style={{width: '100%', height: 'max-content', marginTop: '10px'}}>
+            <div style={{position: 'absolute', top: '30px', right: '20px', color: 'var(--text)', display: 'flex', alignItems: 'center', gap : '10px'}}>
+                <div onClick={() => { document.querySelector('.filter-box').classList.remove('show') }} className="fa-solid fa-close fa-2xl" style={{color: 'var(--text)', cursor: 'pointer'}}/>
+                {(price || pricing !== 'all' || tech !== 'all' || optprice !== 'all') && (
+                    <div className="button" style={{fontFamily: 'var(--quicksand)'}} onClick={() => {
+                        setUpdate(true)
+                        setForceUpdate(true)
+                        localStorage.removeItem('filterHistory')
+                    }}>Reset</div>
+                )}
+            </div>
+            <div style={{width: '100%', height: 'max-content', marginTop: '20px'}}>
                 <div className="itext" style={{fontSize: '1.2rem', color: 'var(--blue)'}}>Pricing</div>
                 <div style={{display: 'flex', flexWrap: 'wrap', gap: '10px', padding: '15px 0px', paddingBottom: '35px'}}>
                     <div className="button" style={ pricing === 'all' ? {borderRadius: '5px', width: '90px', height: '35px', boxShadow: 'unset', backgroundColor: 'var(--background)', color : 'var(--yellow)'} : {borderRadius: '5px', width: '90px', height: '35px', boxShadow: 'unset', backgroundColor: 'unset', border: '1px solid var(--blue)', color : 'var(--blue)'}} onClick={() => {setPricing('all'); price !== 0 && setPrice(0)}}>All</div>
