@@ -78,9 +78,10 @@ const FilterBox = ({ filterHistory , setLoading, setUpdate, setData, page, ctg }
                     <div style={{width: '500px', display: 'flex', gap : '5px'}}>
                         {(price || pricing !== 'all' || tech !== 'all' || optprice !== 'all') && (
                         <div className="button-max" style={{borderRadius: '30px'}} onClick={() => {
-                            setUpdate(true)
-                            setForceUpdate(true)
-                            localStorage.removeItem('filterHistory')
+                            setPrice(0)
+                            setTech('all')
+                            setPricing('all')
+                            setOptprice('all')
                         }}>Reset</div>
                         )}
                         <div className="button-max" onClick={() => getFilteredData()} style={(tech !== 'all' || price || pricing !== 'all' ) ? {backgroundColor: 'var(--yellow)', borderRadius: '30px'} : { backgroundColor: '#aaa' }}>Apply Filter</div>

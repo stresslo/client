@@ -12,6 +12,7 @@
     padding: 20px;
     transition: 0.4s ease-in-out;
     overflow: hidden scroll;
+    box-shadow: inset -5px -5px 50px var(--background);
 }
 
 .filter-box.show {
