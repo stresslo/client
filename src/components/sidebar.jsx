@@ -29,10 +29,18 @@ const Sidebar = () => {
                         <i className="fa-solid fa-layer-group fa-xl"></i>
                         <div className="sidetext">Products</div>
                     </NavLink>
-                    <NavLink className="sidelist" to="/about">
-                        <i className="fa-solid fa-circle-info fa-xl"></i>
-                        <div className="sidetext">Introduction</div>
+                    {(context.token) ? 
+                    <>
+                    <NavLink className={a => (a.isActive) ? "sidelist" : "sidelist"} to="/profile">
+                        <div className="fa-solid fa-user fa-xl"/>
+                        <div className="sidetext">Account</div>
                     </NavLink>
+                    </>
+                    : 
+                    <NavLink className={a => (a.isActive) ? "sidelist" : "sidelist"} to="/login">
+                        <i className="fa-solid fa-right-to-bracket fa-xl"/>
+                        <div className="sidetext">Sign in</div>
+                    </NavLink>}
                     {(context.status == 'contributor') && 
                         <NavLink className="sidelist" to="/contributor/store">
                             <i className="fa-solid fa-store fa-lg"></i>
@@ -48,18 +56,10 @@ const Sidebar = () => {
                 </div>
 
                 <div className="botside">
-                    {(context.token) ? 
-                    <>
-                    <NavLink className={a => (a.isActive) ? "sidelist" : "sidelist"} to="/profile">
-                        <div className="fa-solid fa-user fa-xl"/>
-                        <div className="sidetext">Account</div>
+                    <NavLink className="sidelist" to="/about">
+                        <i className="fa-solid fa-circle-info fa-xl"></i>
+                        <div className="sidetext">Introduction</div>
                     </NavLink>
-                    </>
-                    : 
-                    <NavLink className={a => (a.isActive) ? "sidelist" : "sidelist"} to="/login">
-                        <i className="fa-solid fa-right-to-bracket fa-xl"/>
-                        <div className="sidetext">Sign in</div>
-                    </NavLink>}
                 </div>
             </div>
         </div>
