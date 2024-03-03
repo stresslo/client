@@ -4,7 +4,7 @@ import "../../style/filterbox.css"
 import axios from "axios"
 
 const FilterBox = ({ filterHistory , setLoading, setUpdate, setData, page, ctg }) => {
-    
+
     const [forceUpdate, setForceUpdate] = useState(false)
 
     const [price, setPrice] = useState(filterHistory ? filterHistory.price : 0)
@@ -33,7 +33,7 @@ const FilterBox = ({ filterHistory , setLoading, setUpdate, setData, page, ctg }
         }
     }
 
-    useEffect(() => { setForceUpdate(false) }, [forceUpdate, filterHistory])
+    useEffect(() => { return () =>  {setForceUpdate(false)} }, [forceUpdate])
 
     return (
         <div className='filter-box'>
