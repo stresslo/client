@@ -17,11 +17,11 @@ const FilterBox = ({ filterHistory , setLoading, setUpdate, setData, page, ctg }
         if (tech !== "all" || price || pricing !== 'all' || optprice !== 'all') {
             try {
                 setLoading(true)
-                const response = await axios.get(endpoint)
+                document.querySelector('.filter-box').classList.remove('show')
                 localStorage.setItem('filterHistory', JSON.stringify({tech, price, pricing, optprice}))
+                const response = await axios.get(endpoint)
                 setForceUpdate(true)
                 setUpdate(true)
-                document.querySelector('.filter-box').classList.remove('show')
                 setData(response.data)
             } catch (error) {
                 return false;
