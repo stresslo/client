@@ -39,7 +39,7 @@ const Content = ({data, setData, setCount}) => {
             window.onscroll = () => {
                 let x = window.scrollY;
                 const img = document.getElementById('paimg')
-                console.log(x, img.style.bottom)
+                img.style.bottom = x * 0.25 + 'px'
             }
         }
     }
