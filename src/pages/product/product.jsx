@@ -92,7 +92,6 @@ const Product = () => {
 
     useEffect(() => { 
         if (update) {
-            location.reload()
             setFilterHistory(filter);
             setUpdate(false) 
         }
@@ -130,7 +129,7 @@ const Product = () => {
                                 <div className='fa-solid fa-caret-down fa-lg'></div>
                             </div>
                             {(filterHistory) && (
-                                <div onClick={() => { setUpdate(true);localStorage.removeItem('filterHistory')}} className='fa-solid fa-trash fa-lg' style={{color: 'var(--text)', cursor: 'pointer'}}/>
+                                <div onClick={() => { setUpdate(true);localStorage.removeItem('filterHistory');location.reload()}} className='fa-solid fa-trash fa-lg' style={{color: 'var(--text)', cursor: 'pointer'}}/>
                             )}
                         </div>
                         <div onClick={() => {search.show(); inputref.current.focus()}} style={{display: 'flex', alignItems: 'center', gap: '7px', cursor: 'pointer'}}>
