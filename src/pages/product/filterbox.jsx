@@ -39,13 +39,6 @@ const FilterBox = ({ filterHistory , setLoading, setUpdate, setData, page, ctg }
         <div className='filter-box'>
             <div style={{position: 'absolute', top: '30px', right: '20px', color: 'var(--text)', display: 'flex', alignItems: 'center', gap : '10px'}}>
                 <div onClick={() => { document.querySelector('.filter-box').classList.remove('show') }} className="fa-solid fa-close fa-2xl" style={{color: 'var(--text)', cursor: 'pointer'}}/>
-                {(price || pricing !== 'all' || tech !== 'all' || optprice !== 'all') && (
-                    <div className="button" style={{fontFamily: 'var(--quicksand)'}} onClick={() => {
-                        setUpdate(true)
-                        setForceUpdate(true)
-                        localStorage.removeItem('filterHistory')
-                    }}>Reset</div>
-                )}
             </div>
             <div style={{width: '100%', height: 'max-content', marginTop: '20px'}}>
                 <div className="itext" style={{fontSize: '1.2rem', color: 'var(--blue)'}}>Pricing</div>
@@ -82,7 +75,16 @@ const FilterBox = ({ filterHistory , setLoading, setUpdate, setData, page, ctg }
                     }
                 </div>
                 <div style={{display: 'flex', flexWrap: 'wrap', alignItems: 'center', paddingTop: '20px'}}>
-                    <div onClick={() => getFilteredData()} style={{width: '500px'}}><div className="button-max" style={(tech || price || pricing ) ? {backgroundColor: 'var(--yellow)'} : { backgroundColor: '#aaa' }}>Apply Filter</div></div>
+                    <div onClick={() => getFilteredData()} style={{width: '500px', display: 'flex'}}>
+                        <div className="button-max" style={(tech !== 'all' || price || pricing !== 'all' ) ? {backgroundColor: 'var(--yellow)'} : { backgroundColor: '#aaa' }}>Apply Filter</div>
+                    {(price || pricing !== 'all' || tech !== 'all' || optprice !== 'all') && (
+                    <div className="button-max" style={{fontFamily: 'var(--quicksand)'}} onClick={() => {
+                        setUpdate(true)
+                        setForceUpdate(true)
+                        localStorage.removeItem('filterHistory')
+                    }}>Reset</div>
+                    )}
+                    </div>
                 </div>
             </div>
         </div>
