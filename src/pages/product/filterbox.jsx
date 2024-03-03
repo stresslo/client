@@ -14,6 +14,7 @@ const FilterBox = ({ filterHistory , setUpdate, setData, page, ctg }) => {
 
     const getFilteredData = async () => {
         const endpoint = `${import.meta.env.VITE_API}/product/filter/${ctg}/${pricing}/${tech}/${price}/${optprice}/${page}`
+        console.log(endpoint)
         if (tech || price || pricing || optprice) {
             try {
                 const response = await axios.get(endpoint)
