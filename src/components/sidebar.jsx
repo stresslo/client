@@ -44,13 +44,13 @@ const Sidebar = () => {
                     {(context.status == 'contributor') && 
                         <NavLink className="sidelist" to="/contributor/store">
                             <i className="fa-solid fa-store fa-lg"></i>
-                            <div className="sidetext">My Store</div>
+                            <div className="sidetext" style={{marginLeft: '33px'}}>My Store</div>
                         </NavLink>
                     }
                     {(context.status == 'user') && 
                         <NavLink className="sidelist" to="/transaction/history">
                             <i className="fa-solid fa-money-bill-transfer fa-lg"></i>
-                            <div className="sidetext" style={{marginLeft: '33px'}}>Transaction</div>
+                            <div className="sidetext" style={{marginLeft: '32px'}}>Transaction</div>
                         </NavLink>
                     }
                 </div>
