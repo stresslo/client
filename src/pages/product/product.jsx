@@ -120,7 +120,7 @@ const Product = () => {
                     </div>
                 </form> */}
                 <div className='product-container' style={{flexDirection: 'column', marginTop: '30px'}}>
-                    <div className='product-card'>
+                    <div className='product-card' style={{height: 'max-content', padding: '0', backgroundColor: 'unset'}}>
                     <div id='control' className='form' style={{margin: 'auto'}}>
                     <div style={{width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '15px'}}>
                         <div style={{display: 'flex', alignItems: 'center', gap: '10px'}}>
