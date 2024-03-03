@@ -39,7 +39,7 @@ const Sidebar = () => {
                     : 
                     <NavLink className={a => (a.isActive) ? "sidelist" : "sidelist"} to="/login">
                         <i className="fa-solid fa-right-to-bracket fa-xl"/>
-                        <div className="sidetext">Sign in</div>
+                        <div className="sidetext" style={{marginLeft: '35px'}}>Sign in</div>
                     </NavLink>}
                     {(context.status == 'contributor') && 
                         <NavLink className="sidelist" to="/contributor/store">
