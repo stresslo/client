@@ -32,8 +32,13 @@ const FilterBox = ({ filterHistory , setLoading, setUpdate, setData, page, ctg }
             return false;
         }
     }
-    
+
     useEffect(() => { setForceUpdate(false) }, [forceUpdate, filterHistory])
+    useEffect(() => {
+        if (filterHistory) {
+            getFilteredData()
+        }
+    }, [page])
 
     return (
         <div className='filter-box'>
