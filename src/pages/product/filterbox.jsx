@@ -24,7 +24,7 @@ const FilterBox = ({ filterHistory , setLoading, setUpdate, setData, page, ctg }
                 setForceUpdate(true)
                 setUpdate(true)
                 const decode = jwt(response.data)
-                setData(decode)
+                setData(decode.data)
             } catch (error) {
                 return false;
             } finally {

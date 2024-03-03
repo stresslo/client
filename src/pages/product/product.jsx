@@ -32,7 +32,7 @@ const Product = () => {
                 localStorage.setItem('search', value)
                 const response = await axios.get(`${import.meta.env.VITE_API}/product/search/${value}/${page}`)
                 const decode = jwt(response.data)
-                setData(decode)
+                setData(decode.data)
             }
         } catch (error) {
             setValue('')
@@ -79,7 +79,7 @@ const Product = () => {
             const endpoint = `${import.meta.env.VITE_API}/product/filter/${ctg}/${filterHistory.pricing}/${filterHistory.tech}/${filterHistory.price}/${filterHistory.optprice}/${page}`
             setLoading(true)
             axios.get(endpoint)
-            .then((response) => {const decode = jwt(response.data); setData(decode)})
+            .then((response) => {const decode = jwt(response.data); setData(decode.data)})
             .catch((error) => { return false; })
             .finally(() => setLoading(false))
         }
