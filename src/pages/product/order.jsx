@@ -114,12 +114,12 @@ const Order = () => {
               <div style={{margin: '10px 0' , width: '100%', height: '2px', backgroundColor: 'var(--primary)'}}/>
               <div style={{margin: '5px', fontFamily: 'var(--quicksand)', fontSize: '1rem', color: 'var(--text)', lineHeight : '30px'}}>
                 <div style={{display: 'flex', justifyContent: 'space-between'}}>
-                  <div>Discount : </div>
-                  <div>{convertPrice(0)}</div>
-                </div>
-                <div style={{display: 'flex', justifyContent: 'space-between'}}>
                   <div>Price : </div>
                   <div>{convertPrice(i.price)}</div>
+                </div>
+                <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                  <div>Discount : </div>
+                  <div>{convertPrice(0)}</div>
                 </div>
                 <div style={{display: 'flex', justifyContent: 'space-between'}}>
                   <div>Taxes & Fees : </div>
@@ -139,9 +139,9 @@ const Order = () => {
               <div className="product-card" style={{ height: 'max-content', width: '100%', marginTop: '0px', justifyContent: 'center' }}>
                 <LazyLoadImage style={{ width: '100%' }} className='product-img' src={data.img} loading='lazy' effect='blur'/>
               </div>
-              <div className='product-card' style={{ height: 'max-content', width: '100%', marginTop: "20px" }}>
+              <div className='product-card' style={{ height: 'max-content', width: '100%', marginTop: "0" }}>
                 <div className='wrapped-text'>
-                    <div className='product-title' style={{ fontSize: '1.4rem', textAlign: 'center' }}>{data.title}</div>
+                    <div className='product-title' style={{ fontSize: '1.2rem', textAlign: 'center', color: 'var(--text)' }}>{data.title}</div>
                 </div>
               </div>
             </div>
