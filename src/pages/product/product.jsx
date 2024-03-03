@@ -74,6 +74,13 @@ const Product = () => {
         if (value) {
             search.show()
             searchProduct()
+        } else if (filterHistory) {
+            const endpoint = `${import.meta.env.VITE_API}/product/filter/${ctg}/${filterHistory.pricing}/${filterHistory.tech}/${filterHistory.price}/${filterHistory.optprice}/${page}`
+            setLoading(true)
+            axios.get(endpoint)
+            .then((responsne) => setData(responsne.data))
+            .catch((error) => { return false; })
+            .finally(() => setLoading(false))
         }
     }, [])
 
