@@ -91,7 +91,37 @@ const Product = () => {
                     <div className="nav-logo"><h1>stresslo</h1></div>
                 </div>
             <div className='product-page' style={{paddingBottom: '0', paddingTop: '10px'}}>
-                <div id='control' className='product-card' style={{margin: 'auto', display: 'unset'}}>
+                {/* <div id='control' className='form' style={{margin: 'auto'}}>
+                    <div style={{width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '15px'}}>
+                        <div style={{display: 'flex', alignItems: 'center', gap: '10px'}}>
+                            <div className='button' style={filterHistory ? {height: '35px', backgroundColor: 'var(--primary)', color: 'var(--yellow)'} : {height: '35px', backgroundColor: 'var(--primary)', color: 'var(--blue)'}} onClick={() => {
+                                const boxfilter = document.querySelector('.filter-box')
+                                boxfilter.classList.contains('show') ? boxfilter.classList.remove('show') : boxfilter.classList.add('show')
+                            }}>
+                                <div style={{fontFamily: 'var(--quicksand)', fontSize: '1rem'}}>Filter</div>
+                                <div className='fa-solid fa-caret-down fa-lg'></div>
+                            </div>
+                            {(filterHistory) && (
+                                <div onClick={() => { setUpdate(true);localStorage.removeItem('filterHistory')}} className='fa-solid fa-trash fa-lg' style={{color: 'var(--text)', cursor: 'pointer'}}/>
+                            )}
+                        </div>
+                        <div onClick={() => search.show()} style={{display: 'flex', alignItems: 'center', gap: '5px', cursor: 'pointer'}}>
+                            <div className='fa-solid fa-search fa-lg' style={{color: 'var(--text)'}}/>
+                            <div style={{color: 'var(--text)', fontSize: '1rem', fontFamily: 'var(--poppins)'}}>Search</div>
+                        </div>
+                    </div>
+                </div>
+                <form onSubmit={(e) => { searchProduct(e) }} id='find' className='form' style={{margin: 'auto', display: 'none'}}>
+                    <div style={{width: '100%', display: 'flex', alignItems: 'center', position: 'relative', gap: '5px'}}>
+                        <input value={value} type="text" onChange={(e) => setValue(e.target.value)} placeholder='search product' className='search' style={{width: '100%', backgroundColor: 'unset', boxShadow: 'unset', border: '2px solid var(--primary)'}}/>
+                        <div onClick={() => search.hide()} className='button' style={{width: '70px', height: '45px', backgroundColor: 'var(--primary)'}}>
+                            <div className='fa-solid fa-close fa-xl' style={{color: 'var(--text)'}}/>
+                        </div>
+                    </div>
+                </form> */}
+                <div className='product-container' style={{flexDirection: 'column', marginTop: '30px'}}>
+                    <div className='product-card'>
+                    <div id='control' className='form' style={{margin: 'auto'}}>
                     <div style={{width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '15px'}}>
                         <div style={{display: 'flex', alignItems: 'center', gap: '10px'}}>
                             <div className='button' style={filterHistory ? {height: '35px', backgroundColor: 'var(--primary)', color: 'var(--yellow)'} : {height: '35px', backgroundColor: 'var(--primary)', color: 'var(--blue)'}} onClick={() => {
@@ -119,7 +149,7 @@ const Product = () => {
                         </div>
                     </div>
                 </form>
-                <div className='product-container' style={{flexDirection: 'column', marginTop: '30px'}}>
+                    </div>
                     {(loading) ? (
                     <Swaload.Product/>
                     ) : (
