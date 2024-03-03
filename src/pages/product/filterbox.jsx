@@ -1,7 +1,8 @@
 import convertPrice from "../../../utils/price"
 import { useEffect, useState } from "react"
-import "../../style/filterbox.css"
 import axios from "axios"
+import jwt from "jwt-decode"
+import "../../style/filterbox.css"
 
 const FilterBox = ({ filterHistory , setLoading, setUpdate, setData, page, ctg }) => {
 
@@ -22,7 +23,8 @@ const FilterBox = ({ filterHistory , setLoading, setUpdate, setData, page, ctg }
                 const response = await axios.get(endpoint)
                 setForceUpdate(true)
                 setUpdate(true)
-                setData(response.data)
+                const decode = jwt(response.data)
+                setData(decode)
             } catch (error) {
                 return false;
             } finally {
