@@ -6,7 +6,7 @@ const stresslo =
         [
             {
                 title : "Web Template",
-                text : "Material Web design template",
+                text : "material web design template",
                 img : "img/web.webp",
                 color : "var(--yellow)",
                 pricing : ["paid", "free"],
