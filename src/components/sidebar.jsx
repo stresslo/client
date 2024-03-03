@@ -56,7 +56,7 @@ const Sidebar = () => {
                 </div>
 
                 <div className="botside">
-                    <NavLink className={a => (a.isActive) ? "sidelist" : "sidelist"} to="/about">
+                    <NavLink className={a => (a.isActive) ? "sidelist" : "sidelist"} style={{gap: '10px'}} to="/about">
                         <i className="fa-solid fa-circle-info fa-xl"></i>
                         <div className="sidetext">Introduction</div>
                     </NavLink>
