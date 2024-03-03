@@ -85,6 +85,7 @@ const Product = () => {
         <>
         <FilterBox 
             filterHistory={filterHistory} 
+            setLoading={setLoading}
             setUpdate={setUpdate} 
             setData={setData}
             page={page}

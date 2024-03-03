@@ -3,19 +3,20 @@ import { useEffect, useState } from "react"
 import "../../style/filterbox.css"
 import axios from "axios"
 
-const FilterBox = ({ filterHistory , setUpdate, setData, page, ctg }) => {
+const FilterBox = ({ filterHistory , setLoading, setUpdate, setData, page, ctg }) => {
 
     const [forceUpdate, setForceUpdate] = useState(false)
 
     const [price, setPrice] = useState(filterHistory ? filterHistory.price : 0)
-    const [tech, setTech] = useState(filterHistory ? filterHistory.tech : 'empty')
-    const [pricing, setPricing] = useState(filterHistory ? filterHistory.pricing : 'mix')
-    const [optprice, setOptprice] =  useState(filterHistory ? filterHistory.optprice : 'empty')
+    const [tech, setTech] = useState(filterHistory ? filterHistory.tech : 'all')
+    const [pricing, setPricing] = useState(filterHistory ? filterHistory.pricing : 'all')
+    const [optprice, setOptprice] =  useState(filterHistory ? filterHistory.optprice : 'all')
 
     const getFilteredData = async () => {
         const endpoint = `${import.meta.env.VITE_API}/product/filter/${ctg}/${pricing}/${tech}/${price}/${optprice}/${page}`
-        if (tech || price || pricing || optprice) {
+        if (tech !== "all" || price || pricing !== 'all' || optprice !== 'all') {
             try {
+                setLoading(true)
                 const response = await axios.get(endpoint)
                 localStorage.setItem('filterHistory', JSON.stringify({tech, price, pricing, optprice}))
                 setForceUpdate(true)
@@ -24,6 +25,8 @@ const FilterBox = ({ filterHistory , setUpdate, setData, page, ctg }) => {
                 setData(response.data)
             } catch (error) {
                 return false;
+            } finally {
+                setLoading(false)
             }
         } else {
             return false;
@@ -56,17 +59,17 @@ const FilterBox = ({ filterHistory , setUpdate, setData, page, ctg }) => {
                 )}
                 <div className="itext" style={{fontSize: '1.2rem', color: 'var(--blue)'}}>Framework</div>
                 <div style={{display: 'flex', flexWrap: 'wrap', gap: '10px', padding: '15px 0px', paddingBottom: '35px'}}>
+                    {(tech !== 'all') && 
+                        <div className="button" style={{borderRadius: '5px', width: '90px', height: '35px', boxShadow: 'unset', backgroundColor: 'var(--yellow)', color : 'var(--blue)'}} onClick={() => setTech('all')}>
+                            <div className="fa-solid fa-close fa-lg" />
+                        </div>
+                    }
                     <div className="button" style={ tech === 'react' ? {borderRadius: '5px', width: '90px', height: '35px', boxShadow: 'unset', backgroundColor: 'var(--background)', color : 'var(--blue)'} : {borderRadius: '5px', width: '90px', height: '35px', boxShadow: 'unset', backgroundColor: 'unset', border: '1px solid var(--blue)', color : 'var(--blue)'}} onClick={() => setTech('react')}>React</div>
                     <div className="button" style={ tech === 'angular' ? {borderRadius: '5px', width: '90px', height: '35px', boxShadow: 'unset', backgroundColor: 'var(--background)', color : 'var(--blue)'} : {borderRadius: '5px', width: '90px', height: '35px', boxShadow: 'unset', backgroundColor: 'unset', border: '1px solid var(--blue)', color : 'var(--blue)'}} onClick={() => setTech('angular')}>Angular</div>
                     <div className="button" style={ tech === 'html' ? {borderRadius: '5px', width: '90px', height: '35px', boxShadow: 'unset', backgroundColor: 'var(--background)', color : 'var(--blue)'} : {borderRadius: '5px', width: '90px', height: '35px', boxShadow: 'unset', backgroundColor: 'unset', border: '1px solid var(--blue)', color : 'var(--blue)'}} onClick={() => setTech('html')}>HTML</div>
                     <div className="button" style={ tech === 'vue' ? {borderRadius: '5px', width: '90px', height: '35px', boxShadow: 'unset', backgroundColor: 'var(--background)', color : 'var(--blue)'} : {borderRadius: '5px', width: '90px', height: '35px', boxShadow: 'unset', backgroundColor: 'unset', border: '1px solid var(--blue)', color : 'var(--blue)'}} onClick={() => setTech('vue')}>Vue</div>
                     <div className="button" style={ tech === 'svelte' ? {borderRadius: '5px', width: '90px', height: '35px', boxShadow: 'unset', backgroundColor: 'var(--background)', color : 'var(--blue)'} : {borderRadius: '5px', width: '90px', height: '35px', boxShadow: 'unset', backgroundColor: 'unset', border: '1px solid var(--blue)', color : 'var(--blue)'}} onClick={() => setTech('svelte')}>Svelte</div>
                     <div className="button" style={ tech === 'next' ? {borderRadius: '5px', width: '90px', height: '35px', boxShadow: 'unset', backgroundColor: 'var(--background)', color : 'var(--blue)'} : {borderRadius: '5px', width: '90px', height: '35px', boxShadow: 'unset', backgroundColor: 'unset', border: '1px solid var(--blue)', color : 'var(--blue)'}} onClick={() => setTech('next')}>Next JS</div>
-                    {(tech !== 'empty') && 
-                        <div className="button" style={{borderRadius: '5px', width: '90px', height: '35px', boxShadow: 'unset', backgroundColor: 'unset', border: '1px solid var(--blue)', color : 'var(--blue)'}} onClick={() => setTech('empty')}>
-                            <div className="fa-solid fa-close fa-lg" />
-                        </div>
-                    }
                 </div>
                 <div style={{display: 'flex', flexWrap: 'wrap', alignItems: 'center', paddingTop: '20px'}}>
                     <div onClick={() => getFilteredData()} style={{width: '500px'}}><div className="button-max" style={(tech || price || pricing ) ? {backgroundColor: 'var(--yellow)'} : { backgroundColor: '#aaa' }}>Apply Filter</div></div>
