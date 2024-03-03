@@ -10,7 +10,7 @@ const FilterBox = ({ filterHistory , setUpdate, setData, page, ctg }) => {
     const [tech, setTech] = useState(filterHistory ? filterHistory.tech : '')
     const [price, setPrice] = useState(filterHistory ? filterHistory.price : 0)
     const [pricing, setPricing] = useState(filterHistory ? filterHistory.pricing : '')
-    const [optprice, setOptprice] =  useState(filterHistory ? filterHistory.optprice : 'free')
+    const [optprice, setOptprice] =  useState(filterHistory ? filterHistory.optprice : 'empty')
 
     const getFilteredData = async () => {
         const endpoint = `${import.meta.env.VITE_API}/product/filter/${ctg}/${pricing}/${tech}/${price}/${optprice}/${page}`
