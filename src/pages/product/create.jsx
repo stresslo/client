@@ -47,7 +47,7 @@ const Create = () => {
         formData.append('tech', tech);
         formData.append('title', title);
         formData.append('price', price);
-        const response = await axios.post(`${import.meta.env.VITE_API}/product`,formData, {
+        const response = await axios.post(`${import.meta.env.VITE_API}/create/product`,formData, {
           headers: {"Content-Type": 'multipart/form-data', "xsrf-token" : vxsrf}
         })
         localStorage.removeItem('inputHistory')
