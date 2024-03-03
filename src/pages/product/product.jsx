@@ -69,12 +69,37 @@ const Product = () => {
         finally { setLoading(false) }
     }
 
+    const getFilteredData = async () => {
+        const endpoint = `${import.meta.env.VITE_API}/product/filter/${ctg}/${filterHistory.pricing}/${filterHistory.tech}/${filterHistory.price}/${filterHistory.optprice}/${page}`
+        if (filterHistory.tech || filterHistory.price || filterHistory.pricing || filterHistory.optprice) {
+            try {
+                setLoading(true)
+                const response = await axios.get(endpoint)
+                setUpdate(true)
+                setData(response.data)
+            } catch (error) {
+                return false;
+            } finally {
+                setLoading(false)
+            }
+        } else {
+            return false;
+        }
+    }
+
     useEffect(() => { 
         if (value) {
             search.show()
             searchProduct()
         }
     }, [])
+
+    useEffect(() => {
+        if (filterHistory) {
+            getFilteredData()
+        }
+    }, [])
+
     useEffect(() => { !value && getProducts() }, [page, value])
     useEffect(() => { localStorage.setItem('search', value) }, [value])
     useEffect(() => { !filterHistory && getProducts() }, [filterHistory, page])
