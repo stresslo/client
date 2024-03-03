@@ -60,7 +60,7 @@ const FilterBox = ({ filterHistory , setLoading, setUpdate, setData, page, ctg }
                 <div className="itext" style={{fontSize: '1.2rem', color: 'var(--blue)'}}>Framework</div>
                 <div style={{display: 'flex', flexWrap: 'wrap', gap: '10px', padding: '15px 0px', paddingBottom: '35px'}}>
                     {(tech !== 'all') && 
-                        <div className="button" style={{borderRadius: '5px', width: '90px', height: '35px', boxShadow: 'unset', backgroundColor: 'var(--yellow)', color : 'var(--blue)'}} onClick={() => setTech('all')}>
+                        <div className="button" style={{borderRadius: '5px', width: '90px', height: '35px', boxShadow: 'unset', backgroundColor: 'var(--yellow)', color : 'var(--second)'}} onClick={() => setTech('all')}>
                             <div className="fa-solid fa-close fa-lg" />
                         </div>
                     }
