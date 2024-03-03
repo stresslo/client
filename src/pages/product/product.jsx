@@ -92,7 +92,9 @@ const Product = () => {
 
     useEffect(() => { 
         if (update) {
-            setFilterHistory(filter);setUpdate(false) 
+            location.reload()
+            setFilterHistory(filter);
+            setUpdate(false) 
         }
     }, [update])
     
