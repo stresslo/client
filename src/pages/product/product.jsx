@@ -1,6 +1,6 @@
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import { useNavigate, useParams } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import convertPrice from "../../../utils/price"
 import Handle from "../../../service/handle"
 import Swaload from '../../../utils/swaload'
@@ -10,7 +10,9 @@ import "../../style/product.css"
 import FilterBox from './filterbox'
 
 const Product = () => {
+
     const navigate = useNavigate()
+    const inputref = useRef(null)
     const historySearch = localStorage.getItem('search')
     const filter = JSON.parse(localStorage.getItem('filterHistory'))
     const { ctg } = useParams()
@@ -91,7 +93,7 @@ const Product = () => {
                     <div className="nav-logo"><h1>stresslo</h1></div>
                 </div>
             <div className='product-page' style={{paddingBottom: '0'}}>
-                <div className='product-container' style={{flexDirection: 'column', marginTop: '20px'}}>
+                <div className='product-container' style={{flexDirection: 'column', marginTop: '5px'}}>
                     <div className='product-card' style={{height: 'max-content', padding: '10px'}}>
                     <div id='control' className='form' style={{margin: 'auto'}}>
                     <div style={{width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '15px'}}>
@@ -107,15 +109,15 @@ const Product = () => {
                                 <div onClick={() => { setUpdate(true);localStorage.removeItem('filterHistory')}} className='fa-solid fa-trash fa-lg' style={{color: 'var(--text)', cursor: 'pointer'}}/>
                             )}
                         </div>
-                        <div onClick={() => search.show()} style={{display: 'flex', alignItems: 'center', gap: '5px', cursor: 'pointer'}}>
+                        <div onClick={() => {search.show(); inputref.current.focus()}} style={{display: 'flex', alignItems: 'center', gap: '5px', cursor: 'pointer'}}>
                             <div className='fa-solid fa-search fa-lg' style={{color: 'var(--text)'}}/>
-                            <div style={{color: 'var(--text)', fontSize: '1rem', fontFamily: 'var(--poppins)'}}>Search</div>
+                            <div style={{color: 'var(--text)', fontSize: '1rem', fontFamily: 'var(--poppins)'}}>Find</div>
                         </div>
                     </div>
                     </div>
-                    <form onSubmit={(e) => { searchProduct(e) }} id='find' className='form' style={{margin: 'auto', display: 'none'}}>
+                    <form onSubmit={(e) => { searchProduct(e) }} id='find' className='form' ref={inputref} style={{margin: 'auto', display: 'none'}}>
                         <div style={{width: '100%', display: 'flex', alignItems: 'center', position: 'relative', gap: '5px'}}>
-                            <input value={value} type="text" onChange={(e) => setValue(e.target.value)} placeholder='search product' className='search' style={{width: '100%', backgroundColor: 'unset', boxShadow: 'unset', borderRadius: '0', borderBottom: '2px solid #aaa'}}/>
+                            <input value={value} type="text" onChange={(e) => setValue(e.target.value)} placeholder='search product' className='search' style={{width: '100%', backgroundColor: 'unset', boxShadow: 'unset', borderRadius: '0', borderBottom: '1px solid #aaa'}}/>
                             <div onClick={() => search.hide()} className='button' style={{width: '70px', height: '45px', backgroundColor: 'var(--primary)'}}>
                                 <div className='fa-solid fa-close fa-xl' style={{color: 'var(--text)'}}/>
                             </div>
