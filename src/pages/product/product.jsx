@@ -29,6 +29,7 @@ const Product = () => {
         try {
             if (value && value.length >= 1) {
                 setLoading(true)
+                localStorage.setItem('search', value)
                 const response = await axios.get(`${import.meta.env.VITE_API}/product/search/${value}/${page}`)
                 setData(response.data)
             }
@@ -76,9 +77,11 @@ const Product = () => {
         }
     }, [])
 
-    useEffect(() => { !value && getProducts() }, [page, value])
-    useEffect(() => { localStorage.setItem('search', value) }, [value])
-    useEffect(() => { !filterHistory && getProducts() }, [filterHistory, page])
+    useEffect(() => {
+        if(!value && !filterHistory) {
+            getProducts()
+        }
+    }, [page, value, filterHistory])
     useEffect(() => { setFilterHistory(filter);setUpdate(false) }, [update])
     if (status !== 200) return <Handle status={status}/> 
 
