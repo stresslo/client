@@ -75,7 +75,7 @@ const Navbar = ({ count }) => {
             {(count != 0) && <div className="count">{count}</div>}
           </div>
           :
-          <div className="i fa-solid fa-circle-user fa-xl" onClick={() => navigate('/login')} style={{fontSize: '28px'}}/>
+          <div className="i fa-solid fa-circle-user fa-xl" onClick={() => navigate('/login')} style={{fontSize: '26px'}}/>
           }
           <div className="i fa-solid fa-qrcode fa-xl" onClick={() => handleSidebar()} style={{fontSize : "28px"}}/>
         </div>
