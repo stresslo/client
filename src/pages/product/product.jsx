@@ -91,7 +91,7 @@ const Product = () => {
                     <div className="nav-logo"><h1>stresslo</h1></div>
                 </div>
             <div className='product-page' style={{paddingBottom: '0', paddingTop: '10px'}}>
-                <div id='control' className='form' style={{margin: 'auto'}}>
+                <div id='control' className='product-card' style={{margin: 'auto', display: 'unset'}}>
                     <div style={{width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '15px'}}>
                         <div style={{display: 'flex', alignItems: 'center', gap: '10px'}}>
                             <div className='button' style={filterHistory ? {height: '35px', backgroundColor: 'var(--primary)', color: 'var(--yellow)'} : {height: '35px', backgroundColor: 'var(--primary)', color: 'var(--blue)'}} onClick={() => {
@@ -134,7 +134,7 @@ const Product = () => {
                                             <div className='wrapdet' style={{ position: 'unset', marginTop: '15px', marginLeft: '5px', gap: '5px' }}>
                                                 <div style={{ backgroundColor: 'var(--background)', width: '95px', height: '30px' }}>{i.tech}</div>
                                                 {(i.price == 0) ? 
-                                                <div style={{ backgroundColor: 'var(--background)', width: '95px', height: '30px', color: 'var(--green)'}}>Free</div>
+                                                <div style={{ backgroundColor: 'var(--background)', width: '95px', height: '30px', color: 'var(--blue)'}}>Free</div>
                                                 : 
                                                 <div style={{ backgroundColor: 'var(--background)', width: '95px', height: '30px'}}>Paid</div>
                                                 }
