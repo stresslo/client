@@ -109,7 +109,7 @@ const Product = () => {
                                 <div onClick={() => { setUpdate(true);localStorage.removeItem('filterHistory')}} className='fa-solid fa-trash fa-lg' style={{color: 'var(--text)', cursor: 'pointer'}}/>
                             )}
                         </div>
-                        <div onClick={() => {search.show(); inputref.current.focus()}} style={{display: 'flex', alignItems: 'center', gap: '5px', cursor: 'pointer'}}>
+                        <div onClick={() => {search.show(); inputref.current.focus()}} style={{display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer'}}>
                             <div className='fa-solid fa-search fa-lg' style={{color: 'var(--text)'}}/>
                             <div style={{color: 'var(--text)', fontSize: '1rem', fontFamily: 'var(--poppins)'}}>Find</div>
                         </div>
@@ -117,10 +117,8 @@ const Product = () => {
                     </div>
                     <form onSubmit={(e) => { searchProduct(e) }} id='find' className='form' style={{margin: 'auto', display: 'none'}}>
                         <div style={{width: '100%', display: 'flex', alignItems: 'center', position: 'relative', gap: '5px'}}>
-                            <input value={value} ref={inputref} type="text" onChange={(e) => setValue(e.target.value)} placeholder='search product' className='search' style={{width: '100%', backgroundColor: 'unset', boxShadow: 'unset', borderRadius: '0', borderBottom: '1px solid #aaa'}}/>
-                            <div onClick={() => search.hide()} className='button' style={{width: '70px', height: '45px', backgroundColor: 'var(--primary)'}}>
-                                <div className='fa-solid fa-close fa-xl' style={{color: 'var(--text)'}}/>
-                            </div>
+                            <input value={value} ref={inputref} type="text" onChange={(e) => setValue(e.target.value)} placeholder='find product' className='search' style={{width: '100%', backgroundColor: 'unset', boxShadow: 'unset', borderRadius: '0', borderBottom: '1px solid #aaa'}}/>
+                            <div onClick={() => search.hide()} className='fa-solid fa-close fa-2xl' style={{color: 'var(--text)'}}/>
                         </div>
                     </form>
                     </div>
