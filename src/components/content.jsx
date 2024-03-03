@@ -34,20 +34,6 @@ const Content = ({data, setData, setCount}) => {
         }
     }
 
-    const parallelScroll = () => {
-        if (path === '/' || path === '/products') {
-            window.onscroll = () => {
-                let widht = window.innerWidth;
-                if (widht < 500) {
-                    let x = window.scrollY;
-                    const img = document.getElementById('paimg')
-                    img.style.top = x * 0.25 - img.style.top + 'px'
-                } 
-            }
-        }
-    }
-    parallelScroll()
-
     return (
         <div className="content">
             <div className="snap-container"></div>
