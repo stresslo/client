@@ -2,7 +2,7 @@ import moment from "moment"
 import Skeleton from "react-loading-skeleton"
 import convertPrice from "../../../utils/price"
 import { useLocation, useParams } from "react-router-dom"
-import { useContext, useEffect, useState } from "react"
+import { useContext, useEffect, useRef, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { LazyLoadImage } from "react-lazy-load-image-component"
 import Context from "../../../utils/context"
@@ -12,6 +12,7 @@ import "../../style/create.css"
 
 const Details = () => {
 
+    const backref = useRef(null)
     const context = useContext(Context)
     const { vid } = useParams()
     const location = useLocation()
@@ -36,6 +37,8 @@ const Details = () => {
           document.body.appendChild(link);
           link.click()
           document.body.removeChild(link)
+          swalert('successfuly donwload product', 'success', 3000)
+          .then((res) => res.dismiss && backref.current.click())
         } catch (error) {
           error.response && swalert(error.response.data, 'error', 3000)
           return false;
@@ -78,7 +81,7 @@ const Details = () => {
 
     return (
         <div className='page-max'>
-            <div className="back" onClick={() => navigate(`/product/${i.ctg}`)}>
+            <div className="back" ref={backref} onClick={() => navigate(`/product/${i.ctg}`)}>
                 <div className="fa-solid fa-arrow-left fa-xl active"></div>
                 <div className="nav-logo"><h1>stresslo</h1></div>
             </div>
