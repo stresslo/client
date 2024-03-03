@@ -6,7 +6,7 @@ const products =
         [
             {
                 title : "Web Template",
-                text : "Material UI & Web design template",
+                text : "Material Web design template",
                 img : "img/web.png",
                 color : "var(--yellow)",
                 pricing : ["paid", "free"],
