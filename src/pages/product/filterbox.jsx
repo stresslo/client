@@ -33,6 +33,11 @@ const FilterBox = ({ filterHistory , setLoading, setUpdate, setData, page, ctg }
         }
     }
 
+    useEffect(() => {
+        if (price || tech || pricing ) {
+            getFilteredData()
+        }
+    }, [])
     useEffect(() => { setForceUpdate(false) }, [forceUpdate, filterHistory])
 
     return (
