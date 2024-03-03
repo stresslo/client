@@ -141,7 +141,7 @@ const Order = () => {
               </div>
               <div className='product-card' style={{ height: 'max-content', width: '100%', marginTop: "20px" }}>
                 <div className='wrapped-text'>
-                    <div className='product-title' style={{ fontSize: '1.4rem', textAlign: 'center' }}>{i.title}</div>
+                    <div className='product-title' style={{ fontSize: '1.4rem', textAlign: 'center' }}>{data.title}</div>
                 </div>
               </div>
             </div>
