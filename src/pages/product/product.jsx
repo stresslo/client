@@ -89,7 +89,13 @@ const Product = () => {
             getProducts()
         }
     }, [page, value, filterHistory])
-    useEffect(() => { setFilterHistory(filter);setUpdate(false) }, [update])
+
+    useEffect(() => { 
+        if (update) {
+            setFilterHistory(filter);setUpdate(false) 
+        }
+    }, [update])
+    
     if (status !== 200) return <Handle status={status}/> 
 
     return (
