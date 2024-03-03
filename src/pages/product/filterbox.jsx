@@ -75,15 +75,15 @@ const FilterBox = ({ filterHistory , setLoading, setUpdate, setData, page, ctg }
                     }
                 </div>
                 <div style={{display: 'flex', flexWrap: 'wrap', alignItems: 'center', paddingTop: '20px'}}>
-                    {(price || pricing !== 'all' || tech !== 'all' || optprice !== 'all') && (
-                    <div className="button-max" style={{borderRadius: '30px'}} onClick={() => {
-                        setUpdate(true)
-                        setForceUpdate(true)
-                        localStorage.removeItem('filterHistory')
-                    }}>Reset</div>
-                    )}
-                    <div onClick={() => getFilteredData()} style={{width: '500px', display: 'flex', gap : '5px'}}>
-                        <div className="button-max" style={(tech !== 'all' || price || pricing !== 'all' ) ? {backgroundColor: 'var(--yellow)', borderRadius: '30px'} : { backgroundColor: '#aaa' }}>Apply Filter</div>
+                    <div style={{width: '500px', display: 'flex', gap : '5px'}}>
+                        {(price || pricing !== 'all' || tech !== 'all' || optprice !== 'all') && (
+                        <div className="button-max" style={{borderRadius: '30px'}} onClick={() => {
+                            setUpdate(true)
+                            setForceUpdate(true)
+                            localStorage.removeItem('filterHistory')
+                        }}>Reset</div>
+                        )}
+                        <div className="button-max" onClick={() => getFilteredData()} style={(tech !== 'all' || price || pricing !== 'all' ) ? {backgroundColor: 'var(--yellow)', borderRadius: '30px'} : { backgroundColor: '#aaa' }}>Apply Filter</div>
                     </div>
                 </div>
             </div>
