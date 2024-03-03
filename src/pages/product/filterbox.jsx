@@ -77,14 +77,14 @@ const FilterBox = ({ filterHistory , setLoading, setUpdate, setData, page, ctg }
                 <div style={{display: 'flex', flexWrap: 'wrap', alignItems: 'center', paddingTop: '20px'}}>
                     <div style={{width: '500px', display: 'flex', gap : '5px'}}>
                         {(price || pricing !== 'all' || tech !== 'all' || optprice !== 'all') && (
-                        <div className="button-max" style={{borderRadius: '30px', height: '35px'}} onClick={() => {
+                        <div className="button-max" style={{borderRadius: '30px', height: '40px'}} onClick={() => {
                             setPrice(0)
                             setTech('all')
                             setPricing('all')
                             setOptprice('all')
                         }}>Reset</div>
                         )}
-                        <div className="button-max" onClick={() => getFilteredData()} style={(tech !== 'all' || price || pricing !== 'all' ) ? {backgroundColor: 'var(--yellow)', borderRadius: '30px', height: '35px'} : { backgroundColor: '#aaa', height: '35px' }}>Apply</div>
+                        <div className="button-max" onClick={() => getFilteredData()} style={(tech !== 'all' || price || pricing !== 'all' ) ? {backgroundColor: 'var(--yellow)', borderRadius: '30px', height: '40px'} : { backgroundColor: '#aaa', height: '40px' }}>Apply</div>
                     </div>
                 </div>
             </div>
