@@ -37,7 +37,7 @@ const FilterBox = ({ filterHistory , setLoading, setUpdate, setData, page, ctg }
 
     return (
         <div className='filter-box'>
-            <div style={{position: 'absolute', top: '30px', right: '20px', color: 'var(--text)', display: 'flex', alignItems: 'center', gap : '10px'}}>
+            <div style={{position: 'fixed', top: '30px', right: '25px', color: 'var(--text)', display: 'flex', alignItems: 'center', gap : '10px', zIndex: '10'}}>
                 <div onClick={() => { document.querySelector('.filter-box').classList.remove('show') }} className="fa-solid fa-close fa-2xl" style={{color: 'var(--text)', cursor: 'pointer'}}/>
             </div>
             <div style={{width: '100%', height: 'max-content', marginTop: '20px'}}>
@@ -77,14 +77,14 @@ const FilterBox = ({ filterHistory , setLoading, setUpdate, setData, page, ctg }
                 <div style={{display: 'flex', flexWrap: 'wrap', alignItems: 'center', paddingTop: '20px'}}>
                     <div style={{width: '500px', display: 'flex', gap : '5px'}}>
                         {(price || pricing !== 'all' || tech !== 'all' || optprice !== 'all') && (
-                        <div className="button-max" style={{borderRadius: '30px'}} onClick={() => {
+                        <div className="button-max" style={{borderRadius: '30px', height: '35px'}} onClick={() => {
                             setPrice(0)
                             setTech('all')
                             setPricing('all')
                             setOptprice('all')
                         }}>Reset</div>
                         )}
-                        <div className="button-max" onClick={() => getFilteredData()} style={(tech !== 'all' || price || pricing !== 'all' ) ? {backgroundColor: 'var(--yellow)', borderRadius: '30px'} : { backgroundColor: '#aaa' }}>Apply Filter</div>
+                        <div className="button-max" onClick={() => getFilteredData()} style={(tech !== 'all' || price || pricing !== 'all' ) ? {backgroundColor: 'var(--yellow)', borderRadius: '30px', height: '35px'} : { backgroundColor: '#aaa', height: '35px' }}>Apply</div>
                     </div>
                 </div>
             </div>
