@@ -94,7 +94,7 @@ const Product = () => {
                 </div>
             <div className='product-page' style={{paddingBottom: '0'}}>
                 <div className='product-container' style={{flexDirection: 'column', marginTop: '5px'}}>
-                    <div className='product-card' style={{height: 'max-content', padding: '10px'}}>
+                    <div className='product-card' style={{height: 'max-content', padding: '10px', borderRadius: '30px'}}>
                     <div id='control' className='form' style={{margin: 'auto'}}>
                     <div style={{width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '15px'}}>
                         <div style={{display: 'flex', alignItems: 'center', gap: '10px'}}>
