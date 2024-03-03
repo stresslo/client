@@ -115,9 +115,9 @@ const Product = () => {
                         </div>
                     </div>
                     </div>
-                    <form onSubmit={(e) => { searchProduct(e) }} id='find' className='form' ref={inputref} style={{margin: 'auto', display: 'none'}}>
+                    <form onSubmit={(e) => { searchProduct(e) }} id='find' className='form' style={{margin: 'auto', display: 'none'}}>
                         <div style={{width: '100%', display: 'flex', alignItems: 'center', position: 'relative', gap: '5px'}}>
-                            <input value={value} type="text" onChange={(e) => setValue(e.target.value)} placeholder='search product' className='search' style={{width: '100%', backgroundColor: 'unset', boxShadow: 'unset', borderRadius: '0', borderBottom: '1px solid #aaa'}}/>
+                            <input value={value} ref={inputref} type="text" onChange={(e) => setValue(e.target.value)} placeholder='search product' className='search' style={{width: '100%', backgroundColor: 'unset', boxShadow: 'unset', borderRadius: '0', borderBottom: '1px solid #aaa'}}/>
                             <div onClick={() => search.hide()} className='button' style={{width: '70px', height: '45px', backgroundColor: 'var(--primary)'}}>
                                 <div className='fa-solid fa-close fa-xl' style={{color: 'var(--text)'}}/>
                             </div>
