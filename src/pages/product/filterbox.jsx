@@ -1,6 +1,6 @@
+import convertPrice from "../../../utils/price"
 import { useEffect, useState } from "react"
 import "../../style/filterbox.css"
-import convertPrice from "../../../utils/price"
 
 const FilterBox = ({ setUpdate }) => {
 

@@ -105,9 +105,9 @@ const Product = () => {
                                 <div onClick={() => { setUpdate(true);localStorage.removeItem('filterHistory')}} className='fa-solid fa-trash fa-lg' style={{color: 'var(--text)', cursor: 'pointer'}}/>
                             )}
                         </div>
-                        <div onClick={() => search.show()} style={{display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer'}}>
+                        <div onClick={() => search.show()} style={{display: 'flex', alignItems: 'center', gap: '5px', cursor: 'pointer'}}>
                             <div className='fa-solid fa-search fa-lg' style={{color: 'var(--text)'}}/>
-                            <div style={window.innerWidth >= 500 ? {color: 'var(--text)', fontSize: '1rem', fontFamily: 'var(--poppins)'} : { display: 'none' }}>Search</div>
+                            <div style={{color: 'var(--text)', fontSize: '1rem', fontFamily: 'var(--poppins)'}}>Search</div>
                         </div>
                     </div>
                 </div>
