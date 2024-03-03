@@ -69,10 +69,14 @@ const Navbar = ({ count }) => {
           }
         </div>  
         <div className="nav-user-mobile">
+          {(context.email) ? 
           <div style={{ position: 'relative' }} onClick={() => showNotification()}>
             <div className="i fa-solid fa-bell fa-xl"/>
             {(count != 0) && <div className="count">{count}</div>}
           </div>
+          :
+          <div className="fa-solid fa-circle-user fa-xl" onClick={() => navigate('/login')}/>
+          }
           <div className="i fa-solid fa-qrcode fa-xl" onClick={() => handleSidebar()} style={{fontSize : "28px"}}/>
         </div>
       </div>
