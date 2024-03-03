@@ -1,8 +1,9 @@
 import convertPrice from "../../../utils/price"
 import { useEffect, useState } from "react"
 import "../../style/filterbox.css"
+import axios from "axios"
 
-const FilterBox = ({ filterHistory , setUpdate, setData }) => {
+const FilterBox = ({ filterHistory , setUpdate, setData, page, ctg }) => {
 
     const [forceUpdate, setForceUpdate] = useState(false)
 
@@ -12,11 +13,18 @@ const FilterBox = ({ filterHistory , setUpdate, setData }) => {
     const [optprice, setOptprice] =  useState(filterHistory ? filterHistory.optprice : '')
 
     const getFilteredData = async () => {
+        const endpoint = `${import.meta.env.VITE_API}/product/filter/${ctg}/${pricing}/${tech}/${price}/${optprice}/${page}`
         if (tech || price || pricing || optprice) {
-            localStorage.setItem('filterHistory', JSON.stringify({tech, price, pricing, optprice}))
-            setForceUpdate(true)
-            setUpdate(true)
-            document.querySelector('.filter-box').classList.remove('show')
+            try {
+                const response = await axios.get(endpoint)
+                localStorage.setItem('filterHistory', JSON.stringify({tech, price, pricing, optprice}))
+                setForceUpdate(true)
+                setUpdate(true)
+                document.querySelector('.filter-box').classList.remove('show')
+                setData(response.data)
+            } catch (error) {
+                return false;
+            }
         } else {
             return false;
         }

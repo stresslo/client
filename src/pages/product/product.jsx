@@ -27,7 +27,7 @@ const Product = () => {
     const searchProduct = async (e) => {
         e && e.preventDefault()
         try {
-            if (value && value.length >= 3) {
+            if (value && value.length >= 1) {
                 setLoading(true)
                 const response = await axios.get(`${import.meta.env.VITE_API}/product/search/${value}/${page}`)
                 setData(response.data)
@@ -77,12 +77,19 @@ const Product = () => {
     }, [])
     useEffect(() => { !value && getProducts() }, [page, value])
     useEffect(() => { localStorage.setItem('search', value) }, [value])
+    useEffect(() => { !filterHistory && getProducts() }, [filterHistory, page])
     useEffect(() => { setFilterHistory(filter);setUpdate(false) }, [update])
     if (status !== 200) return <Handle status={status}/> 
 
     return (
         <>
-        <FilterBox filterHistory={filterHistory} setUpdate={setUpdate} setData={setData}/>
+        <FilterBox 
+            filterHistory={filterHistory} 
+            setUpdate={setUpdate} 
+            setData={setData}
+            page={page}
+            ctg={ctg}
+        />
         <div className='page-max' style={{flexDirection: 'column'}}>
             <div id='snap-container'></div>
                 <div className="back" onClick={() => navigate('/')}>
