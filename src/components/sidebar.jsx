@@ -33,7 +33,7 @@ const Sidebar = () => {
                     <>
                     <NavLink className={a => (a.isActive) ? "sidelist" : "sidelist"} to="/profile">
                         <div className="fa-solid fa-circle-user fa-xl"/>
-                        <div className="sidetext">Account</div>
+                        <div className="sidetext" style={{marginLeft: '33px'}}>Account</div>
                     </NavLink>
                     </>
                     : 
@@ -50,7 +50,7 @@ const Sidebar = () => {
                     {(context.status == 'user') && 
                         <NavLink className="sidelist" to="/transaction/history">
                             <i className="fa-solid fa-money-bill-transfer fa-lg"></i>
-                            <div className="sidetext">Transaction</div>
+                            <div className="sidetext" style={{marginLeft: '33px'}}>Transaction</div>
                         </NavLink>
                     }
                 </div>
