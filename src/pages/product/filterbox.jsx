@@ -7,7 +7,7 @@ const FilterBox = ({ filterHistory , setUpdate, setData, page, ctg }) => {
 
     const [forceUpdate, setForceUpdate] = useState(false)
 
-    const [tech, setTech] = useState(filterHistory ? filterHistory.tech : '')
+    const [tech, setTech] = useState(filterHistory ? filterHistory.tech : 'empty')
     const [price, setPrice] = useState(filterHistory ? filterHistory.price : 0)
     const [pricing, setPricing] = useState(filterHistory ? filterHistory.pricing : '')
     const [optprice, setOptprice] =  useState(filterHistory ? filterHistory.optprice : 'empty')
