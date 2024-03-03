@@ -22,7 +22,7 @@ const FilterBox = ({ filterHistory , setUpdate, setData }) => {
         }
     }
 
-    useEffect(() => { return () => setForceUpdate(false) }, [forceUpdate, filterHistory])
+    useEffect(() => { setForceUpdate(false) }, [forceUpdate, filterHistory])
 
     return (
         <div className='filter-box'>

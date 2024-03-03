@@ -75,12 +75,9 @@ const Product = () => {
             searchProduct()
         }
     }, [])
-    useEffect(() => { localStorage.setItem('search', value) }, [value])
     useEffect(() => { !value && getProducts() }, [page, value])
-    useEffect(() => { 
-        setFilterHistory(filter) 
-        setUpdate(false)
-    }, [update])
+    useEffect(() => { localStorage.setItem('search', value) }, [value])
+    useEffect(() => { setFilterHistory(filter);setUpdate(false) }, [update])
     if (status !== 200) return <Handle status={status}/> 
 
     return (
