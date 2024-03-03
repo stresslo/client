@@ -36,9 +36,8 @@ const FilterBox = ({ filterHistory , setLoading, setUpdate, setData, page, ctg }
     useEffect(() => { return () =>  {setForceUpdate(false)} }, [forceUpdate])
 
     return (
-        <div className="filter-container">
         <div className='filter-box'>
-            <div style={{position: 'fixed', top: '30px', right: '25px', color: 'var(--text)', display: 'flex', alignItems: 'center', gap : '10px', zIndex: '10'}}>
+            <div style={{position: 'absolute', top: '30px', right: '25px', color: 'var(--text)', display: 'flex', alignItems: 'center', gap : '10px', zIndex: '10'}}>
                 <div onClick={() => { document.querySelector('.filter-box').classList.remove('show') }} className="fa-solid fa-close fa-2xl" style={{color: 'var(--text)', cursor: 'pointer'}}/>
             </div>
             <div style={{width: '100%', height: 'max-content', marginTop: '20px'}}>
@@ -89,7 +88,6 @@ const FilterBox = ({ filterHistory , setLoading, setUpdate, setData, page, ctg }
                     </div>
                 </div>
             </div>
-        </div>
         </div>
     )
 }
