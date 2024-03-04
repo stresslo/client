@@ -1,15 +1,16 @@
 import axios from "axios"
-import snap from "../../../utils/snap"
 import Navbar from "../../components/navbar"
 import Content from "../../components/content"
 import Sidebar from "../../components/sidebar"
-import { useEffect, useState } from "react"
+import Context from "../../../utils/context"
+import { useContext, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import "../../style/main.css"
 
 const Main = () => {
 
     const navigate = useNavigate()
+    const context = useContext(Context)
 
     const transaction_mode = localStorage.getItem('transaction_mode')
     const [ data, setData ] = useState([])
@@ -27,7 +28,7 @@ const Main = () => {
         }
     }
 
-    useEffect(() => { if (transaction_mode) { getTransaction() }
+    useEffect(() => { if (transaction_mode && context.role == 'user') { getTransaction() }
     }, [])
 
     return (

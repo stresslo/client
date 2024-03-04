@@ -44,7 +44,8 @@ const Profile = () => {
                 headers : {"Content-Type" : "multipart/form-data", "xsrf-token" : vxsrf}, 
                 withCredentials : true
             })
-           ;(await swalert(response.data, "success", 3000)).dismiss && location.reload()
+            swalert(response.data, 'success', 4000)
+            .then((res) => res.dismiss && location.reload())
         } 
         catch (error) {
             if (error || error.response) {
@@ -60,7 +61,7 @@ const Profile = () => {
     return (
         <div className='page' style={{flexDirection: 'column', gap : '10px'}}>
             <Topback/>
-            <LazyLoadImage onClick={() => inputref.current.click()} src={(file) ? URL.createObjectURL(file) : context.img} width={150} height={150} style={{borderRadius : '50%', objectFit: 'cover', cursor : 'pointer'}}/>
+            <LazyLoadImage loading='lazy' effect='blur' onClick={() => inputref.current.click()} src={(file) ? URL.createObjectURL(file) : context.img} width={150} height={150} style={{borderRadius : '50%', objectFit: 'cover', cursor : 'pointer'}}/>
             <div className='title'>{context.username}</div>
             <form style={{display: 'flex', alignItems: "center", flexDirection: 'column'}}>
                 <input type="file" onChange={(e) => setFile(e.target.files[0])} ref={inputref} style={{display: 'none'}}/>
