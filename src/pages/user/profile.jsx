@@ -67,7 +67,7 @@ const Profile = () => {
                 <input id='changemail' type="text" style={{width : '300px'}} placeholder={context.email} readOnly/>
                 {(file || email) ? <button style={{margin: '30px 0'}} onClick={() => updateImage()} className='button'>update</button> : 
                 <div style={{margin: '30px 0', display: 'flex', gap: '20px'}}>
-                    {(context.status == 'contributor') ? 
+                    {(context.role == 'contributor') ? 
                         <div className='button' onClick={() => navigate('/contributor/store')}><i style={{cursor: 'pointer'}} className='fa-solid fa-store fa-xl'/></div>
                         :
                         <div className='button' onClick={() => navigate('/transaction/history')}><i style={{cursor: 'pointer'}} className='fa-solid fa-money-bill-transfer fa-xl'/></div>
