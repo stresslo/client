@@ -116,8 +116,8 @@ const Product = () => {
                     <div className="fa-solid fa-arrow-left fa-xl active"></div>
                     <div className="nav-logo"><h1>stresslo</h1></div>
                 </div>
-            <div className='product-page' style={{paddingBottom: '0'}}>
-                <div className='product-container' style={{flexDirection: 'column', marginTop: '5px'}}>
+            <div className='product-page' style={{paddingBottom: '0', marginTop: '30px'}}>
+                <div className='product-container' style={{flexDirection: 'column', marginTop: '0'}}>
                     <div className='product-card' style={{height: 'max-content', padding: '0', backgroundColor: 'unset'}}>
                     <div id='control' className='form' style={{margin: 'auto'}}>
                     <div style={{width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '15px'}}>
