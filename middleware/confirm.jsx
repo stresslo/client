@@ -9,7 +9,7 @@ const Confirm = {
     user : () => {
         const register_mode_user = JSON.parse(localStorage.getItem('register_mode_user'))
         const navigate = useNavigate()
-        const [ OTP, setOTP ] = useState('VX')
+        const [ OTP, setOTP ] = useState('')
         const [ vxsrf, setVxsrf ] = useState('')
         const [loading, setLoading] = useState(false)
         const confirm = async () => {
