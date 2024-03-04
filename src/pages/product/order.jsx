@@ -137,13 +137,13 @@ const Order = () => {
               </div>
             </div>
             <div className='prev-form'>
-              <div className='itext'>Product</div>
+              <div className='itext'><span>Place</span> Order</div>
               <div className="product-card" style={{ height: 'max-content', width: '100%', marginTop: '0px', justifyContent: 'center' }}>
                 <LazyLoadImage style={{ width: '100%' }} className='product-img' src={data.img} loading='lazy' effect='blur'/>
               </div>
               <div className='product-card' style={{ height: 'max-content', width: '100%', marginTop: "0" }}>
                 <div className='wrapped-text'>
-                    <div className='product-title' style={{ fontSize: '1.2rem', textAlign: 'center', color: 'var(--text)', textShadow: 'unset' }}>{data.title}</div>
+                    <div className='product-title' style={{ fontSize: '1rem', textAlign: 'center', color: 'var(--text)', textShadow: 'unset' }}>{data.title}</div>
                 </div>
               </div>
             </div>
