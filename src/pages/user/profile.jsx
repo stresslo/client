@@ -21,7 +21,7 @@ const Profile = () => {
     const [loading, setLoading] = useState(false)
 
     const logout = async() => {
-        const filterUrl = context.status == 'contributor' ? `${url}/logout/contributor` : `${url}/logout`
+        const filterUrl = context.role == 'contributor' ? `${url}/logout/contributor` : `${url}/logout`
         try {
             setLoading(true)
             const response = await axios.get(filterUrl)
@@ -35,7 +35,7 @@ const Profile = () => {
     }
 
     const updateImage = async() => {
-        const filterUrl = context.status == 'contributor' ? `${url}/contributor/update` : `${url}/user/update`
+        const filterUrl = context.role == 'contributor' ? `${url}/contributor/update` : `${url}/user/update`
         try {
             let formData = new FormData();
             formData.append('img', file);

@@ -23,7 +23,7 @@ const Routing = () => {
 
   const axtoken = axios.create()
   const path = location.pathname;
-  const history = localStorage.getItem('status')
+  const history = localStorage.getItem('role')
   
   const [vid, setVid] = useState('')
   const [img, setImg] = useState('/img/dui.jpg')
@@ -32,10 +32,10 @@ const Routing = () => {
   const [expires, setExpires] = useState('')
   const [username, setUsername] = useState('')
   const [loading, setLoading] = useState(false)
-  const [status, setStatus] = useState(history ? history : '')
+  const [role, setRole] = useState(history ? history : '')
   
   axtoken.interceptors.request.use(async (config) => {
-    const endpoint = status === 'contributor' ? 'vxrft/contributor' : 'vxrft/user'
+    const endpoint = role === 'contributor' ? 'vxrft/contributor' : 'vxrft/user'
     const current = new Date().getTime()
     if (expires * 1000 < current) {
       const response = await axios.get(`${import.meta.env.VITE_API}/${endpoint}`)
@@ -52,7 +52,7 @@ const Routing = () => {
       setEmail(decoded.email)
       setExpires(decoded.exp)
       setUsername(decoded.username)
-      setStatus(decoded.status ? decoded.status : 'user')
+      setRole(decoded.role ? decoded.role : 'user')
     } else {
       setStatus('')
     }
@@ -60,7 +60,7 @@ const Routing = () => {
 
   useEffect(() => {
       context.setLoading(true)
-      const endpoint = status === 'contributor' ? 'vxrft/contributor' : 'vxrft/user'
+      const endpoint = role === 'contributor' ? 'vxrft/contributor' : 'vxrft/user'
       axios.get(`${import.meta.env.VITE_API}/${endpoint}`)
       .then((response) => setToken(response.data.token))
       .then(() => checkvxsrf())
@@ -70,7 +70,7 @@ const Routing = () => {
 
   useEffect(() => { changeclass() } ,[path])
 
-  const context = {vid, img, email, username, status, token, setToken, loading, setLoading}
+  const context = {vid, img, email, username, role, token, setToken, loading, setLoading}
 
   return (
     <Context.Provider value={context}>

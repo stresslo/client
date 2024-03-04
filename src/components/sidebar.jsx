@@ -41,13 +41,13 @@ const Sidebar = () => {
                         <i className="fa-solid fa-right-to-bracket fa-xl"/>
                         <div className="sidetext" style={{marginLeft: '33px'}}>Sign in</div>
                     </NavLink>}
-                    {(context.status == 'contributor') && 
+                    {(context.role == 'contributor') && 
                         <NavLink className="sidelist" to="/contributor/store">
                             <i className="fa-solid fa-store fa-lg"></i>
                             <div className="sidetext" style={{marginLeft: '33px'}}>My Store</div>
                         </NavLink>
                     }
-                    {(context.status == 'user') && 
+                    {(context.role == 'user') && 
                         <NavLink className="sidelist" to="/transaction/history">
                             <i className="fa-solid fa-money-bill-transfer fa-lg"></i>
                             <div className="sidetext" style={{marginLeft: '32px'}}>Transaction</div>
