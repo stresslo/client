@@ -62,6 +62,7 @@ const FilterBox = ({ filterHistory , setLoading, setUpdate, setData, page, ctg }
                 </div>
                 </>
                 )}
+                {(ctg == 'web') && <>
                 <div className="itext" style={{fontSize: '1.2rem', color: 'var(--blue)'}}>Framework</div>
                 <div style={{display: 'flex', flexWrap: 'wrap', gap: '10px', padding: '15px 0px', paddingBottom: '35px'}}>
                     <div className="button" style={ tech === 'all' ? {borderRadius: '5px', width: '90px', height: '35px', boxShadow: 'unset', backgroundColor: 'var(--background)', color : 'var(--yellow)'} : {borderRadius: '5px', width: '90px', height: '35px', boxShadow: 'unset', backgroundColor: 'unset', border: '1px solid var(--blue)', color : 'var(--blue)'}} onClick={() => setTech('all')}>All</div>
@@ -72,6 +73,7 @@ const FilterBox = ({ filterHistory , setLoading, setUpdate, setData, page, ctg }
                     <div className="button" style={ tech === 'svelte' ? {borderRadius: '5px', width: '90px', height: '35px', boxShadow: 'unset', backgroundColor: 'var(--background)', color : 'var(--yellow)'} : {borderRadius: '5px', width: '90px', height: '35px', boxShadow: 'unset', backgroundColor: 'unset', border: '1px solid var(--blue)', color : 'var(--blue)'}} onClick={() => setTech('svelte')}>Svelte</div>
                     <div className="button" style={ tech === 'next' ? {borderRadius: '5px', width: '90px', height: '35px', boxShadow: 'unset', backgroundColor: 'var(--background)', color : 'var(--yellow)'} : {borderRadius: '5px', width: '90px', height: '35px', boxShadow: 'unset', backgroundColor: 'unset', border: '1px solid var(--blue)', color : 'var(--blue)'}} onClick={() => setTech('next')}>Next JS</div>
                 </div>
+                </>}
                 <div style={{display: 'flex', flexWrap: 'wrap', alignItems: 'center', paddingTop: '20px'}}>
                     <div style={{width: '500px', display: 'flex', gap : '5px'}}>
                         {(price || pricing !== 'all' || tech !== 'all' || optprice !== 'all') && (
