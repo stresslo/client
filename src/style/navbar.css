@@ -83,7 +83,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 20px;
+        gap: 15px;
     }
 
     .count {
@@ -137,6 +137,6 @@
     .nav-user-mobile {
         display: flex;
         align-items: center;
-        gap: 20px;
+        gap: 15px;
     }
 }
