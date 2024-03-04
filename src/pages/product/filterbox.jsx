@@ -58,7 +58,7 @@ const FilterBox = ({ filterHistory , setLoading, setUpdate, setData, page, ctg }
                 </div>
                 <div style={{display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '10px', paddingBottom: '35px'}}>
                     <input type="range" value={price} min={10000} max={1000000} step={5000} onChange={(e) => setPrice(e.target.value)} style={{width: '400px'}}/>
-                    <div className="itext" style={{fontSize: '0.95rem', color: 'var(--text)'}}>{convertPrice(price)}</div>
+                    <div className="itext" style={{fontSize: '0.95rem', color: 'var(--text)'}}>{optprice == 'under' ? '<' : '>'} {convertPrice(price)}</div>
                 </div>
                 </>
                 )}
