@@ -54,7 +54,7 @@ const Routing = () => {
       setUsername(decoded.username)
       setRole(decoded.role ? decoded.role : 'user')
     } else {
-      setStatus('')
+      setRole('')
     }
   }, [token, history])
 
