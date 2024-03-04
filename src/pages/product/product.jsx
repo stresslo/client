@@ -126,7 +126,7 @@ const Product = () => {
                                 const boxfilter = document.querySelector('.filter-box')
                                 boxfilter.classList.contains('show') ? boxfilter.classList.remove('show') : boxfilter.classList.add('show')
                             }}>
-                                <div style={{fontFamily: 'var(--quicksand)', fontSize: '1rem', color : 'var(--text)'}}>Filter</div>
+                                <div style={{fontFamily: 'var(--quicksand)', fontSize: '1rem'}}>Filter</div>
                                 <div className='fa-solid fa-caret-down fa-lg'></div>
                             </div>
                             {(filterHistory) && (
