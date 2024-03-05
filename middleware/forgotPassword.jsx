@@ -39,7 +39,7 @@ const Forgot = {
         return (
             <div className="page">
                 <Topback/>
-                <form className="form" onSubmit={makeRequest} style={{ textAlign: 'center', gap: '50px' }}>
+                <form className="form" onSubmit={makeRequest} style={{ textAlign: 'center', gap: '50px', marginTop: '15px' }}>
                     <div style={{display: 'flex', gap: '20px', justifyContent: 'center'}}>
                         <select onChange={(e) => setRole(e.target.value)} style={{width: '120px'}} required>
                             <option value="user">User</option>
@@ -63,7 +63,7 @@ const Forgot = {
         const navigate = useNavigate()
         const {role} = useParams()
 
-        const [url, setUrl] = useState(`${endpoint}/confirm/forgot/password${role}`)
+        const [url, setUrl] = useState(`${endpoint}/confirm/forgot/password/${role}`)
         const [otp, setOTP] = useState('')
         const [vxsrf, setVxsrf] = useState('')
         const [password, setPassword] = useState('')
