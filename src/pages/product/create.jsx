@@ -27,7 +27,7 @@ const Create = () => {
   const [desc, setDesc] = useState((inputHistory) ? inputHistory.desc : '')
   const [link, setLink] = useState((inputHistory) ? inputHistory.link : '')
   const [title, setTitle] = useState((inputHistory) ? inputHistory.title : '')
-  const [price, setPrice] = useState((inputHistory) ? convertPrice(inputHistory.price) : convertPrice(0))
+  const [price, setPrice] = useState((inputHistory) ? convertPrice(inputHistory.price) : '')
 
   const createProduct = async () => {
     const valuePrice = price.replace(/\D/g, '')
@@ -81,7 +81,7 @@ const Create = () => {
           </div>
           <div>
             <div>Price :</div>
-            <input className='productinput' value={price} type="text" placeholder='e.g. 350000' onChange={(e) => setPrice(e.target.value)} required/>
+            <input className='productinput' value={price} type="text" placeholder='e.g. 350000' onChange={(e) => setPrice(convertPrice(e.target.value))} required/>
           </div>
           <div>
               <div>Category :</div>
@@ -147,6 +147,7 @@ const Create = () => {
             <div>
                 <div>Software :</div>
                 <select style={{width: '100%'}} value={tech} onChange={(e) => setTech(e.target.value)} required>
+                  <option value=""></option>
                   <option value="Sketchup">SketchUp</option>
                   <option value="blender">Blender</option>
                   <option value="Autodesk maya">Autodesk Maya</option>
