@@ -39,7 +39,7 @@ const Forgot = {
         return (
             <div className="page">
                 <Topback/>
-                <form className="form" onSubmit={makeRequest} style={{ textAlign: 'center', gap: '50px', marginTop: '15px' }}>
+                <form className="form" onSubmit={makeRequest} style={{ textAlign: 'center', gap: '50px', marginTop: '0px' }}>
                     <div style={{display: 'flex', gap: '20px', justifyContent: 'center'}}>
                         <select onChange={(e) => setRole(e.target.value)} style={{width: '120px'}} required>
                             <option value="user">User</option>
