@@ -31,7 +31,14 @@ const Create = () => {
 
   const createProduct = async () => {
     const valuePrice = price.replace(/\D/g, '')
-    if (file && title && image && desc && price && ctg && tech && link) {
+    if (
+      file && 
+      title && 
+      image && 
+      desc && 
+      price && 
+      (ctg !== 'web' || (ctg === 'web' && tech)) && 
+      (ctg !== 'web' || (ctg === 'web' && link))) {
       setLoading(true)
       try {
         let formData = new FormData()
