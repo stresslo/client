@@ -49,7 +49,7 @@ const Forgot = {
         )
     },
 
-    confirm : async () => {
+    confirm : () => {
 
         const endpoint = import.meta.env.VITE_API
         const navigate = useNavigate()
