@@ -1,0 +1,101 @@
+import { useEffect, useState } from "react"
+import Topback from "../src/components/topback"
+import getvxsrf from "../service/getvxsrf"
+import axios from "axios"
+import swalert from "../utils/swalert"
+import { useNavigate, useParams } from "react-router-dom"
+
+const Forgot = {
+    requset : () => {
+        const navigate = useNavigate()
+        const endpoint = `${import.meta.env.VITE_API}`
+        const [role, setRole] = useState('user')
+        const [email, setEmail] = useState('')
+        const [vxsrf, setVxsrf] = useState('')
+
+        useEffect(() => { getvxsrf().then((result) => setVxsrf(result)) }, [])
+
+        const makeRequest = async () => {
+            try {
+                const response = await axios.post(`${endpoint}/forgot/password/${role}`, {email}, { headers: {'xsrf-token' : vxsrf} })
+                swalert(response.data, 'success', 3000)
+                .then((res) => res.dismiss && navigate(`/confirm/forgot/password/${role}`))
+            } catch (error) {
+                if (error || error.response) {
+                    swalert(error.response.data, 'info', 2000)
+                    return false;
+                }
+            }
+        }
+
+        return (
+            <div className="page">
+                <Topback/>
+                <div className="form" style={{ textAlign: 'center', gap: '50px' }}>
+                    <div style={{display: 'flex', gap: '20px', justifyContent: 'center'}}>
+                        <select onChange={(e) => setRole(e.target.value)} style={{width: '120px'}} required>
+                            <option value="user">User</option>
+                            <option value="contributor">Contributor</option>
+                        </select>
+                        <div className="button" onClick={() => makeRequest()}>Confirm</div>
+                    </div>
+                    <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="input your email" required/>
+                    <div>
+                        <div className="title">Forgot <span>Password</span></div>
+                        <div className="desc" style={{ fontFamily: 'var(--quicksand)', fontSize: '0.9rem', marginTop: '7px', letterSpacing: '1px' }}>make sure your email is active and can receive message from our team</div>
+                    </div>
+                </div>
+            </div>
+        )
+    },
+
+    confirm : async () => {
+
+        const endpoint = import.meta.env.VITE_API
+        const navigate = useNavigate()
+        const {role} = useParams()
+
+        const [url, setUrl] = useState(`${endpoint}/confirm/forgot/password${role}`)
+        const [otp, setOTP] = useState('')
+        const [vxsrf, setVxsrf] = useState('')
+        const [password, setPassword] = useState('')
+        const [confirmPassword, setConfirmPassword] = useState('')
+
+        const changePassword = async () => {
+            try {
+                const response = await axios.post(url, { password, confirmPassword, otp }, { headers: {'xsrf-token' : vxsrf} })
+                swalert(response.data, 'success', 3000)
+                .then((res) => res.dismiss && navigate('/login'))
+            } catch (error) {
+                if (error || error.response) {
+                    swalert(error.response.data, 'info', 3000)
+                    return false;
+                }
+            }
+        }
+
+        useEffect(() => { getvxsrf.then((result) => setVxsrf(result)) }, [])
+
+        return (
+            <div className="page">
+                <Topback/>
+                <div className="login-box">
+                    <div className="login-top">
+                        <h1 className="title"><span>Change</span> Password</h1>
+                        <p className="desc">make sure your data is filled in correctly and appropriately</p>
+                    </div>
+                    <form onSubmit={createUser} className="login-input">
+                        <input type="email" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
+                        <input type="text" placeholder='confirm password' value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required/>
+                        <input type="password" placeholder="OTP" value={otp} onChange={(e) => setOTP(e.target.value)} required/>
+                        <div className="login-button">
+                            <button className="button" onClick={() => changePassword()} style={{fontFamily : "serif", width : "150px"}}>Confirm</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        )
+    }
+}
+
+export default Forgot;

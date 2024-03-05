@@ -18,6 +18,7 @@ import checkvxsrf from "../service/checkvxsrf"
 import History from "../src/pages/user/history"
 import changeclass from "../utils/randomize"
 import AuthTransaction from "../middleware/authTransaction"
+import Forgot from "../middleware/forgotPassword"
 
 const Routing = () => {
 
@@ -89,9 +90,11 @@ const Routing = () => {
           <Route path="/contributor/store" element={<Store/>}/>
           <Route path="/product/details/:vid" element={<Details/>}/>
 
+          <Route path="/forgot/password" element={<Forgot.requset/>}/>
           <Route path="/confirm/user" element={<Confirm.user/>}/>
           <Route path="/transaction/history" element={<History/>}/>
           <Route path="/transaction/result/:order_id" element={<AuthTransaction/>}/>
+          <Route path="/confirm/forgot/password/:role" element={<Forgot.confirm/>}/>
         </Routes>
       </Router>
     </Context.Provider>

@@ -14,7 +14,7 @@ const Login = () => {
     const context = useContext(Context)
     const refemail = localStorage.getItem('email')
 
-    const [as, setAs]             = useState('user')
+    const [role, setRole]         = useState('user')
     const [url, setUrl]           = useState('')
     const [vxsrf, setVxsrf]       = useState('')
     const [email, setEmail]       = useState((refemail) ? refemail : '')
@@ -29,7 +29,7 @@ const Login = () => {
             const response = await axios.post(url, { email, password }, { headers: {'xsrf-token' : vxsrf} })
             context.setToken(response.data.token)
             localStorage.removeItem('email')
-            localStorage.setItem('role', as)
+            localStorage.setItem('role', role)
             localStorage.setItem('transaction_mode', "true")
             navigate('/profile')
         }
@@ -42,9 +42,9 @@ const Login = () => {
 
     useEffect(() => { getvxsrf().then((result) => setVxsrf(result)) }, [])
     useEffect(() => {
-        if (as == 'user') return setUrl(`${import.meta.env.VITE_API}/login`)
+        if (role == 'user') return setUrl(`${import.meta.env.VITE_API}/login`)
         else return setUrl(`${import.meta.env.VITE_API}/login/contributor`)
-    }, [as])
+    }, [role])
 
     if (loading) return <Loading/>
 
@@ -60,13 +60,13 @@ const Login = () => {
                     <input type="email" placeholder="email" value={email} onChange={(e) => setEmail(e.target.value)} required/>
                     <input type="password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
                     <div className="login-button">
-                        <select onChange={(e) => setAs(e.target.value)} style={{width: '120px'}} required>
+                        <select onChange={(e) => setRole(e.target.value)} style={{width: '120px'}} required>
                             <option value="user">User</option>
                             <option value="contributor">Contributor</option>
                         </select>
                         <button type="submit" className="button" style={{fontFamily : "serif", width : "150px"}}>Sign in</button>
                     </div>
-                    <NavLink to='/register' style={{textDecoration : "none", color : "var(--text)", translate: '0 20px'}}>Create account</NavLink>
+                    <NavLink to='/register' style={{textDecoration : "none", color : "var(--text)", translate: '0 20px'}}>Forgot password?</NavLink>
                 </form>
             </div>
         </div>

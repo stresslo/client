@@ -12,6 +12,8 @@ const Register = () => {
 
     const navigate = useNavigate()
 
+    const [url, setUrl] = useState('')
+    const [role, setRole] = useState('user')
     const [vxsrf, setVxsrf] = useState('')
     const [email, setEmail] = useState('')
     const [loading, setLoading] = useState(false)
@@ -22,7 +24,7 @@ const Register = () => {
         e.preventDefault()
         try {
             setLoading(true)
-            const response = await axios.post(`${import.meta.env.VITE_API}/register`,
+            const response = await axios.post(url,
             {email, username, password}, {headers: { "xsrf-token" : vxsrf }})
             localStorage.setItem('register_mode_user', JSON.stringify({ email, username, password }))
             swalert(response.data, "success", 7000)
@@ -34,6 +36,10 @@ const Register = () => {
         finally {setLoading(false)}
     }
 
+    useEffect(() => {
+        if (role == 'user') return setUrl(`${import.meta.env.VITE_API}/register`)
+        else return setUrl(`${import.meta.env.VITE_API}/register`)
+    }, [role])
     useEffect(() => { getvxsrf().then((result) => setVxsrf(result)) }, [])
     if (loading) return <Loading/>
 
@@ -50,9 +56,13 @@ const Register = () => {
                     <input type="text" placeholder='username' value={username} onChange={(e) => setUsername(e.target.value)} required/>
                     <input type="password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
                     <div className="login-button">
+                        <select onChange={(e) => setRole(e.target.value)} style={{width: '120px'}} required>
+                            <option value="user">User</option>
+                            <option value="contributor">Contributor</option>
+                        </select>
                         <button type="submit" className="button" style={{fontFamily : "serif", width : "150px"}}>Create</button>
-                        <NavLink to="/login" style={{textDecoration : "none", color : "var(--text)"}}>Have an account</NavLink>
                     </div>
+                    <NavLink to='/login' style={{textDecoration : "none", color : "var(--text)", translate: '0 20px'}}>Have an account</NavLink>
                 </form>
             </div>
         </div>
