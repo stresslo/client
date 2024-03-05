@@ -47,7 +47,7 @@ const Forgot = {
                         </select>
                         <button className="button" type="submit">Confirm</button>
                     </div>
-                    <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="input your email" required/>
+                    <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="input your email" required/>
                     <div>
                         <div className="title">Forgot <span>Password</span></div>
                         <div className="desc" style={{ fontFamily: 'var(--quicksand)', fontSize: '0.9rem', marginTop: '7px', letterSpacing: '1px' }}>make sure your email is active and can receive message from our team</div>
@@ -97,12 +97,12 @@ const Forgot = {
                 <div className="login-box">
                     <div className="login-top">
                         <h1 className="title"><span>Change</span> Password</h1>
-                        <p className="desc">make sure your data is filled in correctly and appropriately</p>
+                        <div className="desc" style={{ fontFamily: 'var(--quicksand)', fontSize: '0.9rem', marginTop: '7px', letterSpacing: '1px' }}>make sure your data is filled in correctly and appropriately</div>
                     </div>
                     <form onSubmit={changePassword} className="login-input">
-                        <input type="email" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
+                        <input type="text" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
                         <input type="text" placeholder='confirm password' value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required/>
-                        <input type="password" placeholder="OTP" value={otp} onChange={(e) => setOTP(e.target.value)} required/>
+                        <input type="text" placeholder="OTP" value={otp} onChange={(e) => setOTP(e.target.value)} required/>
                         <div className="login-button">
                             <button className="button" type="submit" style={{fontFamily : "serif", width : "150px"}}>Confirm</button>
                         </div>
