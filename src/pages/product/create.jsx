@@ -29,12 +29,8 @@ const Create = () => {
   const [title, setTitle] = useState((inputHistory) ? inputHistory.title : '')
   const [price, setPrice] = useState((inputHistory) ? inputHistory.price : '')
 
-  if (title || price || desc || ctg || file || image || link) {
-    localStorage.setItem('inputHistory', JSON.stringify({title, price, desc, ctg, tech, link }))
-  }
-
   const createProduct = async () => {
-    
+    const valuePrice = price.replace(/\D/g, '')
     if (file && title && image && desc && price && ctg && tech && link) {
       setLoading(true)
       try {
@@ -46,7 +42,7 @@ const Create = () => {
         formData.append('file', file);
         formData.append('tech', tech);
         formData.append('title', title);
-        formData.append('price', price);
+        formData.append('price', valuePrice);
         const response = await axios.post(`${import.meta.env.VITE_API}/create/product`,formData, {
           headers: {"Content-Type": 'multipart/form-data', "xsrf-token" : vxsrf}
         })
@@ -62,6 +58,11 @@ const Create = () => {
     }
   }
 
+  useEffect(() => {
+    if (title || price || desc || ctg || file || image || link) {
+      localStorage.setItem('inputHistory', JSON.stringify({title, price, desc, ctg, tech, link }))
+    }
+  }, [title, desc])
   useEffect(() => { getvxsrf().then((data) => setVxsrf(data)) }, [])
   if (loading) return <Loading/>
 
@@ -80,7 +81,7 @@ const Create = () => {
           </div>
           <div>
             <div>Price :</div>
-            <input className='productinput' value={price} type="text" placeholder='e.g. 350000' onChange={(e) => setPrice(e.target.value)} required/>
+            <input className='productinput' value={convertPrice(price)} type="text" placeholder='e.g. 350000' onChange={(e) => setPrice(e.target.value)} required/>
           </div>
           <div>
               <div>Category :</div>
@@ -112,7 +113,48 @@ const Create = () => {
             </div>
           </>
           }
-          
+          {(ctg === 'motion') &&
+          <>
+            <div>
+                <div>Software :</div>
+                <select style={{width: '100%'}} value={tech} onChange={(e) => setTech(e.target.value)} required>
+                  <option value=""></option>
+                  <option value="AE">Adobe After Effect</option>
+                  <option value="DaVinci">DaVinci Resolve</option>
+                  <option value="Blender">Blender</option>
+                  <option value="AM">Apple Motion</option>
+                  <option value="Cinema 4D">Cinema 4D</option>
+                </select>
+            </div>
+          </>
+          }
+          {(ctg === 'vector') &&
+          <>
+            <div>
+                <div>Software :</div>
+                <select style={{width: '100%'}} value={tech} onChange={(e) => setTech(e.target.value)} required>
+                  <option value=""></option>
+                  <option value="AI">Adobe Illustrarion</option>
+                  <option value="Corel">Corel Draw</option>
+                  <option value="Pixelmator">Pixelmator Pro</option>
+                  <option value="Affinity">Affinity Designer</option>
+                </select>
+            </div>
+          </>
+          }
+          {(ctg === '3d') &&
+          <>
+            <div>
+                <div>Software :</div>
+                <select style={{width: '100%'}} value={tech} onChange={(e) => setTech(e.target.value)} required>
+                  <option value="Sketchup">SketchUp</option>
+                  <option value="blender">Blender</option>
+                  <option value="Autodesk maya">Autodesk Maya</option>
+                  <option value="Cinema 4D">Cinema 4D</option>
+                </select>
+            </div>
+          </>
+          }
           <div className='wrap-file'>
             <div>
               <div>Image : </div>
