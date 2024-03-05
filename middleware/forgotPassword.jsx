@@ -87,7 +87,7 @@ const Forgot = {
             }
         }
 
-        useEffect(() => { getvxsrf.then((result) => setVxsrf(result)) }, [])
+        useEffect(() => { getvxsrf().then((result) => setVxsrf(result)) }, [])
 
         if (loading) return <Loading/>
 
