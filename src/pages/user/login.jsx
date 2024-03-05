@@ -66,7 +66,7 @@ const Login = () => {
                         </select>
                         <button type="submit" className="button" style={{fontFamily : "serif", width : "150px"}}>Sign in</button>
                     </div>
-                    <NavLink to='/register' style={{textDecoration : "none", color : "var(--text)", translate: '0 20px'}}>Forgot password?</NavLink>
+                    <NavLink to='/forgot/password' style={{textDecoration : "none", color : "var(--text)", translate: '0 20px'}}>Forgot password?</NavLink>
                 </form>
             </div>
         </div>
