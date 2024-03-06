@@ -51,7 +51,6 @@ const Product = () => {
             const find = document.getElementById('find')
             find.style.display = 'flex'
             control.style.display = 'none'
-            page !== 1 && setPage(1)
         },
         hide : () => {
             const control = document.getElementById('control')
@@ -78,6 +77,7 @@ const Product = () => {
     }
 
     useEffect(() => { 
+        localStorage.setItem('historyPage', JSON.stringify({ page: page }))
         window.scroll({
             top: 0,
             behavior : 'auto'
@@ -94,9 +94,8 @@ const Product = () => {
             .finally(() => setLoading(false))
         }
     }, [page])
-    
+
     useEffect(() => {
-        localStorage.setItem('historyPage', JSON.stringify({ page: page }))
         if(!value && !filterHistory) {
             getProducts()
         }
@@ -144,7 +143,7 @@ const Product = () => {
                                 <div onClick={() => { setUpdate(true);localStorage.removeItem('filterHistory');location.reload()}} className='fa-solid fa-trash fa-lg' style={{color: 'var(--yellow)', cursor: 'pointer'}}/>
                             )}
                         </div>
-                        <div onClick={() => {search.show(); inputref.current.focus()}} style={{display: 'flex', alignItems: 'center', gap: '7px', cursor: 'pointer'}}>
+                        <div onClick={() => {search.show(); page !== 1 && setPage(1); inputref.current.focus()}} style={{display: 'flex', alignItems: 'center', gap: '7px', cursor: 'pointer'}}>
                             <div className='fa-solid fa-search fa-lg' style={{color: 'var(--text)'}}/>
                             <div style={{color: 'var(--text)', fontSize: '1rem', fontFamily: 'var(--poppins)'}}>Find</div>
                         </div>
