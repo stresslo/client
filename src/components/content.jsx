@@ -65,16 +65,16 @@ const Content = ({data, setData, setCount}) => {
             {(path == '/') && 
             <div>
                 {(context.token) ? 
-                <div className="developer">
+                <div className="developer" style={{padding : '20px 30px'}}>
                     <img id="paimg" src="/img/greet.webp" className="dimasputra" alt="stresslo greeting" />
                     <div className="text-wrapper">
-                    <div style={{display: 'flex', gap: '10px', alignItems: 'center'}}>
+                    <div style={{display: 'flex', gap: '10px', alignItems: 'center', marginBottom: '10px'}}>
                         <img src={context.img} style={{width: '30px', border: '2px solid var(--yellow)', height: '30px', objectFit: 'cover', borderRadius: '50%', boxSizing: 'border-box', boxShadow: 'var(--boxshadow)'}} alt="stresslo account" />
                         <div style={{color: 'var(--text)', fontFamily: 'var(--quicksand)', fontSize: '1rem'}}>{context.username}</div>
                     </div>
-                    <div>Hi {context.username}!,</div>
-                    <div>Welcome back.</div>
-                    <div className="button contact" onClick={() => navigate('/profile')}>{context.role}</div>
+                    <div style={{color: 'var(--yellow)', fontSize: '1.5rem', fontWeight: '500', fontFamily: 'var(--caveat)'}}>Hi {context.username}!,</div>
+                    <div style={{color: 'var(--text)', fontWeight: 'bold', fontSize: '1.7rem'}}>Welcome back.</div>
+                    <div className="button contact" style={{marginTop: '20px'}} onClick={() => navigate('/profile')}>{context.role}</div>
                 </div>
                 </div>
                 : 
