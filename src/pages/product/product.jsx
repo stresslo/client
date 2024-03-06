@@ -11,12 +11,12 @@ import FilterBox from './filterbox'
 
 const Product = () => {
 
-    console.log(window.scrollY)
     const navigate = useNavigate()
     const inputref = useRef(null)
     const historySearch = localStorage.getItem('search')
     const filter = JSON.parse(localStorage.getItem('filterHistory'))
     const { ctg } = useParams()
+    const [ wy, setWy ] = useState(0)
     const [ data, setData ] = useState([])
     const [ status, setStatus ] = useState(200)
     const [ update, setUpdate] = useState(false)
@@ -78,6 +78,10 @@ const Product = () => {
     }
 
     useEffect(() => { 
+        window.scrollTo({
+            top: 0,
+            behavior : 'smooth'
+        })
         if (value) {
             search.show()
             searchProduct()
@@ -104,6 +108,8 @@ const Product = () => {
         }
     }, [update])
     
+    window.onscroll = () => { setWy(window.scrollY); console.log(scrollY) }
+
     if (status !== 200) return <Handle status={status}/> 
 
     return (
