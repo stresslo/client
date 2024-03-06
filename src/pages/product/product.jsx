@@ -13,10 +13,11 @@ const Product = () => {
 
     const navigate = useNavigate()
     const inputref = useRef(null)
+    const historyPage = localStorage.getItem('historyPage')
     const historySearch = localStorage.getItem('search')
     const filter = JSON.parse(localStorage.getItem('filterHistory'))
     const { ctg } = useParams()
-    const [ page, setPage ] = useState(1)
+    const [ page, setPage ] = useState(historyPage ? historyPage : 1)
     const [ data, setData ] = useState([])
     const [ status, setStatus ] = useState(200)
     const [ update, setUpdate] = useState(false)
@@ -29,6 +30,7 @@ const Product = () => {
         e && e.preventDefault()
         try {
             if (value && value.length >= 1) {
+                setPage(1)
                 setLoading(true)
                 localStorage.setItem('search', value)
                 const response = await axios.get(`${import.meta.env.VITE_API}/product/search/${value}/${page}`)
@@ -56,6 +58,7 @@ const Product = () => {
             const find = document.getElementById('find')
             control.style.display = 'flex'
             find.style.display = 'none'
+            setPage(1)
             setValue('')
             setMessage('')
         }
@@ -91,6 +94,7 @@ const Product = () => {
 
     useEffect(() => {
         if(!value && !filterHistory) {
+            setPage(1)
             getProducts()
         }
     }, [page, value, filterHistory])
@@ -102,6 +106,8 @@ const Product = () => {
         }
     }, [update])
     
+    useEffect(() => { localStorage.setItem('historyPage', page) }, [page])
+
     if (status !== 200) return <Handle status={status}/> 
 
     return (
@@ -111,6 +117,7 @@ const Product = () => {
             setLoading={setLoading}
             setUpdate={setUpdate} 
             setData={setData}
+            setPage={setPage}
             page={page}
             ctg={ctg}
         />
