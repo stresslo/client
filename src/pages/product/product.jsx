@@ -78,10 +78,12 @@ const Product = () => {
     }
 
     useEffect(() => { 
-        window.scrollTo({
-            top: 0,
-            behavior : 'smooth'
-        })
+        if (wy > 100) {
+            window.scroll({
+                top: 0,
+                behavior : 'auto'
+            })
+        }
         if (value) {
             search.show()
             searchProduct()
@@ -108,7 +110,7 @@ const Product = () => {
         }
     }, [update])
     
-    window.onscroll = () => { setWy(window.scrollY); console.log(scrollY) }
+    window.onscroll = () => { setWy(window.scrollY); }
 
     if (status !== 200) return <Handle status={status}/> 
 
