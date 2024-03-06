@@ -179,7 +179,7 @@ const Details = () => {
                             <div className="i fa-solid fa-pen-to-square fa-xl" style={{color: 'var(--background)'}}/>
                             Edit Product
                         </div>
-                        <div onClick={() => deleteProduct()} className="button-max" style={{ marginTop: '5px', backgroundColor: 'var(--oren)' }}>
+                        <div onClick={() => deleteProduct()} className="button-max" style={{ marginTop: '0px', backgroundColor: 'var(--oren)' }}>
                             <div className="i fa-solid fa-trash fa-xl" style={{color: 'var(--background)'}}/>
                             Delete Product
                         </div>
@@ -190,7 +190,7 @@ const Details = () => {
                             <div className="i fa-solid fa-pen-to-square fa-xl" style={{color: 'var(--background)'}}/>
                             Edit Product
                         </div>
-                        <div onClick={() => deleteProduct()} className="button-max" style={{ marginTop: '5px', backgroundColor: 'var(--oren)' }}>
+                        <div onClick={() => deleteProduct()} className="button-max" style={{ marginTop: '0px', backgroundColor: 'var(--oren)' }}>
                             <div className="i fa-solid fa-trash fa-xl" style={{color: 'var(--background)'}}/>
                             Delete Product
                         </div>
