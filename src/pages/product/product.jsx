@@ -13,6 +13,7 @@ const Product = () => {
 
     const navigate = useNavigate()
     const inputref = useRef(null)
+    const historyPage = JSON.parse(localStorage.getItem('historyPage'))
     const historySearch = localStorage.getItem('search')
     const filter = JSON.parse(localStorage.getItem('filterHistory'))
     const { ctg } = useParams()
@@ -21,7 +22,7 @@ const Product = () => {
     const [ update, setUpdate] = useState(false)
     const [ loading, setLoading ] = useState(false)
     const [ message, setMessage] = useState('')
-    const [ page, setPage ] = useState(1)
+    const [ page, setPage ] = useState(historyPage ? parseInt(historyPage.page) : 0)
     const [ value, setValue] = useState(historySearch ? historySearch : '')
     const [ filterHistory, setFilterHistory ] = useState(filter ?  filter : '')
     
@@ -77,8 +78,7 @@ const Product = () => {
     }
 
     useEffect(() => { 
-        localStorage.setItem('historyPage', parseInt(page))
-        setPage(localStorage.getItem('historyPage'))
+        localStorage.setItem('historyPage', { page: page })
         window.scroll({
             top: 0,
             behavior : 'auto'
