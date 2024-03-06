@@ -66,10 +66,12 @@ const Content = ({data, setData, setCount}) => {
             <div>
                 {(context.token) ? 
                 <div className="developer">
-                    <img src={context.img} style={{position: 'absolute', top: '15px', right: '15px', width: '30px', border: '2px solid var(--yellow)', height: '30px', objectFit: 'cover', borderRadius: '50%', boxSizing: 'border-box', boxShadow: 'var(--boxshadow)'}} alt="stresslo account" />
                     <img id="paimg" src="/img/greet.webp" className="dimasputra" alt="stresslo greeting" />
                     <div className="text-wrapper">
-                    <div>Hi {context.username}!,</div>
+                    <div style={{display: 'flex', gap: '10px', alignItems: 'center'}}>
+                        <div style={{color: 'var(--yellow)', fontFamily: 'var(--caveat)', fontSize: '1.6rem'}}>Hi {context.username}!,</div>
+                        <img src={context.img} style={{width: '30px', border: '2px solid var(--yellow)', height: '30px', objectFit: 'cover', borderRadius: '50%', boxSizing: 'border-box', boxShadow: 'var(--boxshadow)'}} alt="stresslo account" />
+                    </div>
                     <div>Welcome back.</div>
                     <div className="button contact" onClick={() => navigate('/profile')}>{context.role}</div>
                 </div>
