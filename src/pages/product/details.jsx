@@ -142,7 +142,11 @@ const Details = () => {
                                     <div className="product-desc-product"><span>VID</span>          : {i.vid}</div>
                                     <div className="product-desc-product"><span>Price</span>        : {i.price == 0 ? 'Free' : convertPrice(i.price)}</div>
                                     <div className="product-desc-product"><span>Category</span>     : {i.ctg}</div>
-                                    {i.ctg == 'web' && <div className="product-desc-product"><span>Framework</span>  : {i.tech} {i.tech.toLowerCase().includes('html') ? "" : 'JS'}</div>}
+                                    {i.ctg == 'web' ? 
+                                    <div className="product-desc-product"><span>Framework</span>  : {i.tech} {i.tech.toLowerCase().includes('html') ? "" : 'JS'}</div>
+                                    :
+                                    <div className="product-desc-product"><span>Software</span>  : {i.tech}</div>
+                                    }   
                                     <div className="product-desc-product"><span>Date created</span>  : {date}</div>
                                 </div>
                             </div>
@@ -170,15 +174,27 @@ const Details = () => {
                         {(i.status) ?
                         <>
                         {(i.status == 'active') && 
-                        <div onClick={() => deleteProduct()} className="button-max" style={{ marginTop: '30px', backgroundColor: 'var(--yellow)' }}>
-                            <div className="i fa-solid fa-trash fa-xl" style={{color: 'var(--background)'}}/>
-                            Delete Product
-                        </div>}
-                        {(i.status == 'pending') && 
+                        <>
                         <div className="button-max" style={{ marginTop: '30px', backgroundColor: 'var(--yellow)' }}>
                             <div className="i fa-solid fa-pen-to-square fa-xl" style={{color: 'var(--background)'}}/>
                             Edit Product
-                        </div>}
+                        </div>
+                        <div onClick={() => deleteProduct()} className="button-max" style={{ marginTop: '30px', backgroundColor: 'var(--oren)' }}>
+                            <div className="i fa-solid fa-trash fa-xl" style={{color: 'var(--background)'}}/>
+                            Delete Product
+                        </div>
+                        </>}
+                        {(i.status == 'pending') &&
+                        <>
+                        <div className="button-max" style={{ marginTop: '30px', backgroundColor: 'var(--yellow)' }}>
+                            <div className="i fa-solid fa-pen-to-square fa-xl" style={{color: 'var(--background)'}}/>
+                            Edit Product
+                        </div>
+                        <div onClick={() => deleteProduct()} className="button-max" style={{ marginTop: '30px', backgroundColor: 'var(--oren)' }}>
+                            <div className="i fa-solid fa-trash fa-xl" style={{color: 'var(--background)'}}/>
+                            Delete Product
+                        </div>
+                        </>}
                         {(i.status == 'rejected') && 
                         <div onClick={() => deleteProduct()} className="button-max" style={{ marginTop: '30px', backgroundColor: 'var(--yellow)' }}>
                             <div className="i fa-solid fa-trash fa-xl" style={{color: 'var(--background)'}}/>
