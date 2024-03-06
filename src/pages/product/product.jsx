@@ -57,6 +57,7 @@ const Product = () => {
             const find = document.getElementById('find')
             control.style.display = 'flex'
             find.style.display = 'none'
+            setPage(1)
             setValue('')
             setMessage('')
         }
@@ -92,6 +93,7 @@ const Product = () => {
 
     useEffect(() => {
         if(!value && !filterHistory) {
+            setPage(1)
             getProducts()
         }
     }, [page, value, filterHistory])
