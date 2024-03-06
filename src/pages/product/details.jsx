@@ -9,6 +9,7 @@ import Context from "../../../utils/context"
 import swalert from "../../../utils/swalert"
 import axios from "axios"
 import "../../style/create.css"
+import Swal from "sweetalert2"
 
 const Details = () => {
 
@@ -74,6 +75,37 @@ const Details = () => {
         }
     }
 
+    const deleteProduct = async () => {
+        const url = `${import.meta.env.VITE_API}/product/${i.status}/delete/${vid}`
+        Swal.fire({
+            icon: 'info',
+            text : 'are you sure want delete this product?',
+            confirmButtonText : 'Delete',
+            showDenyButton: true,
+            denyButtonText : 'Cancel',
+            reverseButtons: true,
+            focusConfirm: false,
+            background : 'var(--primary)',
+            color : 'var(--blue)',
+            customClass : { container: 'alertext' }
+        })
+        .then((res) => async () => {
+            if (res.isConfirmed) {
+                try {
+                    setLoading(true)
+                    const response = await axios.get(url)
+                    swalert(response.data, 'success', 3000)
+                    .then((res) => res.dismiss && navigate(i.prev))
+                } catch (error) {
+                    if (error || error.response) {
+                        swalert(error.response.data, 'info', 3000)
+                        return false;
+                    }
+                }
+            }
+        })
+    }
+
     useEffect(() => { 
         i.by && getContributor() 
         !i && getProducts()
@@ -135,13 +167,18 @@ const Details = () => {
                         </div>
                         {(i.status) ?
                         <>
+                        {(i.status == 'active') && 
+                        <div onClick={() => deleteProduct()} className="button-max" style={{ marginTop: '30px', backgroundColor: 'var(--yellow)' }}>
+                            <div className="i fa-solid fa-trash fa-xl" style={{color: 'var(--background)'}}/>
+                            Delete Product
+                        </div>}
                         {(i.status == 'pending') && 
                         <div className="button-max" style={{ marginTop: '30px', backgroundColor: 'var(--yellow)' }}>
                             <div className="i fa-solid fa-pen-to-square fa-xl" style={{color: 'var(--background)'}}/>
                             Edit Product
                         </div>}
                         {(i.status == 'rejected') && 
-                        <div className="button-max" style={{ marginTop: '30px', backgroundColor: 'var(--yellow)' }}>
+                        <div onClick={() => deleteProduct()} className="button-max" style={{ marginTop: '30px', backgroundColor: 'var(--yellow)' }}>
                             <div className="i fa-solid fa-trash fa-xl" style={{color: 'var(--background)'}}/>
                             Delete Product
                         </div>}
