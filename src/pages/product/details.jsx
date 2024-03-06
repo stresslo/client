@@ -20,6 +20,7 @@ const Details = () => {
     const navigate = useNavigate()
     const [cont, setCont] = useState('')
     const [i, seti] = useState(location.state)
+    console.log(location.state)
     const [loading, setLoading] = useState(false)
     const date = moment(i.createdAt.slice(0, 10)).format('MMM DD, YYYY')
 

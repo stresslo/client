@@ -1,5 +1,5 @@
 import { LazyLoadImage } from 'react-lazy-load-image-component'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { useEffect, useRef, useState } from 'react'
 import convertPrice from "../../../utils/price"
 import Handle from "../../../service/handle"
@@ -11,12 +11,15 @@ import FilterBox from './filterbox'
 
 const Product = () => {
 
+    const location = useLocation()
+    const pageHistory = location.state
+    console.log(pageHistory)
     const navigate = useNavigate()
     const inputref = useRef(null)
     const historySearch = localStorage.getItem('search')
     const filter = JSON.parse(localStorage.getItem('filterHistory'))
     const { ctg } = useParams()
-    const [ page, setPage ] = useState(1)
+    const [ page, setPage ] = useState(pageHistory ? pageHistory : 1)
     const [ data, setData ] = useState([])
     const [ status, setStatus ] = useState(200)
     const [ update, setUpdate] = useState(false)
@@ -93,6 +96,15 @@ const Product = () => {
     useEffect(() => {
         if(!value && !filterHistory) {
             getProducts()
+        } else if (value) {
+            searchProduct()
+        } else if (filterHistory) {
+            const endpoint = `${import.meta.env.VITE_API}/product/filter/${ctg}/${filterHistory.pricing}/${filterHistory.tech}/${filterHistory.price}/${filterHistory.optprice}/${page}`
+            setLoading(true)
+            axios.get(endpoint)
+            .then((response) => {const decode = jwt(response.data); setData(decode.data)})
+            .catch((error) => { return false; })
+            .finally(() => setLoading(false))
         }
     }, [page, value, filterHistory])
 
@@ -159,7 +171,7 @@ const Product = () => {
                     ) : (
                         data.map((i, index) => {
                             return(
-                                <div className='product-card' key={index} onClick={() => navigate(`/product/details/${i.vid}`, {state: i})}>
+                                <div className='product-card' key={index} onClick={() => navigate(`/product/details/${i.vid}`, {state: {...i, pageHistory: page}})}>
                                     <LazyLoadImage className='product-img' src={(i.img) || ('img/img404.jpg')} loading='lazy' alt={`stresslo ${ctg} products`} effect='blur'/>
                                     <div className='wrapped-text'>
                                         <div className='product-title'>{i.title}</div>
