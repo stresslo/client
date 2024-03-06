@@ -22,7 +22,7 @@ const Product = () => {
     const [ update, setUpdate] = useState(false)
     const [ loading, setLoading ] = useState(false)
     const [ message, setMessage] = useState('')
-    const [ page, setPage ] = useState(historyPage && historyPage !== 0 ? historyPage : 1)
+    const [ page, setPage ] = useState(1)
     const [ value, setValue] = useState(historySearch ? historySearch : '')
     const [ filterHistory, setFilterHistory ] = useState(filter ?  filter : '')
     
@@ -51,7 +51,7 @@ const Product = () => {
             const find = document.getElementById('find')
             find.style.display = 'flex'
             control.style.display = 'none'
-            page !== 1 && setPage(1)
+            // page !== 1 && setPage(1)
         },
         hide : () => {
             const control = document.getElementById('control')
@@ -78,7 +78,6 @@ const Product = () => {
     }
 
     useEffect(() => { 
-        localStorage.setItem('historyPage', page)
         if (value) {
             search.show()
             searchProduct()
