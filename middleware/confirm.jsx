@@ -12,11 +12,12 @@ const Confirm = {
         const [ OTP, setOTP ] = useState('')
         const [ vxsrf, setVxsrf ] = useState('')
         const [loading, setLoading] = useState(false)
+        const role = register_mode_user.role ? register_mode_user.role : 'user'
         const confirm = async () => {
             if (OTP) {
                 try {
                     setLoading(true)
-                    const response = await axios.post(`${import.meta.env.VITE_API}/confirm/user`, {OTP}, 
+                    const response = await axios.post(`${import.meta.env.VITE_API}/confirm/${role}`, {OTP}, 
                     { headers: {'xsrf-token': vxsrf} })
                     localStorage.removeItem('register_mode_user')
                     swalert("verification success, let's start exploring stresslo.", "success", 5500)

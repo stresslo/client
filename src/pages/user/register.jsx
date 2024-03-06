@@ -26,7 +26,7 @@ const Register = () => {
             setLoading(true)
             const response = await axios.post(url,
             {email, username, password}, {headers: { "xsrf-token" : vxsrf }})
-            localStorage.setItem('register_mode_user', JSON.stringify({ email, username, password }))
+            localStorage.setItem('register_mode_user', JSON.stringify({ email, username, password, role }))
             swalert(response.data, "success", 7000)
             .then((res) => {if (res.dismiss) {location.href = '/confirm/user'}})
         } 

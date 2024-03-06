@@ -44,7 +44,7 @@ const Profile = () => {
                 headers : {"Content-Type" : "multipart/form-data", "xsrf-token" : vxsrf}, 
                 withCredentials : true
             })
-            swalert(response.data, 'success', 4000)
+            swalert(response.data, 'success', 6000)
             .then((res) => res.dismiss && location.reload())
         } 
         catch (error) {
