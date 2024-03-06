@@ -141,7 +141,7 @@ const Product = () => {
                                 <div className='fa-solid fa-caret-down fa-lg'></div>
                             </div>
                             {(filterHistory) && (
-                                <div onClick={() => { setUpdate(true);localStorage.removeItem('filterHistory');location.reload()}} className='fa-solid fa-trash fa-lg' style={{color: 'var(--yellow)', cursor: 'pointer'}}/>
+                                <div onClick={() => { setUpdate(true);localStorage.removeItem('historyPageProduct');localStorage.removeItem('filterHistory');location.reload()}} className='fa-solid fa-trash fa-lg' style={{color: 'var(--yellow)', cursor: 'pointer'}}/>
                             )}
                         </div>
                         <div onClick={() => {search.show(); page !== 1 && setPage(1); inputref.current.focus()}} style={{display: 'flex', alignItems: 'center', gap: '7px', cursor: 'pointer'}}>
@@ -153,7 +153,7 @@ const Product = () => {
                     <form onSubmit={(e) => { searchProduct(e) }} id='find' className='form' style={{margin: 'auto', display: 'none'}}>
                         <div style={{width: '100%', display: 'flex', alignItems: 'center', position: 'relative', gap: '5px'}}>
                             <input value={value} ref={inputref} type="text" onChange={(e) => setValue(e.target.value)} placeholder='find product' className='search' style={{width: '100%', backgroundColor: 'unset', boxShadow: 'unset', borderRadius: '0', borderBottom: '1px solid #aaa'}}/>
-                            <div onClick={() => {localStorage.removeItem('historyPageProduct');localStorage.removeItem('search'); search.hide()}} className='button' style={{width: '70px', height: '45px', backgroundColor: 'var(--primary)'}}>
+                            <div onClick={() => {localStorage.removeItem('search'); search.hide()}} className='button' style={{width: '70px', height: '45px', backgroundColor: 'var(--primary)'}}>
                                 <div className='fa-solid fa-close fa-xl' style={{color: 'var(--text)'}}/>
                             </div>
                         </div>
