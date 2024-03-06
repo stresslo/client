@@ -94,13 +94,7 @@ const Product = () => {
             .catch((error) => { return false; })
             .finally(() => setLoading(false))
         }
-    }, [page])
-
-    useEffect(() => {
-        if (!value && !filterHistory) {
-            getProducts()
-        }
-    }, [value, filterHistory])
+    }, [page, filterHistory])
 
     useEffect(() => { 
         if (update) {
