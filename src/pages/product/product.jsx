@@ -22,7 +22,7 @@ const Product = () => {
     const [ update, setUpdate] = useState(false)
     const [ loading, setLoading ] = useState(false)
     const [ message, setMessage] = useState('')
-    const [ page, setPage ] = useState(historyPage ? parseInt(historyPage.page) : 0)
+    const [ page, setPage ] = useState(historyPage ? parseInt(historyPage.page) : 1)
     const [ value, setValue] = useState(historySearch ? historySearch : '')
     const [ filterHistory, setFilterHistory ] = useState(filter ?  filter : '')
     
