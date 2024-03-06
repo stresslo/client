@@ -76,7 +76,7 @@ const History = () => {
                             const date = now.isSame(moment(), 'day') ? "Today" : now.subtract(1, 'days').isSame(moment(), 'day') ? "Yesterday" : now.format("MMM DD, YYYY");
                             const time = moment.utc(i.updatedAt).utcOffset("+07:00").format("HH:mm A")
                             return (
-                            <div className="box-history" key={k} onClick={() => navigate(`/transaction/result/${i.order_id}`, {state: i})}>
+                            <div className="box-history" key={k} onClick={() => navigate(`/transaction/result/${i.order_id}`, {state: { ...i, prev: location.pathname }})}>
                                 <div className="itext" style={{color: 'var(--yellow)'}}>{convertPrice(i.product_amount)}</div>
                                 <div className="itext" style={{fontFamily: 'var(--quicksand)', fontSize: '1.1rem', translate: '0 -5px'}}> <span>Order ID</span> : {i.order_id}</div>
                                 <div className= "badge" style={{position: 'absolute', bottom: '0', left: '15px', display: 'flex', alignItems: 'center', gap: '10px'}}>
