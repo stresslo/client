@@ -38,7 +38,7 @@ const Forgot = {
 
         return (
             <div className="page">
-                <Topback/>
+                <Topback location={-1}/>
                 <form className="form" onSubmit={makeRequest} style={{ textAlign: 'center', gap: '50px', marginTop: '0px' }}>
                     <div style={{display: 'flex', gap: '20px', justifyContent: 'center'}}>
                         <select onChange={(e) => setRole(e.target.value)} style={{width: '120px'}} required>
@@ -93,7 +93,7 @@ const Forgot = {
 
         return (
             <div className="page">
-                <Topback/>
+                <Topback location={-1}/>
                 <div className="login-box">
                     <div className="login-top">
                         <h1 className="title"><span>Change</span> Password</h1>
