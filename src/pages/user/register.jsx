@@ -38,7 +38,7 @@ const Register = () => {
 
     useEffect(() => {
         if (role == 'user') return setUrl(`${import.meta.env.VITE_API}/register`)
-        else return setUrl(`${import.meta.env.VITE_API}/register`)
+        else return setUrl(`${import.meta.env.VITE_API}/register/contributor`)
     }, [role])
     useEffect(() => { getvxsrf().then((result) => setVxsrf(result)) }, [])
     if (loading) return <Loading/>
