@@ -203,7 +203,10 @@ const Details = () => {
                         </>
                         : 
                         (i.price == 0) ?
-                        <div className='button-max' onClick={() =>  freeDonwload() } style={{marginTop : '30px', backgroundColor: 'var(--yellow)'}}>Free Download</div>
+                        <div className="button-max" onClick={() => navigate(`/order/${vid}`, {state: i})} style={{ marginTop: '30px', backgroundColor: 'var(--yellow)' }}>
+                            <div className="i fa-solid fa-download fa-xl" style={{color: 'var(--background)'}}/>
+                            Free download
+                        </div>
                         :
                         <div className="button-max" onClick={() => navigate(`/order/${vid}`, {state: i})} style={{ marginTop: '30px', backgroundColor: 'var(--yellow)' }}>
                             <div className="i fa-solid fa-cart-shopping fa-xl" style={{color: 'var(--background)'}}/>
