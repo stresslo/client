@@ -42,6 +42,10 @@ const Order = () => {
     }
     
     const checkout = async () => {
+      if (context.role == 'contributor') {
+        swalert('please switch to user account', 'info', 3000)
+        return false;
+      }
       try {
         setLoading(true)
         const response = await axios.post(`${import.meta.env.VITE_API}/transaction/create`,{
