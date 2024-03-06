@@ -16,7 +16,6 @@ const Product = () => {
     const historySearch = localStorage.getItem('search')
     const filter = JSON.parse(localStorage.getItem('filterHistory'))
     const { ctg } = useParams()
-    const [ wy, setWy ] = useState(0)
     const [ data, setData ] = useState([])
     const [ status, setStatus ] = useState(200)
     const [ update, setUpdate] = useState(false)
@@ -78,12 +77,10 @@ const Product = () => {
     }
 
     useEffect(() => { 
-        if (wy > 100) {
-            window.scroll({
-                top: 0,
-                behavior : 'smooth'
-            })
-        }
+        window.scroll({
+            top: 0,
+            behavior : 'auto'
+        })
         if (value) {
             search.show()
             searchProduct()
@@ -109,8 +106,6 @@ const Product = () => {
             setUpdate(false) 
         }
     }, [update])
-    
-    window.onscroll = () => { setWy(window.scrollY); }
 
     if (status !== 200) return <Handle status={status}/> 
 
