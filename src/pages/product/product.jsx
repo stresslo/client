@@ -50,6 +50,7 @@ const Product = () => {
             const find = document.getElementById('find')
             find.style.display = 'flex'
             control.style.display = 'none'
+            // page !== 1 && setPage(1)
         },
         hide : () => {
             const control = document.getElementById('control')
@@ -87,7 +88,7 @@ const Product = () => {
             .catch((error) => { return false; })
             .finally(() => setLoading(false))
         }
-    }, [])
+    }, [page])
 
     useEffect(() => {
         if(!value && !filterHistory) {
