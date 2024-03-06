@@ -66,7 +66,7 @@ const Content = ({data, setData, setCount}) => {
             <div>
                 {(context.token) ? 
                 <div className="developer">
-                    <img src={context.img} style={{position: 'absolute', top: '10px', right: '10px', width: '20px', height: '20px', objectFit: 'cover', borderRadius: '50%', boxSizing: 'border-box', boxShadow: 'var(--boxshadow)'}} alt="stresslo account" />
+                    <img src={context.img} style={{position: 'absolute', top: '15px', right: '15px', width: '35px', height: '35px', objectFit: 'cover', borderRadius: '50%', boxSizing: 'border-box', boxShadow: 'var(--boxshadow)'}} alt="stresslo account" />
                     <img id="paimg" src="/img/greet.webp" className="dimasputra" alt="stresslo greeting" />
                     <div className="text-wrapper">
                     <div>Hi {context.username}!,</div>
