@@ -81,7 +81,7 @@ const Product = () => {
         if (wy > 100) {
             window.scroll({
                 top: 0,
-                behavior : 'auto'
+                behavior : 'smooth'
             })
         }
         if (value) {
