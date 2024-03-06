@@ -53,7 +53,6 @@ const Create = () => {
         const response = await axios.post(`${import.meta.env.VITE_API}/create/product`,formData, {
           headers: {"Content-Type": 'multipart/form-data', "xsrf-token" : vxsrf}
         })
-        localStorage.removeItem('inputHistory')
         swalert(response.data, "success", 5000)
         .then((res) => { if(res.dismiss) {location.href = '/'} })
       } catch (error) {
