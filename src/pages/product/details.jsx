@@ -82,9 +82,9 @@ const Details = () => {
             text : 'are you sure want delete this product?',
             confirmButtonText : 'Delete',
             showDenyButton: true,
-            denyButtonText : 'Cancel',
-            reverseButtons: true,
             focusConfirm: false,
+            focusDeny : false,
+            denyButtonText : 'Cancel',
             background : 'var(--primary)',
             color : 'var(--blue)',
             customClass : { container: 'alertext' }
@@ -124,10 +124,12 @@ const Details = () => {
                         <div className="product-card" style={{ height: 'max-content', width: '100%', marginTop: '0px', justifyContent: 'center' }}>
                             <LazyLoadImage style={{ width: '100%' }} className='product-img' src={i.img} loading='lazy' effect='blur'/>
                         </div>
+                        {(i.ctg === 'web') && 
                         <div className="button-max" style={{ color: "var(--text)", backgroundColor: "var(--primary)"}} onClick={() => window.open(i.link)}>
                             <div className="i fa-solid fa-globe fa-xl"/>
                             Live Preview
                         </div>
+                        }
                         <div className='product-card' style={{ height: 'max-content', width: '100%', marginTop: "30px" }}>
                             <div className='wrapped-text'>
                                 <div className='product-title' style={{ fontSize: '1.4rem' }}>{i.title}</div>
