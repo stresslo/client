@@ -77,6 +77,8 @@ const Product = () => {
     }
 
     useEffect(() => { 
+        localStorage.setItem('historyPage', page)
+        setPage(localStorage.getItem('historyPage'))
         window.scroll({
             top: 0,
             behavior : 'auto'
