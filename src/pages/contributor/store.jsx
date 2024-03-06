@@ -42,7 +42,7 @@ const Store = () => {
                 <div style={{fontSize: '1rem', fontFamily: 'var(--poppins)'}}>Create</div>
                 <div className='fa-solid fa-circle-plus fa-2xl'/>
             </div>
-            <div className='product-page' style={{paddingBottom: '0'}}>
+            <div className='product-page' style={{paddingBottom: '0', marginTop: '30px'}}>
                 <div style={{width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: '10px', marginBottom: '50px'}}>
                     <div className='itext' style={{color: 'var(--yellow)'}}>Status</div>
                     <div style={{marginTop: '5px', width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '15px', fontFamily: 'var(--quicksand)'}}>
