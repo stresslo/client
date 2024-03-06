@@ -153,7 +153,7 @@ const Product = () => {
                     <form onSubmit={(e) => { searchProduct(e) }} id='find' className='form' style={{margin: 'auto', display: 'none'}}>
                         <div style={{width: '100%', display: 'flex', alignItems: 'center', position: 'relative', gap: '5px'}}>
                             <input value={value} ref={inputref} type="text" onChange={(e) => setValue(e.target.value)} placeholder='find product' className='search' style={{width: '100%', backgroundColor: 'unset', boxShadow: 'unset', borderRadius: '0', borderBottom: '1px solid #aaa'}}/>
-                            <div onClick={() => {localStorage.removeItem('search'); localStorage.removeItem('historyPageProduct'); search.hide()}} className='button' style={{width: '70px', height: '45px', backgroundColor: 'var(--primary)'}}>
+                            <div onClick={() => {localStorage.removeItem('search'); page !== 1 && setPage(1); search.hide()}} className='button' style={{width: '70px', height: '45px', backgroundColor: 'var(--primary)'}}>
                                 <div className='fa-solid fa-close fa-xl' style={{color: 'var(--text)'}}/>
                             </div>
                         </div>
