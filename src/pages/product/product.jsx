@@ -78,7 +78,6 @@ const Product = () => {
     }
 
     useEffect(() => { 
-        localStorage.setItem('historyPage', JSON.stringify({ page: page }))
         window.scroll({
             top: 0,
             behavior : 'auto'
@@ -95,8 +94,9 @@ const Product = () => {
             .finally(() => setLoading(false))
         }
     }, [page])
-
+    
     useEffect(() => {
+        localStorage.setItem('historyPage', JSON.stringify({ page: page }))
         if(!value && !filterHistory) {
             getProducts()
         }
