@@ -69,7 +69,7 @@ const Create = () => {
     if (title || price || desc || ctg || file || image || link) {
       localStorage.setItem('inputHistory', JSON.stringify({title, price, desc, ctg, tech, link }))
     }
-  }, [title, desc])
+  }, [title, desc, ctg, file, image, link, price])
   useEffect(() => { getvxsrf().then((data) => setVxsrf(data)) }, [])
   if (loading) return <Loading/>
 
