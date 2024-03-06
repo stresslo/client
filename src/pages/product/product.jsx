@@ -13,7 +13,6 @@ const Product = () => {
 
     const navigate = useNavigate()
     const inputref = useRef(null)
-    const historyPage = localStorage.getItem('historyPage')
     const historySearch = localStorage.getItem('search')
     const filter = JSON.parse(localStorage.getItem('filterHistory'))
     const { ctg } = useParams()
@@ -78,6 +77,13 @@ const Product = () => {
     }
 
     useEffect(() => { 
+        let y = window.scrollY;
+        if (y > 50) {
+            window.scrollTo({
+                top : 0,
+                behavior : 'smooth'
+            })
+        }
         if (value) {
             search.show()
             searchProduct()
