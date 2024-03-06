@@ -89,7 +89,7 @@ const Details = () => {
             color : 'var(--blue)',
             customClass : { container: 'alertext' }
         })
-        .then((res) => async () => {
+        .then(async (res) => {
             if (res.isConfirmed) {
                 try {
                     setLoading(true)
