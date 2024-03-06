@@ -51,7 +51,7 @@ const Store = () => {
                         <div className='button' onClick={() => setStatus('rejected')} style={{backgroundColor: 'var(--primary)', height: '35px', color: 'var(--oren)', fontSize: '0.8rem'}}>Rejected</div>
                     </div>
                 </div>
-                <div className='product-container' style={{flexDirection: 'column-reverse'}}>
+                <div className='product-container' style={{flexDirection: 'column'}}>
                     {(loading) ? (
                     <Swaload.Product/>
                     ) : (
