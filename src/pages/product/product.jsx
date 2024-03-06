@@ -77,10 +77,6 @@ const Product = () => {
     }
 
     useEffect(() => { 
-        window.scrollTo({
-            top : 0,
-            behavior : 'smooth'
-        })
         if (value) {
             search.show()
             searchProduct()
@@ -93,6 +89,8 @@ const Product = () => {
             .finally(() => setLoading(false))
         }
     }, [page])
+
+    useEffect(() => {window.scrollTo({ top: 0, behavior: 'smooth' })}, [page])
 
     useEffect(() => {
         if(!value && !filterHistory) {
