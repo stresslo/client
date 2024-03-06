@@ -77,6 +77,7 @@ const Details = () => {
     useEffect(() => { 
         i.by && getContributor() 
         !i && getProducts()
+        console.log(i)
     }, [])
 
     return (
