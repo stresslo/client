@@ -4,7 +4,7 @@ import axios from "axios"
 import jwt from "jwt-decode"
 import "../../style/filterbox.css"
 
-const FilterBox = ({ filterHistory , setLoading, setUpdate, setData, setPage, page, ctg }) => {
+const FilterBox = ({ filterHistory , setLoading, setUpdate, setData, page, ctg }) => {
 
     const [forceUpdate, setForceUpdate] = useState(false)
 
@@ -14,8 +14,7 @@ const FilterBox = ({ filterHistory , setLoading, setUpdate, setData, setPage, pa
     const [optprice, setOptprice] =  useState(filterHistory ? filterHistory.optprice : 'all')
 
     const getFilteredData = async () => {
-        setPage(1)
-        const endpoint = `${import.meta.env.VITE_API}/product/filter/${ctg}/${pricing}/${tech}/${price}/${optprice}/1`
+        const endpoint = `${import.meta.env.VITE_API}/product/filter/${ctg}/${pricing}/${tech}/${price}/${optprice}/${page}`
         if (tech !== "all" || price || pricing !== 'all' || optprice !== 'all') {
             try {
                 setLoading(true)

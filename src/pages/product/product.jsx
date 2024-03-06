@@ -1,5 +1,5 @@
 import { LazyLoadImage } from 'react-lazy-load-image-component'
-import { useLocation, useNavigate, useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { useEffect, useRef, useState } from 'react'
 import convertPrice from "../../../utils/price"
 import Handle from "../../../service/handle"
@@ -11,14 +11,12 @@ import FilterBox from './filterbox'
 
 const Product = () => {
 
-    const location = useLocation()
-    const pageHistory = location.state
     const navigate = useNavigate()
     const inputref = useRef(null)
     const historySearch = localStorage.getItem('search')
     const filter = JSON.parse(localStorage.getItem('filterHistory'))
     const { ctg } = useParams()
-    const [ page, setPage ] = useState(pageHistory ? pageHistory : 1)
+    const [ page, setPage ] = useState(1)
     const [ data, setData ] = useState([])
     const [ status, setStatus ] = useState(200)
     const [ update, setUpdate] = useState(false)
@@ -52,14 +50,12 @@ const Product = () => {
             const find = document.getElementById('find')
             find.style.display = 'flex'
             control.style.display = 'none'
-            setPage(1)
         },
         hide : () => {
             const control = document.getElementById('control')
             const find = document.getElementById('find')
             control.style.display = 'flex'
             find.style.display = 'none'
-            setPage(1)
             setValue('')
             setMessage('')
         }
@@ -79,11 +75,8 @@ const Product = () => {
         finally { setLoading(false) }
     }
 
-    useEffect(() => {
-        setPage(page)
-        if(!value && !filterHistory) {
-            getProducts()
-        } else if (value) {
+    useEffect(() => { 
+        if (value) {
             search.show()
             searchProduct()
         } else if (filterHistory) {
@@ -94,7 +87,13 @@ const Product = () => {
             .catch((error) => { return false; })
             .finally(() => setLoading(false))
         }
-    }, [page, filterHistory])
+    }, [])
+
+    useEffect(() => {
+        if(!value && !filterHistory) {
+            getProducts()
+        }
+    }, [page, value, filterHistory])
 
     useEffect(() => { 
         if (update) {
@@ -102,7 +101,7 @@ const Product = () => {
             setUpdate(false) 
         }
     }, [update])
-
+    
     if (status !== 200) return <Handle status={status}/> 
 
     return (
@@ -112,7 +111,6 @@ const Product = () => {
             setLoading={setLoading}
             setUpdate={setUpdate} 
             setData={setData}
-            setPage={setPage}
             page={page}
             ctg={ctg}
         />
@@ -159,7 +157,7 @@ const Product = () => {
                     ) : (
                         data.map((i, index) => {
                             return(
-                                <div className='product-card' key={index} onClick={() => navigate(`/product/details/${i.vid}`, {state: {...i, pageHistory: page}})}>
+                                <div className='product-card' key={index} onClick={() => navigate(`/product/details/${i.vid}`, {state: i})}>
                                     <LazyLoadImage className='product-img' src={(i.img) || ('img/img404.jpg')} loading='lazy' alt={`stresslo ${ctg} products`} effect='blur'/>
                                     <div className='wrapped-text'>
                                         <div className='product-title'>{i.title}</div>
