@@ -30,7 +30,6 @@ const Product = () => {
         e && e.preventDefault()
         try {
             if (value && value.length >= 1) {
-                setPage(1)
                 setLoading(true)
                 localStorage.setItem('search', value)
                 const response = await axios.get(`${import.meta.env.VITE_API}/product/search/${value}/${page}`)
