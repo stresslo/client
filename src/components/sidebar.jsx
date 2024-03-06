@@ -58,7 +58,7 @@ const Sidebar = () => {
                 <div className="botside">
                     <NavLink className={a => (a.isActive) ? "sidelist" : "sidelist"} to="/about">
                         <i className="fa-solid fa-circle-info fa-xl"></i>
-                        <div className="sidetext" style={{marginLeft: '20px'}}>Intro & Guides</div>
+                        <div className="sidetext" style={{marginLeft: '20px', fontFamily: 'var(--quicksand)'}}>Intro & Guides</div>
                     </NavLink>
                 </div>
             </div>
