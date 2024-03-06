@@ -92,7 +92,6 @@ const Product = () => {
 
     useEffect(() => {
         if(!value && !filterHistory) {
-            setPage(1)
             getProducts()
         }
     }, [page, value, filterHistory])
