@@ -11,12 +11,6 @@ const about =
                 color : "var(--yellow)",
                 pricing : ['Tech', 'Design']
             },
-        ]
-    },
-    {
-        ctg : "Partner",
-        data : 
-        [
             {
                 title : "Vixcera",
                 text : "stresslo is part of vixcera.",
