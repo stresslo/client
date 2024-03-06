@@ -65,7 +65,9 @@ const Store = () => {
                                             <div className='product-desc' style={{color: 'var(--blue)',fontFamily: 'var(--quicksand)', fontSize: '0.9rem'}}>{moment.utc(i.createdAt).utcOffset('+07:00').format('MMMM DD, YYYY \t HH:mm A')}</div>
                                             <div className='wrapdet' style={{ position: 'unset', marginTop: '15px', marginLeft: '5px', gap: '5px' }}>
                                                 <div style={{ backgroundColor: 'var(--background)', width: '95px', height: '30px', color: 'var(--blue)' }}>{status}</div>
-                                                <div style={{ backgroundColor: 'var(--background)', width: '95px', height: '30px', color: 'var(--blue)' }}><i className='fa-solid fa-circle-check fa-lg'/></div>
+                                                {(status === 'active') && <div style={{ backgroundColor: 'var(--background)', width: '95px', height: '30px', color: 'var(--blue)' }}><i className='fa-solid fa-circle-check fa-lg'/></div>}
+                                                {(status === 'pending') && <div style={{ backgroundColor: 'var(--background)', width: '95px', height: '30px', color: 'var(--blue)' }}><i className='fa-solid fa-clock fa-lg'/></div>}
+                                                {(status === 'rejected') && <div style={{ backgroundColor: 'var(--background)', width: '95px', height: '30px', color: 'var(--blue)' }}><i className='fa-solid fa-circle-xmark fa-lg'/></div>}
                                              </div>
                                         </div>
                                         <div className='wrapped-details'>

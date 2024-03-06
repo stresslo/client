@@ -133,7 +133,21 @@ const Details = () => {
                                 </div>
                             </div>
                         </div>
-                        {(i.price == 0) ?
+                        {(i.status) ?
+                        <>
+                        {(i.status == 'pending') && 
+                        <div className="button-max" style={{ marginTop: '30px', backgroundColor: 'var(--yellow)' }}>
+                            <div className="i fa-solid fa-pen-to-square fa-xl" style={{color: 'var(--background)'}}/>
+                            Edit Product
+                        </div>}
+                        {(i.status == 'rejected') && 
+                        <div className="button-max" style={{ marginTop: '30px', backgroundColor: 'var(--yellow)' }}>
+                            <div className="i fa-solid fa-trash fa-xl" style={{color: 'var(--background)'}}/>
+                            Delete Product
+                        </div>}
+                        </>
+                        : 
+                        (i.price == 0) ?
                         <div className='button-max' onClick={() =>  freeDonwload() } style={{marginTop : '30px', backgroundColor: 'var(--yellow)'}}>Free Download</div>
                         :
                         <div className="button-max" onClick={() => navigate(`/order/${vid}`, {state: i})} style={{ marginTop: '30px', backgroundColor: 'var(--yellow)' }}>
