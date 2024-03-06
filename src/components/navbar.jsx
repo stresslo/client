@@ -59,7 +59,7 @@ const Navbar = ({ count }) => {
         <div className="nav-menu">
           <NavLink className="menu" to="/">Home</NavLink> 
           <NavLink className="menu" to="/products">Product</NavLink> 
-          <NavLink className="menu" to="/about">Introduction</NavLink> 
+          <NavLink className="menu" to="/about">Intro & Guides</NavLink> 
         </div>
         <div className="nav-user">
           {(context.token) ? 
