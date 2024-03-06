@@ -61,7 +61,7 @@ const Profile = () => {
     return (
         <div className='page' style={{flexDirection: 'column', gap : '10px'}}>
             <Topback/>
-            <LazyLoadImage loading='lazy' effect='blur' onClick={() => inputref.current.click()} src={(file) ? URL.createObjectURL(file) : context.img} width={150} height={150} style={{borderRadius : '50%', objectFit: 'cover', boxShadow: 'none', border: '2.5px solid var(--text)', cursor : 'pointer'}}/>
+            <LazyLoadImage loading='lazy' effect='blur' onClick={() => inputref.current.click()} src={(file) ? URL.createObjectURL(file) : context.img} width={150} height={150} style={{borderRadius : '50%', objectFit: 'cover', boxShadow: 'none', boxSizing: 'border-box', border: '2.5px solid var(--text)', cursor : 'pointer'}}/>
             <div className='title'>{context.username}</div>
             <form style={{display: 'flex', alignItems: "center", flexDirection: 'column'}}>
                 <input type="file" onChange={(e) => setFile(e.target.files[0])} ref={inputref} style={{display: 'none'}}/>
