@@ -53,6 +53,7 @@ const Product = () => {
             const find = document.getElementById('find')
             find.style.display = 'flex'
             control.style.display = 'none'
+            setPage(1)
         },
         hide : () => {
             const control = document.getElementById('control')
@@ -94,6 +95,7 @@ const Product = () => {
     }, [])
 
     useEffect(() => {
+        setPage(page)
         if(!value && !filterHistory) {
             getProducts()
         } else if (value) {
@@ -106,7 +108,7 @@ const Product = () => {
             .catch((error) => { return false; })
             .finally(() => setLoading(false))
         }
-    }, [page, value, filterHistory])
+    }, [page, filterHistory])
 
     useEffect(() => { 
         if (update) {
