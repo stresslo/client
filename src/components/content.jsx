@@ -67,10 +67,7 @@ const Content = ({data, setData, setCount}) => {
                 {(context.token) ? 
                 <div className="developer">
                     {(window.innerWidth <= 550) && 
-                    <div style={{position: 'absolute', top: '5px', right: '15px', display: 'flex', alignItems: 'center', gap: '10px'}}>
-                        <div style={{fontSize: '0.95rem', fontFamily: 'var(--quicksand)', color: 'var(--text)'}}>{context.username}</div>
-                        <img src={context.img} style={{width: '30px', border: '2px solid var(--yellow)', height: '30px', objectFit: 'cover', borderRadius: '50%', boxSizing: 'border-box', boxShadow: 'var(--boxshadow)'}} alt="stresslo account" />
-                    </div>
+                    <img src={context.img} style={{position: 'absolute', top: '15px', right: '15px', width: '35px', border: '2px solid var(--yellow)', height: '35px', objectFit: 'cover', borderRadius: '50%', boxSizing: 'border-box', boxShadow: 'var(--boxshadow)'}} alt="stresslo account" />
                     }
                     <img id="paimg" src="/img/greet.webp" className="dimasputra" alt="stresslo greeting" />
                     <div className="text-wrapper">
