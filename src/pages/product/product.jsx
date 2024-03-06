@@ -11,7 +11,6 @@ import FilterBox from './filterbox'
 
 const Product = () => {
 
-    let y = window.scrollY;
     const navigate = useNavigate()
     const inputref = useRef(null)
     const historySearch = localStorage.getItem('search')
@@ -78,12 +77,10 @@ const Product = () => {
     }
 
     useEffect(() => { 
-        if (y > 50) {
-            window.scrollTo({
-                top : 0,
-                behavior : 'smooth'
-            })
-        }
+        window.scrollTo({
+            top : 0,
+            behavior : 'smooth'
+        })
         if (value) {
             search.show()
             searchProduct()
