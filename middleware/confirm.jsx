@@ -21,7 +21,7 @@ const Confirm = {
                     { headers: {'xsrf-token': vxsrf} })
                     localStorage.removeItem('register_mode_user')
                     swalert("verification success, let's start exploring stresslo.", "success", 5500)
-                    .then((res) => res.dismiss && navigate('/login'))
+                    .then((res) => { if (res.dismiss) { window.location.href = '/login' } })
                 } catch (error) {
                     if (error || error.response) {
                         swalert(error.response.data || "internal server error", "error", 5000)
