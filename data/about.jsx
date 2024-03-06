@@ -70,18 +70,18 @@ const about =
                 text : "complete with valid data",
                 img : "img/form2.png",
                 color : "#FF4B63",
-                pricing : ["email", "phone"]
+                pricing : ["email"]
             },
             {
                 title : "Payment method",
-                text : "choose method and pay the amount.",
+                text : "choose method and pay.",
                 img : "img/pay.png",
                 color : "#FAEDCA",
                 pricing : ["pay"]
             },
             {
                 title : "Get the file",
-                text : "finish, file will downloaded.",
+                text : "finish, you'll get the file.",
                 img : "img/df.png",
                 color : "#30D5C8",
                 pricing : ["finish"]
