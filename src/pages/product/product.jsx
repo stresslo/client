@@ -13,7 +13,7 @@ const Product = () => {
 
     const navigate = useNavigate()
     const inputref = useRef(null)
-    const historyPage = JSON.parse(localStorage.getItem('historyPage'))
+    const historyPage = JSON.parse(localStorage.getItem('historyPageProduct'))
     const historySearch = localStorage.getItem('search')
     const filter = JSON.parse(localStorage.getItem('filterHistory'))
     const { ctg } = useParams()
@@ -22,7 +22,7 @@ const Product = () => {
     const [ update, setUpdate] = useState(false)
     const [ loading, setLoading ] = useState(false)
     const [ message, setMessage] = useState('')
-    const [ page, setPage ] = useState(historyPage ? parseInt(historyPage.page) : 1)
+    const [ page, setPage ] = useState(historyPage ? historyPage.page ? parseInt(historyPage.page) : 1 : 1)
     const [ value, setValue] = useState(historySearch ? historySearch : '')
     const [ filterHistory, setFilterHistory ] = useState(filter ?  filter : '')
     
@@ -77,7 +77,7 @@ const Product = () => {
     }
 
     useEffect(() => { 
-        localStorage.setItem('historyPage', JSON.stringify({ page: page }))
+        localStorage.setItem('historyPageProduct', JSON.stringify({ page: page || 1 }))
         window.scroll({
             top: 0,
             behavior : 'auto'
@@ -116,6 +116,7 @@ const Product = () => {
             filterHistory={filterHistory} 
             setLoading={setLoading}
             setUpdate={setUpdate} 
+            setPage={setPage}
             setData={setData}
             page={page}
             ctg={ctg}
@@ -152,7 +153,7 @@ const Product = () => {
                     <form onSubmit={(e) => { searchProduct(e) }} id='find' className='form' style={{margin: 'auto', display: 'none'}}>
                         <div style={{width: '100%', display: 'flex', alignItems: 'center', position: 'relative', gap: '5px'}}>
                             <input value={value} ref={inputref} type="text" onChange={(e) => setValue(e.target.value)} placeholder='find product' className='search' style={{width: '100%', backgroundColor: 'unset', boxShadow: 'unset', borderRadius: '0', borderBottom: '1px solid #aaa'}}/>
-                            <div onClick={() => {localStorage.removeItem('search'), search.hide()}} className='button' style={{width: '70px', height: '45px', backgroundColor: 'var(--primary)'}}>
+                            <div onClick={() => {localStorage.removeItem('historyPageProduct');localStorage.removeItem('search'); search.hide()}} className='button' style={{width: '70px', height: '45px', backgroundColor: 'var(--primary)'}}>
                                 <div className='fa-solid fa-close fa-xl' style={{color: 'var(--text)'}}/>
                             </div>
                         </div>
