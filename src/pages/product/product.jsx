@@ -12,7 +12,7 @@ import FilterBox from './filterbox'
 const Product = () => {
 
     const location = useLocation()
-    const pageHistory = location.state
+    const pageHistory = localStorage.getItem('pageHistory')
     console.log(pageHistory)
     const navigate = useNavigate()
     const inputref = useRef(null)
@@ -80,25 +80,27 @@ const Product = () => {
         finally { setLoading(false) }
     }
 
-    useEffect(() => { 
-        if (value) {
-            search.show()
-            searchProduct()
-        } else if (filterHistory) {
-            const endpoint = `${import.meta.env.VITE_API}/product/filter/${ctg}/${filterHistory.pricing}/${filterHistory.tech}/${filterHistory.price}/${filterHistory.optprice}/${page}`
-            setLoading(true)
-            axios.get(endpoint)
-            .then((response) => {const decode = jwt(response.data); setData(decode.data)})
-            .catch((error) => { return false; })
-            .finally(() => setLoading(false))
-        }
-    }, [])
+    // useEffect(() => { 
+    //     if (value) {
+    //         search.show()
+    //         searchProduct()
+    //     } else if (filterHistory) {
+    //         const endpoint = `${import.meta.env.VITE_API}/product/filter/${ctg}/${filterHistory.pricing}/${filterHistory.tech}/${filterHistory.price}/${filterHistory.optprice}/${page}`
+    //         setLoading(true)
+    //         axios.get(endpoint)
+    //         .then((response) => {const decode = jwt(response.data); setData(decode.data)})
+    //         .catch((error) => { return false; })
+    //         .finally(() => setLoading(false))
+    //     }
+    // }, [])
 
     useEffect(() => {
         setPage(page)
+        localStorage.setItem('pageHistory', page)
         if(!value && !filterHistory) {
             getProducts()
         } else if (value) {
+            search.show()
             searchProduct()
         } else if (filterHistory) {
             const endpoint = `${import.meta.env.VITE_API}/product/filter/${ctg}/${filterHistory.pricing}/${filterHistory.tech}/${filterHistory.price}/${filterHistory.optprice}/${page}`
