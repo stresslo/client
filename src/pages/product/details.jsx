@@ -20,7 +20,6 @@ const Details = () => {
     const navigate = useNavigate()
     const [cont, setCont] = useState('')
     const [i, seti] = useState(location.state)
-    console.log(location.state)
     const [loading, setLoading] = useState(false)
     const date = moment(i.createdAt.slice(0, 10)).format('MMM DD, YYYY')
 
@@ -114,7 +113,7 @@ const Details = () => {
 
     return (
         <div className='page-max'>
-            <div className="back" ref={backref} onClick={() => i ? i.prev ? navigate(i.prev) : navigate(`/product/${i.ctg}`) : navigate(`/product/${i.ctg}`)}>
+            <div className="back" ref={backref} onClick={() => i ? i.prev ? navigate(i.prev) : navigate(`/product/${i.ctg}`, { state: i.pageHistory}) : navigate(`/product/${i.ctg}`, { state: i.pageHistory })}>
                 <div className="fa-solid fa-arrow-left fa-xl active"></div>
                 <div className="nav-logo"><h1>stresslo</h1></div>
             </div>
