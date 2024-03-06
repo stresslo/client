@@ -33,7 +33,7 @@ const Product = () => {
                 localStorage.setItem('search', value)
                 const response = await axios.get(`${import.meta.env.VITE_API}/product/search/${value}/${page}`)
                 const decode = jwt(response.data)
-                !decode.data.length && setMessage(`no result found for ${value}`)
+                !decode.data.length && setMessage(`- no result found for ${value} -`)
                 setData(decode.data)
             }
         } catch (error) {
