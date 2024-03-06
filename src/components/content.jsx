@@ -70,7 +70,7 @@ const Content = ({data, setData, setCount}) => {
                     <div className="text-wrapper">
                     <div style={{display: 'flex', gap: '10px', alignItems: 'center'}}>
                         <img src={context.img} style={{width: '30px', border: '2px solid var(--yellow)', height: '30px', objectFit: 'cover', borderRadius: '50%', boxSizing: 'border-box', boxShadow: 'var(--boxshadow)'}} alt="stresslo account" />
-                        <div style={{color: 'var(--yellow)', fontFamily: 'var(--caveat)', fontSize: '1.6rem'}}>Hi {context.username}!,</div>
+                        <div style={{color: 'var(--yellow)', fontFamily: 'var(--caveat)', fontSize: '1.4rem', fontWeight: '500'}}>Hi {context.username}!,</div>
                     </div>
                     <div>Welcome back.</div>
                     <div className="button contact" onClick={() => navigate('/profile')}>{context.role}</div>
