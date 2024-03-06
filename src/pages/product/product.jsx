@@ -13,7 +13,6 @@ const Product = () => {
 
     const location = useLocation()
     const pageHistory = location.state
-    console.log(pageHistory)
     const navigate = useNavigate()
     const inputref = useRef(null)
     const historySearch = localStorage.getItem('search')
@@ -80,8 +79,11 @@ const Product = () => {
         finally { setLoading(false) }
     }
 
-    useEffect(() => { 
-        if (value) {
+    useEffect(() => {
+        setPage(page)
+        if(!value && !filterHistory) {
+            getProducts()
+        } else if (value) {
             search.show()
             searchProduct()
         } else if (filterHistory) {
@@ -92,23 +94,7 @@ const Product = () => {
             .catch((error) => { return false; })
             .finally(() => setLoading(false))
         }
-    }, [])
-
-    useEffect(() => {
-        setPage(page)
-        if(!value && !filterHistory) {
-            getProducts()
-        } else if (value) {
-            searchProduct()
-        } else if (filterHistory) {
-            const endpoint = `${import.meta.env.VITE_API}/product/filter/${ctg}/${filterHistory.pricing}/${filterHistory.tech}/${filterHistory.price}/${filterHistory.optprice}/${page}`
-            setLoading(true)
-            axios.get(endpoint)
-            .then((response) => {const decode = jwt(response.data); setData(decode.data)})
-            .catch((error) => { return false; })
-            .finally(() => setLoading(false))
-        }
-    }, [page, filterHistory])
+    }, [page])
 
     useEffect(() => { 
         if (update) {
