@@ -96,6 +96,12 @@ const Product = () => {
         }
     }, [page])
 
+    useEffect(() => {
+        if (!value && !filterHistory) {
+            getProducts()
+        }
+    }, [value, filterHistory])
+
     useEffect(() => { 
         if (update) {
             setFilterHistory(filter);
