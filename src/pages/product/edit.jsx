@@ -42,7 +42,7 @@ const EditProduct = () => {
         title && 
         image && 
         desc && 
-        price && 
+        price >= 0 && 
         (ctg !== 'web' || (ctg === 'web' && tech)) && 
         (ctg !== 'web' || (ctg === 'web' && link))) {
         Swal.fire({
@@ -201,7 +201,7 @@ const EditProduct = () => {
                 <div style={{ color: '#aaa', fontSize: '0.95rem' }}>Max size: 20 Mb</div>
               </div>
             </div>
-            <div className='button-max' onClick={() => editProduct()} style={(file && title && image && desc && price && ctg && tech) ? {backgroundColor: 'var(--yellow)', marginTop: '50px'} : {backgroundColor: '#aaa', marginTop: '50px'}}>Update change</div>
+            <div className='button-max' onClick={() => editProduct()} style={(file && title && image && desc && price >= 0 && ctg && tech) ? {backgroundColor: 'var(--yellow)', marginTop: '50px'} : {backgroundColor: '#aaa', marginTop: '50px'}}>Update change</div>
             </div>
           </div>
         <div className='prev-form'>
