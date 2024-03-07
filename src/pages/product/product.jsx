@@ -129,7 +129,7 @@ const Product = () => {
                     <div id='control' className='form' style={{margin: 'auto'}}>
                     <div style={{width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '15px'}}>
                         <div style={{display: 'flex', alignItems: 'center', gap: '10px'}}>
-                            <div className='button' style={filterHistory ? {height: '37px', backgroundColor: 'var(--primary)', color: 'var(--yellow)', width: '100px'} : {height: '37px', backgroundColor: 'var(--primary)', color: 'var(--text)', width: '100px'}} onClick={() => {
+                            <div className='button' style={filterHistory ? {height: '37px', backgroundColor: 'var(--primary)', color: 'var(--yellow)', width: '130px'} : {height: '37px', backgroundColor: 'var(--primary)', color: 'var(--text)', width: '130px'}} onClick={() => {
                                 const boxfilter = document.querySelector('.filter-box')
                                 boxfilter.classList.contains('show') ? boxfilter.classList.remove('show') : boxfilter.classList.add('show')
                             }}>
@@ -140,7 +140,7 @@ const Product = () => {
                                 <div onClick={() => { setUpdate(true);localStorage.removeItem('historyPageProduct');localStorage.removeItem('filterHistory');location.reload()}} className='fa-solid fa-trash fa-lg' style={{color: 'var(--yellow)', cursor: 'pointer'}}/>
                             )}
                         </div>
-                        <div className='button' onClick={() => {search.show(); page !== 1 && setPage(1); inputref.current.focus()}} style={{backgroundColor: 'var(--primary)', height: '37px', width: '100px'}}>
+                        <div className='button' onClick={() => {search.show(); page !== 1 && setPage(1); inputref.current.focus()}} style={{backgroundColor: 'var(--primary)', height: '37px', width: '130px'}}>
                             <div className='fa-solid fa-search fa-lg' style={{color: 'var(--text)'}}/>
                             <div style={{color: 'var(--text)', fontSize: '1rem', fontFamily: 'var(--quicksand)'}}>Find</div>
                         </div>
