@@ -129,12 +129,15 @@ const Product = () => {
                     <div id='control' className='form' style={{margin: 'auto'}}>
                     <div style={{width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '15px'}}>
                         <div style={{display: 'flex', alignItems: 'center', gap: '10px'}}>
+                            <div onClick={() => navigate('/')} className='button' style={{width: '50px', height: '37px', backgroundColor: 'var(--primary)'}}>
+                                <div className='fa-solid fa-home fa-lg' />
+                            </div>
                             <div className='button' style={filterHistory ? {height: '37px', backgroundColor: 'var(--primary)', color: 'var(--yellow)', width: '130px'} : {height: '37px', backgroundColor: 'var(--primary)', color: 'var(--text)', width: '130px'}} onClick={() => {
                                 const boxfilter = document.querySelector('.filter-box')
                                 boxfilter.classList.contains('show') ? boxfilter.classList.remove('show') : boxfilter.classList.add('show')
                             }}>
                                 <div style={{fontFamily: 'var(--quicksand)', fontSize: '1rem'}}>Filter</div>
-                                <div className='fa-solid fa-caret-down fa-lg'></div>
+                                <div className='fa-solid fa-caret-down fa-lg' style={document.querySelector('.filter-box').classList.contains('show') ? {rotate: '180deg', transition: '0.3 ease-in-out'} : {rotate: '0deg', transition: '0.3s ease-in-out'}}></div>
                             </div>
                             {(filterHistory) && (
                                 <div onClick={() => { setUpdate(true);localStorage.removeItem('historyPageProduct');localStorage.removeItem('filterHistory');location.reload()}} className='fa-solid fa-trash fa-lg' style={{color: 'var(--yellow)', cursor: 'pointer'}}/>
