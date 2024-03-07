@@ -62,8 +62,8 @@ const Profile = () => {
         <div className='page' style={{flexDirection: 'column', gap : '10px'}}>
             <Topback/>
             <div style={{display : 'flex', flexDirection: 'column', gap: '10px', marginBottom: '5px', alignItems: 'center', justifyContent:'center'}}>
-                <img src={(file) ? URL.createObjectURL(file) : context.img} style={{borderRadius : '50%', width: '155px', height: '155px', objectFit: 'cover', border: '1.5px solid var(--yellow)', cursor : 'pointer'}}/>
-                <div onClick={() => inputref.current.click()}  style={{fontSize: '1rem', color: 'var(--text)', cursor: 'pointer'}}>Change</div>
+                <img onClick={() => inputref.current.click()} src={(file) ? URL.createObjectURL(file) : context.img} style={{borderRadius : '50%', width: '155px', height: '155px', objectFit: 'cover', border: '1.5px solid var(--yellow)', cursor : 'pointer'}}/>
+                <div onClick={() => inputref.current.click()}  style={{fontSize: '1rem', color: 'var(--text)', cursor: 'pointer', fontFamily: 'var(--quicksand)'}}>Change</div>
             </div>
             <div className='title'>{context.username}</div>
             <form style={{display: 'flex', alignItems: "center", flexDirection: 'column'}}>
