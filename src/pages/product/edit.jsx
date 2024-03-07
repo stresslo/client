@@ -34,7 +34,6 @@ const EditProduct = () => {
   const [price, setPrice] = useState((prevData) ? prevData.price : '')
 
   const editProduct = async () => {
-    console.log(parseInt(price, 10))
     if (!context.role || context.role !== 'contributor') {
         swalert('please login to your contributor account', 'info', 3000)
     }
@@ -63,6 +62,7 @@ const EditProduct = () => {
             if (res.isConfirmed) {
                 try {
                     const intPrice = parseInt(price, 10)
+                    if (isNaN(intPrice) || intPrice < 0) return swalert('please input a valid price!', 'info', 3000)
                     setLoading(true)
                     let formData = new FormData()
                     formData.append('vid', vid);
@@ -78,7 +78,7 @@ const EditProduct = () => {
                       headers: {"Content-Type": 'multipart/form-data', "xsrf-token" : vxsrf}
                     })
                     swalert(response.data, "success", 5000)
-                    .then((res) => { if(res.dismiss) {location.href = '/'} })
+                    .then((res) => { if(res.dismiss) {location.href = '/contributor/store'} })
                 } catch (error) {
                     swalert("server maintenance!", "error", 1500)
                     if (error.response) { swalert(error.response.data, "error", 1500) }
