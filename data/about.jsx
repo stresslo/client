@@ -8,7 +8,7 @@ const about =
                 title : "Report",
                 text : "report your problem to developer.",
                 img : "img/problem.png",
-                color : "var(--yellow)",
+                color : "var(--text)",
                 link  : 'mailto:dimasptraautmaa@gmail.com',
                 pricing : ['report', 'trouble']
             },
