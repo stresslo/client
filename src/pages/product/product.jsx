@@ -142,7 +142,7 @@ const Product = () => {
                         </div>
                         <div className='button' onClick={() => {search.show(); page !== 1 && setPage(1); inputref.current.focus()}} style={{backgroundColor: 'var(--primary)', height: '35px'}}>
                             <div className='fa-solid fa-search fa-lg' style={{color: 'var(--text)'}}/>
-                            <div style={{color: 'var(--text)', fontSize: '1rem', fontFamily: 'var(--poppins)'}}>Find</div>
+                            <div style={{color: 'var(--text)', fontSize: '1rem', fontFamily: 'var(--quicksand)'}}>Find</div>
                         </div>
                     </div>
                     </div>
