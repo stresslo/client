@@ -42,7 +42,7 @@ const EditProduct = () => {
         title && 
         image && 
         desc && 
-        price && 
+        price >= 0 && 
         (ctg !== 'web' || (ctg === 'web' && tech)) && 
         (ctg !== 'web' || (ctg === 'web' && link))) {
         Swal.fire({
