@@ -31,7 +31,7 @@ const EditProduct = () => {
   const [desc, setDesc] = useState((prevData) ? prevData.desc : '')
   const [link, setLink] = useState((prevData) ? prevData.link : '')
   const [title, setTitle] = useState((prevData) ? prevData.title : '')
-  const [price, setPrice] = useState((prevData) ? prevData.price.replace(/\D/g, '') : '')
+  const [price, setPrice] = useState((prevData) ? prevData.price : '')
 
   const editProduct = async () => {
     if (!context.role || context.role !== 'contributor') {
@@ -107,7 +107,7 @@ const EditProduct = () => {
           </div>
           <div>
             <div>Price :</div>
-            <input className='productinput' value={price ? convertPrice(price) : price} type="text" placeholder='e.g. 350000' onChange={(e) => { setPrice(e.target.value.replace(/\D/g, ''))}} required/>
+            <input className='productinput' value={price >= 0 ? convertPrice(price) : price} type="text" placeholder='e.g. 350000' onChange={(e) => { setPrice(e.target.value.replace(/\D/g, ''))}} required/>
           </div>
           <div>
               <div>Category :</div>
