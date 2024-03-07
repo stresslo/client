@@ -34,7 +34,7 @@ const EditProduct = () => {
   const [price, setPrice] = useState((prevData) ? prevData.price : '')
 
   const editProduct = async () => {
-    console.log(price)
+    console.log(parseInt(price, 10))
     if (!context.role || context.role !== 'contributor') {
         swalert('please login to your contributor account', 'info', 3000)
     }
@@ -62,6 +62,7 @@ const EditProduct = () => {
         .then(async (res) => {
             if (res.isConfirmed) {
                 try {
+                    const intPrice = parseInt(price, 10)
                     setLoading(true)
                     let formData = new FormData()
                     formData.append('vid', vid);
@@ -72,7 +73,7 @@ const EditProduct = () => {
                     formData.append('file', file);
                     formData.append('tech', tech);
                     formData.append('title', title);
-                    formData.append('price', price);
+                    formData.append('price', intPrice);
                     const response = await axios.post(`${import.meta.env.VITE_API}/edit/product`,formData, {
                       headers: {"Content-Type": 'multipart/form-data', "xsrf-token" : vxsrf}
                     })
