@@ -208,6 +208,7 @@
     font-size: 0.8rem;
     color: var(--text);
     transition: 0.5s;
+    box-shadow: -3px -3px 7px inset var(--primary);
 }
 
 @media (max-width : 768px) {
