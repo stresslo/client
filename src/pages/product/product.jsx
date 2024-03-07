@@ -129,23 +129,22 @@ const Product = () => {
                     <div id='control' className='form' style={{margin: 'auto'}}>
                     <div style={{width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '15px'}}>
                         <div style={{display: 'flex', alignItems: 'center', gap: '5px'}}>
-                            <div onClick={() => navigate('/')} className='button' style={{width: '50px', height: '37px', backgroundColor: 'var(--primary)', color: 'var(--text)'}}>
+                            <div onClick={() => navigate('/')} className='button' style={{width: '50px', height: '40px', backgroundColor: 'var(--primary)', color: 'var(--text)'}}>
                                 <div className='fa-solid fa-home fa-lg' />
                             </div>
-                            <div className='button' style={filterHistory ? {height: '37px', backgroundColor: 'var(--primary)', color: 'var(--yellow)', width: '130px'} : {height: '37px', backgroundColor: 'var(--primary)', color: 'var(--text)', width: '130px'}} onClick={() => {
+                            <div className='button' style={filterHistory ? {height: '40px', backgroundColor: 'var(--primary)', color: 'var(--yellow)', width: '50px'} : {height: '40px', backgroundColor: 'var(--primary)', color: 'var(--text)', width: '50px'}} onClick={() => {
                                 const boxfilter = document.querySelector('.filter-box')
                                 boxfilter.classList.contains('show') ? boxfilter.classList.remove('show') : boxfilter.classList.add('show')
                             }}>
-                                <div style={{fontFamily: 'var(--quicksand)', fontSize: '1rem'}}>Filter</div>
-                                <div className='fa-solid fa-caret-down fa-lg'></div>
+                            <div className='fa-solid fa-sliders fa-lg' />
                             </div>
                             {(filterHistory) && (
                                 <div onClick={() => { setUpdate(true);localStorage.removeItem('historyPageProduct');localStorage.removeItem('filterHistory');location.reload()}} className='fa-solid fa-trash fa-lg' style={{color: 'var(--yellow)', cursor: 'pointer'}}/>
                             )}
                         </div>
-                        <div className='button' onClick={() => {search.show(); page !== 1 && setPage(1); inputref.current.focus()}} style={{backgroundColor: 'var(--primary)', height: '37px', width: '130px'}}>
+                        <div className='button' onClick={() => {search.show(); page !== 1 && setPage(1); inputref.current.focus()}} style={{backgroundColor: 'var(--primary)', height: '40px', width: '130px'}}>
                             <div className='fa-solid fa-search fa-lg' style={{color: 'var(--text)'}}/>
-                            <div style={{color: 'var(--text)', fontSize: '1rem', fontFamily: 'var(--quicksand)'}}>Find</div>
+                            <div style={{color: 'var(--text)', fontSize: '1rem', fontFamily: 'var(--quicksand)'}}>Search</div>
                         </div>
                     </div>
                     </div>
