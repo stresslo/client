@@ -125,7 +125,7 @@ const Product = () => {
             <div id='snap-container'/>
             <div className='product-page' style={{padding : '0px', marginTop: '0px'}}>
                 <div className='product-container' style={{flexDirection: 'column', marginTop: '0'}}>
-                    <div className='product-card' style={{height: 'max-content', padding: '0', backgroundColor: 'unset'}}>
+                    <div className='product-card' style={{height: 'max-content', padding: '0', backgroundColor: 'unset', boxShadow: 'unset'}}>
                     <div id='control' className='form' style={{margin: 'auto'}}>
                     <div style={{width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '15px'}}>
                         <div style={{display: 'flex', alignItems: 'center', gap: '5px'}}>
