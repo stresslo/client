@@ -18,7 +18,6 @@ const EditProduct = () => {
   const imgref = useRef(null)
   const location = useLocation()
   const prevData = location.state
-  console.log(prevData)
 
   const [loading, setLoading] = useState(false)
 
@@ -62,6 +61,7 @@ const EditProduct = () => {
         .then(async (res) => {
             if (res.isConfirmed) {
                 try {
+                    const endpoint = prevData.status == 'active' ? `${import.meta.env.VITE_API}/edit/product` : `${import.meta.env.VITE_API}/edit/pending/product`
                     const intPrice = parseInt(price, 10)
                     if (isNaN(intPrice) || intPrice < 0) return swalert('please input a valid price!', 'info', 3000)
                     setLoading(true)
@@ -75,11 +75,11 @@ const EditProduct = () => {
                     formData.append('tech', tech);
                     formData.append('title', title);
                     formData.append('price', intPrice);
-                    const response = await axios.post(`${import.meta.env.VITE_API}/edit/product`,formData, {
+                    const response = await axios.post(endpoint,formData, {
                       headers: {"Content-Type": 'multipart/form-data', "xsrf-token" : vxsrf}
                     })
                     swalert(response.data, "success", 5000)
-                    .then((res) => { if(res.dismiss) {location.href = '/contributor/store'} })
+                    .then((res) => { if(res.dismiss) {window.location.href = '/contributor/store'} })
                 } catch (error) {
                     swalert("server maintenance!", "error", 1500)
                     if (error.response) { swalert(error.response.data, "error", 1500) }
