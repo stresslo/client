@@ -136,7 +136,7 @@ const Product = () => {
                                 const boxfilter = document.querySelector('.filter-box')
                                 boxfilter.classList.contains('show') ? boxfilter.classList.remove('show') : boxfilter.classList.add('show')
                             }}>
-                            <div className='fa-solid fa-arrow-down-short-wide fa-lg' />
+                            <div className='fa-solid fa-list-check fa-lg' />
                             </div>
                             {(filterHistory) && (
                                 <div onClick={() => { setUpdate(true);localStorage.removeItem('historyPageProduct');localStorage.removeItem('filterHistory');location.reload()}} className='fa-solid fa-trash fa-lg' style={{color: 'var(--yellow)', cursor: 'pointer'}}/>
@@ -152,7 +152,7 @@ const Product = () => {
                         <div style={{width: '100%', display: 'flex', alignItems: 'center', position: 'relative', gap: '5px'}}>
                             <input value={value} ref={inputref} type="text" onChange={(e) => setValue(e.target.value)} placeholder='find product' className='search' style={{width: '100%', backgroundColor: 'unset', boxShadow: 'unset', borderRadius: '0', borderBottom: '1px solid #aaa'}}/>
                             <div onClick={() => {localStorage.removeItem('search'); page !== 1 && setPage(1); search.hide()}} className='button' style={{width: '70px', height: '45px', backgroundColor: 'var(--primary)'}}>
-                                <div className='fa-solid fa-close fa-xl' style={{color: 'var(--text)'}}/>
+                                <div className='fa-solid fa-circle-xmark fa-lg' style={{color: 'var(--text)'}}/>
                             </div>
                         </div>
                     </form>
