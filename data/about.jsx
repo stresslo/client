@@ -1,7 +1,7 @@
 const about = 
 [
     {
-        ctg : "get trouble on",
+        ctg : "trouble on",
         data : 
         [
             {

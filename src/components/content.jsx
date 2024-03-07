@@ -110,7 +110,7 @@ const Content = ({data, setData, setCount}) => {
                 {(about.map((i,k) => {
                 return(
                     <div className="service" style={{paddingTop: '20px'}} key={k}>
-                        <h1 className="itext"><span>{i.ctg}</span> stresslo</h1>
+                        <h1 className="itext"><span>{i.ctg}</span> {i.ctg == 'trouble on' ? 'stresslo ?' : 'stresslo'}</h1>
                         {i.data.map((p, l) => 
                             <div className="sbox" key={l} onClick={() => { if (p.link) { window.location.href = p.link } }} style={{borderRight : `2px solid ${p.color}`}}>
                                 <div className="image-container" style={{backgroundColor : `${p.color}`}}>
