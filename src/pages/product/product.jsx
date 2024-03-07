@@ -128,8 +128,8 @@ const Product = () => {
                     <div className='product-card' style={{height: 'max-content', padding: '0', backgroundColor: 'unset'}}>
                     <div id='control' className='form' style={{margin: 'auto'}}>
                     <div style={{width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '15px'}}>
-                        <div style={{display: 'flex', alignItems: 'center', gap: '10px'}}>
-                            <div onClick={() => navigate('/')} className='button' style={{width: '50px', height: '37px', backgroundColor: 'var(--primary)'}}>
+                        <div style={{display: 'flex', alignItems: 'center', gap: '5px'}}>
+                            <div onClick={() => navigate('/')} className='button' style={{width: '50px', height: '37px', backgroundColor: 'var(--primary)', color: 'var(--text)'}}>
                                 <div className='fa-solid fa-home fa-lg' />
                             </div>
                             <div className='button' style={filterHistory ? {height: '37px', backgroundColor: 'var(--primary)', color: 'var(--yellow)', width: '130px'} : {height: '37px', backgroundColor: 'var(--primary)', color: 'var(--text)', width: '130px'}} onClick={() => {
