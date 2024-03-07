@@ -19,6 +19,7 @@ const EditProduct = () => {
   const location = useLocation()
   const prevData = location.state
 
+  const formatPrice = (value) => { return `Rp ${Number(value).toLocaleString('id-ID')}`};
   const [loading, setLoading] = useState(false)
 
   const [vxsrf, setVxsrf] = useState('')
@@ -109,7 +110,7 @@ const EditProduct = () => {
           </div>
           <div>
             <div>Price :</div>
-            <input className='productinput' value={price >= 0 ? convertPrice(price) : price} type="text" placeholder='e.g. 350000' onChange={(e) => { setPrice(e.target.value.replace(/\D/g, ''))}} required/>
+            <input className='productinput' value={price >= 0 ? formatPrice(price) : price} type="text" placeholder='e.g. 350000' onChange={(e) => { setPrice(e.target.value.replace(/[^\d.]|(?<=\.\d*)0+(?=\d)/g, ''))}} required/>
           </div>
           <div>
               <div>Category :</div>

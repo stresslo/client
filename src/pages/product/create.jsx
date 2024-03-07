@@ -16,7 +16,7 @@ const Create = () => {
   const fileref = useRef(null)
   const imgref = useRef(null)
 
-  const formatPrice = (value) => { return `Rp ${Number(value).toLocaleString()}`};
+  const formatPrice = (value) => { return `Rp ${Number(value).toLocaleString('id-ID')}`};
   const inputHistory = JSON.parse(localStorage.getItem('createHistory'))
 
   const [loading, setLoading] = useState(false)
