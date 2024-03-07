@@ -61,7 +61,10 @@ const Profile = () => {
     return (
         <div className='page' style={{flexDirection: 'column', gap : '10px'}}>
             <Topback/>
-            <img onClick={() => inputref.current.click()} src={(file) ? URL.createObjectURL(file) : context.img} style={{borderRadius : '50%', width: '155px', height: '155px', objectFit: 'cover', border: '1.5px solid var(--yellow)', cursor : 'pointer'}}/>
+            <div style={{position: 'relative'}}>
+                <div style={{position: 'absolute', top: '-20px', right : '-20px', color: 'var(--text)'}} className='fa-solid fa-rotate fa-xl'/>
+                <img onClick={() => inputref.current.click()} src={(file) ? URL.createObjectURL(file) : context.img} style={{borderRadius : '50%', width: '155px', height: '155px', objectFit: 'cover', border: '1.5px solid var(--yellow)', cursor : 'pointer'}}/>
+            </div>
             <div className='title'>{context.username}</div>
             <form style={{display: 'flex', alignItems: "center", flexDirection: 'column'}}>
                 <input type="file" onChange={(e) => setFile(e.target.files[0])} ref={inputref} style={{display: 'none'}}/>
