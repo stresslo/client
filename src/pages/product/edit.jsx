@@ -18,6 +18,7 @@ const EditProduct = () => {
   const imgref = useRef(null)
   const location = useLocation()
   const prevData = location.state
+  console.log(prevData)
 
   const [loading, setLoading] = useState(false)
 

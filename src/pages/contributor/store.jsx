@@ -5,6 +5,7 @@ import Swaload from '../../../utils/swaload'
 import Context from '../../../utils/context'
 import Topback from '../../components/topback'
 import convertPrice from "../../../utils/price"
+import jwt from "jwt-decode"
 import moment from "moment"
 import axios from "axios"
 
@@ -28,7 +29,7 @@ const Store = () => {
     const getYours = async () => {
         setLoading(true)
         axios.get(endpoint())
-        .then(response => setData(response.data))
+        .then(response => {const decode = jwt(response.data); setData(decode.data)})
         .catch(error => Promise.reject(error) && setData([]))
         .finally(() => setLoading(false))
     }
