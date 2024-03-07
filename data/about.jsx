@@ -1,11 +1,11 @@
 const about = 
 [
     {
-        ctg : "get problem on",
+        ctg : "get trouble on",
         data : 
         [
             {
-                title : "Report problem",
+                title : "Report",
                 text : "report your problem to developer.",
                 img : "img/problem.png",
                 color : "var(--yellow)",
