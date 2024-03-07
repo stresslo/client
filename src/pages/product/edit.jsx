@@ -31,7 +31,7 @@ const EditProduct = () => {
   const [desc, setDesc] = useState((prevData) ? prevData.desc : '')
   const [link, setLink] = useState((prevData) ? prevData.link : '')
   const [title, setTitle] = useState((prevData) ? prevData.title : '')
-  const [price, setPrice] = useState((prevData) ? prevData.price : '')
+  const [price, setPrice] = useState((prevData) ? convertPrice(prevData.price) : '')
 
   const editProduct = async () => {
     if (!context.role || context.role !== 'contributor') {
@@ -42,7 +42,7 @@ const EditProduct = () => {
         title && 
         image && 
         desc && 
-        price >= 0 && 
+        price && 
         (ctg !== 'web' || (ctg === 'web' && tech)) && 
         (ctg !== 'web' || (ctg === 'web' && link))) {
         Swal.fire({
