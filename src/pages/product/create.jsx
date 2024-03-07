@@ -16,6 +16,7 @@ const Create = () => {
   const fileref = useRef(null)
   const imgref = useRef(null)
 
+  const formatPrice = (value) => { return `Rp ${Number(value).toLocaleString()}`};
   const inputHistory = JSON.parse(localStorage.getItem('createHistory'))
 
   const [loading, setLoading] = useState(false)
@@ -93,7 +94,7 @@ const Create = () => {
           </div>
           <div>
             <div>Price :</div>
-            <input className='productinput' value={price ? convertPrice(price) : price} type="text" placeholder='e.g. 350000' onChange={(e) => { setPrice(e.target.value.slice(0, -1).replace(/\D/g, ''))}} required/>
+            <input className='productinput' value={price ? formatPrice(price) : price} type="text" placeholder='e.g. 350000' onChange={(e) => { setPrice(e.target.value.replace(/[^\d.]|(?<=\.\d*)0+(?=\d)/g, ''))}} required/>
           </div>
           <div>
               <div>Category :</div>
