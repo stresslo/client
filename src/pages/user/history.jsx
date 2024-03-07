@@ -70,12 +70,11 @@ const History = () => {
                 <div className="input-form" style={{marginTop: '40px', flexDirection: 'column'}}>
                     {loading ? (<Swaload.Transaction/>) : 
                         data.length !== 0 && data.map((i, k) => {
-                            const now = moment(i.updatedAt);
-                            const date = now.isSame(moment(), 'day')
-                            ? "Today"
-                            : now.clone().subtract(1, 'days').isSame(moment(), 'day')
-                            ? "Yesterday"
-                            : now.format("MMM DD, YYYY");
+                            const now = moment();
+                            const updatedAt = moment(i.updatedAt);
+                            const isToday = now.isSame(updatedAt, 'day');
+                            const isYesterday = now.clone().subtract(1, 'days').isSame(updatedAt, 'day');
+                            const date = isToday ? "Today" : (isYesterday ? "Yesterday" : updatedAt.format("MMM DD, YYYY"));
                             const time = moment.utc(i.updatedAt).utcOffset("+07:00").format("HH:mm A")
                             return (
                             <div className="box-history" key={k} onClick={() => navigate(`/transaction/result/${i.order_id}`, {state: { ...i, prev: location.pathname }})}>
