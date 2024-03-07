@@ -100,13 +100,13 @@ const Create = () => {
               <div>Category :</div>
               <select style={{width: '100%', textAlign: 'center'}} value={ctg} onChange={(e) => setCtg(e.target.value)} required>
                 <option value="" disabled hidden></option>
-                <option value="web">Web</option>
-                <option value="3d">3D</option>
-                <option value="motion">Motion</option>
-                <option value="vector">Vector</option>
+                <option value="Web">Web</option>
+                <option value="3D">3D</option>
+                <option value="Motion">Motion</option>
+                <option value="Vector">Vector</option>
               </select>
           </div>
-          {(ctg == 'web') && 
+          {(ctg == 'Web') && 
           <>
             <div>
                 <div>Framework :</div>
@@ -126,45 +126,79 @@ const Create = () => {
             </div>
           </>
           }
-          {(ctg === 'motion') &&
+          {(ctg === 'Motion') &&
           <>
             <div>
                 <div>Software :</div>
                 <select style={{width: '100%'}} value={tech} onChange={(e) => setTech(e.target.value)} required>
                   <option value=""></option>
-                  <option value="AE">Adobe After Effect</option>
-                  <option value="DaVinci">DaVinci Resolve</option>
+                  <option value="After Effect">Adobe After Effect</option>
+                  <option value="DaVinci Resolve">DaVinci Resolve</option>
                   <option value="Blender">Blender</option>
-                  <option value="AM">Apple Motion</option>
+                  <option value="Apple Motion">Apple Motion</option>
                   <option value="Cinema 4D">Cinema 4D</option>
                 </select>
             </div>
+            <div>
+                <div>Main format :</div>
+                <select style={{width: '100%'}} value={tech} onChange={(e) => setTech(e.target.value)} required>
+                  <option value=""></option>
+                  <option value=".aep">.aep</option>
+                  <option value=".drp">.drp</option>
+                  <option value=".blend">.blend</option>
+                  <option value=".motn">.motn</option>
+                  <option value=".c4d">.c4d</option>
+                </select>
+            </div>
           </>
           }
-          {(ctg === 'vector') &&
+          {(ctg === 'Vector') &&
           <>
             <div>
                 <div>Software :</div>
                 <select style={{width: '100%'}} value={tech} onChange={(e) => setTech(e.target.value)} required>
                   <option value=""></option>
-                  <option value="AI">Adobe Illustrarion</option>
-                  <option value="Corel">Corel Draw</option>
-                  <option value="Pixelmator">Pixelmator Pro</option>
-                  <option value="Affinity">Affinity Designer</option>
+                  <option value="Adobe Illustration">Adobe Illustration</option>
+                  <option value="Corel Draw">Corel Draw</option>
+                  <option value="Pixelmator Pro">Pixelmator Pro</option>
+                  <option value="Affinity Designer">Affinity Designer</option>
+                </select>
+            </div>
+            <div>
+                <div>Main format :</div>
+                <select style={{width: '100%'}} value={tech} onChange={(e) => setTech(e.target.value)} required>
+                  <option value=""></option>
+                  <option value=".ai">.ai</option>
+                  <option value=".cdr">.cdr</option>
+                  <option value=".psd">.psd</option>
+                  <option value=".eps">.eps</option>
+                  <option value=".svg">.svg</option>
+                  <option value=".afdesign">.afdesign</option>
                 </select>
             </div>
           </>
           }
-          {(ctg === '3d') &&
+          {(ctg === '3D') &&
           <>
             <div>
                 <div>Software :</div>
                 <select style={{width: '100%'}} value={tech} onChange={(e) => setTech(e.target.value)} required>
                   <option value=""></option>
                   <option value="Sketchup">SketchUp</option>
-                  <option value="blender">Blender</option>
+                  <option value="Blender">Blender</option>
                   <option value="Autodesk maya">Autodesk Maya</option>
                   <option value="Cinema 4D">Cinema 4D</option>
+                </select>
+            </div>
+            <div>
+                <div>Main format :</div>
+                <select style={{width: '100%'}} value={tech} onChange={(e) => setTech(e.target.value)} required>
+                  <option value=""></option>
+                  <option value=".skp">.skp</option>
+                  <option value=".ma">.ma</option>
+                  <option value=".mb">.mb</option>
+                  <option value=".blend">.blend</option>
+                  <option value=".c4d">.c4d</option>
                 </select>
             </div>
           </>

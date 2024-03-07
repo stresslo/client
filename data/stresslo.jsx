@@ -10,7 +10,7 @@ const stresslo =
                 img : "img/web.webp",
                 color : "var(--yellow)",
                 pricing : ["paid", "free"],
-                ctg : "web"
+                ctg : "Web"
             },
         ]
     },
@@ -51,7 +51,7 @@ const stresslo =
                 img : "img/3d.png",
                 color : "var(--yellow)",
                 pricing : ["paid"],
-                ctg : "3d"
+                ctg : "3D"
             },
             {
                 title : "Motion graphic",
@@ -59,7 +59,7 @@ const stresslo =
                 img : "img/motion.png",
                 color : "#FAEDCA",
                 pricing : ["paid", "free"],
-                ctg : "motion"
+                ctg : "Motion"
             },
             {
                 title : "Vector design",
@@ -67,7 +67,7 @@ const stresslo =
                 img : "img/vector.png",
                 color : "#FF4B63",
                 pricing : ["paid", "free"],
-                ctg : "vector"
+                ctg : "Vector"
             },
         ]
     },

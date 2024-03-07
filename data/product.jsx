@@ -10,7 +10,7 @@ const products =
                 img : "img/web.png",
                 color : "var(--yellow)",
                 pricing : ["paid", "free"],
-                ctg : "web"
+                ctg : "Web"
             },
         ]
     },
@@ -24,7 +24,7 @@ const products =
                 img : "img/3d.png",
                 color : "var(--yellow)",
                 pricing : ["paid"],
-                ctg : "3d"
+                ctg : "3D"
             },
             {
                 title : "Motion graphic",
@@ -32,7 +32,7 @@ const products =
                 img : "img/motion.png",
                 color : "#FAEDCA",
                 pricing : ["paid", "free"],
-                ctg : "motion"
+                ctg : "Motion"
             },
             {
                 title : "Vector design",
@@ -40,7 +40,7 @@ const products =
                 img : "img/vector.png",
                 color : "#FF4B63",
                 pricing : ["paid", "free"],
-                ctg : "vector"
+                ctg : "Vector"
             },
         ]
     }
