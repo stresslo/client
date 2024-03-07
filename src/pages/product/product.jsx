@@ -123,7 +123,7 @@ const Product = () => {
         />
         <div className='page-max' style={{flexDirection: 'column'}}>
             <div id='snap-container'/>
-            <div className='product-page' style={{paddingBottom: '0', marginTop: '0px'}}>
+            <div className='product-page' style={{padding : '0px', marginTop: '0px'}}>
                 <div className='product-container' style={{flexDirection: 'column', marginTop: '0'}}>
                     <div className='product-card' style={{height: 'max-content', padding: '0', backgroundColor: 'unset'}}>
                     <div id='control' className='form' style={{margin: 'auto'}}>
@@ -140,7 +140,7 @@ const Product = () => {
                                 <div onClick={() => { setUpdate(true);localStorage.removeItem('historyPageProduct');localStorage.removeItem('filterHistory');location.reload()}} className='fa-solid fa-trash fa-lg' style={{color: 'var(--yellow)', cursor: 'pointer'}}/>
                             )}
                         </div>
-                        <div onClick={() => {search.show(); page !== 1 && setPage(1); inputref.current.focus()}} style={{display: 'flex', alignItems: 'center', gap: '7px', cursor: 'pointer'}}>
+                        <div className='button' onClick={() => {search.show(); page !== 1 && setPage(1); inputref.current.focus()}} style={{backgroundColor: 'var(--primary)', height: '35px'}}>
                             <div className='fa-solid fa-search fa-lg' style={{color: 'var(--text)'}}/>
                             <div style={{color: 'var(--text)', fontSize: '1rem', fontFamily: 'var(--poppins)'}}>Find</div>
                         </div>
