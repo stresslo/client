@@ -1,22 +1,23 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { LazyLoadImage } from "react-lazy-load-image-component"
 import convertPrice from '../../../utils/price'
 import getvxsrf from "../../../service/getvxsrf"
 import Topback from '../../components/topback'
 import Loading from "../../../utils/loading"
-import Context from '../../../utils/context'
 import swalert from "../../../utils/swalert"
+import Context from '../../../utils/context'
+import Swal from 'sweetalert2'
 import axios from "axios"
 import "../../style/create.css"
 
-const Create = () => {
+const EditProduct = () => {
   const context = useContext(Context)
   const navigate = useNavigate()
   const fileref = useRef(null)
   const imgref = useRef(null)
-
-  const inputHistory = JSON.parse(localStorage.getItem('createHistory'))
+  const location = useLocation()
+  const prevData = location.state
 
   const [loading, setLoading] = useState(false)
 
@@ -24,57 +25,70 @@ const Create = () => {
   const [vxsrf, setVxsrf] = useState('')
   const [image, setImage] = useState('')
 
-  const [ctg, setCtg] = useState((inputHistory) ? inputHistory.ctg : '')
-  const [tech, setTech] = useState((inputHistory) ? inputHistory.tech : '')
-  const [desc, setDesc] = useState((inputHistory) ? inputHistory.desc : '')
-  const [link, setLink] = useState((inputHistory) ? inputHistory.link : '')
-  const [title, setTitle] = useState((inputHistory) ? inputHistory.title : '')
-  const [price, setPrice] = useState((inputHistory) ? inputHistory.price : '')
+  const [vid, setVid] = useState((prevData) ? prevData.vid : '')
+  const [ctg, setCtg] = useState((prevData) ? prevData.ctg : '')
+  const [tech, setTech] = useState((prevData) ? prevData.tech : '')
+  const [desc, setDesc] = useState((prevData) ? prevData.desc : '')
+  const [link, setLink] = useState((prevData) ? prevData.link : '')
+  const [title, setTitle] = useState((prevData) ? prevData.title : '')
+  const [price, setPrice] = useState((prevData) ? prevData.price : '')
 
-  const createProduct = async () => {
+  const editProduct = async () => {
     if (!context.role || context.role !== 'contributor') {
-      swalert('please login to contributor account', 'info', 3000)
+        swalert('please login to your contributor account', 'info', 3000)
     }
     if (
-      file && 
-      title && 
-      image && 
-      desc && 
-      price && 
-      (ctg !== 'web' || (ctg === 'web' && tech)) && 
-      (ctg !== 'web' || (ctg === 'web' && link))) {
-        try {
-        const valuePrice = price.replace(/\D/g, '')
-        setLoading(true)
-        let formData = new FormData()
-        formData.append('ctg', ctg);
-        formData.append('img', image);
-        formData.append('desc', desc);
-        formData.append('link', link);
-        formData.append('file', file);
-        formData.append('tech', tech);
-        formData.append('title', title);
-        formData.append('price', valuePrice);
-        const response = await axios.post(`${import.meta.env.VITE_API}/create/product`,formData, {
-          headers: {"Content-Type": 'multipart/form-data', "xsrf-token" : vxsrf}
+        file && 
+        title && 
+        image && 
+        desc && 
+        price && 
+        (ctg !== 'web' || (ctg === 'web' && tech)) && 
+        (ctg !== 'web' || (ctg === 'web' && link))) {
+        Swal.fire({
+            icon: 'info',
+            text : 'are you sure want update this product?, your request will be reviewed again.',
+            confirmButtonText : 'Update & review',
+            showDenyButton: true,
+            focusConfirm: false,
+            focusDeny : false,
+            reverseButtons : true,
+            denyButtonText : 'Cancel',
+            background : 'var(--primary)',
+            color : 'var(--blue)',
+            customClass : { container: 'alertext' }
         })
-        localStorage.removeItem('createHistory')
-        swalert(response.data, "success", 5000)
-        .then((res) => { if(res.dismiss) {location.href = '/'} })
-      } catch (error) {
-        swalert("server maintenance!", "error", 1500)
-        if (error.response) { swalert(error.response.data, "error", 1500) }
-      } finally { setLoading(false) }
+        .then(async (res) => {
+            if (res.isConfirmed) {
+                try {
+                    setLoading(true)
+                    const valuePrice = price.replace(/\D/g, '')
+                    let formData = new FormData()
+                    formData.append('vid', vid);
+                    formData.append('ctg', ctg);
+                    formData.append('img', image);
+                    formData.append('desc', desc);
+                    formData.append('link', link);
+                    formData.append('file', file);
+                    formData.append('tech', tech);
+                    formData.append('title', title);
+                    formData.append('price', valuePrice);
+                    const response = await axios.post(`${import.meta.env.VITE_API}/edit/product`,formData, {
+                      headers: {"Content-Type": 'multipart/form-data', "xsrf-token" : vxsrf}
+                    })
+                    swalert(response.data, "success", 5000)
+                    .then((res) => { if(res.dismiss) {location.href = '/'} })
+                } catch (error) {
+                    swalert("server maintenance!", "error", 1500)
+                    if (error.response) { swalert(error.response.data, "error", 1500) }
+                } finally { setLoading(false) }
+            }
+        })
     } else {
       swalert("please complete the form data!", "error", false)
     }
   }
 
-  useEffect(() => {
-    if (title || price || desc || ctg || file || image || link) {
-      localStorage.setItem('createHistory', JSON.stringify({title, price, desc, ctg, tech, link }))
-    }
-  }, [title, desc, ctg, file, image, link, price])
   useEffect(() => { getvxsrf().then((data) => setVxsrf(data)) }, [])
   if (loading) return <Loading/>
 
@@ -187,7 +201,7 @@ const Create = () => {
                 <div style={{ color: '#aaa', fontSize: '0.95rem' }}>Max size: 20 Mb</div>
               </div>
             </div>
-            <div className='button-max' onClick={() => createProduct()} style={(file && title && image && desc && price && ctg && tech) ? {backgroundColor: 'var(--yellow)', marginTop: '50px'} : {backgroundColor: '#aaa', marginTop: '50px'}}>Create</div>
+            <div className='button-max' onClick={() => editProduct()} style={(file && title && image && desc && price && ctg && tech) ? {backgroundColor: 'var(--yellow)', marginTop: '50px'} : {backgroundColor: '#aaa', marginTop: '50px'}}>Update change</div>
             </div>
           </div>
         <div className='prev-form'>
@@ -209,4 +223,4 @@ const Create = () => {
   )
 }
 
-export default Create
+export default EditProduct;

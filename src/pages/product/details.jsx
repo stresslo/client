@@ -175,7 +175,7 @@ const Details = () => {
                         <>
                         {(i.status == 'active') && 
                         <>
-                        <div className="button-max" style={{ marginTop: '30px', backgroundColor: 'var(--yellow)' }}>
+                        <div onClick={() => navigate('/edit/product', {state: i})} className="button-max" style={{ marginTop: '30px', backgroundColor: 'var(--yellow)' }}>
                             <div className="i fa-solid fa-pen-to-square fa-xl" style={{color: 'var(--background)'}}/>
                             Edit Product
                         </div>
@@ -186,7 +186,7 @@ const Details = () => {
                         </>}
                         {(i.status == 'pending') &&
                         <>
-                        <div className="button-max" style={{ marginTop: '30px', backgroundColor: 'var(--yellow)' }}>
+                        <div onClick={() => navigate('/edit/product', {state: i})} className="button-max" style={{ marginTop: '30px', backgroundColor: 'var(--yellow)' }}>
                             <div className="i fa-solid fa-pen-to-square fa-xl" style={{color: 'var(--background)'}}/>
                             Edit Product
                         </div>

@@ -19,6 +19,7 @@ import History from "../src/pages/user/history"
 import changeclass from "../utils/randomize"
 import AuthTransaction from "../middleware/authTransaction"
 import Forgot from "../middleware/forgotPassword"
+import EditProduct from "../src/pages/product/editproduct"
 
 const Routing = () => {
 
@@ -87,9 +88,10 @@ const Routing = () => {
           <Route path="/products" element={<Main/>}/>
           <Route path="/about" element={<Main/>}/>
           
-          <Route path="/contributor/store" element={<Store/>}/>
+          <Route path="/edit/product" element={<EditProduct/>}/>
           <Route path="/product/details/:vid" element={<Details/>}/>
 
+          <Route path="/contributor/store" element={<Store/>}/>
           <Route path="/forgot/password" element={<Forgot.requset/>}/>
           <Route path="/confirm/user" element={<Confirm.user/>}/>
           <Route path="/transaction/history" element={<History/>}/>
