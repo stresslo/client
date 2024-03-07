@@ -63,6 +63,7 @@ const EditProduct = () => {
                 try {
                     setLoading(true)
                     const valuePrice = price.replace(/\D/g, '') || price
+                    console.log(valuePrice)
                     let formData = new FormData()
                     formData.append('vid', vid);
                     formData.append('ctg', ctg);
