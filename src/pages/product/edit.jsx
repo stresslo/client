@@ -21,10 +21,10 @@ const EditProduct = () => {
 
   const [loading, setLoading] = useState(false)
 
-  const [file, setFile] = useState('')
   const [vxsrf, setVxsrf] = useState('')
-  const [image, setImage] = useState('')
-
+  
+  const [image, setImage] = useState((prevData) ? prevData.file : '')
+  const [file, setFile] = useState((prevData) ? prevData.img : '')
   const [vid, setVid] = useState((prevData) ? prevData.vid : '')
   const [ctg, setCtg] = useState((prevData) ? prevData.ctg : '')
   const [tech, setTech] = useState((prevData) ? prevData.tech : '')

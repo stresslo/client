@@ -16,10 +16,10 @@ import Register from "../src/pages/user/register"
 import Confirm from "../middleware/confirm"
 import checkvxsrf from "../service/checkvxsrf"
 import History from "../src/pages/user/history"
-import changeclass from "../utils/randomize"
+import EditProduct from "../src/pages/product/edit"
 import AuthTransaction from "../middleware/authTransaction"
 import Forgot from "../middleware/forgotPassword"
-import EditProduct from "../src/pages/product/editproduct"
+import changeclass from "../utils/randomize"
 
 const Routing = () => {
 
