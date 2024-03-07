@@ -63,7 +63,6 @@ const EditProduct = () => {
             if (res.isConfirmed) {
                 try {
                     setLoading(true)
-                    const valuePrice = price.replace(/\D/g, '') || price
                     let formData = new FormData()
                     formData.append('vid', vid);
                     formData.append('ctg', ctg);
@@ -73,7 +72,7 @@ const EditProduct = () => {
                     formData.append('file', file);
                     formData.append('tech', tech);
                     formData.append('title', title);
-                    formData.append('price', valuePrice);
+                    formData.append('price', price);
                     const response = await axios.post(`${import.meta.env.VITE_API}/edit/product`,formData, {
                       headers: {"Content-Type": 'multipart/form-data', "xsrf-token" : vxsrf}
                     })
