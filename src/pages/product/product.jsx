@@ -136,7 +136,7 @@ const Product = () => {
                                 const boxfilter = document.querySelector('.filter-box')
                                 boxfilter.classList.contains('show') ? boxfilter.classList.remove('show') : boxfilter.classList.add('show')
                             }}>
-                            <div className='fa-solid fa-sliders fa-lg' />
+                            <div className='fa-solid fa-list-check fa-lg' />
                             </div>
                             {(filterHistory) && (
                                 <div onClick={() => { setUpdate(true);localStorage.removeItem('historyPageProduct');localStorage.removeItem('filterHistory');location.reload()}} className='fa-solid fa-trash fa-lg' style={{color: 'var(--yellow)', cursor: 'pointer'}}/>
