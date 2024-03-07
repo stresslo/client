@@ -207,7 +207,7 @@ const EditProduct = () => {
         <div className='prev-form'>
           <div className='itext'>Preview</div>
           <div className='product-card'>
-            <LazyLoadImage className='product-img' src={(image) ? (image) : '/img/dpi.jpg'} loading='lazy' effect='blur'/>
+            <LazyLoadImage className='product-img' src={(image) ? URL.createObjectURL(image) || (image) : '/img/dpi.jpg'} loading='lazy' effect='blur'/>
             <div className="wrapped-text">
               <div className='product-title'>{(title) ? title : 'Untitled'}</div>
               <div className='product-desc'>{(desc) ? (desc.length >= 30) ? desc.substring(0,30) + "..." : desc : 'no description available'}</div>
