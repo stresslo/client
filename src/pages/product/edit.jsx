@@ -94,7 +94,7 @@ const EditProduct = () => {
 
   return (
     <div className='page-max' style={{gap:'30px', paddingBottom: '5px'}}>
-     <Topback/>
+     <Topback location={-1}/>
       <div className='form'>
         <div className='input-form'>
           <div>
