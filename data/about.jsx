@@ -1,6 +1,20 @@
 const about = 
 [
     {
+        ctg : "Having problem on",
+        data : 
+        [
+            {
+                title : "Report",
+                text : "report your problem to developer",
+                img : "img/problem.png",
+                color : "var(--yellow)",
+                link  : 'mailto:dimasptraautmaa@gmail.com',
+                pricing : ['Tech', 'Design']
+            },
+        ]
+    },
+    {
         ctg : "About",
         data : 
         [

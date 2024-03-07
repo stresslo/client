@@ -67,13 +67,13 @@ const Content = ({data, setData, setCount}) => {
                 {(context.token) ? 
                 <div className="developer">
                     {(window.innerWidth <= 550) && 
-                    <img src={context.img} style={{position: 'absolute', top: '15px', right: '15px', width: '35px', border: '2px solid var(--yellow)', height: '35px', objectFit: 'cover', borderRadius: '50%', boxSizing: 'border-box', boxShadow: 'var(--boxshadow)'}} alt="stresslo account" />
+                    <img onClick={() => navigate('/profile')} src={context.img} style={{position: 'absolute', top: '15px', right: '15px', width: '35px', border: '2px solid var(--yellow)', height: '35px', objectFit: 'cover', borderRadius: '50%', boxSizing: 'border-box', boxShadow: 'var(--boxshadow)'}} alt="stresslo account" />
                     }
                     <img id="paimg" src="/img/greet.webp" className="dimasputra" alt="stresslo greeting" />
                     <div className="text-wrapper">
                     <div>Hi {context.username}!,</div>
                     <div>Welcome back.</div>
-                    <div className="button contact" onClick={() => navigate('/profile')}>{context.role}</div>
+                    <div className="button contact" onClick={() => navigate('/profile')}>{context.role == 'user' ? 'Profile' : `${context.role}`}</div>
                 </div>
                 </div>
                 : 
@@ -112,7 +112,7 @@ const Content = ({data, setData, setCount}) => {
                     <div className="service" style={{paddingTop: '20px'}} key={k}>
                         <h1 className="itext"><span>{i.ctg}</span> stresslo</h1>
                         {i.data.map((p, l) => 
-                            <div className="sbox" key={l} style={{borderRight : `2px solid ${p.color}`}}>
+                            <div className="sbox" key={l} onClick={() => { if (p.link) { window.location.href = p.link } }} style={{borderRight : `2px solid ${p.color}`}}>
                                 <div className="image-container" style={{backgroundColor : `${p.color}`}}>
                                     {p.img && <LazyLoadImage src={p.img} className="simg" style={{width: '50px'}} effect="blur" alt="stresslo about logo"/>}
                                 </div>
