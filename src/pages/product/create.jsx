@@ -93,7 +93,7 @@ const Create = () => {
           </div>
           <div>
             <div>Price :</div>
-            <input className='productinput' value={price ? convertPrice(price) : price} type="text" placeholder='e.g. 350000' onChange={(e) => { setPrice(e.target.value.replace(/\D/g, ''))}} required/>
+            <input className='productinput' value={price ? convertPrice(price) : price} type="text" placeholder='e.g. 350000' onChange={(e) => { setPrice(e.target.value.replace(/\D/g, '').replace(/^0+/, ''))}} required/>
           </div>
           <div>
               <div>Category :</div>
