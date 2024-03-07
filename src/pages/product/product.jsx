@@ -137,7 +137,7 @@ const Product = () => {
                                 boxfilter.classList.contains('show') ? boxfilter.classList.remove('show') : boxfilter.classList.add('show')
                             }}>
                                 <div style={{fontFamily: 'var(--quicksand)', fontSize: '1rem'}}>Filter</div>
-                                <div className='fa-solid fa-caret-down fa-lg' style={document.querySelector('.filter-box').classList.contains('show') ? {rotate: '180deg', transition: '0.3 ease-in-out'} : {rotate: '0deg', transition: '0.3s ease-in-out'}}></div>
+                                <div className='fa-solid fa-caret-down fa-lg'></div>
                             </div>
                             {(filterHistory) && (
                                 <div onClick={() => { setUpdate(true);localStorage.removeItem('historyPageProduct');localStorage.removeItem('filterHistory');location.reload()}} className='fa-solid fa-trash fa-lg' style={{color: 'var(--yellow)', cursor: 'pointer'}}/>
