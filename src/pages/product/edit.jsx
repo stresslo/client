@@ -34,6 +34,7 @@ const EditProduct = () => {
   const [price, setPrice] = useState((prevData) ? prevData.price : '')
 
   const editProduct = async () => {
+    console.log(price)
     if (!context.role || context.role !== 'contributor') {
         swalert('please login to your contributor account', 'info', 3000)
     }
@@ -63,7 +64,6 @@ const EditProduct = () => {
                 try {
                     setLoading(true)
                     const valuePrice = price.replace(/\D/g, '') || price
-                    console.log(valuePrice)
                     let formData = new FormData()
                     formData.append('vid', vid);
                     formData.append('ctg', ctg);
