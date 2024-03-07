@@ -37,7 +37,7 @@ const Details = () => {
           swalert('successfuly donwload product', 'success', 3000)
           .then((res) => res.dismiss && backref.current.click())
         } catch (error) {
-          error.response && swalert(error.response.data, 'error', 3000)
+          error.response && swalert(error.response.data, 'info', 3000)
           return false;
         } finally {
           setLoading(false)
