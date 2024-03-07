@@ -70,7 +70,7 @@ const History = () => {
                 <div className="input-form" style={{marginTop: '40px', flexDirection: 'column'}}>
                     {loading ? (<Swaload.Transaction/>) : 
                         data.length !== 0 && data.map((i, k) => {
-                            const now = moment(i.updatedAt)
+                            const now = moment(i.createdAt)
                             const date = now.isSame(moment(), 'day') ? "Today" : now.subtract(1, 'days').isSame(moment(), 'day') ? "Yesterday" : now.format("MMM DD, YYYY");
                             const time = moment.utc(i.updatedAt).utcOffset("+07:00").format("HH:mm A")
                             return (
