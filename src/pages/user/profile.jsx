@@ -63,7 +63,7 @@ const Profile = () => {
             <Topback/>
             <div style={{position: 'relative'}}>
                 <div onClick={() => inputref.current.click()} style={{position: 'absolute', top: '-10px', right : '-10px', color: 'var(--text)', cursor: 'pointer'}} className='fa-solid fa-pen-to-square fa-lg'/>
-                <img onClick={() => inputref.current.click()} src={(file) ? URL.createObjectURL(file) : context.img} style={{borderRadius : '50%', width: '155px', height: '155px', objectFit: 'cover', border: '1.5px solid var(--yellow)', cursor : 'pointer'}}/>
+                <img onClick={() => inputref.current.click()} src={(file) ? URL.createObjectURL(file) : context.img} style={{borderRadius : '50%', width: '155px', height: '155px', objectFit: 'cover', border: '1.5px solid var(--yellow)', boxShadow: 'var(--boxshadow)', cursor : 'pointer'}}/>
             </div>
             <div className='title'>{context.username}</div>
             <form style={{display: 'flex', alignItems: "center", flexDirection: 'column'}}>
