@@ -81,8 +81,8 @@ const EditProduct = () => {
                     swalert(response.data, "success", 5000)
                     .then((res) => { if(res.dismiss) {window.location.href = '/contributor/store'} })
                 } catch (error) {
-                    swalert("server maintenance!", "error", 1500)
-                    if (error.response) { swalert(error.response.data, "error", 1500) }
+                    swalert("server maintenance!", "error", 3000)
+                    if (error.response) { swalert(error.response.data, "error", 3000) }
                 } finally { setLoading(false) }
             }
         })
