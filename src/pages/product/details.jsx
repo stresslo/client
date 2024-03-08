@@ -129,7 +129,7 @@ const Details = () => {
                         <div className='product-card' style={{ height: 'max-content', width: '100%', marginTop: "30px" }}>
                             <div className='wrapped-text'>
                                 <div className='product-title' style={{ fontSize: '1.4rem' }}>{i.title}</div>
-                                <div className='product-desc' style={{ display: "block", fontSize: '1rem', marginTop: '10px', fontFamily: 'var(--quicksand)', color: 'var(--blue)' }}>{i.desc}</div>
+                                <div className='product-desc' style={{ display: "block", fontSize: '1rem', marginTop: '10px', fontFamily: 'var(--quicksand)', color: 'var(--blue)', fontWeight: 'bolder' }}>{i.desc}</div>
                             </div>
                         </div>
                         <div className='product-card' style={{ height: 'max-content', width: '100%', marginTop: '10px' }}>
@@ -146,16 +146,16 @@ const Details = () => {
                             </div>
                         </div>
                         {(i.ctg != 'Web') && 
-                        <div className='product-card' style={{ height: 'max-content', width: '100%', marginTop: '10px' }}>
+                        <div className='product-card' style={{ height: 'max-content', width: '100%', marginTop: '0px' }}>
                             <div className='wrapped-text'>
                                 <div className='wrapped-details' style={{margin: 0, paddingTop: '0', display: 'flex',alignItems: 'unset', flexDirection: "column", gap: '10px'}}>  
                                     <div className="product-desc-product"><span>Software : </span>{i.tech}</div>
-                                    <div className="product-desc-product"><span>File Format : </span>{`[compressed], [ ${i.format.toUpperCase()} ]`}</div>
+                                    <div className="product-desc-product"><span>File Format : </span>{`[ ${i.format.toUpperCase()} ]`}</div>
                                 </div>
                             </div>
                         </div>
                         }
-                        <div className='product-card' style={{ height: 'max-content', width: '100%' }}>
+                        <div className='product-card' style={{ height: 'max-content', width: '100%', marginTop: '10px' }}>
                             <div className='wrapped-text'>
                                 <div className='wrapped-details' style={{margin: 0, paddingTop: '0', display: 'flex',alignItems: 'unset', flexDirection: "column", gap: '10px'}}>
                                     <div className="product-desc-product">
