@@ -32,7 +32,7 @@ const Sidebar = () => {
                     {(context.role == 'contributor') && 
                         <NavLink className="sidelist" to="/contributor/store">
                             <i className="fa-solid fa-store fa-lg"></i>
-                            <div className="sidetext" style={{marginLeft: '33px'}}>My product</div>
+                            <div className="sidetext" style={{marginLeft: '34px'}}>My product</div>
                         </NavLink>
                     }
                     {(context.role == 'user') && 
@@ -45,7 +45,7 @@ const Sidebar = () => {
                     <>
                     <NavLink className={a => (a.isActive) ? "sidelist" : "sidelist"} to="/profile">
                         <div className="fa-solid fa-circle-user fa-xl"/>
-                        <div className="sidetext" style={{marginLeft: '33px'}}>Account</div>
+                        <div className="sidetext" style={{marginLeft: '34px'}}>Account</div>
                     </NavLink>
                     </>
                     : 
