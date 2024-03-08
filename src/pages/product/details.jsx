@@ -129,7 +129,7 @@ const Details = () => {
                         <div className='product-card' style={{ height: 'max-content', width: '100%', marginTop: "20px" }}>
                             <div className='wrapped-text'>
                                 <div className='product-title' style={{ fontSize: '1.4rem' }}>{i.title}</div>
-                                <div className='product-desc' style={{ display: "block", fontSize: '1rem', marginTop: '10px', fontFamily: 'var(--quicksand)', color: 'var(--blue)', fontWeight: 'bold' }}>{i.desc}</div>
+                                <div className='product-desc' style={{ display: "block", fontSize: '1.2rem', marginTop: '10px', fontFamily: 'var(--quicksand)', color: 'var(--blue)' }}>{i.desc}</div>
                             </div>
                         </div>
                         <div className='product-card' style={{ height: 'max-content', width: '100%', marginTop: '10px' }}>

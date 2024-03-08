@@ -55,6 +55,7 @@ const Routing = () => {
       setExpires(decoded.exp)
       setUsername(decoded.username)
       setRole(decoded.role ? decoded.role : 'user')
+      localStorage.setItem('role', decoded.role)
     } else {
       setRole('')
     }
