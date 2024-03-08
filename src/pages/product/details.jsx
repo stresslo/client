@@ -141,7 +141,10 @@ const Details = () => {
                                     {i.ctg == 'web' ? 
                                     <div className="product-desc-product"><span>Framework</span>  : {i.tech} {i.tech.toLowerCase().includes('html') ? "" : 'JS'}</div>
                                     :
+                                    <>
                                     <div className="product-desc-product"><span>Software</span>  : {i.tech}</div>
+                                    <div className="product-desc-product"><span>Main Format</span>  : {i.format}</div>
+                                    </>
                                     }   
                                     <div className="product-desc-product"><span>Date created</span>  : {date}</div>
                                 </div>
