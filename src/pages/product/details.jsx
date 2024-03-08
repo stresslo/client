@@ -120,17 +120,13 @@ const Details = () => {
                         <div className="product-card" style={{ height: 'max-content', width: '100%', marginTop: '0px', justifyContent: 'center' }}>
                             <LazyLoadImage style={{ width: '100%' }} className='product-img' src={i.img} loading='lazy' effect='blur'/>
                         </div>
-                        {(i.ctg === 'Web') ? 
+                        {(i.ctg === 'Web') && 
                         <div className="button-max" style={{ color: "var(--text)", backgroundColor: "var(--primary)"}} onClick={() => window.open(i.link)}>
                             <div className="i fa-solid fa-globe fa-xl"/>
                             Live Preview
                         </div>
-                        :
-                        <div className="button-max" style={{ color: "var(--yellow)", backgroundColor: "var(--primary)"}}>
-                            {convertPrice(i.price)}
-                        </div>
                         }
-                        <div className='product-card' style={{ height: 'max-content', width: '100%', marginTop: "30px" }}>
+                        <div className='product-card' style={{ height: 'max-content', width: '100%', marginTop: "20px" }}>
                             <div className='wrapped-text'>
                                 <div className='product-title' style={{ fontSize: '1.4rem' }}>{i.title}</div>
                                 <div className='product-desc' style={{ display: "block", fontSize: '1rem', marginTop: '10px', fontFamily: 'var(--quicksand)', color: 'var(--blue)', fontWeight: 'bolder' }}>{i.desc}</div>
