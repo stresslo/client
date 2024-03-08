@@ -76,8 +76,8 @@ const Create = () => {
   }
 
   useEffect(() => {
-    if (title || price || desc || ctg || file || image || link || format) {
-      localStorage.setItem('createHistory', JSON.stringify({title, price, desc, ctg, tech, link, format }))
+    if (title || price || desc || ctg || file || image || link || format || extra) {
+      localStorage.setItem('createHistory', JSON.stringify({title, price, desc, ctg, tech, link, format, extra }))
     }
   }, [title, desc, ctg, file, image, link, price, format])
   useEffect(() => { getvxsrf().then((data) => setVxsrf(data)) }, [])
@@ -228,7 +228,7 @@ const Create = () => {
             </div>
             <div>
             <div>Extra :</div>
-              <textarea style={{ textAlign: 'left', resize : 'horizontal', width : '100%', height: '200px', borderRadius: '5px', padding: '10px', boxSizing: 'border-box', fontSize: '0.9rem', fontFamily: 'var(--poppins)', color: 'var(--background)'}} value={extra} placeholder='Describe your product features (Optional)' onChange={(e) => setExtra(e.target.value)}/>
+              <textarea style={{ textAlign: 'left', resize : 'vertical', width : '100%', height: '200px', borderRadius: '5px', padding: '10px', boxSizing: 'border-box', fontSize: '0.9rem', fontFamily: 'var(--poppins)', color: 'var(--background)'}} value={extra} placeholder='Describe your product features (Optional)' onChange={(e) => setExtra(e.target.value)}/>
             </div>
             <div className='button-max' onClick={() => createProduct()} style={(file && title && image && desc && price && ctg && tech) ? {backgroundColor: 'var(--yellow)', marginTop: '50px'} : {backgroundColor: '#aaa', marginTop: '50px'}}>Create</div>
             </div>
