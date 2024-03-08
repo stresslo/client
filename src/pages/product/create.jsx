@@ -228,7 +228,7 @@ const Create = () => {
             </div>
             <div>
             <div>Extra :</div>
-              <textarea style={{ textAlign: 'left', resize: 'unset', width : '100%', height: '250px', borderRadius: '5px', padding: '10px', boxSizing: 'border-box', fontSize: '0.9rem', fontFamily: 'var(--poppins)', color: 'var(--background)'}} value={extra} placeholder='Describe your product features (Optional)' onChange={(e) => setExtra(e.target.value)}/>
+              <textarea style={{ textAlign: 'left', resize : 'horizontal', width : '100%', height: '200px', borderRadius: '5px', padding: '10px', boxSizing: 'border-box', fontSize: '0.9rem', fontFamily: 'var(--poppins)', color: 'var(--background)'}} value={extra} placeholder='Describe your product features (Optional)' onChange={(e) => setExtra(e.target.value)}/>
             </div>
             <div className='button-max' onClick={() => createProduct()} style={(file && title && image && desc && price && ctg && tech) ? {backgroundColor: 'var(--yellow)', marginTop: '50px'} : {backgroundColor: '#aaa', marginTop: '50px'}}>Create</div>
             </div>
