@@ -58,6 +58,7 @@ const Create = () => {
         formData.append('file', file);
         formData.append('tech', tech);
         formData.append('title', title);
+        formData.append('extra', extra);
         formData.append('format', format);
         formData.append('price', valuePrice);
         const response = await axios.post(`${import.meta.env.VITE_API}/create/product`,formData, {
@@ -227,8 +228,8 @@ const Create = () => {
               </div>
             </div>
             <div>
-            <div>Extra :</div>
-              <textarea style={{ textAlign: 'left', resize : 'vertical', width : '100%', height: '200px', borderRadius: '5px', padding: '10px', boxSizing: 'border-box', fontSize: '0.9rem', fontFamily: 'var(--poppins)', color: 'var(--background)'}} value={extra} placeholder='Describe your product features (Optional)' onChange={(e) => setExtra(e.target.value)}/>
+            <div>Features :</div>
+              <textarea style={{ textAlign: 'left', resize : 'unset', width : '100%', height: '200px', borderRadius: '5px', padding: '15px', boxSizing: 'border-box', fontSize: '0.9rem', fontFamily: 'var(--poppins)', color: 'var(--background)'}} value={extra} placeholder='Describe more features(Optional)' onChange={(e) => setExtra(e.target.value)}/>
             </div>
             <div className='button-max' onClick={() => createProduct()} style={(file && title && image && desc && price && ctg && tech) ? {backgroundColor: 'var(--yellow)', marginTop: '50px'} : {backgroundColor: '#aaa', marginTop: '50px'}}>Create</div>
             </div>
