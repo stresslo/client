@@ -31,6 +31,7 @@ const Create = () => {
   const [link, setLink] = useState((inputHistory) ? inputHistory.link : '')
   const [title, setTitle] = useState((inputHistory) ? inputHistory.title : '')
   const [price, setPrice] = useState((inputHistory) ? inputHistory.price : '')
+  const [extra, setExtra] = useState((inputHistory) ? inputHistory.extra : '')
   const [format, setFormat] = useState((inputHistory) ? inputHistory.format : '')
 
   const createProduct = async () => {
@@ -108,6 +109,10 @@ const Create = () => {
                 <option value="Motion">Motion</option>
                 <option value="Vector">Vector</option>
               </select>
+          </div>
+          <div>
+            <div>Extra :</div>
+              <textarea value={extra} placeholder='describe your product features (Optional)' onChange={(e) => setExtra(e.target.value)}/>
           </div>
           {(ctg == 'Web') && 
           <>
