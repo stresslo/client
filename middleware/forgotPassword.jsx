@@ -45,7 +45,7 @@ const Forgot = {
                             <option value="user">User</option>
                             <option value="contributor">Contributor</option>
                         </select>
-                        <button className="button" type="submit">Confirm</button>
+                        <button className="button" type="submit" style={{fontFamily: 'serif'}}>Confirm</button>
                     </div>
                     <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="input your email" required/>
                     <div>
