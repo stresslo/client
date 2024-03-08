@@ -154,10 +154,10 @@ const EditProduct = () => {
                 <div>Software :</div>
                 <select style={{width: '100%'}} value={tech} onChange={(e) => setTech(e.target.value)} required>
                   <option value=""></option>
-                  <option value="AE">Adobe After Effect</option>
-                  <option value="DaVinci">DaVinci Resolve</option>
+                  <option value="After Effect">Adobe After Effect</option>
+                  <option value="DaVinci Resolve">DaVinci Resolve</option>
                   <option value="Blender">Blender</option>
-                  <option value="AM">Apple Motion</option>
+                  <option value="Apple Motion">Apple Motion</option>
                   <option value="Cinema 4D">Cinema 4D</option>
                 </select>
             </div>
@@ -180,10 +180,10 @@ const EditProduct = () => {
                 <div>Software :</div>
                 <select style={{width: '100%'}} value={tech} onChange={(e) => setTech(e.target.value)} required>
                   <option value=""></option>
-                  <option value="AI">Adobe Illustrarion</option>
-                  <option value="Corel">Corel Draw</option>
-                  <option value="Pixelmator">Pixelmator Pro</option>
-                  <option value="Affinity">Affinity Designer</option>
+                  <option value="Adobe Illustration">Adobe Illustration</option>
+                  <option value="Corel Draw">Corel Draw</option>
+                  <option value="Pixelmator Pro">Pixelmator Pro</option>
+                  <option value="Affinity Designer">Affinity Designer</option>
                 </select>
             </div>
             <div>
@@ -207,7 +207,7 @@ const EditProduct = () => {
                 <select style={{width: '100%'}} value={tech} onChange={(e) => setTech(e.target.value)} required>
                   <option value=""></option>
                   <option value="Sketchup">SketchUp</option>
-                  <option value="blender">Blender</option>
+                  <option value="Blender">Blender</option>
                   <option value="Autodesk maya">Autodesk Maya</option>
                   <option value="Cinema 4D">Cinema 4D</option>
                 </select>
