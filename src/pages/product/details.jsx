@@ -138,7 +138,7 @@ const Details = () => {
                                     <div className="product-desc-product"><span>VID</span>          : {i.vid}</div>
                                     <div className="product-desc-product"><span>Price</span>        : {i.price == 0 ? 'Free' : convertPrice(i.price)}</div>
                                     <div className="product-desc-product"><span>Category</span>     : {i.ctg}</div>
-                                    {i.ctg == 'web' ? 
+                                    {i.ctg == 'Web' ? 
                                     <div className="product-desc-product"><span>Framework</span>  : {i.tech} {i.tech.toLowerCase().includes('html') ? "" : 'JS'}</div>
                                     :
                                     <>
