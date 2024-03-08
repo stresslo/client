@@ -132,6 +132,14 @@ const Details = () => {
                                 <div className='product-desc' style={{ display: "block", fontSize: '1rem', marginTop: '10px', fontFamily: 'var(--quicksand)', color: 'var(--blue)' }}>{i.desc}</div>
                             </div>
                         </div>
+                        {(i.extra) && 
+                        <div className='product-card' style={{ height: 'max-content', width: '100%' }}>
+                            <div className='wrapped-text'>
+                                <div className='product-title' style={{ fontSize: '1.4rem' }}>More Features</div>
+                                <div className='product-desc' style={{ display: "block", fontSize: '1rem', marginTop: '10px', fontFamily: 'var(--quicksand)', color: 'var(--blue)' }}>{i.extra}</div>
+                            </div>
+                        </div>
+                        }
                         <div className='product-card' style={{ height: 'max-content', width: '100%', marginTop: '10px' }}>
                             <div className='wrapped-text'>
                                 <div className='wrapped-details' style={{margin: 0, paddingTop: '0', display: 'flex',alignItems: 'unset', flexDirection: "column", gap: '10px'}}>
