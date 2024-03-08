@@ -243,6 +243,7 @@ const EditProduct = () => {
                 <div style={{ color: '#aaa', fontSize: '0.95rem' }}>Max size: 20 Mb</div>
               </div>
             </div>
+            <div>
             <div>Features :</div>
               <textarea style={{ textAlign: 'left', resize : 'unset', width : '100%', height: '200px', borderRadius: '5px', padding: '15px', boxSizing: 'border-box', fontSize: '0.9rem', fontFamily: 'var(--poppins)', color: 'var(--background)'}} value={extra} placeholder='Describe more features(Optional)' onChange={(e) => setExtra(e.target.value)}/>
             </div>
