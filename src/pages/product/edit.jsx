@@ -151,7 +151,7 @@ const EditProduct = () => {
                 <div>Software :</div>
                 <select style={{width: '100%'}} value={tech} onChange={(e) => setTech(e.target.value)} required>
                   <option value=""></option>
-                  <option value="After Effect">Adobe After Effect</option>
+                  <option value="Adobe After Effect">Adobe After Effect</option>
                   <option value="DaVinci Resolve">DaVinci Resolve</option>
                   <option value="Blender">Blender</option>
                   <option value="Apple Motion">Apple Motion</option>
@@ -205,7 +205,7 @@ const EditProduct = () => {
                   <option value=""></option>
                   <option value="Sketchup">SketchUp</option>
                   <option value="Blender">Blender</option>
-                  <option value="Autodesk maya">Autodesk Maya</option>
+                  <option value="Autodesk Maya">Autodesk Maya</option>
                   <option value="Cinema 4D">Cinema 4D</option>
                 </select>
             </div>
