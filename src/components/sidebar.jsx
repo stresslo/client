@@ -29,6 +29,18 @@ const Sidebar = () => {
                         <i className="fa-solid fa-layer-group fa-xl"></i>
                         <div className="sidetext">Products</div>
                     </NavLink>
+                    {(context.role == 'contributor') && 
+                        <NavLink className="sidelist" to="/contributor/store">
+                            <i className="fa-solid fa-store fa-lg"></i>
+                            <div className="sidetext" style={{marginLeft: '33px'}}>My product</div>
+                        </NavLink>
+                    }
+                    {(context.role == 'user') && 
+                        <NavLink className="sidelist" to="/transaction/history">
+                            <i className="fa-solid fa-money-bill-transfer fa-lg"></i>
+                            <div className="sidetext" style={{marginLeft: '32px'}}>Transaction</div>
+                        </NavLink>
+                    }
                     {(context.token) ? 
                     <>
                     <NavLink className={a => (a.isActive) ? "sidelist" : "sidelist"} to="/profile">
@@ -41,18 +53,6 @@ const Sidebar = () => {
                         <i className="fa-solid fa-right-to-bracket fa-xl"/>
                         <div className="sidetext" style={{marginLeft: '33px'}}>Sign in</div>
                     </NavLink>}
-                    {(context.role == 'contributor') && 
-                        <NavLink className="sidelist" to="/contributor/store">
-                            <i className="fa-solid fa-store fa-lg"></i>
-                            <div className="sidetext" style={{marginLeft: '33px'}}>My Store</div>
-                        </NavLink>
-                    }
-                    {(context.role == 'user') && 
-                        <NavLink className="sidelist" to="/transaction/history">
-                            <i className="fa-solid fa-money-bill-transfer fa-lg"></i>
-                            <div className="sidetext" style={{marginLeft: '32px'}}>Transaction</div>
-                        </NavLink>
-                    }
                 </div>
 
                 <div className="botside">
