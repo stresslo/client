@@ -12,12 +12,6 @@ const products =
                 pricing : ["paid", "free"],
                 ctg : "Web"
             },
-        ]
-    },
-    {
-        ctg : "Upcoming",
-        data : 
-        [
             {
                 title : "3D design",
                 text : "assets 3d for your projects",
@@ -43,7 +37,7 @@ const products =
                 ctg : "Vector"
             },
         ]
-    }
+    },
 ]
 
 export default products

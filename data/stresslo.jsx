@@ -42,7 +42,7 @@ const stresslo =
         ]
     },
     {
-        ctg: "Upcoming on",
+        ctg: "New release on",
         data : 
         [
             {
