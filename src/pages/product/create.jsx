@@ -112,7 +112,7 @@ const Create = () => {
           </div>
           <div>
             <div>Extra :</div>
-              <textarea style={{resize: 'unset', width : '100%', height: '300px', borderRadius: '5px', padding: '10px 5px'}} value={extra} placeholder='describe your product features (Optional)' onChange={(e) => setExtra(e.target.value)}/>
+              <textarea style={{resize: 'unset', width : '100%', height: '300px', borderRadius: '5px', padding: '10px', boxSizing: 'border-box', fontSize: '1rem', fontFamily: 'var(--quicksand)', color: 'var(--background)'}} value={extra} placeholder='Describe your product features (Optional)' onChange={(e) => setExtra(e.target.value)}/>
           </div>
           {(ctg == 'Web') && 
           <>
