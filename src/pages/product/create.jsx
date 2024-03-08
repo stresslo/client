@@ -31,6 +31,7 @@ const Create = () => {
   const [link, setLink] = useState((inputHistory) ? inputHistory.link : '')
   const [title, setTitle] = useState((inputHistory) ? inputHistory.title : '')
   const [price, setPrice] = useState((inputHistory) ? inputHistory.price : '')
+  const [format, setFormat] = useState((inputHistory) ? inputHistory.format : '')
 
   const createProduct = async () => {
     if (!context.role || context.role !== 'contributor') {
@@ -42,6 +43,7 @@ const Create = () => {
       image && 
       desc && 
       price && 
+      format &&
       (ctg !== 'web' || (ctg === 'web' && tech)) && 
       (ctg !== 'web' || (ctg === 'web' && link))) {
         try {
@@ -55,6 +57,7 @@ const Create = () => {
         formData.append('file', file);
         formData.append('tech', tech);
         formData.append('title', title);
+        formData.append('format', format);
         formData.append('price', valuePrice);
         const response = await axios.post(`${import.meta.env.VITE_API}/create/product`,formData, {
           headers: {"Content-Type": 'multipart/form-data', "xsrf-token" : vxsrf}
@@ -72,10 +75,10 @@ const Create = () => {
   }
 
   useEffect(() => {
-    if (title || price || desc || ctg || file || image || link) {
-      localStorage.setItem('createHistory', JSON.stringify({title, price, desc, ctg, tech, link }))
+    if (title || price || desc || ctg || file || image || link || format) {
+      localStorage.setItem('createHistory', JSON.stringify({title, price, desc, ctg, tech, link, format }))
     }
-  }, [title, desc, ctg, file, image, link, price])
+  }, [title, desc, ctg, file, image, link, price, format])
   useEffect(() => { getvxsrf().then((data) => setVxsrf(data)) }, [])
   if (loading) return <Loading/>
 
@@ -140,8 +143,8 @@ const Create = () => {
                 </select>
             </div>
             <div>
-                <div>Main format :</div>
-                <select style={{width: '100%'}} value={tech} onChange={(e) => setTech(e.target.value)} required>
+                <div>Format : </div>
+                <select style={{width: '100%'}} value={format} onChange={(e) => setFormat(e.target.value)} required>
                   <option value=""></option>
                   <option value=".aep">.aep</option>
                   <option value=".drp">.drp</option>
@@ -165,8 +168,8 @@ const Create = () => {
                 </select>
             </div>
             <div>
-                <div>Main format :</div>
-                <select style={{width: '100%'}} value={tech} onChange={(e) => setTech(e.target.value)} required>
+                <div>Format : </div>
+                <select style={{width: '100%'}} value={format} onChange={(e) => setFormat(e.target.value)} required>
                   <option value=""></option>
                   <option value=".ai">.ai</option>
                   <option value=".cdr">.cdr</option>
@@ -191,8 +194,8 @@ const Create = () => {
                 </select>
             </div>
             <div>
-                <div>Main format :</div>
-                <select style={{width: '100%'}} value={tech} onChange={(e) => setTech(e.target.value)} required>
+                <div>Format : </div>
+                <select style={{width: '100%'}} value={format} onChange={(e) => setFormat(e.target.value)} required>
                   <option value=""></option>
                   <option value=".skp">.skp</option>
                   <option value=".ma">.ma</option>

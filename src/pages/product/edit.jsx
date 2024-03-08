@@ -33,6 +33,7 @@ const EditProduct = () => {
   const [link, setLink] = useState((prevData) ? prevData.link : '')
   const [title, setTitle] = useState((prevData) ? prevData.title : '')
   const [price, setPrice] = useState((prevData) ? prevData.price : '')
+  const [format, setFormat] = useState((prevData) ? prevData.format : '')
 
   const editProduct = async () => {
     if (!context.role || context.role !== 'contributor') {
@@ -42,6 +43,7 @@ const EditProduct = () => {
         file && 
         title && 
         image && 
+        format &&
         desc && 
         price >= 0 && 
         (ctg !== 'web' || (ctg === 'web' && tech)) && 
@@ -75,6 +77,7 @@ const EditProduct = () => {
                     formData.append('file', file);
                     formData.append('tech', tech);
                     formData.append('title', title);
+                    formData.append('format', format);
                     formData.append('price', intPrice);
                     const response = await axios.post(endpoint,formData, {
                       headers: {"Content-Type": 'multipart/form-data', "xsrf-token" : vxsrf}
@@ -155,6 +158,17 @@ const EditProduct = () => {
                   <option value="Cinema 4D">Cinema 4D</option>
                 </select>
             </div>
+            <div>
+                <div>Format : </div>
+                <select style={{width: '100%'}} value={format} onChange={(e) => setFormat(e.target.value)} required>
+                  <option value=""></option>
+                  <option value=".aep">.aep</option>
+                  <option value=".drp">.drp</option>
+                  <option value=".blend">.blend</option>
+                  <option value=".motn">.motn</option>
+                  <option value=".c4d">.c4d</option>
+                </select>
+            </div>
           </>
           }
           {(ctg === 'vector') &&
@@ -169,6 +183,18 @@ const EditProduct = () => {
                   <option value="Affinity">Affinity Designer</option>
                 </select>
             </div>
+            <div>
+                <div>Format : </div>
+                <select style={{width: '100%'}} value={format} onChange={(e) => setFormat(e.target.value)} required>
+                  <option value=""></option>
+                  <option value=".ai">.ai</option>
+                  <option value=".cdr">.cdr</option>
+                  <option value=".psd">.psd</option>
+                  <option value=".eps">.eps</option>
+                  <option value=".svg">.svg</option>
+                  <option value=".afdesign">.afdesign</option>
+                </select>
+            </div>
           </>
           }
           {(ctg === '3d') &&
@@ -181,6 +207,17 @@ const EditProduct = () => {
                   <option value="blender">Blender</option>
                   <option value="Autodesk maya">Autodesk Maya</option>
                   <option value="Cinema 4D">Cinema 4D</option>
+                </select>
+            </div>
+            <div>
+                <div>Format : </div>
+                <select style={{width: '100%'}} value={format} onChange={(e) => setFormat(e.target.value)} required>
+                  <option value=""></option>
+                  <option value=".skp">.skp</option>
+                  <option value=".ma">.ma</option>
+                  <option value=".mb">.mb</option>
+                  <option value=".blend">.blend</option>
+                  <option value=".c4d">.c4d</option>
                 </select>
             </div>
           </>
