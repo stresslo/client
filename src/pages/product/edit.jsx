@@ -33,8 +33,8 @@ const EditProduct = () => {
   const [link, setLink] = useState((prevData) ? prevData.link : '')
   const [title, setTitle] = useState((prevData) ? prevData.title : '')
   const [price, setPrice] = useState((prevData) ? prevData.price : '')
-  const [extra, setExtra] = useState((prevData) ? prevData.extra : '')
-  const [format, setFormat] = useState((prevData) ? prevData.format : [])
+  const [extra, setExtra] = useState((prevData) ? prevData.extra : [])
+  const [format, setFormat] = useState((prevData) ? prevData.format : '')
 
   const editProduct = async () => {
     if (!context.role || context.role !== 'contributor') {
