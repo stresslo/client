@@ -137,9 +137,11 @@ const Details = () => {
                         <div className='product-card' style={{ height: 'max-content', width: '100%' }}>
                             <div className='wrapped-text'>
                                 <div className='product-title' style={{ fontSize: '1.4rem' }}>More Features</div>
-                                <div className='product-desc' style={{ display: "block", fontSize: '1rem', marginTop: '10px', fontFamily: 'var(--quicksand)', color: 'var(--blue)' }}>{
-                                    paragraph.map((index, text) => { <p key={index}>{text}</p> })
-                                }</div>
+                                {(paragraph.map((index, text) => {
+                                    return (
+                                        <div key={index} className='product-desc' style={{ display: "block", fontSize: '1rem', marginTop: '10px', fontFamily: 'var(--quicksand)', color: 'var(--blue)' }}>{text}</div>    
+                                    )
+                                }))}
                             </div>
                         </div>
                         }
