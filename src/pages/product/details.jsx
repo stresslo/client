@@ -21,7 +21,6 @@ const Details = () => {
     const [cont, setCont] = useState('')
     const [i, seti] = useState(location.state)
     const [loading, setLoading] = useState(false)
-    const paragraph = i.extra ? i.extra.replace(/\r\n/g, '\n') : ''
     const date = moment(i.createdAt.slice(0, 10)).format('MMM DD, YYYY')
 
     const freeDonwload = async () => {
@@ -121,7 +120,7 @@ const Details = () => {
                         <div className="product-card" style={{ height: 'max-content', width: '100%', marginTop: '0px', justifyContent: 'center' }}>
                             <LazyLoadImage style={{ width: '100%' }} className='product-img' src={i.img} loading='lazy' effect='blur'/>
                         </div>
-                        {(i.ctg === 'web') && 
+                        {(i.ctg === 'Web') && 
                         <div className="button-max" style={{ color: "var(--text)", backgroundColor: "var(--primary)"}} onClick={() => window.open(i.link)}>
                             <div className="i fa-solid fa-globe fa-xl"/>
                             Live Preview
@@ -144,7 +143,7 @@ const Details = () => {
                                     :
                                     <>
                                     <div className="product-desc-product"><span>Software</span>  : {i.tech}</div>
-                                    <div className="product-desc-product"><span>Main Format</span>  : {i.format}</div>
+                                    <div className="product-desc-product"><span>File Format</span>  : {` [${i.format.toUpperCase()}] `} Compressed</div>
                                     </>
                                     }   
                                     <div className="product-desc-product"><span>Date created</span>  : {date}</div>
