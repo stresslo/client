@@ -21,6 +21,7 @@ const Details = () => {
     const [cont, setCont] = useState('')
     const [i, seti] = useState(location.state)
     const [loading, setLoading] = useState(false)
+    const paragraph = i.extra ? i.extra.split('/r/n') : ''
     const date = moment(i.createdAt.slice(0, 10)).format('MMM DD, YYYY')
 
     const freeDonwload = async () => {
@@ -136,7 +137,9 @@ const Details = () => {
                         <div className='product-card' style={{ height: 'max-content', width: '100%' }}>
                             <div className='wrapped-text'>
                                 <div className='product-title' style={{ fontSize: '1.4rem' }}>More Features</div>
-                                <pre className='product-desc' style={{ display: "block", fontSize: '1rem', marginTop: '10px', fontFamily: 'var(--quicksand)', color: 'var(--blue)' }}>{i.extra}</pre>
+                                <div className='product-desc' style={{ display: "block", fontSize: '1rem', marginTop: '10px', fontFamily: 'var(--quicksand)', color: 'var(--blue)' }}>{
+                                    paragraph.map((index, text) => { <p key={index}>{text}</p> })
+                                }</div>
                             </div>
                         </div>
                         }
