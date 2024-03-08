@@ -34,9 +34,7 @@ const Create = () => {
   const [format, setFormat] = useState((inputHistory) ? inputHistory.format : '')
 
   const createProduct = async () => {
-    if (!context.role || context.role !== 'contributor') {
-      swalert('please login to contributor account', 'info', 3000)
-    }
+    if (!context.token && context.role != 'contributor') return swalert('please login to contributor account!', 'info', 3000)
     if (
       file && 
       title && 
