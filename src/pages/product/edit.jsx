@@ -119,13 +119,13 @@ const EditProduct = () => {
               <div>Category :</div>
               <select style={{width: '100%', textAlign: 'center'}} value={ctg} onChange={(e) => setCtg(e.target.value)} required>
                 <option value="" disabled hidden></option>
-                <option value="web">Web</option>
-                <option value="3d">3D</option>
-                <option value="motion">Motion</option>
-                <option value="vector">Vector</option>
+                <option value="Web">Web</option>
+                <option value="3D">3D</option>
+                <option value="Motion">Motion</option>
+                <option value="Vector">Vector</option>
               </select>
           </div>
-          {(ctg == 'web') && 
+          {(ctg == 'Web') && 
           <>
             <div>
                 <div>Framework :</div>
@@ -145,7 +145,7 @@ const EditProduct = () => {
             </div>
           </>
           }
-          {(ctg === 'motion') &&
+          {(ctg === 'Motion') &&
           <>
             <div>
                 <div>Software :</div>
@@ -171,7 +171,7 @@ const EditProduct = () => {
             </div>
           </>
           }
-          {(ctg === 'vector') &&
+          {(ctg === 'Vector') &&
           <>
             <div>
                 <div>Software :</div>
@@ -197,7 +197,7 @@ const EditProduct = () => {
             </div>
           </>
           }
-          {(ctg === '3d') &&
+          {(ctg === '3D') &&
           <>
             <div>
                 <div>Software :</div>
