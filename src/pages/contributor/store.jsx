@@ -5,6 +5,7 @@ import Swaload from '../../../utils/swaload'
 import Context from '../../../utils/context'
 import Topback from '../../components/topback'
 import convertPrice from "../../../utils/price"
+import swalert from "../../../utils/swalert"
 import jwt from "jwt-decode"
 import moment from "moment"
 import axios from "axios"
@@ -13,8 +14,9 @@ const Store = () => {
 
     const navigate = useNavigate()
     const context = useContext(Context)
+    const statusHistory = localStorage.getItem('statusHistory')
     const [loading, setLoading] = useState(false)
-    const [status, setStatus] = useState('active')
+    const [status, setStatus] = useState(statusHistory ? statusHistory : 'active')
     const [data, setData] = useState([])
     const [page, setPage] = useState(1)
 
@@ -27,6 +29,7 @@ const Store = () => {
     }
 
     const getYours = async () => {
+        if (!context.token && context.role != 'contributor') return swalert('please login to contributor account!', 'info', 3000)
         setLoading(true)
         axios.get(endpoint())
         .then(response => {const decode = jwt(response.data); setData(decode.data)})
@@ -34,7 +37,7 @@ const Store = () => {
         .finally(() => setLoading(false))
     }
 
-    useEffect(() => { getYours() }, [page, status])
+    useEffect(() => { getYours(); localStorage.setItem('statusHistory', status) }, [page, status])
 
     return (
         <div className='page-max'>
