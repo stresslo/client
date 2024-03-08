@@ -18,7 +18,6 @@ const EditProduct = () => {
   const imgref = useRef(null)
   const location = useLocation()
   const prevData = location.state
-  console.log(prevData)
 
   const formatPrice = (value) => { return `Rp ${Number(value).toLocaleString('id-ID')}`};
   const [loading, setLoading] = useState(false)
@@ -35,7 +34,7 @@ const EditProduct = () => {
   const [title, setTitle] = useState((prevData) ? prevData.title : '')
   const [price, setPrice] = useState((prevData) ? prevData.price : '')
   const [extra, setExtra] = useState((prevData) ? prevData.extra : '')
-  const [format, setFormat] = useState((prevData) ? prevData.format : '')
+  const [format, setFormat] = useState((prevData) ? prevData.format : [])
 
   const editProduct = async () => {
     if (!context.role || context.role !== 'contributor') {
@@ -225,6 +224,19 @@ const EditProduct = () => {
             </div>
           </>
           }
+          {(ctg !== 'Web') && 
+          <div>
+              <div>Extra File : </div>
+              <select style={{width: '100%'}} multiple value={extra} onChange={(e) => setFormat(Array.from(e.target.selectedOptions ,(option) => option.value))} required>
+                <option value=""></option>
+                <option value=".mp4">.mp4</option>
+                <option value=".jpg">.jpg</option>
+                <option value=".png">.png</option>
+                <option value=".psd">.psd</option>
+                <option value=".svg">.svg</option>
+              </select>
+          </div>
+          }
           <div className='wrap-file'>
             <div>
               <div>Image : </div>
@@ -243,10 +255,6 @@ const EditProduct = () => {
                 <div style={{ color: '#aaa', fontSize: '0.7rem' }}>{'(ZIP, RAR)'}</div>
                 <div style={{ color: '#aaa', fontSize: '0.95rem' }}>Max size: 20 Mb</div>
               </div>
-            </div>
-            <div>
-            <div>Features :</div>
-              <textarea style={{ textAlign: 'left', resize : 'unset', width : '100%', height: '200px', borderRadius: '5px', padding: '15px', boxSizing: 'border-box', fontSize: '0.9rem', fontFamily: 'var(--poppins)', color: 'var(--background)'}} value={extra} placeholder='Describe more features(Optional)' onChange={(e) => setExtra(e.target.value)}/>
             </div>
             <div className='button-max' onClick={() => editProduct()} style={(file && title && image && desc && price >= 0 && ctg && tech) ? {backgroundColor: 'var(--yellow)', marginTop: '50px'} : {backgroundColor: '#aaa', marginTop: '50px'}}>Update change</div>
             </div>

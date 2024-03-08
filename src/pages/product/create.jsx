@@ -31,7 +31,7 @@ const Create = () => {
   const [link, setLink] = useState((inputHistory) ? inputHistory.link : '')
   const [title, setTitle] = useState((inputHistory) ? inputHistory.title : '')
   const [price, setPrice] = useState((inputHistory) ? inputHistory.price : '')
-  const [extra, setExtra] = useState((inputHistory) ? inputHistory.extra : '')
+  const [extra, setExtra] = useState((inputHistory) ? inputHistory.extra : [])
   const [format, setFormat] = useState((inputHistory) ? inputHistory.format : '')
 
   const createProduct = async () => {
@@ -208,6 +208,19 @@ const Create = () => {
             </div>
           </>
           }
+          {(ctg !== 'Web') && 
+          <div>
+              <div>Extra File : </div>
+              <select style={{width: '100%'}} multiple value={extra} onChange={(e) => setFormat(Array.from(e.target.selectedOptions ,(option) => option.value))} required>
+                <option value=""></option>
+                <option value=".mp4">.mp4</option>
+                <option value=".jpg">.jpg</option>
+                <option value=".png">.png</option>
+                <option value=".psd">.psd</option>
+                <option value=".svg">.svg</option>
+              </select>
+          </div>
+          }
           <div className='wrap-file'>
             <div>
               <div>Image : </div>
@@ -226,10 +239,6 @@ const Create = () => {
                 <div style={{ color: '#aaa', fontSize: '0.7rem' }}>{'(ZIP, RAR)'}</div>
                 <div style={{ color: '#aaa', fontSize: '0.95rem' }}>Max size: 20 Mb</div>
               </div>
-            </div>
-            <div>
-            <div>Features :</div>
-              <textarea style={{ textAlign: 'left', resize : 'unset', width : '100%', height: '200px', borderRadius: '5px', padding: '15px', boxSizing: 'border-box', fontSize: '0.9rem', fontFamily: 'var(--poppins)', color: 'var(--background)'}} value={extra} placeholder='Describe more features(Optional)' onChange={(e) => setExtra(e.target.value)}/>
             </div>
             <div className='button-max' onClick={() => createProduct()} style={(file && title && image && desc && price && ctg && tech) ? {backgroundColor: 'var(--yellow)', marginTop: '50px'} : {backgroundColor: '#aaa', marginTop: '50px'}}>Create</div>
             </div>
