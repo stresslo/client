@@ -147,7 +147,7 @@ const Order = () => {
               </div>
               <div className='product-card' style={{ height: 'max-content', width: '100%', marginTop: "0" }}>
                 <div className='wrapped-text'>
-                    <div className='product-title' style={{ fontSize: '1rem', textAlign: 'center', color: 'var(--text)', textShadow: 'unset', marginTop: '0px' }}>{data.title}</div>
+                    <div className='product-title' style={{ fontSize: '1rem', textAlign: 'center', color: 'var(--text)', textShadow: 'unset', marginTop: '0px' }}>{convertPrice(i.price)}</div>
                 </div>
               </div>
             </div>
