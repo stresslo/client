@@ -143,7 +143,7 @@ const Details = () => {
                                     :
                                     <>
                                     <div className="product-desc-product"><span>Software : </span>   {i.tech}</div>
-                                    <div className="product-desc-product"><span>File Format : </span>  : {i.format.toUpperCase()} {'(Compressed)'}</div>
+                                    <div className="product-desc-product"><span>File Format : </span>   {i.format.toUpperCase()} {'(Compressed)'}</div>
                                     </>
                                     }   
                                     <div className="product-desc-product"><span>Date created : </span>   {date}</div>
