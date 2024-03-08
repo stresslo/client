@@ -31,7 +31,6 @@ const Create = () => {
   const [link, setLink] = useState((inputHistory) ? inputHistory.link : '')
   const [title, setTitle] = useState((inputHistory) ? inputHistory.title : '')
   const [price, setPrice] = useState((inputHistory) ? inputHistory.price : '')
-  const [extra, setExtra] = useState((inputHistory) ? inputHistory.extra : [])
   const [format, setFormat] = useState((inputHistory) ? inputHistory.format : '')
 
   const createProduct = async () => {
@@ -58,7 +57,6 @@ const Create = () => {
         formData.append('file', file);
         formData.append('tech', tech);
         formData.append('title', title);
-        formData.append('extra', extra);
         formData.append('format', format);
         formData.append('price', valuePrice);
         const response = await axios.post(`${import.meta.env.VITE_API}/create/product`,formData, {
@@ -77,10 +75,10 @@ const Create = () => {
   }
 
   useEffect(() => {
-    if (title || price || desc || ctg || file || image || link || format || extra) {
-      localStorage.setItem('createHistory', JSON.stringify({title, price, desc, ctg, tech, link, format, extra }))
+    if (title || price || desc || ctg || file || image || link || format) {
+      localStorage.setItem('createHistory', JSON.stringify({title, price, desc, ctg, tech, link, format }))
     }
-  }, [title, desc, ctg, file, image, link, price, format, extra])
+  }, [title, desc, ctg, file, image, link, price, format ])
   useEffect(() => { getvxsrf().then((data) => setVxsrf(data)) }, [])
   if (loading) return <Loading/>
 
@@ -207,19 +205,6 @@ const Create = () => {
                 </select>
             </div>
           </>
-          }
-          {(ctg !== 'Web') && 
-          <div>
-              <div>Extra File : </div>
-              <select style={{width: '100%'}} multiple value={extra} onChange={(e) => setFormat(Array.from(e.target.selectedOptions ,(option) => option.value))} required>
-                <option value=""></option>
-                <option value=".mp4">.mp4</option>
-                <option value=".jpg">.jpg</option>
-                <option value=".png">.png</option>
-                <option value=".psd">.psd</option>
-                <option value=".svg">.svg</option>
-              </select>
-          </div>
           }
           <div className='wrap-file'>
             <div>

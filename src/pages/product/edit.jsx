@@ -33,7 +33,6 @@ const EditProduct = () => {
   const [link, setLink] = useState((prevData) ? prevData.link : '')
   const [title, setTitle] = useState((prevData) ? prevData.title : '')
   const [price, setPrice] = useState((prevData) ? prevData.price : '')
-  const [extra, setExtra] = useState((prevData) ? prevData.extra : [])
   const [format, setFormat] = useState((prevData) ? prevData.format : '')
 
   const editProduct = async () => {
@@ -78,7 +77,6 @@ const EditProduct = () => {
                     formData.append('file', file);
                     formData.append('tech', tech);
                     formData.append('title', title);
-                    formData.append('extra', extra);
                     formData.append('format', format);
                     formData.append('price', intPrice);
                     const response = await axios.post(endpoint,formData, {
@@ -223,19 +221,6 @@ const EditProduct = () => {
                 </select>
             </div>
           </>
-          }
-          {(ctg !== 'Web') && 
-          <div>
-              <div>Extra File : </div>
-              <select style={{width: '100%'}} multiple value={extra} onChange={(e) => setFormat(Array.from(e.target.selectedOptions ,(option) => option.value))} required>
-                <option value=""></option>
-                <option value=".mp4">.mp4</option>
-                <option value=".jpg">.jpg</option>
-                <option value=".png">.png</option>
-                <option value=".psd">.psd</option>
-                <option value=".svg">.svg</option>
-              </select>
-          </div>
           }
           <div className='wrap-file'>
             <div>
