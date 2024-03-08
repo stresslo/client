@@ -169,7 +169,7 @@ const Product = () => {
                                         <div style={{ display: 'flex', flexWrap : 'wrap', flexDirection : 'column'}}>
                                             <div className='product-desc'>{i.desc.length >= 35 ? i.desc.substring(0,35) + '...' : i.desc}</div>
                                             <div className='wrapdet' style={{ position: 'unset', marginTop: '15px', marginLeft: '5px', gap: '5px' }}>
-                                                <div style={{ backgroundColor: 'var(--background)', width: '95px', height: '30px' }}>{i.tech}</div>
+                                                <div style={{ backgroundColor: 'var(--background)', width: '95px', height: '30px' }}>{i.tech.split(' ')[0]}</div>
                                                 {(i.price == 0) ? 
                                                 <div style={{ backgroundColor: 'var(--background)', width: '95px', height: '30px', color: 'var(--blue)'}}>Free</div>
                                                 : 
