@@ -18,6 +18,7 @@ const EditProduct = () => {
   const imgref = useRef(null)
   const location = useLocation()
   const prevData = location.state
+  console.log(prevData)
 
   const formatPrice = (value) => { return `Rp ${Number(value).toLocaleString('id-ID')}`};
   const [loading, setLoading] = useState(false)
@@ -79,7 +80,7 @@ const EditProduct = () => {
                     formData.append('tech', tech);
                     formData.append('title', title);
                     formData.append('extra', extra);
-                    formData.append('format', format);
+                    formData.append('format', JSON.stringify(format));
                     formData.append('price', intPrice);
                     const response = await axios.post(endpoint,formData, {
                       headers: {"Content-Type": 'multipart/form-data', "xsrf-token" : vxsrf}

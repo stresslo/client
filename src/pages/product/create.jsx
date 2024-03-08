@@ -59,7 +59,7 @@ const Create = () => {
         formData.append('tech', tech);
         formData.append('title', title);
         formData.append('extra', extra);
-        formData.append('format', format);
+        formData.append('format', JSON.stringify(format));
         formData.append('price', valuePrice);
         const response = await axios.post(`${import.meta.env.VITE_API}/create/product`,formData, {
           headers: {"Content-Type": 'multipart/form-data', "xsrf-token" : vxsrf}
