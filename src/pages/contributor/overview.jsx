@@ -33,7 +33,7 @@ const Overview = () => {
         }
     }
 
-    useEffect(() => { !data && getData() }, [])
+    useEffect(() => { !data && getData() }, [data])
     if (loading) return <Loading/>
 
     return (
