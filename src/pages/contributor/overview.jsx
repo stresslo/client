@@ -41,9 +41,9 @@ const Overview = () => {
                     <div style={{display: 'flex', alignItems: 'center', gap: '10px'}}>
                         <img src={context.img} style={{cursor: 'pointer', width: '35px', border: '2px solid var(--yellow)', height: '35px', objectFit: 'cover', borderRadius: '50%', boxSizing: 'border-box', boxShadow: 'var(--boxshadow)'}} alt="stresslo account" />
                         <div style={{fontSize: '1.2rem', color: 'var(--yellow)',}}>{data.username}</div>
-                        <div className="overview-status" style={data.status == 'review' ? {color: 'var(--oren)', marginLeft: '5px'} : {color : 'var(--green)', marginLeft: '5px'}}>{data.status}</div>
+                        <div className="overview-status" style={data.status == 'review' ? {color: 'var(--oren)'} : {color : 'var(--green)'}}>{data.status}</div>
                     </div>
-                    <div style={{fontSize: '1.2rem', fontFamily: 'var(--poppins)', color: 'var(--text)', marginTop: '5px'}}>Balance : {convertPrice(data.amount)}</div>
+                    <div style={{fontSize: '1.2rem', fontFamily: 'var(--poppins)', color: 'var(--text)', marginTop: '15px'}}>Balance : {convertPrice(data.amount)}</div>
                     <div className="button contact">Withdraw</div>
                 </div>
                 }
