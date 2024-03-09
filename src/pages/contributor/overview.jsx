@@ -12,12 +12,22 @@ import "../../style/overview.css"
 const Overview = () => {
 
     const endpoint = import.meta.env.VITE_API
+    const refnumber = useRef(null)
     const context = useContext(Context)
     const [data, setData] = useState('')
     const [loading, setLoading] = useState(false)
 
     const [bank, setBank] = useState('')
     const [rekening, setRekening] = useState('')
+
+    const handle = {
+        editBank : () => {
+            const rek_bank = document.getElementById('rek_bank')
+            rek_bank.removeAttribute('readonly')
+            refnumber.current.click()
+        }
+    }
+
 
     const getData = async () => {
         try {
@@ -59,7 +69,7 @@ const Overview = () => {
                     <div className="button contact">Withdraw</div>
                     }
                 </div>
-                <div style={{width: '100%', display: 'flex', gap: '10px', marginTop: '10px', position: 'relative'}}>
+                <div style={{width: '100%', display: 'flex', alignItems: 'center', gap: '10px', marginTop: '10px', position: 'relative'}}>
                     <select style={{position: 'absolute', opacity: '0', left: '0', zIndex: '3', width: '90px', height: '47px'}} value={bank} onChange={(e) => setBank(e.target.value)} required>
                         <option value="" disabled>-- Select Bank --</option>
                         <option value="BCA">BCA</option>
@@ -68,8 +78,12 @@ const Overview = () => {
                         <option value="BNI">BNI</option>
                     </select>
                     <div className="button" style={{zIndex: '2', boxShadow: 'var(--boxshadow)',width: '135px', fontSize: '0.95rem', fontFamily: 'var(--quicksand)' ,height: '47px', borderRadius: '10px', backgroundColor: 'var(--primary)', color: 'var(--text)'}}>{bank || 'Bank'}</div>
-                    <input type="text" style={{backgroundColor: 'var(--primary)', zIndex: '2', color: 'var(--text)', fontSize: '0.9rem', cursor: 'text'}} className="button-max" value={rekening} onChange={(e) => setRekening(e.target.value)} placeholder="rekening number"/>
+                    <input ref={refnumber} id="rek_bank" type="text" style={{backgroundColor: 'var(--primary)', zIndex: '2', color: 'var(--text)', fontSize: '0.9rem', cursor: 'text'}} className="button-max" value={rekening} onChange={(e) => setRekening(e.target.value)} placeholder="rekening number" readOnly/>
+                    <div style={{color: 'var(--text)'}} className="fa-solid fa-pen-to-square fa-xl"/>
                 </div>
+                {(data.bank_name !== bank || data.bank_number !== rekening) &&
+                <div className="button-max" style={{marginTop: '10px'}}>Save change</div>
+                }
                 </>
                 }
             </div>
