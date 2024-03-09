@@ -82,13 +82,13 @@ const Profile = () => {
                     }
                     <div className='button' onClick={logout}><i className='fa-solid fa-right-from-bracket fa-xl'/></div>
                 </div>}  
-                <div className='title' style={{textAlign: 'center', translate: '0 30px'}}>Contributor <span>Data</span></div>
             </form>
         </div>
         {(context.role == 'contributor') && 
         <div className='page-max'>
             <div className='form' style={{flexDirection: 'column'}}>
-                <div className='input-form' style={{marginTop: '0px'}}>
+                <div className='itext' style={{textAlign: 'center'}}>Contributor <span>Data</span></div>
+                <div className='input-form' style={{marginTop: '50px'}}>
                     <div>
                         <div>Name / username :</div>
                         <input className='productinput' value={context.username} type="text"  readOnly required/>
