@@ -4,7 +4,7 @@ import swalert from "../../../utils/swalert"
 import Context from "../../../utils/context"
 import Topback from "../../components/topback"
 import convertPrice from "../../../utils/price"
-import { useContext, useEffect, useState } from "react"
+import { useContext, useEffect, useRef, useState } from "react"
 import jwt from "jwt-decode"
 import axios from "axios"
 import "../../style/overview.css"
@@ -13,8 +13,12 @@ const Overview = () => {
 
     const endpoint = import.meta.env.VITE_API
     const context = useContext(Context)
-    const [loading, setLoading] = useState(false)
+    const bankref = useRef(null)
     const [data, setData] = useState('')
+    const [loading, setLoading] = useState(false)
+
+    const [bank, setBank] = useState(data.bank_name || '')
+    const [rekening, setRekening] = useState(data.bank_number || '')
 
     const getData = async () => {
         try {
@@ -54,8 +58,15 @@ const Overview = () => {
                     }
                 </div>
                 <div style={{width: '100%', display: 'flex', gap: '10px', marginTop: '10px'}}>
-                    <div className="button" style={{boxShadow: 'var(--boxhsadow)',width: '110px', fontSize: '0.95rem', fontFamily: 'var(--quicksand)' ,height: '47px', borderRadius: '10px', backgroundColor: 'var(--primary)', color: 'var(--text)'}}>{data.bank_name || 'Bank'}</div>
-                    <input type="text" style={{backgroundColor: 'var(--primary)', color: 'var(--text)', fontSize: '0.95rem', cursor: 'text'}} className="button-max" placeholder="rekening number"/>
+                    <select ref={bankref} style={{position: 'absolute', left: '0', zIndex: '0'}} value={ctg} onChange={(e) => setCtg(e.target.value)} required>
+                        <option value="" disabled>-- Select Bank --</option>
+                        <option value="BCA">BCA</option>
+                        <option value="Mandiri">Mandiri</option>
+                        <option value="BRI">BRI</option>
+                        <option value="BNI">BNI</option>
+                    </select>
+                    <div onClick={() => bankref.current.click()} className="button" style={{zIndex: '2', boxShadow: 'var(--boxshadow)',width: '110px', fontSize: '0.95rem', fontFamily: 'var(--quicksand)' ,height: '47px', borderRadius: '10px', backgroundColor: 'var(--primary)', color: 'var(--text)'}}>{data.bank_name || 'Bank'}</div>
+                    <input type="text" style={{backgroundColor: 'var(--primary)', zIndex: '2', color: 'var(--text)', fontSize: '0.9rem', cursor: 'text'}} className="button-max" value={rekening} placeholder="rekening number"/>
                 </div>
                 </>
                 }
