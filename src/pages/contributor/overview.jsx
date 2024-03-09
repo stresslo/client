@@ -46,7 +46,7 @@ const Overview = () => {
                     <div style={{fontSize: '1.2rem', fontFamily: 'var(--poppins)', color: 'var(--text)', marginTop: '15px'}}>{convertPrice(data.amount)}</div>
                     <div style={{fontSize: '0.95rem', fontFamily: 'var(--poppins)', color: 'var(--text)', marginTop: '5px'}}>{(data.lastWithdraw ? data.lastWithdraw : 'No withdrawal history')}</div>
                     {(data.status != 'verified') &&
-                    <div style={{fontSize: '0.8rem', color: 'var(--yellow)', marginTop: '30px'}}>*Your account is being reviewed by our team</div>
+                    <div style={{fontSize: '0.8rem', color: 'var(--yellow)', marginTop: '30px'}}>*Your account is being reviewed by our team.</div>
                     }
                     {(data.status == 'verified') &&
                     <div className="button contact">Withdraw</div>
