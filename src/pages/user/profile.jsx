@@ -86,24 +86,24 @@ const Profile = () => {
         </div>
         {(context.role == 'contributor') && 
         <div className='page-max'>
-            <div className='form'>
-                <div className='title'>Contributor <span>Data</span></div>
-                <div className='input-form'>
+            <div className='form' style={{flexDirection: 'column'}}>
+                <div className='title' style={{textAlign: 'center'}}>Contributor <span>Data</span></div>
+                <div className='input-form' style={{marginTop: '20px'}}>
                     <div>
-                        <div>Name / Username :</div>
-                        <input className='productinput' value={context.username} type="text" placeholder='e.g. company profile' readOnly required/>
+                        <div>Name / username :</div>
+                        <input className='productinput' value={context.username} type="text"  readOnly required/>
                     </div>
                     <div>
                         <div>Email Address :</div>
-                        <input className='productinput' value={context.email} type="text" placeholder='e.g. company profile' readOnly required/>
+                        <input className='productinput' value={context.email} type="text" readOnly required/>
                     </div>
                     <div>
                         <div>Bank Name :</div>
-                        <input className='productinput' value={context.bank_name || ''} type="text" placeholder='e.g. company profile' readOnly required/>
+                        <input className='productinput' value={context.bank_name || ''} type="text" placeholder='e.g. BCA, BRI, Mandiri' readOnly required/>
                     </div>
                     <div>
                         <div>Rekening Number :</div>
-                        <input className='productinput' value={context.bank_number || ''} type="text" placeholder='e.g. company profile' readOnly required/>
+                        <input className='productinput' value={context.bank_number || ''} type="text" placeholder='e.g. 7832123456' readOnly required/>
                     </div>
                 </div>
             </div>
