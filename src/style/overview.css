@@ -13,10 +13,10 @@
     box-sizing: border-box;
     border-radius: 5px;
     font-size: 0.8rem;
-    color: var(--background);
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: bold;
     box-shadow: inset 2px 2px 2px var(--second);
+    background-color: var(--background);
 }
