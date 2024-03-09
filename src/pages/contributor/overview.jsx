@@ -53,8 +53,8 @@ const Overview = () => {
                     <div className="button contact">Withdraw</div>
                     }
                 </div>
-                <div className="overview-card" style={{marginTop: '10px'}}>
-                    <div style={{width: '100%', display: 'flex', gap: '10px'}}>
+                <div className="overview-card" style={{marginTop: '10px', backgroundColor: 'unset'}}>
+                    <div style={{width: '100%', display: 'flex', gap: '10px', color: 'var(--text)'}}>
                         <div className="button" style={{width: '60px', borderRadius: '5px', backgroundColor: 'var(--primary)'}}>{data.bank_name || 'Bank'}</div>
                         <div className="button-max" style={{borderRadius: '5px', backgroundColor : 'var(--primary)'}}>{data.bank_number || 'Bank'}</div>
                     </div>
