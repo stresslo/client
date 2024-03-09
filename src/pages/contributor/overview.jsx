@@ -45,10 +45,12 @@ const Overview = () => {
                     </div>
                     <div style={{fontSize: '1.2rem', fontFamily: 'var(--poppins)', color: 'var(--text)', marginTop: '15px'}}>Balance : {convertPrice(data.amount)}</div>
                     <div style={{fontSize: '1.2rem', fontFamily: 'var(--poppins)', color: 'var(--text)', marginTop: '5px'}}>{(data.lastWithdraw ? data.lastWithdraw : 'No withdrawal history')}</div>
-                    {(context.status != 'verified') &&
-                        <div style={{fontSize: '1.2rem', color: 'var(--text)', marginTop: '20px'}}>*Your data is incomplete, please complete your data</div>
+                    {(data.status != 'verified') &&
+                    <div style={{fontSize: '0.8rem', color: 'var(--text)', marginTop: '30px'}}>*Your data is incomplete, please complete your data</div>
                     }
+                    {(data.status == 'verified') &&
                     <div className="button contact">Withdraw</div>
+                    }
                 </div>
                 }
             </div>
