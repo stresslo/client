@@ -70,7 +70,7 @@ const Profile = () => {
                 <img onClick={() => inputref.current.click()} src={(file) ? URL.createObjectURL(file) : context.img} style={{borderRadius : '50%', width: '155px', height: '155px', objectFit: 'cover', border: '1.5px solid var(--yellow)', boxShadow: 'var(--boxshadow)', cursor : 'pointer'}}/>
             </div>
             <div className='title'>{context.username}</div>
-            <form style={{display: 'flex', alignItems: "center", flexDirection: 'column'}}>
+            <form style={{display: 'flex', alignItems: "center", flexDirection: 'column', position: 'relative'}}>
                 <input type="file" onChange={(e) => setFile(e.target.files[0])} ref={inputref} style={{display: 'none'}}/>
                 <input id='changemail' type="text" style={{width : '300px'}} placeholder={context.email} readOnly/>
                 {(file || email) ? <button style={{margin: '30px 0'}} onClick={() => updateImage()} className='button'>update</button> : 
@@ -82,6 +82,7 @@ const Profile = () => {
                     }
                     <div className='button' onClick={logout}><i className='fa-solid fa-right-from-bracket fa-xl'/></div>
                 </div>}  
+                <div style={{position : 'absolute', bottom: '-50px', left: '0', width: '100%', height: '2px', backgroundColor: 'var(--primary)'}}/>
             </form>
         </div>
         {(context.role == 'contributor') && 
