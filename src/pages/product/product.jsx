@@ -6,8 +6,8 @@ import Handle from "../../../service/handle"
 import Swaload from '../../../utils/swaload'
 import axios from "axios"
 import jwt from "jwt-decode"
+import FilterBox from "./filter"
 import "../../style/product.css"
-import FilterBox from './filterbox'
 
 const Product = () => {
 

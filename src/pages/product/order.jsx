@@ -78,6 +78,7 @@ const Order = () => {
     }
 
     useEffect(() => {
+      window.scrollTo({top: 0,  behavior: 'smooth'})
       if (name || email) {
         snap()
         getvxsrf().then((result) => setVxsrf(result))
