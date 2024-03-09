@@ -82,36 +82,8 @@ const Profile = () => {
                     }
                     <div className='button' onClick={logout}><i className='fa-solid fa-right-from-bracket fa-xl'/></div>
                 </div>}  
-                {(context.role == 'contributor') && 
-                <div style={{position : 'absolute', bottom: '-90px', left: '0', width: '100%', height: '2px', backgroundColor: 'var(--primary)'}}/>
-                }
             </form>
         </div>
-        {(context.role == 'contributor') && 
-        <div className='page-max' style={{paddingTop: '0px'}}>
-            <div className='form' style={{flexDirection: 'column', marginTop: '0px'}}>
-                <div className='itext' style={{textAlign: 'center'}}>Contributor <span>Data</span></div>
-                <div className='input-form' style={{marginTop: '40px'}}>
-                    <div>
-                        <div>Name / username :</div>
-                        <input className='productinput' value={context.username} type="text"  readOnly required/>
-                    </div>
-                    <div>
-                        <div>Email Address :</div>
-                        <input className='productinput' value={context.email} type="text" readOnly required/>
-                    </div>
-                    <div>
-                        <div>Bank Name :</div>
-                        <input className='productinput' value={context.bank_name || ''} type="text" placeholder='e.g. BCA, BRI, Mandiri' readOnly required/>
-                    </div>
-                    <div>
-                        <div>Rekening Number :</div>
-                        <input className='productinput' value={context.bank_number || ''} type="text" placeholder='e.g. 7832123456' readOnly required/>
-                    </div>
-                </div>
-            </div>
-        </div>
-        }
         </>
     )
 }
