@@ -91,7 +91,7 @@ const Profile = () => {
         <div className='page-max' style={{paddingTop: '0px'}}>
             <div className='form' style={{flexDirection: 'column', marginTop: '0px'}}>
                 <div className='itext' style={{textAlign: 'center'}}>Contributor <span>Data</span></div>
-                <div className='input-form' style={{marginTop: '50px'}}>
+                <div className='input-form' style={{marginTop: '40px'}}>
                     <div>
                         <div>Name / username :</div>
                         <input className='productinput' value={context.username} type="text"  readOnly required/>
