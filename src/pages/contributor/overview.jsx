@@ -44,7 +44,7 @@ const Overview = () => {
                     </div>
                     <div style={{display: 'flex', alignItems: 'center', 'gap' : '10px', marginTop: '15px'}}>
                         <div className="overview-status" style={data.status == 'review' ? {color: 'var(--oren)'} : {color : 'var(--green)'}}>{data.status}</div>
-                        <div className="overview-status" style={{color: 'var(--primary)'}}>{data.role}</div>
+                        <div className="overview-status" style={{color: 'var(--text)'}}>{data.role}</div>
                     </div>
                     <div style={{fontSize: '1.2rem', fontFamily: 'var(--poppins)', color: 'var(--text)', marginTop: '5px'}}>Balance : {convertPrice(data.amount)}</div>
                     <div className="button contact">Withdraw</div>
