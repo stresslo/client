@@ -118,7 +118,7 @@ const Details = () => {
                     <div className='itext'>Product Details</div>
                         <>
                         <div className="product-card" style={{ height: 'max-content', width: '100%', marginTop: '0px', justifyContent: 'center' }}>
-                            <LazyLoadImage style={{ width: '100%', height: '250px' }} className='product-img' src={i.img} loading='lazy' effect='blur'/>
+                            <LazyLoadImage style={{ width: '100%', height: 'auto' }} className='product-img' src={i.img} loading='lazy' effect='blur'/>
                         </div>
                         {(i.ctg === 'Web') && 
                         <div className="button-max" style={{ color: "var(--text)", backgroundColor: "var(--primary)"}} onClick={() => window.open(i.link)}>
