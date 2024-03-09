@@ -13,7 +13,6 @@ const Overview = () => {
 
     const endpoint = import.meta.env.VITE_API
     const context = useContext(Context)
-    const bankref = useRef(null)
     const [data, setData] = useState('')
     const [loading, setLoading] = useState(false)
     console.log(data)
@@ -60,14 +59,14 @@ const Overview = () => {
                     }
                 </div>
                 <div style={{width: '100%', display: 'flex', gap: '10px', marginTop: '10px', position: 'relative'}}>
-                    <select ref={bankref} style={{position: 'absolute', opacity: '0', left: '0', zIndex: '3', width: '90px', height: '47px'}} value={bank} onChange={(e) => setBank(e.target.value)} required>
+                    <select style={{position: 'absolute', opacity: '0', left: '0', zIndex: '3', width: '90px', height: '47px'}} value={bank} onChange={(e) => setBank(e.target.value)} required>
                         <option value="" disabled>-- Select Bank --</option>
                         <option value="BCA">BCA</option>
                         <option value="Mandiri">Mandiri</option>
                         <option value="BRI">BRI</option>
                         <option value="BNI">BNI</option>
                     </select>
-                    <div onClick={() => bankref.current.click()} className="button" style={{zIndex: '2', boxShadow: 'var(--boxshadow)',width: '135px', fontSize: '0.95rem', fontFamily: 'var(--quicksand)' ,height: '47px', borderRadius: '10px', backgroundColor: 'var(--primary)', color: 'var(--text)'}}>{bank || 'Bank'}</div>
+                    <div className="button" style={{zIndex: '2', boxShadow: 'var(--boxshadow)',width: '135px', fontSize: '0.95rem', fontFamily: 'var(--quicksand)' ,height: '47px', borderRadius: '10px', backgroundColor: 'var(--primary)', color: 'var(--text)'}}>{bank || 'Bank'}</div>
                     <input type="text" style={{backgroundColor: 'var(--primary)', zIndex: '2', color: 'var(--text)', fontSize: '0.9rem', cursor: 'text'}} className="button-max" value={rekening} onChange={(e) => setRekening(e.target.value)} placeholder="rekening number"/>
                 </div>
                 </>
