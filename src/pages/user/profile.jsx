@@ -55,10 +55,14 @@ const Profile = () => {
         finally {setLoading(false)}
     }
 
-    useEffect(() => { getvxsrf().then((result) => setVxsrf(result)) }, [])
+    useEffect(() => { 
+        context.role == 'contributor' && localStorage.removeItem('transaction_mode')
+        getvxsrf().then((result) => setVxsrf(result)) 
+    }, [])
     if (loading) return <Loading/>
 
     return (
+        <>
         <div className='page' style={{flexDirection: 'column', gap : '10px'}}>
             <Topback/>
             <div style={{position: 'relative'}}>
@@ -80,6 +84,32 @@ const Profile = () => {
                 </div>}  
             </form>
         </div>
+        {(context.role == 'contributor') && 
+        <div className='page-max'>
+            <div className='form'>
+                <div className='title'>Contributor <span>Data</span></div>
+                <div className='input-form'>
+                    <div>
+                        <div>Name / Username :</div>
+                        <input className='productinput' value={context.username} type="text" placeholder='e.g. company profile' readOnly required/>
+                    </div>
+                    <div>
+                        <div>Email Address :</div>
+                        <input className='productinput' value={context.email} type="text" placeholder='e.g. company profile' readOnly required/>
+                    </div>
+                    <div>
+                        <div>Bank Name :</div>
+                        <input className='productinput' value={context.bank_name || ''} type="text" placeholder='e.g. company profile' readOnly required/>
+                    </div>
+                    <div>
+                        <div>Rekening Number :</div>
+                        <input className='productinput' value={context.bank_number || ''} type="text" placeholder='e.g. company profile' readOnly required/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        }
+        </>
     )
 }
 

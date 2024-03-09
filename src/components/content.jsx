@@ -67,7 +67,7 @@ const Content = ({data, setData, setCount}) => {
                 {(context.token) ? 
                 <div className="developer">
                     {(window.innerWidth <= 550) && 
-                    <img onClick={() => navigate('/profile')} src={context.img} style={{position: 'absolute', top: '15px', right: '15px', width: '35px', border: '2px solid var(--yellow)', height: '35px', objectFit: 'cover', borderRadius: '50%', boxSizing: 'border-box', boxShadow: 'var(--boxshadow)'}} alt="stresslo account" />
+                    <img onClick={() => navigate('/profile')} src={context.img} style={{position: 'absolute', cursor: 'pointer', top: '15px', right: '15px', width: '35px', border: '2px solid var(--yellow)', height: '35px', objectFit: 'cover', borderRadius: '50%', boxSizing: 'border-box', boxShadow: 'var(--boxshadow)'}} alt="stresslo account" />
                     }
                     <img id="paimg" src="/img/greet.webp" className="dimasputra" alt="stresslo greeting" />
                     <div className="text-wrapper">

@@ -75,7 +75,7 @@ const Navbar = ({ count }) => {
           }
         </div>  
         <div className="nav-user-mobile">
-          {(context.email) ? 
+          {(context.token) ? 
           <div style={{ position: 'relative' }} onClick={() => showNotification()}>
             <div className="i fa-solid fa-bell fa-xl"/>
             {(count != 0) && <div className="count">{count}</div>}
