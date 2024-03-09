@@ -15,10 +15,9 @@ const Overview = () => {
     const context = useContext(Context)
     const [data, setData] = useState('')
     const [loading, setLoading] = useState(false)
-    console.log(data)
 
-    const [bank, setBank] = useState(data.bank_name ? data.bank_name : '')
-    const [rekening, setRekening] = useState(data.bank_number ? data.bank_number : '')
+    const [bank, setBank] = useState('')
+    const [rekening, setRekening] = useState('')
 
     const getData = async () => {
         try {
@@ -26,6 +25,8 @@ const Overview = () => {
             const response = await axios.get(`${endpoint}/contributor/overview/data`)
             const decode = jwt(response.data)
             setData(decode.data)
+            setBank(decode.data.bank_name)
+            setRekening(decode.data.bank_number)
         } catch (error) {
             if (error || error.response) swalert(error.response.data, 'info', 3000)
         } finally {
@@ -33,7 +34,7 @@ const Overview = () => {
         }
     }
 
-    useEffect(() => { !data && getData() }, [data])
+    useEffect(() => { !data && getData() }, [])
     if (loading) return <Loading/>
 
     return (
