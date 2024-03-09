@@ -16,6 +16,7 @@ const Overview = () => {
     const bankref = useRef(null)
     const [data, setData] = useState('')
     const [loading, setLoading] = useState(false)
+    console.log(data)
 
     const [bank, setBank] = useState(data.bank_name ? data.bank_name : '')
     const [rekening, setRekening] = useState(data.bank_number ? data.bank_number : '')
@@ -34,6 +35,7 @@ const Overview = () => {
     }
 
     useEffect(() => { !data && getData() }, [])
+    if (loading) return <Loading/>
 
     return (
         <div className="page-max">
