@@ -17,8 +17,8 @@ const Overview = () => {
     const [data, setData] = useState('')
     const [loading, setLoading] = useState(false)
 
-    const [bank, setBank] = useState(data.bank_name || '')
-    const [rekening, setRekening] = useState(data.bank_number || '')
+    const [bank, setBank] = useState(data.bank_name ? data.bank_name : '')
+    const [rekening, setRekening] = useState(data.bank_number ? data.bank_number : '')
 
     const getData = async () => {
         try {
