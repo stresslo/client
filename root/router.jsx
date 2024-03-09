@@ -20,6 +20,7 @@ import EditProduct from "../src/pages/product/edit"
 import AuthTransaction from "../middleware/authTransaction"
 import Forgot from "../middleware/forgotPassword"
 import changeclass from "../utils/randomize"
+import Overview from "../src/pages/contributor/overview"
 
 const Routing = () => {
 
@@ -93,6 +94,8 @@ const Routing = () => {
           <Route path="/product/details/:vid" element={<Details/>}/>
 
           <Route path="/contributor/store" element={<Store/>}/>
+          <Route path="/contributor/overview" element={<Overview/>}/>
+
           <Route path="/forgot/password" element={<Forgot.requset/>}/>
           <Route path="/confirm/user" element={<Confirm.user/>}/>
           <Route path="/transaction/history" element={<History/>}/>

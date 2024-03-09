@@ -73,7 +73,7 @@ const Content = ({data, setData, setCount}) => {
                     <div className="text-wrapper">
                     <div>Hi {context.username}!,</div>
                     <div>Welcome back.</div>
-                    <div className="button contact" onClick={() => navigate('/profile')}>{context.role == 'user' ? 'Profile' : `Overview`}</div>
+                    <div className="button contact" onClick={() => context.role == 'contributor' ? navigate('/contributor/overview') : navigate('/profile')}>{context.role == 'user' ? 'Profile' : `Overview`}</div>
                 </div>
                 </div>
                 : 
