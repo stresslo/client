@@ -58,7 +58,7 @@ const Overview = () => {
                     }
                 </div>
                 <div style={{width: '100%', display: 'flex', gap: '10px', marginTop: '10px'}}>
-                    <select ref={bankref} style={{position: 'absolute', opacity: '0', left: '0', zIndex: '0'}} value={bank} onChange={(e) => setBank(e.target.value)} required>
+                    <select ref={bankref} style={{position: 'absolute', opacity: '0', left: '0', zIndex: '3'}} value={bank} onChange={(e) => setBank(e.target.value)} required>
                         <option value="" disabled>-- Select Bank --</option>
                         <option value="BCA">BCA</option>
                         <option value="Mandiri">Mandiri</option>
