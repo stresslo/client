@@ -53,9 +53,9 @@ const Overview = () => {
                     <div className="button contact">Withdraw</div>
                     }
                 </div>
-                <div style={{width: '100%', boxShadow: 'var(--boxhsadow)', display: 'flex', gap: '10px', marginTop: '10px'}}>
-                    <div className="button" style={{width: '110px', fontSize: '0.9rem', fontFamily: 'var(--quicksand)' ,height: '47px', borderRadius: '5px', backgroundColor: 'var(--primary)', color: 'var(--text)'}}>{data.bank_name || 'Bank'}</div>
-                    <input type="text" style={{backgroundColor: 'var(--primary)'}} className="button-max" placeholder="rekening number"/>
+                <div style={{width: '100%', display: 'flex', gap: '10px', marginTop: '10px'}}>
+                    <div className="button" style={{boxShadow: 'var(--boxhsadow)',width: '110px', fontSize: '0.95rem', fontFamily: 'var(--quicksand)' ,height: '47px', borderRadius: '10px', backgroundColor: 'var(--primary)', color: 'var(--text)'}}>{data.bank_name || 'Bank'}</div>
+                    <input type="text" style={{backgroundColor: 'var(--primary)', color: 'var(--text)', fontSize: '0.95rem', cursor: 'text'}} className="button-max" placeholder="rekening number"/>
                 </div>
                 </>
                 }
