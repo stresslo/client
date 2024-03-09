@@ -86,10 +86,10 @@ const Overview = () => {
                     <div style={{color: 'var(--text)', cursor: 'pointer', marginLeft: '15px'}} onClick={() => handle.editBank()} className="fa-solid fa-pen-to-square fa-xl"/>
                 </div>
                 {(data.bank_name !== bank || data.bank_number !== rekening) &&
-                <div style={{display: 'flex', gap: '10px'}}>
+                <div style={{display: 'flex', gap: '10px', marginTop: '20px'}}>
                     <div onClick={() => {
                         const rek_bank = document.getElementById('rek_bank')
-                        rek_bank.setAttribute('readonly')
+                        rek_bank.setAttribute('readonly', true)
                         setEditBank(false)
                     }} className="button-max" style={{boxShadow: 'var(--boxshadow)'}}>Cancel</div>
                     <div className="button-max" style={{backgroundColor: 'var(--yellow)', boxShadow: 'var(--boxshadow)'}}>Save change</div>
