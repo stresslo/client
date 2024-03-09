@@ -82,7 +82,9 @@ const Profile = () => {
                     }
                     <div className='button' onClick={logout}><i className='fa-solid fa-right-from-bracket fa-xl'/></div>
                 </div>}  
+                {(context.role == 'contributor') && 
                 <div style={{position : 'absolute', bottom: '-90px', left: '0', width: '100%', height: '2px', backgroundColor: 'var(--primary)'}}/>
+                }
             </form>
         </div>
         {(context.role == 'contributor') && 
