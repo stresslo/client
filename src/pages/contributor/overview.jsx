@@ -54,8 +54,8 @@ const Overview = () => {
                     }
                 </div>
                 <div style={{width: '100%', display: 'flex', gap: '10px', marginTop: '10px'}}>
-                    <div className="button" style={{width: '90px', height: '47px', borderRadius: '5px', backgroundColor: 'var(--primary)', color: 'var(--text)'}}>{data.bank_name || 'Bank'}</div>
-                    <div className="button-max" style={{borderRadius: '5px', backgroundColor : 'var(--primary)', color: 'var(--text)'}}>{data.bank_number || 'Rekening number'}</div>
+                    <div className="button" style={{width: '90px', fontSize: '1rem', fontFamily: 'var(--poppins)' ,height: '47px', borderRadius: '5px', backgroundColor: 'var(--primary)', color: 'var(--text)'}}>{data.bank_name || 'Bank'}</div>
+                    <input type="text" className="button-max" placeholder="rekening number"/>
                 </div>
                 </>
                 }
