@@ -85,8 +85,8 @@ const Profile = () => {
             </form>
         </div>
         {(context.role == 'contributor') && 
-        <div className='page-max'>
-            <div className='form' style={{flexDirection: 'column'}}>
+        <div className='page-max' style={{paddingTop: '0px'}}>
+            <div className='form' style={{flexDirection: 'column', marginTop: '0px'}}>
                 <div className='itext' style={{textAlign: 'center'}}>Contributor <span>Data</span></div>
                 <div className='input-form' style={{marginTop: '50px'}}>
                     <div>
