@@ -40,7 +40,7 @@ const Overview = () => {
                 <div className="overview-card" style={{marginTop: '10px'}}>
                     <div style={{display: 'flex', alignItems: 'center', gap: '10px'}}>
                         <img onClick={() => navigate('/profile')} src={context.img} style={{cursor: 'pointer', width: '35px', border: '2px solid var(--yellow)', height: '35px', objectFit: 'cover', borderRadius: '50%', boxSizing: 'border-box', boxShadow: 'var(--boxshadow)'}} alt="stresslo account" />
-                        <div style={{fontSize: '0.9rem', color: 'var(--yellow)'}}>{data.username}</div>
+                        <div style={{fontSize: '1.2rem', color: 'var(--yellow)',}}>{data.username}</div>
                     </div>
                     <div style={{fontSize: '1.1rem', fontFamily: 'var(--poppins)', color: 'var(--text)', marginTop: '10px'}}>Balance : {convertPrice(data.amount)}</div>
                     <div className="button contact">Withdraw</div>
