@@ -39,7 +39,7 @@ const Overview = () => {
                 {(data) && 
                 <div className="overview-card" style={{marginTop: '15px'}}>
                     <div style={{display: 'flex', alignItems: 'center', gap: '10px'}}>
-                        <img style={{cursor: 'pointer', width: '35px', border: '2px solid var(--yellow)', height: '35px', objectFit: 'cover', borderRadius: '50%', boxSizing: 'border-box', boxShadow: 'var(--boxshadow)'}} alt="stresslo account" />
+                        <img src={context.img} style={{cursor: 'pointer', width: '35px', border: '2px solid var(--yellow)', height: '35px', objectFit: 'cover', borderRadius: '50%', boxSizing: 'border-box', boxShadow: 'var(--boxshadow)'}} alt="stresslo account" />
                         <div style={{fontSize: '1.2rem', color: 'var(--yellow)',}}>{data.username}</div>
                     </div>
                     <div style={{display: 'flex', alignItems: 'center', 'gap' : '10px', marginTop: '15px'}}>
