@@ -37,6 +37,7 @@ const Overview = () => {
             <div className="form" style={{flexDirection: 'column'}}>
                 <div className="itext" style={{marginTop: '10px', textAlign: 'center'}}>Balance</div>
                 {(data) && 
+                <>
                 <div className="overview-card" style={{marginTop: '15px'}}>
                     <div style={{display: 'flex', alignItems: 'center', gap: '10px'}}>
                         <img src={context.img} style={{cursor: 'pointer', width: '35px', border: '2px solid var(--yellow)', height: '35px', objectFit: 'cover', borderRadius: '50%', boxSizing: 'border-box', boxShadow: 'var(--boxshadow)'}} alt="stresslo account" />
@@ -52,6 +53,13 @@ const Overview = () => {
                     <div className="button contact">Withdraw</div>
                     }
                 </div>
+                <div className="overview-card" style={{marginTop: '10px'}}>
+                    <div style={{width: '100%', display: 'flex', gap: '10px'}}>
+                        <div className="button" style={{width: '60px', borderRadius: '5px', backgroundColor: 'var(--primary)'}}>{data.bank_name || 'Bank'}</div>
+                        <div className="button-max" style={{borderRadius: '5px', backgroundColor : 'var(--primary)'}}>{data.bank_number || 'Bank'}</div>
+                    </div>
+                </div>
+                </>
                 }
             </div>
         </div>
