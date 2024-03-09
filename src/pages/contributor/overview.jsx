@@ -65,7 +65,7 @@ const Overview = () => {
                         <option value="BRI">BRI</option>
                         <option value="BNI">BNI</option>
                     </select>
-                    <div onClick={() => bankref.current.click()} className="button" style={{zIndex: '2', boxShadow: 'var(--boxshadow)',width: '110px', fontSize: '0.95rem', fontFamily: 'var(--quicksand)' ,height: '47px', borderRadius: '10px', backgroundColor: 'var(--primary)', color: 'var(--text)'}}>{data.bank_name || 'Bank'}</div>
+                    <div onClick={() => bankref.current.click()} className="button" style={{zIndex: '2', boxShadow: 'var(--boxshadow)',width: '110px', fontSize: '0.95rem', fontFamily: 'var(--quicksand)' ,height: '47px', borderRadius: '10px', backgroundColor: 'var(--primary)', color: 'var(--text)'}}>{bank}</div>
                     <input type="text" style={{backgroundColor: 'var(--primary)', zIndex: '2', color: 'var(--text)', fontSize: '0.9rem', cursor: 'text'}} className="button-max" value={rekening} onChange={(e) => setRekening(e.target.value)} placeholder="rekening number"/>
                 </div>
                 </>
