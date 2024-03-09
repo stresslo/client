@@ -12,6 +12,14 @@ const stresslo =
                 pricing : ["paid", "free"],
                 ctg : "Web"
             },
+            {
+                title : "Motion graphic",
+                text : "Motion logo templates",
+                img : "img/motion.png",
+                color : "#FAEDCA",
+                pricing : ["paid", "free"],
+                ctg : "Motion"
+            },
         ]
     },
     {
@@ -52,14 +60,6 @@ const stresslo =
                 color : "var(--yellow)",
                 pricing : ["paid"],
                 ctg : "3D"
-            },
-            {
-                title : "Motion graphic",
-                text : "Motion logo templates",
-                img : "img/motion.png",
-                color : "#FAEDCA",
-                pricing : ["paid", "free"],
-                ctg : "Motion"
             },
             {
                 title : "Vector design",
