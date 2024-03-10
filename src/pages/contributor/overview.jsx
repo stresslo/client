@@ -45,6 +45,8 @@ const Overview = () => {
                 headers: {'xsrf-token' : vxsrf}
             })
             swalert(response.data, 'success', 3000)
+            const rek_bank = document.getElementById('rek_bank')
+            rek_bank.setAttribute('readonly', true)
         } catch (error) {
             error || error.response && swalert(error.response.data, 'info', 3000)
         }
