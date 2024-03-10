@@ -45,7 +45,7 @@ const Overview = () => {
                 headers: {'xsrf-token' : vxsrf}
             })
             swalert(response.data, 'success', 3000)
-            location.reload()
+            .then((res) => res.dismiss && location.reload())
         } catch (error) {
             error || error.response && swalert(error.response.data, 'info', 3000)
         }
