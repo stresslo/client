@@ -42,7 +42,7 @@ const Store = () => {
 
     return (
         <div className='page-max'>
-            <Topback location={location.state.prev ? location.state.prev : '/'}/>
+            <Topback location={location.state ? location.state.prev : '/'}/>
             <div onClick={() => navigate('/create')} style={{position: 'fixed', bottom: '30px', right: '20px', color: 'var(--yellow)', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '10px', zIndex: '10'}}>
                 <div style={{fontSize: '1rem', fontFamily: 'var(--poppins)'}}>Create</div>
                 <div className='fa-solid fa-circle-plus fa-2xl'/>
