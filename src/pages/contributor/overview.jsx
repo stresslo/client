@@ -178,7 +178,7 @@ const Overview = () => {
                 }
                 <div className="itext" style={{marginTop: '50px'}}>Product</div>
                 <div style={{position : 'relative'}}>
-                <div onClick={() => navigate('/contributor/store', {state : {prev: location.pathname}})} className="fa-solid fa-angles-right fa-xl" style={{color : 'var(--text)', position: 'absolute', top: '-5px', right: '5px', cursor: 'pointer' }}></div>
+                <div onClick={() => navigate('/contributor/store', {state : {prev: location.pathname}})} className="fa-solid fa-expand fa-xl" style={{color : 'var(--text)', position: 'absolute', top: '-5px', right: '5px', cursor: 'pointer' }}></div>
                 <div className="overview-product" style={products.length !== 0 ? {marginTop: '25px', height: 'max-content'} : {marginTop: '25px', height: '150px'}}>
                     {(products.length != 0) ? 
                     products.map((i, key) => {
