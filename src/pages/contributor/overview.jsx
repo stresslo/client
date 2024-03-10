@@ -135,7 +135,7 @@ const Overview = () => {
                             <option value="BNI">BNI</option>
                         </select>
                     }
-                    <div className="button" style={{zIndex: '2', boxShadow: 'var(--boxshadow)',width: '135px', fontSize: '0.95rem', fontFamily: 'var(--quicksand)' ,height: '47px', borderRadius: '10px', backgroundColor: 'var(--primary)', color: 'var(--text)'}}>{bank || 'Bank'}</div>
+                    <div className="button" style={{zIndex: '2', boxShadow: 'var(--boxshadow)',width: '145px', fontSize: '0.95rem', fontFamily: 'var(--quicksand)' ,height: '47px', borderRadius: '10px', backgroundColor: 'var(--primary)', color: 'var(--text)'}}>{bank || 'Bank'}</div>
                     <input ref={refnumber} id="rek_bank" type="text" style={{backgroundColor: 'var(--primary)', zIndex: '2', color: 'var(--text)', fontSize: '0.9rem', cursor: 'text'}} className="button-max" value={rekening} onChange={(e) => setRekening(e.target.value)} placeholder="rekening number" readOnly/>
                     <div style={{color: 'var(--text)', cursor: 'pointer', marginLeft: '10px'}} onClick={() => handle.editBank()} className="fa-solid fa-pen-to-square fa-xl"/>
                 </div>
@@ -162,7 +162,7 @@ const Overview = () => {
                         return (
                         <div onClick={() => navigate(`/product/details/${i.vid}`, {state: {...i, status : 'active', prev : location.pathname}})} key={key} className="overview-product-card">
                             <LazyLoadImage src={i.img} style={{height: '100px', width: '150px', objectFit: 'cover', borderRadius: '5px'}}/>
-                            <div style={{color : 'var(--background)', fontSize: '0.9rem', textAlign: 'center'}}>{i.paid}x download</div>
+                            <div style={{color : 'var(--yellow)', fontSize: '0.9rem', textAlign: 'center'}}>{i.paid}x download</div>
                         </div>
                         )
                     }): 
