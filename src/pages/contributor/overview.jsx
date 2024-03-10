@@ -117,7 +117,7 @@ const Overview = () => {
                         <div className="overview-status" style={data.status == 'review' ? {color: 'var(--oren)'} : {color : 'var(--green)'}}>{data.status}</div>
                     </div>
                     <div style={{fontSize: '1.4rem', fontFamily: 'var(--poppins)', color: 'var(--yellow)', marginTop: '15px'}}>{convertPrice(data.amount)}</div>
-                    <div style={{fontSize: '0.95rem', fontFamily: 'var(--poppins)', color: 'var(--text)', marginTop: '5px'}}>{(data.last_withdraw ? `Last withdraw on ${data.last_withdraw}` : 'No withdrawal history')}</div>
+                    <div style={{fontSize: '0.95rem', fontFamily: 'var(--poppins)', color: 'var(--text)', marginTop: '5px'}}>{(data.last_withdraw ? `Last withdraw : ${data.last_withdraw}` : 'No withdrawal history')}</div>
                     {(data.status != 'verified') &&
                     <div style={{fontSize: '0.8rem', color: 'var(--yellow)', marginTop: '30px'}}>*Your account is being reviewed by our team.</div>
                     }
