@@ -105,28 +105,26 @@ const Overview = () => {
                         setEditBank(false)
                         setBank(data.bank_name)
                         setRekening(data.bank_number)
-                    }} className="button-max" style={{boxShadow: 'var(--boxshadow)', height: '35px'}}>Cancel</div>
-                    <div className="button-max" style={{backgroundColor: 'var(--yellow)', height: '35px', boxShadow: 'var(--boxshadow)'}}>Save change</div>
+                    }} className="button-max" style={{boxShadow: 'var(--boxshadow)', height: '35px', fontSize: '0.95rem'}}>Cancel</div>
+                    <div className="button-max" style={{backgroundColor: 'var(--yellow)', height: '35px', boxShadow: 'var(--boxshadow)', fontSize: '0.95rem'}}>Save change</div>
                 </div>
                 }
                 <div className="itext" style={{marginTop: '50px', textAlign: 'center'}}>Product review</div>
                 <div className="overview-product" style={{marginTop: '15px'}}>
-                    <div className="overview-product-card">
-                        <LazyLoadImage src="/img/dpi.jpg" style={{height: '100px', width: '150px', objectFit: 'cover', borderRadius: '5px'}}/>
-                        <div>Image</div>
-                    </div>
-                    <div className="overview-product-card">
-                        <LazyLoadImage src="/img/dpi.jpg" style={{height: '100px', width: '150px', objectFit: 'cover', borderRadius: '5px'}}/>
-                        <div>Image</div>
-                    </div>
-                    <div className="overview-product-card">
-                        <LazyLoadImage src="/img/dpi.jpg" style={{height: '100px', width: '150px', objectFit: 'cover', borderRadius: '5px'}}/>
-                        <div>Image</div>
-                    </div>
-                    <div className="overview-product-card">
-                        <LazyLoadImage src="/img/dpi.jpg" style={{height: '100px', width: '150px', objectFit: 'cover', borderRadius: '5px'}}/>
-                        <div>Image</div>
-                    </div>
+                    {(products.length != 0) ? 
+                    products.map((i, key) => {
+                        return (
+                        <div key={key} className="overview-product-card">
+                            <LazyLoadImage src={i.img} style={{height: '100px', width: '150px', objectFit: 'cover', borderRadius: '5px'}}/>
+                            <div>{i.price}</div>
+                        </div>
+                        )
+                    }): 
+                    <div className="title" style={{fontSize: '1rem', margin: 'auto'}}>you don't have product data yet</div>}
+                </div>
+                <div className="button-max" style={{marginTop: '10px'}}>
+                    <div className="fa-solid fa-circle-plus fa-xl" style={{color: 'var(--background)'}}/>
+                    create Product
                 </div>
                 </>
                 }
