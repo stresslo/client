@@ -127,15 +127,17 @@ const Overview = () => {
                 </div>
                 }
                 <div className="itext" style={{marginTop: '50px', textAlign: 'center'}}>Product review</div>
-                <div style={{position : 'relative'}}>
-                <div onClick={() => navigate('/contributor/store', {state : {prev: location.pathname}})} className="fa-solid fa-maximize fa-xl" style={{color : 'var(--text)', position: 'absolute', top: '-5px', right: '0', cursor: 'pointer' }} />
+                <div style={{position : 'relative', marginTop: '30px'}}>
+                <div onClick={() => navigate('/contributor/store', {state : {prev: location.pathname}})} style={{color : 'var(--text)', position: 'absolute', top: '0px', right: '0', cursor: 'pointer' }}>
+                    All products
+                </div>
                 <div className="overview-product" style={products.length !== 0 ? {marginTop: '20px', height: 'max-content'} : {marginTop: '20px', height: '150px'}}>
                     {(products.length != 0) ? 
                     products.map((i, key) => {
                         return (
                         <div onClick={() => navigate(`/product/details/${i.vid}`, {state: {...i, status : 'active', prev : location.pathname}})} key={key} className="overview-product-card">
                             <LazyLoadImage src={i.img} style={{height: '100px', width: '150px', objectFit: 'cover', borderRadius: '5px'}}/>
-                            <div style={{color : 'var(--yellow)', fontSize: '0.9rem'}}>{i.paid} download</div>
+                            <div style={{color : 'var(--yellow)', fontSize: '0.9rem', textAlign:'center'}}>{i.paid}x Download</div>
                         </div>
                         )
                     }): 
