@@ -35,6 +35,7 @@
     background-color: var(--primary);
     border-radius: 10px;
     display: flex;
+    color: var;
     box-shadow: var(--boxshadow);
     font-family: var(--poppins);
     font-size: 0.9rem;
