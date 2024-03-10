@@ -7,10 +7,11 @@ import swalert from "../../../utils/swalert"
 import Context from "../../../utils/context"
 import Topback from "../../components/topback"
 import convertPrice from "../../../utils/price"
+import getvxsrf from "../../../service/getvxsrf"
+import Swal from "sweetalert2"
 import jwt from "jwt-decode"
 import axios from "axios"
 import "../../style/overview.css"
-import getvxsrf from "../../../service/getvxsrf"
 
 const Overview = () => {
 
@@ -40,15 +41,39 @@ const Overview = () => {
     }
 
     const update = async () => {
-        try {
-            const response = await axios.put(`${endpoint}/contributor/update`, {bank, rekening}, {
-                headers: {'xsrf-token' : vxsrf}
-            })
-            swalert(response.data, 'success', 3000)
-            .then((res) => res.dismiss && location.reload())
-        } catch (error) {
-            error || error.response && swalert(error.response.data, 'info', 3000)
-        }
+        Swal.fire({
+            icon: 'info',
+            text : 'are you sure want update this data ?, your request will be reviewed again.',
+            confirmButtonText : 'Update & review',
+            showDenyButton: true,
+            focusConfirm: false,
+            focusDeny : false,
+            reverseButtons : true,
+            denyButtonText : 'Cancel',
+            background : 'var(--primary)',
+            color : 'var(--blue)',
+            customClass : { container: 'alertext' },
+            allowOutsideClick: false
+        })
+        .then(async (res) => {
+            if (res.isConfirmed) {
+                try {
+                    const response = await axios.put(`${endpoint}/contributor/update`, {bank, rekening}, {
+                        headers: {'xsrf-token' : vxsrf}
+                    })
+                    swalert(response.data, 'success', 3000)
+                    .then((res) => res.dismiss && location.reload())
+                } catch (error) {
+                    error || error.response && swalert(error.response.data, 'info', 3000)
+                }
+            } else {
+                const rek_bank = document.getElementById('rek_bank')
+                rek_bank.setAttribute('readonly', true)
+                setEditBank(false)
+                setBank(data.bank_name)
+                setRekening(data.bank_number)
+            }
+        })
     }
 
     const getYours = async () => {
@@ -122,13 +147,13 @@ const Overview = () => {
                         setEditBank(false)
                         setBank(data.bank_name)
                         setRekening(data.bank_number)
-                    }} className="button-max" style={{borderRadius: '30px',boxShadow: 'var(--boxshadow)', height: '35px', fontSize: '0.95rem'}}>Cancel</div>
-                    <div onClick={() => {update()}} className="button-max" style={{borderRadius: '30px',backgroundColor: 'var(--yellow)', height: '35px', boxShadow: 'var(--boxshadow)', fontSize: '0.95rem'}}>Save change</div>
+                    }} className="button-max" style={{borderRadius: '30px',boxShadow: 'var(--boxshadow)', height: '35px', fontSize: '0.8rem'}}>Cancel</div>
+                    <div onClick={() => {update()}} className="button-max" style={{borderRadius: '30px',backgroundColor: 'var(--yellow)', height: '35px', boxShadow: 'var(--boxshadow)', fontSize: '0.8rem'}}>Update</div>
                 </div>
                 }
                 <div className="itext" style={{marginTop: '50px', textAlign: 'center'}}>Product review</div>
-                <div style={{position : 'relative', marginTop: '30px'}}>
-                <div onClick={() => navigate('/contributor/store', {state : {prev: location.pathname}})} style={{color : 'var(--text)', position: 'absolute', top: '-5px', right: '0', cursor: 'pointer' }}>
+                <div style={{position : 'relative', marginTop: '20px'}}>
+                <div onClick={() => navigate('/contributor/store', {state : {prev: location.pathname}})} style={{color : 'var(--text)', position: 'absolute', top: '-5px', right: '5px', cursor: 'pointer' }}>
                     See all
                 </div>
                 <div className="overview-product" style={products.length !== 0 ? {marginTop: '20px', height: 'max-content'} : {marginTop: '20px', height: '150px'}}>
