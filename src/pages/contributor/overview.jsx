@@ -172,7 +172,7 @@ const Overview = () => {
                     <div style={{fontFamily: 'var(--poppins)', color: 'var(--text)', fontSize: '0.9rem'}}>Total product : {data.total_product}</div>
                     <div style={{fontFamily: 'var(--poppins)', color: 'var(--text)', fontSize: '0.9rem'}}>Total donwloaded : {data.total_paid}</div>
                 </div>
-                <div onClick={() => navigate('/create', { state : {prev : location.pathname} })} className="button-max" style={{marginTop: '10px', backgroundColor: 'var(--yellow)', boxShadow: 'var(--boxshadow)'}}>
+                <div onClick={() => navigate('/create', { state : {prev : location.pathname} })} className="button-max" style={{marginTop: '20px', backgroundColor: 'var(--yellow)', boxShadow: 'var(--boxshadow)'}}>
                     <div className="fa-solid fa-circle-plus fa-xl" style={{color: 'var(--background)'}}/>
                     create product
                 </div>
