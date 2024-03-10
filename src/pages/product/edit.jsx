@@ -228,7 +228,7 @@ const EditProduct = () => {
                 <div className={(image) ? 'fa-solid fa-check fa-xl' : 'fa-solid fa-image fa-xl'} style={{color: '#aaa', fontSize: '2rem'}}/>
                 <div style={{ color: '#aaa', fontSize: '0.7rem' }}>{'(JPEG, JPG, PNG, MP4)'}</div>
                 <input type="file" onChange={(e) => setImage(e.target.files[0])} ref={imgref} style={{display:'none'}}/>
-                <div style={{ color: '#aaa', fontSize: '0.95rem' }}>Max size: 10 Mb</div>
+                <div style={{ color: '#aaa', fontSize: '0.95rem' }}>{`Max size: 10 Mb (Landscape)`}</div>
               </div>
             </div>
             <div>
