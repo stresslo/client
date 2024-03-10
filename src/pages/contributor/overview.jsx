@@ -41,9 +41,10 @@ const Overview = () => {
     }
 
     const logo = () => {
+        if (!bank) return '/img/bank.png'
         if (bank == 'BCA') return 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Bank_Central_Asia.svg/2560px-Bank_Central_Asia.svg.png'
         if (bank == 'BRI') return 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Logo_BRI.png/1200px-Logo_BRI.png'
-        if (bank == 'BNI') return 'https://jasalogocepat.com/wp-content/uploads/2023/12/Logo-Bank-BNI-Hitam-Putih-PNG-jasalogocepat.png'
+        if (bank == 'BNI') return 'https://w7.pngwing.com/pngs/81/56/png-transparent-bank-negara-indonesia-islamic-banking-and-finance-bank-bni-syariah-pt-pt-bank-bni-syariah-bank-saving-text-investment-thumbnail.png'
         if (bank == 'Mandiri') return 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Bank_Mandiri_logo_2016.svg/2560px-Bank_Mandiri_logo_2016.svg.png'
     }
 
