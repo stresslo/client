@@ -152,7 +152,13 @@ const Overview = () => {
                         <LazyLoadImage loading="lazy" effect="blur" width={50} src={logo()}/>
                         }
                     </div>
-                    <input ref={refnumber} id="rek_bank" type="text" style={{backgroundColor: 'var(--text)', zIndex: '2', color: 'var(--background)', fontSize: '0.9rem', cursor: 'text'}} className="button-max" value={rekening} onChange={(e) => setRekening(e.target.value)} placeholder="rekening number" readOnly/>
+                    <input ref={refnumber} id="rek_bank" type="text" style={{backgroundColor: 'var(--text)', zIndex: '2', color: 'var(--background)', fontSize: '0.9rem', cursor: 'text'}} className="button-max" value={rekening} onBlur={() => {
+                        const rek_bank = document.getElementById('rek_bank')
+                        rek_bank.setAttribute('readonly', true)
+                        setEditBank(false)
+                        setBank(data.bank_name)
+                        setRekening(data.bank_number)
+                    }}  onChange={(e) => setRekening(e.target.value)} placeholder="rekening number" readOnly/>
                 </div>
                 {(data.bank_name !== bank || data.bank_number !== rekening) &&
                 <div style={{display: 'flex', gap: '10px', marginTop: '30px'}}>
