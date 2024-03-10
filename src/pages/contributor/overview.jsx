@@ -118,7 +118,9 @@ const Overview = () => {
                 <>
                 <div className="itext" style={{marginTop: '10px'}}>Balance</div>
                 <div style={{position: 'relative'}}>
-                <div style={{color: 'var(--text)', cursor: 'pointer', position: 'absolute', top: '-5px', right: '0'}} onClick={() => handle.editBank()} className="fa-solid fa-pen-to-square fa-xl"/>
+                    {(!editBank) && 
+                        <div style={{color: 'var(--text)', cursor: 'pointer', position: 'absolute', top: '-5px', right: '0'}} onClick={() => handle.editBank()} className="fa-solid fa-pen-to-square fa-xl"/>
+                    }
                     <div className="overview-card" style={{marginTop: '25px'}}>
                         <div style={{display: 'flex', alignItems: 'center', gap: '10px'}}>
                             <img src={context.img} style={{cursor: 'pointer', width: '35px', border: '2px solid var(--yellow)', height: '35px', objectFit: 'cover', borderRadius: '50%', boxSizing: 'border-box', boxShadow: 'var(--boxshadow)'}} alt="stresslo account" />
