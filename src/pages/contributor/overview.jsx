@@ -116,8 +116,8 @@ const Overview = () => {
             <div className="form" style={{flexDirection: 'column'}}>
                 {(data) && 
                 <>
-                <div className="itext" style={{marginTop: '10px', textAlign: 'center'}}>Balance</div>
-                <div className="overview-card" style={{marginTop: '15px'}}>
+                <div className="itext" style={{marginTop: '10px'}}>Balance</div>
+                <div className="overview-card" style={{marginTop: '20px'}}>
                     <div style={{display: 'flex', alignItems: 'center', gap: '10px'}}>
                         <img src={context.img} style={{cursor: 'pointer', width: '35px', border: '2px solid var(--yellow)', height: '35px', objectFit: 'cover', borderRadius: '50%', boxSizing: 'border-box', boxShadow: 'var(--boxshadow)'}} alt="stresslo account" />
                         <div style={{fontSize: '1.2rem', color: 'var(--text)',}}>{data.username}</div>
@@ -164,8 +164,8 @@ const Overview = () => {
                     <div onClick={() => {update()}} className="button-max" style={{borderRadius: '30px',backgroundColor: 'var(--yellow)', height: '35px', boxShadow: 'var(--boxshadow)', fontSize: '0.8rem'}}>Update</div>
                 </div>
                 }
-                <div className="itext" style={{marginTop: '50px', textAlign: 'center'}}>Product review</div>
-                <div style={{position : 'relative', marginTop: '20px'}}>
+                <div className="itext" style={{marginTop: '50px'}}>Product review</div>
+                <div style={{position : 'relative', marginTop: '10px'}}>
                 <div onClick={() => navigate('/contributor/store', {state : {prev: location.pathname}})} style={{color : 'var(--text)', position: 'absolute', top: '-5px', right: '5px', cursor: 'pointer' }}>
                     See all
                 </div>
