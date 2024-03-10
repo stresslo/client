@@ -165,7 +165,7 @@ const Overview = () => {
                 </div>
                 }
                 <div className="itext" style={{marginTop: '50px'}}>Product review</div>
-                <div style={{position : 'relative', marginTop: '10px'}}>
+                <div style={{position : 'relative'}}>
                 <div onClick={() => navigate('/contributor/store', {state : {prev: location.pathname}})} style={{color : 'var(--text)', position: 'absolute', top: '-5px', right: '5px', cursor: 'pointer' }}>
                     See all
                 </div>
