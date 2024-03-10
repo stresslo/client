@@ -128,8 +128,8 @@ const Overview = () => {
                 }
                 <div className="itext" style={{marginTop: '50px', textAlign: 'center'}}>Product review</div>
                 <div style={{position : 'relative'}}>
-                <div onClick={() => navigate('/contributor/store', {state : {prev: location.pathname}})} className="fa-solid fa-maximize fa-xl" style={{color : 'var(--text)', position: 'absolute', top: '-5px', right: '0' }} />
-                <div className="overview-product" style={products.length !== 0 ? {marginTop: '20px', height: 'max-content'} : {marginTop: '20px', height: '200px'}}>
+                <div onClick={() => navigate('/contributor/store', {state : {prev: location.pathname}})} className="fa-solid fa-maximize fa-xl" style={{color : 'var(--text)', position: 'absolute', top: '-5px', right: '0', cursor: 'pointer' }} />
+                <div className="overview-product" style={products.length !== 0 ? {marginTop: '20px', height: 'max-content'} : {marginTop: '20px', height: '150px'}}>
                     {(products.length != 0) ? 
                     products.map((i, key) => {
                         return (
@@ -140,6 +140,10 @@ const Overview = () => {
                         )
                     }): 
                     <div className="title" style={{fontSize: '0.8rem', margin: 'auto', fontFamily: 'var(--quicksand)'}}>you don't have product data yet.</div>}
+                </div>
+                <div className="overview-product" style={{flexDirection: 'column', marginTop: '10px'}}>
+                    <div style={{fontFamily: 'var(--poppins)', color: 'var(--text)', fontSize: '0.9rem'}}>Total product : {data.total_product}</div>
+                    <div style={{fontFamily: 'var(--poppins)', color: 'var(--text)', fontSize: '0.9rem'}}>Total donwloaded : {data.total_paid}</div>
                 </div>
                 <div onClick={() => navigate('/create', { state : {prev : location.pathname} })} className="button-max" style={{marginTop: '10px', backgroundColor: 'var(--yellow)', boxShadow: 'var(--boxshadow)'}}>
                     <div className="fa-solid fa-circle-plus fa-xl" style={{color: 'var(--background)'}}/>

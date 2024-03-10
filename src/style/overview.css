@@ -36,7 +36,7 @@
 .overview-product-card {
     width: max-content;
     height: max-content;
-    background-color: var(--prime);
+    background-color: #aaa;
     border-radius: 10px;
     display: flex;
     color: var(--text);
