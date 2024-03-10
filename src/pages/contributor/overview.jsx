@@ -119,7 +119,7 @@ const Overview = () => {
                 <div className="itext" style={{marginTop: '10px'}}>Balance</div>
                 <div style={{position: 'relative'}}>
                 <div style={{color: 'var(--text)', cursor: 'pointer', position: 'absolute', top: '-5px', right: '0'}} onClick={() => handle.editBank()} className="fa-solid fa-pen-to-square fa-xl"/>
-                    <div className="overview-card" style={{marginTop: '20px'}}>
+                    <div className="overview-card" style={{marginTop: '25px'}}>
                         <div style={{display: 'flex', alignItems: 'center', gap: '10px'}}>
                             <img src={context.img} style={{cursor: 'pointer', width: '35px', border: '2px solid var(--yellow)', height: '35px', objectFit: 'cover', borderRadius: '50%', boxSizing: 'border-box', boxShadow: 'var(--boxshadow)'}} alt="stresslo account" />
                             <div style={{fontSize: '1.2rem', color: 'var(--text)',}}>{data.username}</div>
@@ -168,10 +168,8 @@ const Overview = () => {
                 }
                 <div className="itext" style={{marginTop: '50px'}}>Product review</div>
                 <div style={{position : 'relative'}}>
-                <div onClick={() => navigate('/contributor/store', {state : {prev: location.pathname}})} style={{color : 'var(--text)', position: 'absolute', top: '-5px', right: '5px', cursor: 'pointer' }}>
-                    See all
-                </div>
-                <div className="overview-product" style={products.length !== 0 ? {marginTop: '20px', height: 'max-content'} : {marginTop: '20px', height: '150px'}}>
+                <div onClick={() => navigate('/contributor/store', {state : {prev: location.pathname}})} className="fa-solid fa-maximize fa-xl" style={{color : 'var(--text)', position: 'absolute', top: '-5px', right: '5px', cursor: 'pointer' }}></div>
+                <div className="overview-product" style={products.length !== 0 ? {marginTop: '25px', height: 'max-content'} : {marginTop: '25px', height: '150px'}}>
                     {(products.length != 0) ? 
                     products.map((i, key) => {
                         return (
