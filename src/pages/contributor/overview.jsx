@@ -162,7 +162,7 @@ const Overview = () => {
                         return (
                         <div onClick={() => navigate(`/product/details/${i.vid}`, {state: {...i, status : 'active', prev : location.pathname}})} key={key} className="overview-product-card">
                             <LazyLoadImage src={i.img} style={{height: '100px', width: '150px', objectFit: 'cover', borderRadius: '5px'}}/>
-                            <div style={{color : 'var(--background)', fontSize: '0.9rem'}}>{i.paid}x download</div>
+                            <div style={{color : 'var(--background)', fontSize: '0.9rem', textAlign: 'center'}}>{i.paid}x download</div>
                         </div>
                         )
                     }): 
@@ -170,7 +170,7 @@ const Overview = () => {
                 </div>
                 <div className="overview-product" style={{flexDirection: 'column', marginTop: '10px'}}>
                     <div style={{fontFamily: 'var(--poppins)', color: 'var(--text)', fontSize: '0.9rem'}}>Total product : {data.total_product}</div>
-                    <div style={{fontFamily: 'var(--poppins)', color: 'var(--text)', fontSize: '0.9rem'}}>Total donwloaded : {data.total_paid}</div>
+                    <div style={{fontFamily: 'var(--poppins)', color: 'var(--text)', fontSize: '0.9rem'}}>Total downloaded : {data.total_paid}</div>
                 </div>
                 <div onClick={() => navigate('/create', { state : {prev : location.pathname} })} className="button-max" style={{marginTop: '20px', backgroundColor: 'var(--yellow)', boxShadow: 'var(--boxshadow)'}}>
                     <div className="fa-solid fa-circle-plus fa-xl" style={{color: 'var(--background)'}}/>
