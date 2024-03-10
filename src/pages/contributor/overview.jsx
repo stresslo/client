@@ -120,9 +120,9 @@ const Overview = () => {
                         </div>
                         )
                     }): 
-                    <div className="title" style={{fontSize: '1rem', margin: 'auto'}}>you don't have product data yet</div>}
+                    <div className="title" style={{fontSize: '0.8rem', margin: 'auto', fontFamily: 'var(--quicksand)'}}>you don't have product data yet.</div>}
                 </div>
-                <div className="button-max" style={{marginTop: '10px'}}>
+                <div className="button-max" style={{marginTop: '10px', backgroundColor: 'var(--yellow)'}}>
                     <div className="fa-solid fa-circle-plus fa-xl" style={{color: 'var(--background)'}}/>
                     create Product
                 </div>
