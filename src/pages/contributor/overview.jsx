@@ -114,9 +114,9 @@ const Overview = () => {
         <div className="page-max">
             <Topback/>
             <div className="form" style={{flexDirection: 'column'}}>
-                <div className="itext" style={{marginTop: '10px', textAlign: 'center'}}>Balance</div>
                 {(data) && 
                 <>
+                <div className="itext" style={{marginTop: '10px', textAlign: 'center'}}>Balance</div>
                 <div className="overview-card" style={{marginTop: '15px'}}>
                     <div style={{display: 'flex', alignItems: 'center', gap: '10px'}}>
                         <img src={context.img} style={{cursor: 'pointer', width: '35px', border: '2px solid var(--yellow)', height: '35px', objectFit: 'cover', borderRadius: '50%', boxSizing: 'border-box', boxShadow: 'var(--boxshadow)'}} alt="stresslo account" />
