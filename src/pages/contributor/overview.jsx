@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom"
 import { useContext, useEffect, useRef, useState } from "react"
 import { LazyLoadImage } from "react-lazy-load-image-component"
 import Loading from "../../../utils/loading"
@@ -15,6 +16,7 @@ const Overview = () => {
     const endpoint = import.meta.env.VITE_API
     const refnumber = useRef(null)
     const context = useContext(Context)
+    const navigate = useNavigate()
 
     const [page, setPage] = useState(1)
     const [products, setProducts] = useState([])
@@ -110,20 +112,20 @@ const Overview = () => {
                 </div>
                 }
                 <div className="itext" style={{marginTop: '50px', textAlign: 'center'}}>Product review</div>
-                <div className="overview-product" style={{marginTop: '15px'}}>
+                <div className="overview-product" style={products.length !== 0 ? {marginTop: '20px', height: 'max-content'} : {marginTop: '20px', height: '200px'}}>
+                <div onClick={() => navigate('/contributor/store')} className="fa-solid fa-maximize fa-xl" style={{color : 'var(--text)', position: 'absolute', top: '-10px', right: '0' }} />
                     {(products.length != 0) ? 
                     products.map((i, key) => {
                         return (
-                        <div key={key} className="overview-product-card">
+                        <div onClick={() => navigate(`/product/details/${i.vid}`, {state: {...i, status : 'active', prev : location.pathname}})} key={key} className="overview-product-card">
                             <LazyLoadImage src={i.img} style={{height: '100px', width: '150px', objectFit: 'cover', borderRadius: '5px'}}/>
-                            <div style={{color : 'var(--yellow)'}}>{convertPrice(i.price)}</div>
-                            <div style={{color : 'var(--text)', fontSize: '0.9rem'}}>{i.paid} paid off</div>
+                            <div style={{color : 'var(--yellow)', fontSize: '0.9rem'}}>{i.paid} paid off</div>
                         </div>
                         )
                     }): 
                     <div className="title" style={{fontSize: '0.8rem', margin: 'auto', fontFamily: 'var(--quicksand)'}}>you don't have product data yet.</div>}
                 </div>
-                <div className="button-max" style={{marginTop: '10px', backgroundColor: 'var(--yellow)'}}>
+                <div onClick={() => navigate('/create')} className="button-max" style={{marginTop: '10px', backgroundColor: 'var(--yellow)'}}>
                     <div className="fa-solid fa-circle-plus fa-xl" style={{color: 'var(--background)'}}/>
                     create product
                 </div>
