@@ -62,7 +62,7 @@ const Create = () => {
         })
         localStorage.removeItem('createHistory')
         swalert(response.data, "success", 5000)
-        .then((res) => { if(res.dismiss) {location.href = '/'} })
+        .then((res) => { if(res.dismiss) {window.location.href = '/'} })
       } catch (error) {
         swalert("server maintenance!", "error", 3000)
         if (error.response) { swalert(error.response.data, "error", 3000) }
