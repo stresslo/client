@@ -1,8 +1,8 @@
 const snap = () => {
-        const midtransScriptUrl = 'https://app.sandbox.midtrans.com/snap/snap.js';  
+        const midtransScriptUrl = 'https://app.midtrans.com/snap/snap.js';  
         let scriptTag = document.createElement('script');
         scriptTag.src = midtransScriptUrl;
-        scriptTag.setAttribute('data-client-key', import.meta.env.VITE_CLIENT_KEY_SANDBOX);
+        scriptTag.setAttribute('data-client-key', import.meta.env.VITE_CLIENT_KEY);
         document.body.appendChild(scriptTag);
         return () => {
           document.body.removeChild(scriptTag);
