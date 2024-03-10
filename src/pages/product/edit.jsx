@@ -43,7 +43,6 @@ const EditProduct = () => {
         file && 
         title && 
         image && 
-        format &&
         desc && 
         price >= 0 && 
         (ctg !== 'web' || (ctg === 'web' && tech)) && 
