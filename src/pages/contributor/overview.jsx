@@ -117,20 +117,23 @@ const Overview = () => {
                 {(data) && 
                 <>
                 <div className="itext" style={{marginTop: '10px'}}>Balance</div>
-                <div className="overview-card" style={{marginTop: '20px'}}>
-                    <div style={{display: 'flex', alignItems: 'center', gap: '10px'}}>
-                        <img src={context.img} style={{cursor: 'pointer', width: '35px', border: '2px solid var(--yellow)', height: '35px', objectFit: 'cover', borderRadius: '50%', boxSizing: 'border-box', boxShadow: 'var(--boxshadow)'}} alt="stresslo account" />
-                        <div style={{fontSize: '1.2rem', color: 'var(--text)',}}>{data.username}</div>
-                        <div className="overview-status" style={data.status == 'review' ? {color: 'var(--oren)'} : {color : 'var(--green)'}}>{data.status}</div>
+                <div style={{position: 'relative'}}>
+                <div style={{color: 'var(--text)', cursor: 'pointer', position: 'absolute', top: '-5px', right: '0'}} onClick={() => handle.editBank()} className="fa-solid fa-pen-to-square fa-xl"/>
+                    <div className="overview-card" style={{marginTop: '20px'}}>
+                        <div style={{display: 'flex', alignItems: 'center', gap: '10px'}}>
+                            <img src={context.img} style={{cursor: 'pointer', width: '35px', border: '2px solid var(--yellow)', height: '35px', objectFit: 'cover', borderRadius: '50%', boxSizing: 'border-box', boxShadow: 'var(--boxshadow)'}} alt="stresslo account" />
+                            <div style={{fontSize: '1.2rem', color: 'var(--text)',}}>{data.username}</div>
+                            <div className="overview-status" style={data.status == 'review' ? {color: 'var(--oren)'} : {color : 'var(--green)'}}>{data.status}</div>
+                        </div>
+                        <div style={{fontSize: '1.4rem', fontFamily: 'var(--poppins)', color: 'var(--yellow)', marginTop: '15px'}}>{convertPrice(data.amount)}</div>
+                        <div style={{fontSize: '0.95rem', fontFamily: 'var(--poppins)', color: 'var(--text)', marginTop: '5px'}}>{(data.last_withdraw ? `Last withdraw : ${data.last_withdraw}` : 'No withdrawal history')}</div>
+                        {(data.status != 'verified') &&
+                        <div style={{fontSize: '0.8rem', color: 'var(--yellow)', marginTop: '30px'}}>*Your account is being reviewed by our team.</div>
+                        }
+                        {(data.status == 'verified') &&
+                        <div className="button contact">Withdraw</div>
+                        }
                     </div>
-                    <div style={{fontSize: '1.4rem', fontFamily: 'var(--poppins)', color: 'var(--yellow)', marginTop: '15px'}}>{convertPrice(data.amount)}</div>
-                    <div style={{fontSize: '0.95rem', fontFamily: 'var(--poppins)', color: 'var(--text)', marginTop: '5px'}}>{(data.last_withdraw ? `Last withdraw : ${data.last_withdraw}` : 'No withdrawal history')}</div>
-                    {(data.status != 'verified') &&
-                    <div style={{fontSize: '0.8rem', color: 'var(--yellow)', marginTop: '30px'}}>*Your account is being reviewed by our team.</div>
-                    }
-                    {(data.status == 'verified') &&
-                    <div className="button contact">Withdraw</div>
-                    }
                 </div>
                 <div style={{width: '100%', display: 'flex', alignItems: 'center', gap: '10px', marginTop: '10px', position: 'relative'}}>
                     {(editBank) && 
@@ -150,7 +153,6 @@ const Overview = () => {
                         }
                     </div>
                     <input ref={refnumber} id="rek_bank" type="text" style={{backgroundColor: 'var(--text)', zIndex: '2', color: 'var(--background)', fontSize: '0.9rem', cursor: 'text'}} className="button-max" value={rekening} onChange={(e) => setRekening(e.target.value)} placeholder="rekening number" readOnly/>
-                    <div style={{color: 'var(--text)', cursor: 'pointer', marginLeft: '10px'}} onClick={() => handle.editBank()} className="fa-solid fa-pen-to-square fa-xl"/>
                 </div>
                 {(data.bank_name !== bank || data.bank_number !== rekening) &&
                 <div style={{display: 'flex', gap: '10px', marginTop: '30px'}}>
