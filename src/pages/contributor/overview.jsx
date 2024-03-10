@@ -37,7 +37,7 @@ const Overview = () => {
     const getYours = async () => {
         if (!context.token && context.role != 'contributor') return swalert('please login to contributor account!', 'info', 3000)
         setLoading(true)
-        axios.get(`${endpoint}/products/contributor${page}`)
+        axios.get(`${endpoint}/products/contributor/${page}`)
         .then(response => {const decode = jwt(response.data); setProducts(decode.data)})
         .catch(error => Promise.reject(error) && setProducts([]))
         .finally(() => setLoading(false))
@@ -124,7 +124,7 @@ const Overview = () => {
                 </div>
                 <div className="button-max" style={{marginTop: '10px', backgroundColor: 'var(--yellow)'}}>
                     <div className="fa-solid fa-circle-plus fa-xl" style={{color: 'var(--background)'}}/>
-                    create Product
+                    create product
                 </div>
                 </>
                 }
