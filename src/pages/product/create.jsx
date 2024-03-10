@@ -42,7 +42,7 @@ const Create = () => {
       image && 
       desc && 
       price && 
-      format &&
+      (ctg !== 'web' && format) &&
       (ctg !== 'web' || (ctg === 'web' && tech)) && 
       (ctg !== 'web' || (ctg === 'web' && link))) {
         try {

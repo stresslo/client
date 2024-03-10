@@ -21,7 +21,7 @@
 }
 
 .overview-product {
-    padding: 15px;
+    padding: 10px;
     border-radius: 5px;
     display: flex;
     width: 100%;
@@ -44,5 +44,5 @@
     font-size: 0.9rem;
     flex-direction: column;
     gap: 10px;
-    padding: 5px;
+    padding: 15px;
 }
