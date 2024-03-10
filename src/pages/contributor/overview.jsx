@@ -144,7 +144,7 @@ const Overview = () => {
                     }
                     <div className="button" style={{zIndex: '2', boxShadow: 'var(--boxshadow)',width: '145px', fontSize: '0.95rem', fontFamily: 'var(--quicksand)' ,height: '47px', borderRadius: '10px', backgroundColor: 'var(--text)', color: 'var(--background)'}}>
                         {(!bank) ? 
-                        <LazyLoadImage loading="lazy" effect="blur" width={30} src={'/img/bank.png'}/>
+                        <LazyLoadImage loading="lazy" effect="blur" width={26} src={'/img/bank.png'}/>
                         :
                         <LazyLoadImage loading="lazy" effect="blur" width={50} src={logo()}/>
                         }
