@@ -116,7 +116,8 @@ const Overview = () => {
                         return (
                         <div key={key} className="overview-product-card">
                             <LazyLoadImage src={i.img} style={{height: '100px', width: '150px', objectFit: 'cover', borderRadius: '5px'}}/>
-                            <div>{i.price}</div>
+                            <div style={{color : 'var(--yellow)'}}>{convertPrice(i.price)}</div>
+                            <div style={{color : 'var(--text)', fontSize: '0.9rem'}}>{i.paid} paid off</div>
                         </div>
                         )
                     }): 
