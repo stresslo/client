@@ -15,12 +15,14 @@ const Overview = () => {
     const endpoint = import.meta.env.VITE_API
     const refnumber = useRef(null)
     const context = useContext(Context)
-    const [data, setData] = useState('')
-    const [loading, setLoading] = useState(false)
 
+    const [products, setProducts] = useState([])
+    const [data, setData] = useState('')
+    
     const [bank, setBank] = useState('')
     const [rekening, setRekening] = useState('')
     const [editBank, setEditBank] = useState(false)
+    const [loading, setLoading] = useState(false)
 
     const handle = {
         editBank : () => {
@@ -31,6 +33,14 @@ const Overview = () => {
         }
     }
 
+    const getYours = async () => {
+        if (!context.token && context.role != 'contributor') return swalert('please login to contributor account!', 'info', 3000)
+        setLoading(true)
+        axios.get(`${endpoint}/products/contributor`)
+        .then(response => {const decode = jwt(response.data); setProducts(decode.data)})
+        .catch(error => Promise.reject(error) && setProducts([]))
+        .finally(() => setLoading(false))
+    }
 
     const getData = async () => {
         try {
@@ -47,7 +57,7 @@ const Overview = () => {
         }
     }
 
-    useEffect(() => { !data && getData() }, [])
+    useEffect(() => { !data && getData(); getYours() }, [])
     if (loading) return <Loading/>
 
     return (
