@@ -135,7 +135,7 @@ const Overview = () => {
                         return (
                         <div onClick={() => navigate(`/product/details/${i.vid}`, {state: {...i, status : 'active', prev : location.pathname}})} key={key} className="overview-product-card">
                             <LazyLoadImage src={i.img} style={{height: '100px', width: '150px', objectFit: 'cover', borderRadius: '5px'}}/>
-                            <div style={{color : 'var(--yellow)', fontSize: '0.9rem'}}>{i.paid} downloaded</div>
+                            <div style={{color : 'var(--yellow)', fontSize: '0.9rem'}}>{i.paid} download</div>
                         </div>
                         )
                     }): 
