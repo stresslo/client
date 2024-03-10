@@ -21,7 +21,7 @@
 }
 
 .overview-product {
-    padding: 10px;
+    padding: 10px 0;
     border-radius: 5px;
     display: flex;
     width: 100%;
@@ -30,13 +30,12 @@
     gap: 5px 5px;
     box-sizing: border-box;
     position: relative;
-    background-color: var(--primary);
 }
 
 .overview-product-card {
     width: max-content;
     height: max-content;
-    background-color: var(--background);
+    background-color: var(--primary);
     border-radius: 10px;
     display: flex;
     color: var(--text);
@@ -44,5 +43,5 @@
     font-size: 0.9rem;
     flex-direction: column;
     gap: 10px;
-    padding: 15px;
+    padding: 5px;
 }
