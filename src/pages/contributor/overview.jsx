@@ -16,6 +16,7 @@ const Overview = () => {
     const refnumber = useRef(null)
     const context = useContext(Context)
 
+    const [page, setPage] = useState(1)
     const [products, setProducts] = useState([])
     const [data, setData] = useState('')
     
@@ -36,7 +37,7 @@ const Overview = () => {
     const getYours = async () => {
         if (!context.token && context.role != 'contributor') return swalert('please login to contributor account!', 'info', 3000)
         setLoading(true)
-        axios.get(`${endpoint}/products/contributor`)
+        axios.get(`${endpoint}/products/contributor${page}`)
         .then(response => {const decode = jwt(response.data); setProducts(decode.data)})
         .catch(error => Promise.reject(error) && setProducts([]))
         .finally(() => setLoading(false))
