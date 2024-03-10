@@ -104,6 +104,18 @@ const Overview = () => {
                         <LazyLoadImage src="/img/dpi.jpg" style={{height: '100px', width: '150px', objectFit: 'cover', borderRadius: '5px'}}/>
                         <div>Image</div>
                     </div>
+                    <div className="overview-product-card">
+                        <LazyLoadImage src="/img/dpi.jpg" style={{height: '100px', width: '150px', objectFit: 'cover', borderRadius: '5px'}}/>
+                        <div>Image</div>
+                    </div>
+                    <div className="overview-product-card">
+                        <LazyLoadImage src="/img/dpi.jpg" style={{height: '100px', width: '150px', objectFit: 'cover', borderRadius: '5px'}}/>
+                        <div>Image</div>
+                    </div>
+                    <div className="overview-product-card">
+                        <LazyLoadImage src="/img/dpi.jpg" style={{height: '100px', width: '150px', objectFit: 'cover', borderRadius: '5px'}}/>
+                        <div>Image</div>
+                    </div>
                 </div>
                 </>
                 }
