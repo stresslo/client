@@ -28,9 +28,9 @@
     height: max-content;
     overflow: scroll hidden;
     gap: 5px 5px;
-    box-shadow: var(--boxshadow);
     box-sizing: border-box;
     position: relative;
+    background-color: var(--prime);
 }
 
 .overview-product-card {

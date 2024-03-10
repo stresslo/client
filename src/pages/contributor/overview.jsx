@@ -113,7 +113,7 @@ const Overview = () => {
                 }
                 <div className="itext" style={{marginTop: '50px', textAlign: 'center'}}>Product review</div>
                 <div style={{position : 'relative'}}>
-                <div onClick={() => navigate('/contributor/store', {state : {prev: location.pathname}})} className="fa-solid fa-maximize fa-xl" style={{color : 'var(--text)', position: 'absolute', top: '-10px', right: '0' }} />
+                <div onClick={() => navigate('/contributor/store', {state : {prev: location.pathname}})} className="fa-solid fa-maximize fa-xl" style={{color : 'var(--text)', position: 'absolute', top: '-5px', right: '0' }} />
                 <div className="overview-product" style={products.length !== 0 ? {marginTop: '20px', height: 'max-content'} : {marginTop: '20px', height: '200px'}}>
                     {(products.length != 0) ? 
                     products.map((i, key) => {
