@@ -41,10 +41,9 @@ const Overview = () => {
     }
 
     const logo = () => {
-        if (!bank) return '/img/bank.png'
         if (bank == 'BCA') return 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Bank_Central_Asia.svg/2560px-Bank_Central_Asia.svg.png'
         if (bank == 'BRI') return 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Logo_BRI.png/1200px-Logo_BRI.png'
-        if (bank == 'BNI') return 'https://w7.pngwing.com/pngs/81/56/png-transparent-bank-negara-indonesia-islamic-banking-and-finance-bank-bni-syariah-pt-pt-bank-bni-syariah-bank-saving-text-investment-thumbnail.png'
+        if (bank == 'BNI') return 'https://www.pikpng.com/pngl/b/489-4896877_logo-bank-bni-png-bank-negara-indonesia-clipart.png'
         if (bank == 'Mandiri') return 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Bank_Mandiri_logo_2016.svg/2560px-Bank_Mandiri_logo_2016.svg.png'
     }
 
@@ -144,7 +143,11 @@ const Overview = () => {
                         </select>
                     }
                     <div className="button" style={{zIndex: '2', boxShadow: 'var(--boxshadow)',width: '145px', fontSize: '0.95rem', fontFamily: 'var(--quicksand)' ,height: '47px', borderRadius: '10px', backgroundColor: 'var(--text)', color: 'var(--background)'}}>
+                        {(!bank) ? 
+                        <LazyLoadImage loading="lazy" effect="blur" width={30} src={'/img/bank.png'}/>
+                        :
                         <LazyLoadImage loading="lazy" effect="blur" width={50} src={logo()}/>
+                        }
                     </div>
                     <input ref={refnumber} id="rek_bank" type="text" style={{backgroundColor: 'var(--text)', zIndex: '2', color: 'var(--background)', fontSize: '0.9rem', cursor: 'text'}} className="button-max" value={rekening} onChange={(e) => setRekening(e.target.value)} placeholder="rekening number" readOnly/>
                     <div style={{color: 'var(--text)', cursor: 'pointer', marginLeft: '10px'}} onClick={() => handle.editBank()} className="fa-solid fa-pen-to-square fa-xl"/>
