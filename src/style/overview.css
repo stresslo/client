@@ -36,13 +36,13 @@
 .overview-product-card {
     width: max-content;
     height: max-content;
-    background-color: rgba(255, 255, 255, 0.285);
+    background-color: rgba(255, 255, 255, 0.482);
     border-radius: 10px;
     display: flex;
     color: var(--text);
     font-family: var(--poppins);
     font-size: 0.9rem;
     flex-direction: column;
-    gap: 10px;
+    gap: 5px;
     padding: 5px;
 }
