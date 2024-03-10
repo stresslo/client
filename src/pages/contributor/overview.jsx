@@ -10,6 +10,7 @@ import convertPrice from "../../../utils/price"
 import jwt from "jwt-decode"
 import axios from "axios"
 import "../../style/overview.css"
+import getvxsrf from "../../../service/getvxsrf"
 
 const Overview = () => {
 
@@ -27,12 +28,25 @@ const Overview = () => {
     const [editBank, setEditBank] = useState(false)
     const [loading, setLoading] = useState(false)
 
+    const [vxsrf, setVxsrf] = useState('')
+
     const handle = {
         editBank : () => {
             setEditBank(true)
             const rek_bank = document.getElementById('rek_bank')
             rek_bank.removeAttribute('readonly')
             refnumber.current.focus()
+        }
+    }
+
+    const update = async () => {
+        try {
+            const response = await axios.put(`${endpoint}/update/contributor`, {bank, rekening}, {
+                headers: {'xsrf-token' : vxsrf}
+            })
+            swalert(response.data, 'success', 3000)
+        } catch (error) {
+            error || error.response && swalert(error.response.data, 'info', 3000)
         }
     }
 
@@ -60,7 +74,7 @@ const Overview = () => {
         }
     }
 
-    useEffect(() => { !data && getData(); getYours() }, [])
+    useEffect(() => { !data && getData(); getYours(); getvxsrf().then((result) => setVxsrf(result)) }, [])
     if (loading) return <Loading/>
 
     return (
@@ -107,8 +121,8 @@ const Overview = () => {
                         setEditBank(false)
                         setBank(data.bank_name)
                         setRekening(data.bank_number)
-                    }} className="button-max" style={{boxShadow: 'var(--boxshadow)', height: '35px', fontSize: '0.95rem'}}>Cancel</div>
-                    <div className="button-max" style={{backgroundColor: 'var(--yellow)', height: '35px', boxShadow: 'var(--boxshadow)', fontSize: '0.95rem'}}>Save change</div>
+                    }} className="button-max" style={{borderRadius: '30px',boxShadow: 'var(--boxshadow)', height: '35px', fontSize: '0.95rem'}}>Cancel</div>
+                    <div onClick={() => {update()}} className="button-max" style={{borderRadius: '30px',backgroundColor: 'var(--yellow)', height: '35px', boxShadow: 'var(--boxshadow)', fontSize: '0.95rem'}}>Save change</div>
                 </div>
                 }
                 <div className="itext" style={{marginTop: '50px', textAlign: 'center'}}>Product review</div>
@@ -120,7 +134,7 @@ const Overview = () => {
                         return (
                         <div onClick={() => navigate(`/product/details/${i.vid}`, {state: {...i, status : 'active', prev : location.pathname}})} key={key} className="overview-product-card">
                             <LazyLoadImage src={i.img} style={{height: '100px', width: '150px', objectFit: 'cover', borderRadius: '5px'}}/>
-                            <div style={{color : 'var(--yellow)', fontSize: '0.9rem'}}>{i.paid} paid off</div>
+                            <div style={{color : 'var(--yellow)', fontSize: '0.9rem'}}>{i.paid} downloaded</div>
                         </div>
                         )
                     }): 

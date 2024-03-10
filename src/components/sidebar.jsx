@@ -32,7 +32,7 @@ const Sidebar = () => {
                     {(context.role == 'contributor') && 
                         <NavLink className="sidelist" to="/contributor/overview">
                             <i className="fa-solid fa-chart-line fa-xl"></i>
-                            <div className="sidetext">Overview</div>
+                            <div className="sidetext" style={{marginLeft: '32px'}}>Overview</div>
                         </NavLink>
                     }
                     {(context.role == 'user') && 
