@@ -1,10 +1,11 @@
+import { useContext, useEffect, useRef, useState } from "react"
+import { LazyLoadImage } from "react-lazy-load-image-component"
 import Loading from "../../../utils/loading"
 import Swaload from "../../../utils/swaload"
 import swalert from "../../../utils/swalert"
 import Context from "../../../utils/context"
 import Topback from "../../components/topback"
 import convertPrice from "../../../utils/price"
-import { useContext, useEffect, useRef, useState } from "react"
 import jwt from "jwt-decode"
 import axios from "axios"
 import "../../style/overview.css"
@@ -93,10 +94,17 @@ const Overview = () => {
                         setEditBank(false)
                         setBank(data.bank_name)
                         setRekening(data.bank_number)
-                    }} className="button-max" style={{boxShadow: 'var(--boxshadow)'}}>Cancel</div>
-                    <div className="button-max" style={{backgroundColor: 'var(--yellow)', boxShadow: 'var(--boxshadow)'}}>Save change</div>
+                    }} className="button-max" style={{boxShadow: 'var(--boxshadow)', height: '35px'}}>Cancel</div>
+                    <div className="button-max" style={{backgroundColor: 'var(--yellow)', height: '35px', boxShadow: 'var(--boxshadow)'}}>Save change</div>
                 </div>
                 }
+                <div className="itext" style={{marginTop: '30px', textAlign: 'center'}}>Product review</div>
+                <div className="overview-product" style={{marginTop: '15px'}}>
+                    <div className="overview-product-card">
+                        <LazyLoadImage src="/img/dpi.jpg" style={{height: '160px', width: '250px', objectFit: 'cover', borderRadius: '5px'}}/>
+                        <div>Image</div>
+                    </div>
+                </div>
                 </>
                 }
             </div>

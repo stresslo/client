@@ -19,3 +19,26 @@
     font-weight: bold;
     background-color: var(--background);
 }
+
+.overview-product {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 50vh;
+    overflow: hidden scroll;
+    gap: 5px;
+}
+
+.overview-product.card {
+    width: max-content;
+    height: max-content;
+    background-color: var(--primary);
+    border-radius: 10px;
+    display: flex;
+    box-shadow: var(--boxshadow);
+    font-family: var(--poppins);
+    font-size: 0.9rem;
+    flex-direction: column;
+    gap: 5px;
+    padding: 5px;
+}
