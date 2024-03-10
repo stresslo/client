@@ -41,7 +41,7 @@ const Overview = () => {
 
     const update = async () => {
         try {
-            const response = await axios.put(`${endpoint}/update/contributor`, {bank, rekening}, {
+            const response = await axios.put(`${endpoint}/contributor/update`, {bank, rekening}, {
                 headers: {'xsrf-token' : vxsrf}
             })
             swalert(response.data, 'success', 3000)
