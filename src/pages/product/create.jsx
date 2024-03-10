@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { LazyLoadImage } from "react-lazy-load-image-component"
 import convertPrice from '../../../utils/price'
 import getvxsrf from "../../../service/getvxsrf"
@@ -11,6 +11,7 @@ import axios from "axios"
 import "../../style/create.css"
 
 const Create = () => {
+  const location = useLocation()
   const context = useContext(Context)
   const navigate = useNavigate()
   const fileref = useRef(null)
@@ -82,7 +83,7 @@ const Create = () => {
 
   return (
     <div className='page-max' style={{gap:'30px', paddingBottom: '5px'}}>
-     <Topback/>
+     <Topback location={location.state.prev}/>
       <div className='form'>
         <div className='input-form'>
           <div>

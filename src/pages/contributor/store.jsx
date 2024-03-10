@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { LazyLoadImage } from 'react-lazy-load-image-component' 
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import Swaload from '../../../utils/swaload'
 import Context from '../../../utils/context'
 import Topback from '../../components/topback'
@@ -12,6 +12,7 @@ import axios from "axios"
 
 const Store = () => {
 
+    const location = useLocation()
     const navigate = useNavigate()
     const context = useContext(Context)
     const statusHistory = localStorage.getItem('statusHistory')
@@ -41,7 +42,7 @@ const Store = () => {
 
     return (
         <div className='page-max'>
-            <Topback/>
+            <Topback location={location.state.prev}/>
             <div onClick={() => navigate('/create')} style={{position: 'fixed', bottom: '30px', right: '20px', color: 'var(--yellow)', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '10px', zIndex: '10'}}>
                 <div style={{fontSize: '1rem', fontFamily: 'var(--poppins)'}}>Create</div>
                 <div className='fa-solid fa-circle-plus fa-2xl'/>
