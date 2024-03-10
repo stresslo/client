@@ -101,7 +101,7 @@ const Overview = () => {
                 <div className="itext" style={{marginTop: '50px', textAlign: 'center'}}>Product review</div>
                 <div className="overview-product" style={{marginTop: '15px'}}>
                     <div className="overview-product-card">
-                        <LazyLoadImage src="/img/dpi.jpg" style={{height: '50px', width: '100px', objectFit: 'cover', borderRadius: '5px'}}/>
+                        <LazyLoadImage src="/img/dpi.jpg" style={{height: '100px', width: '150px', objectFit: 'cover', borderRadius: '5px'}}/>
                         <div>Image</div>
                     </div>
                 </div>
