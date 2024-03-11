@@ -71,7 +71,7 @@ const Content = ({data, setData, setCount}) => {
                     }
                     <img id="paimg" src="/img/greet.webp" className="dimasputra" alt="stresslo greeting" />
                     <div className="text-wrapper">
-                    <div>Hi {context.username}!,</div>
+                    <div>Hi {context.username.split(' ')[0]}!,</div>
                     <div>Welcome back.</div>
                     <div className="button contact" onClick={() => context.role == 'contributor' ? navigate('/contributor/overview') : navigate('/profile')}>{context.role == 'user' ? 'Profile' : `Overview`}</div>
                 </div>
