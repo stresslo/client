@@ -84,15 +84,6 @@ const Overview = () => {
         })
     }
 
-    const getYours = async () => {
-        if (!context.token && context.role != 'contributor') return swalert('please login to contributor account!', 'info', 3000)
-        setLoading(true)
-        axios.get(`${endpoint}/products/contributor/${page}`)
-        .then(response => {const decode = jwt(response.data); setProducts(decode.data)})
-        .catch(error => Promise.reject(error) && setProducts([]))
-        .finally(() => setLoading(false))
-    }
-
     const getData = async () => {
         try {
             setLoading(true)
@@ -105,6 +96,7 @@ const Overview = () => {
             setRekening(decode.data.bank_number)
         } catch (error) {
             if (error || error.response) swalert(error.response.data, 'info', 3000)
+            return false;
         } finally {
             setLoading(false)
         }
@@ -206,7 +198,7 @@ const Overview = () => {
                         create product
                     </div>
                 </div>
-                <div className="itext" style={{marginTop: '50px'}}>Withdraw history</div>
+                <div className="itext" style={{marginTop: '50px'}}>Withdraw</div>
                 <div style={{position : 'relative'}}>
                     <div style={{color : 'var(--text)', fontFamily: 'var(--poppins)', fontSize: '0.8rem', position: 'absolute', top: '-5px', right: '5px', cursor: 'pointer' }}>See all</div>
                     <div className="overview-product" style={withdraw.length !== 0 ? {marginTop: '25px', height: 'max-content'} : {marginTop: '25px', height: '150px'}}>
