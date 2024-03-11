@@ -87,7 +87,7 @@ const Overview = () => {
     const getData = async () => {
         try {
             setLoading(true)
-            const response = await axios.get(`${endpoint}/contributor/overview/data`)
+            const response = await axios.get(`${endpoint}/contributor/overview/data/${context.vid}`)
             const decode = jwt(response.data)
             setData(decode.data)
             setBank(decode.data.bank_name)
