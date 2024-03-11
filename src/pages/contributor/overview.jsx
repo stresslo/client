@@ -187,7 +187,7 @@ const Overview = () => {
                             </div>
                             )
                         }): 
-                        <div className="title" style={{fontSize: '0.8rem', margin: 'auto', fontFamily: 'var(--poppins)'}}>You don't have product data yet.</div>}
+                        <div className="title" style={{fontSize: '0.8rem', margin: 'auto', fontFamily: 'var(--quicksand)', textShadow: 'unset'}}>You don't have product data yet.</div>}
                     </div>
                     <div className="overview-product" style={{flexDirection: 'column', marginTop: '10px'}}>
                         <div style={{fontFamily: 'var(--poppins)', color: 'var(--text)', fontSize: '0.9rem'}}>Total product : {data.total_product}</div>
@@ -206,12 +206,12 @@ const Overview = () => {
                         withdraw.map((i, key) => {
                             return (
                             <div key={key} style={{width: '100%', height: 'max-content', backgroundColor: 'var(--primary)', boxShadow: 'var(--boxshadow)', borderRadius: '5px', padding: '10px'}}>
-                                <div style={{color : 'var(--yellow)', fontSize: '1rem', fontFamily: 'var(--poppins)'}}>{i.total}</div>
-                                <div style={{color : 'var(--blue)', fontSize: '0.8rem', fontFamily: 'var(--poppins)'}}>date : {i.date} {i.time}</div>
+                                <div style={{color : 'var(--yellow)', fontSize: '1rem', fontFamily: 'var(--poppins)'}}>{convertPrice(i.total)}</div>
+                                <div style={{color : 'var(--blue)', fontSize: '0.8rem', fontFamily: 'var(--poppins)'}}>{i.date} {i.time}</div>
                             </div>
                             )
                         }): 
-                        <div className="title" style={{fontSize: '0.8rem', margin: 'auto', fontFamily: 'var(--poppins)'}}>No withdrawal history.</div>}
+                        <div className="title" style={{fontSize: '0.8rem', margin: 'auto', fontFamily: 'var(--quicksand)', textShadow: 'unset'}}>No withdrawal history.</div>}
                     </div>
                     <div className="overview-product" style={{flexDirection: 'column', marginTop: '10px'}}>
                         <div style={{fontFamily: 'var(--poppins)', color: 'var(--text)', fontSize: '0.9rem'}}>Total income : {convertPrice(data.total_income)}</div>
