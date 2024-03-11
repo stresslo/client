@@ -140,7 +140,7 @@ const Overview = () => {
                         {(data.status != 'verified' && !data.bank_name || !data.bank_number) &&
                         <div style={{fontSize: '0.8rem', color: 'var(--yellow)', marginTop: '30px'}}>*Please complete your data.</div>
                         }
-                        {(data.status != 'verified') &&
+                        {(data.status != 'verified' && data.bank_name && data.bank_number) &&
                         <div style={{fontSize: '0.8rem', color: 'var(--yellow)', marginTop: '30px'}}>*Your account is being reviewed by our team.</div>
                         }
                         {(data.status == 'verified') &&
