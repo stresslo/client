@@ -21,6 +21,7 @@ const Overview = () => {
     const navigate = useNavigate()
 
     const [page, setPage] = useState(1)
+    const [withdraw, setWithdraw] = useState([])
     const [products, setProducts] = useState([])
     const [data, setData] = useState('')
     
@@ -99,6 +100,8 @@ const Overview = () => {
             const decode = jwt(response.data)
             setData(decode.data)
             setBank(decode.data.bank_name)
+            setProducts(decode.data.product)
+            setWithdraw(decode.data.withdraw)
             setRekening(decode.data.bank_number)
         } catch (error) {
             if (error || error.response) swalert(error.response.data, 'info', 3000)
@@ -107,7 +110,7 @@ const Overview = () => {
         }
     }
 
-    useEffect(() => { !data && getData(); getYours(); getvxsrf().then((result) => setVxsrf(result)) }, [])
+    useEffect(() => { !data && getData(); getvxsrf().then((result) => setVxsrf(result)) }, [])
     if (loading) return <Loading/>
 
     return (
@@ -181,27 +184,47 @@ const Overview = () => {
                 }
                 <div className="itext" style={{marginTop: '50px'}}>Product</div>
                 <div style={{position : 'relative'}}>
-                <div onClick={() => navigate('/contributor/store', {state : {prev: location.pathname}})} style={{color : 'var(--text)', fontFamily: 'var(--poppins)', fontSize: '0.8rem', position: 'absolute', top: '-5px', right: '5px', cursor: 'pointer' }}>See all</div>
-                <div className="overview-product" style={products.length !== 0 ? {marginTop: '25px', height: 'max-content'} : {marginTop: '25px', height: '150px'}}>
-                    {(products.length != 0) ? 
-                    products.map((i, key) => {
-                        return (
-                        <div onClick={() => navigate(`/product/details/${i.vid}`, {state: {...i, status : 'active', prev : location.pathname}})} key={key} className="overview-product-card">
-                            <LazyLoadImage src={i.img} style={{height: '100px', width: '150px', objectFit: 'cover', borderRadius: '5px'}}/>
-                            <div style={{color : 'var(--yellow)', fontSize: '0.9rem', textAlign: 'center'}}>{i.paid}x download</div>
-                        </div>
-                        )
-                    }): 
-                    <div className="title" style={{fontSize: '0.8rem', margin: 'auto', fontFamily: 'var(--quicksand)'}}>you don't have product data yet.</div>}
+                    <div onClick={() => navigate('/contributor/store', {state : {prev: location.pathname}})} style={{color : 'var(--text)', fontFamily: 'var(--poppins)', fontSize: '0.8rem', position: 'absolute', top: '-5px', right: '5px', cursor: 'pointer' }}>See all</div>
+                    <div className="overview-product" style={products.length !== 0 ? {marginTop: '25px', height: 'max-content'} : {marginTop: '25px', height: '150px'}}>
+                        {(products.length != 0) ? 
+                        products.map((i, key) => {
+                            return (
+                            <div onClick={() => navigate(`/product/details/${i.vid}`, {state: {...i, status : 'active', prev : location.pathname}})} key={key} className="overview-product-card">
+                                <LazyLoadImage src={i.img} style={{height: '100px', width: '150px', objectFit: 'cover', borderRadius: '5px'}}/>
+                                <div style={{color : 'var(--yellow)', fontSize: '0.9rem', textAlign: 'center'}}>{i.paid}x download</div>
+                            </div>
+                            )
+                        }): 
+                        <div className="title" style={{fontSize: '0.8rem', margin: 'auto', fontFamily: 'var(--quicksand)'}}>You don't have product data yet.</div>}
+                    </div>
+                    <div className="overview-product" style={{flexDirection: 'column', marginTop: '10px'}}>
+                        <div style={{fontFamily: 'var(--poppins)', color: 'var(--text)', fontSize: '0.9rem'}}>Total product : {data.total_product}</div>
+                        <div style={{fontFamily: 'var(--poppins)', color: 'var(--text)', fontSize: '0.9rem'}}>Total downloaded : {data.total_paid}</div>
+                    </div>
+                    <div onClick={() => navigate('/create', { state : {prev : location.pathname} })} className="button-max" style={{marginTop: '20px', backgroundColor: 'var(--yellow)', boxShadow: 'var(--boxshadow)'}}>
+                        <div className="fa-solid fa-circle-plus fa-xl" style={{color: 'var(--background)'}}/>
+                        create product
+                    </div>
                 </div>
-                <div className="overview-product" style={{flexDirection: 'column', marginTop: '10px'}}>
-                    <div style={{fontFamily: 'var(--poppins)', color: 'var(--text)', fontSize: '0.9rem'}}>Total product : {data.total_product}</div>
-                    <div style={{fontFamily: 'var(--poppins)', color: 'var(--text)', fontSize: '0.9rem'}}>Total downloaded : {data.total_paid}</div>
-                </div>
-                <div onClick={() => navigate('/create', { state : {prev : location.pathname} })} className="button-max" style={{marginTop: '20px', backgroundColor: 'var(--yellow)', boxShadow: 'var(--boxshadow)'}}>
-                    <div className="fa-solid fa-circle-plus fa-xl" style={{color: 'var(--background)'}}/>
-                    create product
-                </div>
+                <div className="itext" style={{marginTop: '50px'}}>Withdraw history</div>
+                <div style={{position : 'relative'}}>
+                    <div style={{color : 'var(--text)', fontFamily: 'var(--poppins)', fontSize: '0.8rem', position: 'absolute', top: '-5px', right: '5px', cursor: 'pointer' }}>See all</div>
+                    <div className="overview-product" style={products.length !== 0 ? {marginTop: '25px', height: 'max-content'} : {marginTop: '25px', height: '150px'}}>
+                        {(withdraw.length != 0) ? 
+                        withdraw.map((i, key) => {
+                            return (
+                            <div key={key} className="overview-product-card" style={{flexDirection: 'column'}}>
+                                <LazyLoadImage src={i.img} style={{height: '100px', width: '150px', objectFit: 'cover', borderRadius: '5px'}}/>
+                                <div style={{color : 'var(--yellow)', fontSize: '0.9rem', textAlign: 'center'}}>{i.paid}x download</div>
+                            </div>
+                            )
+                        }): 
+                        <div className="title" style={{fontSize: '0.8rem', margin: 'auto', fontFamily: 'var(--quicksand)'}}>No withdrawal history.</div>}
+                    </div>
+                    <div className="overview-product" style={{flexDirection: 'column', marginTop: '10px'}}>
+                        <div style={{fontFamily: 'var(--poppins)', color: 'var(--text)', fontSize: '0.9rem'}}>Total income : {convertPrice(data.total_income)}</div>
+                        <div style={{fontFamily: 'var(--poppins)', color: 'var(--text)', fontSize: '0.9rem'}}>Current balance : {convertPrice(data.amount)}</div>
+                    </div>
                 </div>
                 </>
                 }
