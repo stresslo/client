@@ -93,7 +93,6 @@ i.active {
     font-family: var(--poppins);
     color: var(--text);
     font-size: 1.6rem;
-    text-shadow: 5px 5px 7px var(--background);
     font-weight: bold;
 }
 
@@ -101,14 +100,12 @@ i.active {
     font-family: var(--caveat);
     color: var(--text);
     font-size: 1.1rem;
-    text-shadow: 5px 5px 7px var(--background);
 }
 
 .itext {
     font-family: var(--poppins);
     color: var(--text);
     font-size: 1.3rem;
-    text-shadow: 5px 5px 7px var(--background);
 }
 
 .alertext {

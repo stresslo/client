@@ -1,16 +1,22 @@
 import { LazyLoadImage } from "react-lazy-load-image-component"
 import { useNavigate } from "react-router-dom"
 import { useContext } from "react"
+import { useEffect } from "react"
+import { useState } from "react"
 import stresslo from "../../data/stresslo"
 import products from "../../data/product"
 import swalert from "../../utils/swalert"
 import Context from "../../utils/context"
 import about from "../../data/about"
 import axios from "axios"
+import jwt from "jwt-decode"
 import "../style/content.css"
 
 const Content = ({data, setData, setCount}) => {
 
+    const [loading, setLoading] = useState(false)
+    const [page, setPage] = useState(1)
+    const [data, setData] = useState([])
     const path = location.pathname
     const navigate = useNavigate()
     const context = useContext(Context)
@@ -33,6 +39,16 @@ const Content = ({data, setData, setCount}) => {
             context.setLoading(false)
         }
     }
+
+    useEffect(() => {
+        if (path == '/products') {
+            setLoading(true)
+            axios.get(`${import.meta.env.VITE_API}/products/overview/${page}`)
+            .then((response) => { const decode = jwt(response.data); setData(decode) })
+            .catch((error) => { return Promise.reject(error) })
+            .finally(() => setLoading(false))
+        }
+    }, [])
 
     return (
         <div className="content">
@@ -125,14 +141,6 @@ const Content = ({data, setData, setCount}) => {
                         )}
                     </div>)
             }))}
-            {/* <div className="developer">
-                <img src="/img/dimasputra.png" alt="" className="dimasputra"/> 
-                <div className="text-wrapper">
-                <div>Vixcera Developer</div>
-                <div>Dimas Putra Utama</div>
-                <div className="button contact" onClick={() => navigate('/dashboard')}>Contact</div>
-                </div>
-            </div> */}
             </div>
             }
             {(path == '/products') && 
@@ -145,6 +153,97 @@ const Content = ({data, setData, setCount}) => {
                 <div className="button contact">Upcoming</div>
                 </div>
                 </div>
+                {(data) && 
+                <div className='product-page' style={{padding : '0px', marginTop: '0px'}}>
+                <div className='product-container' style={{flexDirection: 'column', marginTop: '0'}}>
+                    <div className='product-card' style={{height: 'max-content', padding: '0', backgroundColor: 'unset', boxShadow: 'unset'}}>
+                    <div id='control' className='form' style={{margin: 'auto'}}>
+                    <div style={{width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '15px'}}>
+                        <div style={{display: 'flex', alignItems: 'center', gap: '5px'}}>
+                            <div onClick={() => navigate('/')} className='button' style={{width: '50px', height: '40px', backgroundColor: 'var(--primary)', color: 'var(--text)'}}>
+                                <div className='fa-solid fa-home fa-lg' />
+                            </div>
+                            <div className='button' style={filterHistory ? {height: '40px', backgroundColor: 'var(--primary)', color: 'var(--yellow)', width: '50px'} : {height: '40px', backgroundColor: 'var(--primary)', color: 'var(--text)', width: '50px'}} onClick={() => {
+                                const boxfilter = document.querySelector('.filter-box')
+                                boxfilter.classList.contains('show') ? boxfilter.classList.remove('show') : boxfilter.classList.add('show')
+                            }}>
+                            <div className='fa-solid fa-list-check fa-lg' />
+                            </div>
+                            {(filterHistory) && (
+                                <div onClick={() => { setUpdate(true);localStorage.removeItem('historyPageProduct');localStorage.removeItem('filterHistory');location.reload()}} className='fa-solid fa-trash fa-lg' style={{color: 'var(--yellow)', cursor: 'pointer'}}/>
+                            )}
+                        </div>
+                        <div className='button' onClick={() => {search.show(); page !== 1 && setPage(1); inputref.current.focus()}} style={{backgroundColor: 'var(--primary)', height: '40px', width: '130px'}}>
+                            <div className='fa-solid fa-search fa-lg' style={{color: 'var(--text)'}}/>
+                            <div style={{color: 'var(--text)', fontSize: '1rem', fontFamily: 'var(--quicksand)'}}>Search</div>
+                        </div>
+                    </div>
+                    </div>
+                    <form onSubmit={(e) => { searchProduct(e) }} id='find' className='form' style={{margin: 'auto', display: 'none'}}>
+                        <div style={{width: '100%', display: 'flex', alignItems: 'center', position: 'relative', gap: '5px'}}>
+                            <input value={value} ref={inputref} type="text" onChange={(e) => setValue(e.target.value)} placeholder='find product' className='search' style={{width: '100%', backgroundColor: 'unset', boxShadow: 'unset', borderRadius: '0', borderBottom: '1px solid #aaa'}}/>
+                            <div onClick={() => {localStorage.removeItem('search'); page !== 1 && setPage(1); search.hide()}} className='button' style={{width: '70px', height: '45px', backgroundColor: 'var(--primary)'}}>
+                                <div className='fa-solid fa-circle-xmark fa-lg' style={{color: 'var(--text)'}}/>
+                            </div>
+                        </div>
+                    </form>
+                    </div>
+                    {(loading) ? (
+                    <Swaload.Product/>
+                    ) : (
+                        data.map((i, index) => {
+                            return(
+                                <div className='product-card' key={index} onClick={() => navigate(`/product/details/${i.vid}`, {state: i})}>
+                                    <LazyLoadImage className='product-img' src={(i.img) || ('img/img404.jpg')} loading='lazy' alt={`stresslo ${ctg} products`} effect='blur'/>
+                                    <div className='wrapped-text'>
+                                        <div className='product-title'>{i.title}</div>
+                                        <div style={{ display: 'flex', flexWrap : 'wrap', flexDirection : 'column'}}>
+                                            <div className='product-desc'>{i.desc.length >= 35 ? i.desc.substring(0,35) + '...' : i.desc}</div>
+                                            <div className='wrapdet' style={{ position: 'unset', marginTop: '15px', marginLeft: '5px', gap: '5px' }}>
+                                                <div style={{ backgroundColor: 'var(--background)', width: '95px', height: '30px' }}>{i.tech.split(' ')[0]}</div>
+                                                {(i.price == 0) ? 
+                                                <div style={{ backgroundColor: 'var(--background)', width: '95px', height: '30px', color: 'var(--blue)'}}>Free</div>
+                                                : 
+                                                <div style={{ backgroundColor: 'var(--background)', width: '95px', height: '30px'}}>Paid</div>
+                                                }
+                                             </div>
+                                        </div>
+                                        <div className='wrapped-details'>
+                                            <div className='button price'>{convertPrice(i.price)}</div>
+                                            <div style={{ color : 'var(--text)', cursor: 'pointer'}} className='fa-solid fa-cart-plus fa-xl' />
+                                        </div>
+                                    </div>
+                                </div>
+                            )
+                        })
+                    )}
+                </div>
+                {(data.length >= 10) ? 
+                    <div style={{ display: 'flex', gap: '20px', marginTop: '50px', alignItems: 'center', justifyContent: 'center' }}>
+                        {(page !== 1) && <div className='button' onClick={() => setPage(page -1)} style={{borderRadius: '10px', height : '35px', backgroundColor: 'var(--primary)', color: 'var(--blue)'}}>
+                            <h3 style={{fontFamily: 'var(--quicksand)', fontSize: '1.2rem', color: 'var(--blue)'}}>{page -1}</h3>
+                            <div className='fa-solid fa-left-long fa-xl'/>
+                        </div>}
+                        {(page !== 1) && <h3 style={{fontFamily: 'var(--quicksand)', fontSize: '1.2rem', color: 'var(--blue)', margin: '0 10px'}}>{page}</h3>}
+                        <div className='button' onClick={() => setPage(page +1)} style={{borderRadius: '10px', height : '35px', backgroundColor: 'var(--primary)', color: 'var(--blue)'}}>
+                            <div className='fa-solid fa-right-long fa-xl'/>
+                            <h3 style={{fontFamily: 'var(--quicksand)', fontSize: '1.2rem', color: 'var(--blue)'}}>{page +1}</h3>
+                        </div>
+                    </div>
+                :
+                <div style={{ display: 'flex', gap: '20px', marginTop: '45px', alignItems: 'center', justifyContent: 'center' }}>
+                        {(page === 1) ? 
+                        <div className='desc' style={{fontFamily: 'var(--quicksand)',fontSize: '0.85rem', color: 'var(--text)'}}>{message ? message : '- already displays all products -'}</div>
+                        :
+                        <div className='button' onClick={() => setPage(page -1)} style={{borderRadius: '10px', height : '35px', backgroundColor: 'var(--primary)', color: 'var(--blue)'}}>
+                            <h3 style={{fontFamily: 'var(--quicksand)', fontSize: '1.2rem', color: 'var(--blue)'}}>{page -1}</h3>
+                            <div className='fa-solid fa-left-long fa-xl'/>
+                        </div>
+                        }
+                    </div>
+                }
+            </div>
+                }
                 {(products.map((i,k) => {
                     return(
                         <div className="service" style={{paddingTop: "40px"}} key={k}>
