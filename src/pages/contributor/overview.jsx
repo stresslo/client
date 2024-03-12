@@ -206,7 +206,7 @@ const Overview = () => {
                 <div className="itext" style={{marginTop: '50px'}}>Withdraw history</div>
                 <div style={{position : 'relative'}}>
                     <div style={{color : 'var(--text)', fontFamily: 'var(--poppins)', fontSize: '0.8rem', position: 'absolute', top: '-5px', right: '5px', cursor: 'pointer' }}>See all</div>
-                    <div className="overview-product" style={withdraw.length !== 0 ? {marginTop: '25px', height: '200px', overflow: 'hidden scroll'} : {marginTop: '25px', height: '200px'}}>
+                    <div className="overview-product" style={withdraw.length !== 0 ? {marginTop: '25px', height: '200px', overflow: 'hidden scroll', flexDirection: 'column', flexWrap: 'unset'} : {marginTop: '25px', height: '200px'}}>
                         {(withdraw.length != 0) ? 
                         withdraw.map((i, key) => {
                             return (
