@@ -187,7 +187,7 @@ const Content = ({data, setData, setCount}) => {
                         })
                     )}
                 </div>
-                {(data.length >= 10) ? 
+                {(dataProduct.length >= 10) ? 
                     <div style={{ display: 'flex', gap: '20px', marginTop: '50px', alignItems: 'center', justifyContent: 'center' }}>
                         {(page !== 1) && <div className='button' onClick={() => setPage(page -1)} style={{borderRadius: '10px', height : '35px', backgroundColor: 'var(--primary)', color: 'var(--blue)'}}>
                             <h3 style={{fontFamily: 'var(--quicksand)', fontSize: '1.2rem', color: 'var(--blue)'}}>{page -1}</h3>
