@@ -46,7 +46,7 @@ const Content = ({data, setData, setCount}) => {
         if (path == '/products') {
             setLoading(true)
             axios.get(`${import.meta.env.VITE_API}/products/overview/${page}`)
-            .then((response) => { const decode = jwt(response.data); setDataProduct(decode) })
+            .then((response) => { const decode = jwt(response.data); setDataProduct(decode.data) })
             .catch((error) => { return Promise.reject(error) })
             .finally(() => setLoading(false))
         }
@@ -164,7 +164,7 @@ const Content = ({data, setData, setCount}) => {
                         dataProduct.map((i, index) => {
                             return(
                                 <div className='product-card' key={index} onClick={() => navigate(`/product/details/${i.vid}`, {state: i})}>
-                                    <LazyLoadImage className='product-img' src={(i.img) || ('img/img404.jpg')} loading='lazy' alt={`stresslo ${ctg} products`} effect='blur'/>
+                                    <LazyLoadImage className='product-img' src={(i.img) || ('img/img404.jpg')} loading='lazy' alt={`stresslo ${i.ctg} products`} effect='blur'/>
                                     <div className='wrapped-text'>
                                         <div className='product-title'>{i.title}</div>
                                         <div style={{ display: 'flex', flexWrap : 'wrap', flexDirection : 'column'}}>
