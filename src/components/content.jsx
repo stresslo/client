@@ -156,38 +156,6 @@ const Content = ({data, setData, setCount}) => {
                 {(dataProduct) && 
                 <div className='product-page' style={{padding : '0px', marginTop: '0px'}}>
                 <div className='product-container' style={{flexDirection: 'column', marginTop: '0'}}>
-                    <div className='product-card' style={{height: 'max-content', padding: '0', backgroundColor: 'unset', boxShadow: 'unset'}}>
-                    <div id='control' className='form' style={{margin: 'auto'}}>
-                    <div style={{width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '15px'}}>
-                        <div style={{display: 'flex', alignItems: 'center', gap: '5px'}}>
-                            <div onClick={() => navigate('/')} className='button' style={{width: '50px', height: '40px', backgroundColor: 'var(--primary)', color: 'var(--text)'}}>
-                                <div className='fa-solid fa-home fa-lg' />
-                            </div>
-                            <div className='button' style={filterHistory ? {height: '40px', backgroundColor: 'var(--primary)', color: 'var(--yellow)', width: '50px'} : {height: '40px', backgroundColor: 'var(--primary)', color: 'var(--text)', width: '50px'}} onClick={() => {
-                                const boxfilter = document.querySelector('.filter-box')
-                                boxfilter.classList.contains('show') ? boxfilter.classList.remove('show') : boxfilter.classList.add('show')
-                            }}>
-                            <div className='fa-solid fa-list-check fa-lg' />
-                            </div>
-                            {(filterHistory) && (
-                                <div onClick={() => { setUpdate(true);localStorage.removeItem('historyPageProduct');localStorage.removeItem('filterHistory');location.reload()}} className='fa-solid fa-trash fa-lg' style={{color: 'var(--yellow)', cursor: 'pointer'}}/>
-                            )}
-                        </div>
-                        <div className='button' onClick={() => {search.show(); page !== 1 && setPage(1); inputref.current.focus()}} style={{backgroundColor: 'var(--primary)', height: '40px', width: '130px'}}>
-                            <div className='fa-solid fa-search fa-lg' style={{color: 'var(--text)'}}/>
-                            <div style={{color: 'var(--text)', fontSize: '1rem', fontFamily: 'var(--quicksand)'}}>Search</div>
-                        </div>
-                    </div>
-                    </div>
-                    <form onSubmit={(e) => { searchProduct(e) }} id='find' className='form' style={{margin: 'auto', display: 'none'}}>
-                        <div style={{width: '100%', display: 'flex', alignItems: 'center', position: 'relative', gap: '5px'}}>
-                            <input value={value} ref={inputref} type="text" onChange={(e) => setValue(e.target.value)} placeholder='find product' className='search' style={{width: '100%', backgroundColor: 'unset', boxShadow: 'unset', borderRadius: '0', borderBottom: '1px solid #aaa'}}/>
-                            <div onClick={() => {localStorage.removeItem('search'); page !== 1 && setPage(1); search.hide()}} className='button' style={{width: '70px', height: '45px', backgroundColor: 'var(--primary)'}}>
-                                <div className='fa-solid fa-circle-xmark fa-lg' style={{color: 'var(--text)'}}/>
-                            </div>
-                        </div>
-                    </form>
-                    </div>
                     {(loading) ? (
                     <Swaload.Product/>
                     ) : (
