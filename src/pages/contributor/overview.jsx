@@ -96,8 +96,7 @@ const Overview = () => {
             setWithdraw(decode.data.withdraw)
             setRekening(decode.data.bank_number)
         } catch (error) {
-            if (error || error.response) swalert(error.response.data, 'info', 3000)
-            return false;
+            return Promise.reject(error)
         } finally {
             setLoading(false)
         }
