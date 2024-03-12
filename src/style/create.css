@@ -8,6 +8,8 @@
     cursor: pointer;
     display: flex;
     flex-direction: column;
+    border: 1px solid #aaa;
+    border-style: dashed;
     gap: 10px;
 }
 
