@@ -195,8 +195,8 @@ const Overview = () => {
                         <div className="title" style={{fontSize: '0.8rem', margin: 'auto', fontFamily: 'var(--quicksand)', textShadow: 'unset'}}>You don't have product data yet.</div>}
                     </div>
                     <div className="overview-product" style={{flexDirection: 'column', marginTop: '10px'}}>
-                        <div style={{fontFamily: 'var(--poppins)', color: 'var(--text)', fontSize: '0.9rem'}}>Total product : {data.total_product}</div>
-                        <div style={{fontFamily: 'var(--poppins)', color: 'var(--text)', fontSize: '0.9rem'}}>Total downloaded : {data.total_paid}</div>
+                        <div style={{fontFamily: 'var(--poppins)', color: 'var(--text)', fontSize: '0.9rem'}}><span>Total product : </span> {data.total_product}</div>
+                        <div style={{fontFamily: 'var(--poppins)', color: 'var(--text)', fontSize: '0.9rem'}}><span>Total downloaded : </span> {data.total_paid}</div>
                     </div>
                     <div onClick={() => navigate('/create', { state : {prev : location.pathname} })} className="button-max" style={{marginTop: '20px', backgroundColor: 'var(--yellow)', boxShadow: 'var(--boxshadow)'}}>
                         <div className="fa-solid fa-circle-plus fa-xl" style={{color: 'var(--background)'}}/>
@@ -206,11 +206,7 @@ const Overview = () => {
                 <div className="itext" style={{marginTop: '50px'}}>Withdraw history</div>
                 <div style={{position : 'relative'}}>
                     <div style={{color : 'var(--text)', fontFamily: 'var(--poppins)', fontSize: '0.8rem', position: 'absolute', top: '-5px', right: '5px', cursor: 'pointer' }}>See all</div>
-                    <div className="overview-product" style={{flexDirection: 'column', marginTop: '25px'}}>
-                        <div style={{fontFamily: 'var(--poppins)', color: 'var(--text)', fontSize: '0.9rem'}}> <span>Total income : </span> {convertPrice(data.total_income)}</div>
-                        <div style={{fontFamily: 'var(--poppins)', color: 'var(--text)', fontSize: '0.9rem'}}> <span>Current balance : </span> {convertPrice(data.amount)}</div>
-                    </div>
-                    <div className="overview-product" style={withdraw.length !== 0 ? {marginTop: '10px', height: '200px', overflow: 'hidden scroll', flexDirection: 'column', flexWrap: 'unset', gap: '10px', padding: '10px 20px'} : {marginTop: '25px', height: '200px'}}>
+                    <div className="overview-product" style={withdraw.length !== 0 ? {marginTop: '25px', height: '200px', overflow: 'hidden scroll', flexDirection: 'column', flexWrap: 'unset', gap: '10px', padding: '10px 20px'} : {marginTop: '25px', height: '200px'}}>
                         {(withdraw.length != 0) ? 
                         withdraw.map((i, key) => {
                             return (
@@ -222,6 +218,10 @@ const Overview = () => {
                             )
                         }): 
                         <div className="title" style={{fontSize: '0.8rem', margin: 'auto', fontFamily: 'var(--quicksand)', textShadow: 'unset'}}>No withdrawal history.</div>}
+                    </div>
+                    <div className="overview-product" style={{flexDirection: 'column', marginTop: '10px'}}>
+                        <div style={{fontFamily: 'var(--poppins)', color: 'var(--text)', fontSize: '0.9rem'}}> <span>Total income : </span> {convertPrice(data.total_income)}</div>
+                        <div style={{fontFamily: 'var(--poppins)', color: 'var(--text)', fontSize: '0.9rem'}}> <span>Current balance : </span> {convertPrice(data.amount)}</div>
                     </div>
                 </div>
                 </>
