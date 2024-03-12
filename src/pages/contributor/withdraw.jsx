@@ -38,17 +38,17 @@ const Withdraw = () => {
 
     if (state.withdraw_status == 'requested' || state.amount < 50000) {
         return (
-            <div className="page" style={{flexDirection: 'column', gap: '20px'}}>
+            <div className="page" style={{flexDirection: 'column', gap: '20px', textAlign: 'center'}}>
                 <Topback location={-1}/>
                 <LazyLoadImage src="/img/withdraw.png" style={{width: '180px'}}/>
                 {(state.withdraw_status == 'requested') && 
-                <div style={{marginTop: '30px'}}>
+                <div style={{marginTop: '30px', lineHeight: '35px'}}>
                     <div style={{fontFamily: 'var(--poppins)', fontSize: '1.2rem', color: 'var(--blue)'}}>You have made a request</div>
                     <div style={{fontFamily: 'var(--poppins)', fontSize: '0.9rem', color: 'var(--text)'}}>Your request will be processed within 1 - 3 days</div>
                 </div>
                 }
                 {(state.amount < 50000) && 
-                <div style={{marginTop: '30px'}}>
+                <div style={{marginTop: '30px', lineHeight: '35px'}}>
                     <div style={{fontFamily: 'var(--poppins)', fontSize: '1.2rem', color: 'var(--blue)'}}>Your balance hasn't reached Rp 50.000,-</div>
                     <div style={{fontFamily: 'var(--poppins)', fontSize: '0.9rem', color: 'var(--text)'}}>Let's increase your selling</div>
                 </div>
