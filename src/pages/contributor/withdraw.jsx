@@ -33,7 +33,7 @@ const Withdraw = () => {
     useEffect(() => getvxsrf().then((result) => setVxsrf(result)), [])
 
     return (
-        <div className="page-max" style={{alignItems: 'center'}}>
+        <div className="page-max" style={{alignItems: 'center', flexDirection: 'column'}}>
             <Topback location={-1}/>
             <LazyLoadImage src="/img/withdraw.png" style={{width: '250px', marginTop: '70px'}}/>
             <div className="form" style={{marginTop: '20px', flexDirection: 'column'}}>
