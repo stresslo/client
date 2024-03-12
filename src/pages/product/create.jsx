@@ -100,7 +100,7 @@ const Create = () => {
           <div>
               <div>Category :</div>
               <select style={{width: '100%', textAlign: 'center'}} value={ctg} onChange={(e) => setCtg(e.target.value)} required>
-                <option value="" disabled hidden></option>
+                <option value="">-- SELECT CATEGORY --</option>
                 <option value="Web">Web</option>
                 <option value="3D">3D</option>
                 <option value="Motion">Motion</option>
@@ -112,7 +112,7 @@ const Create = () => {
             <div>
                 <div>Framework :</div>
                 <select style={{width: '100%'}} value={tech} onChange={(e) => setTech(e.target.value)} required>
-                  <option value=""></option>
+                  <option value="">-- SELECT FRAMEWORK --</option>
                   <option value="html & css">HTML & CSS</option>
                   <option value="Angular">Angular JS</option>
                   <option value="Svelte">Svelte JS</option>
