@@ -50,7 +50,7 @@ const Content = ({data, setData, setCount}) => {
             .catch((error) => { return Promise.reject(error) })
             .finally(() => setLoading(false))
         }
-    }, [])
+    }, [path])
 
     return (
         <div className="content">
@@ -156,14 +156,14 @@ const Content = ({data, setData, setCount}) => {
                 </div>
                 </div>
                 {(dataProduct) && 
-                <div className='product-page' style={{padding : '0px', marginTop: '0px'}}>
-                <div className='product-container' style={{flexDirection: 'column', marginTop: '0'}}>
+                <div className='product-page' style={{padding : '0px', marginTop: '40px'}}>
+                <div className='product-container' style={{flexDirection: 'unset', marginTop: '0', flexWrap: 'wrap'}}>
                     {(loading) ? (
                     <Swaload.Product/>
                     ) : (
                         dataProduct.map((i, index) => {
                             return(
-                                <div className='product-card' key={index} onClick={() => navigate(`/product/details/${i.vid}`, {state: i})}>
+                                <div style={{scale: '0.5'}} className='product-card' key={index} onClick={() => navigate(`/product/details/${i.vid}`, {state: i})}>
                                     <LazyLoadImage className='product-img' src={(i.img) || ('img/img404.jpg')} loading='lazy' alt={`stresslo ${i.ctg} products`} effect='blur'/>
                                     <div className='wrapped-text'>
                                         <div className='product-title'>{i.title}</div>
