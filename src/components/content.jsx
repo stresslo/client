@@ -16,7 +16,7 @@ const Content = ({data, setData, setCount}) => {
 
     const [loading, setLoading] = useState(false)
     const [page, setPage] = useState(1)
-    const [data, setData] = useState([])
+    const [dataProduct, setDataProduct] = useState([])
     const path = location.pathname
     const navigate = useNavigate()
     const context = useContext(Context)
@@ -44,7 +44,7 @@ const Content = ({data, setData, setCount}) => {
         if (path == '/products') {
             setLoading(true)
             axios.get(`${import.meta.env.VITE_API}/products/overview/${page}`)
-            .then((response) => { const decode = jwt(response.data); setData(decode) })
+            .then((response) => { const decode = jwt(response.data); setDataProduct(decode) })
             .catch((error) => { return Promise.reject(error) })
             .finally(() => setLoading(false))
         }
@@ -153,7 +153,7 @@ const Content = ({data, setData, setCount}) => {
                 <div className="button contact">Upcoming</div>
                 </div>
                 </div>
-                {(data) && 
+                {(dataProduct) && 
                 <div className='product-page' style={{padding : '0px', marginTop: '0px'}}>
                 <div className='product-container' style={{flexDirection: 'column', marginTop: '0'}}>
                     <div className='product-card' style={{height: 'max-content', padding: '0', backgroundColor: 'unset', boxShadow: 'unset'}}>
@@ -191,7 +191,7 @@ const Content = ({data, setData, setCount}) => {
                     {(loading) ? (
                     <Swaload.Product/>
                     ) : (
-                        data.map((i, index) => {
+                        dataProduct.map((i, index) => {
                             return(
                                 <div className='product-card' key={index} onClick={() => navigate(`/product/details/${i.vid}`, {state: i})}>
                                     <LazyLoadImage className='product-img' src={(i.img) || ('img/img404.jpg')} loading='lazy' alt={`stresslo ${ctg} products`} effect='blur'/>
