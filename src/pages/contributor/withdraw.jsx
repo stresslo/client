@@ -4,6 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom"
 import Topback from "../../components/topback"
 import axios from "axios"
 import getvxsrf from "../../../service/getvxsrf"
+import Loading from "../../../utils/loading"
 import swalert from "../../../utils/swalert"
 
 const Withdraw = () => {
@@ -12,6 +13,7 @@ const Withdraw = () => {
     const navigate = useNavigate()
     const location = useLocation()
 
+    const [loading, setLoading] = useState(false)
     const [state, setState] = useState(location.state)
     const [vxsrf, setVxsrf] = useState('')
     const [amount, setAmount] = useState('')
@@ -20,13 +22,15 @@ const Withdraw = () => {
 
     const request = () => {
         if (amount && password && confirmPassword) {
+            setLoading(true)
             axios.post(`${import.meta.env.VITE_API}/contributor/withdraw/request`,
                 {password, confirmPassword, amount : parseInt(amount)},
                 {headers: { 'xsrf-token' : vxsrf }}
             )
             .then((response) => swalert(response.data, 'success', 3000))
             .then((res) => res.dismiss && navigate('/contributor/overview'))
-            .catch((error) => { return Promise.reject(error) })
+            .catch((error) => { return swalert(error.response.data, 'info', 3000) })
+            .finally(() => setLoading(false))
         }   else {swalert('please complete your data', 'info', 3000)}
     }
 
@@ -35,6 +39,8 @@ const Withdraw = () => {
             getvxsrf().then((result) => setVxsrf(result))
         }
     }, [])
+
+    if (loading) return <Loading/>
 
     if (state.withdraw_status == 'requested' || state.amount < 50000) {
         return (
