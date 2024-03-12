@@ -174,7 +174,7 @@ const Overview = () => {
                     <div onClick={() => {update()}} className="button-max" style={{borderRadius: '30px',backgroundColor: 'var(--yellow)', height: '35px', boxShadow: 'var(--boxshadow)', fontSize: '0.8rem'}}>Update</div>
                 </div>
                 }
-                <div className="itext" style={{marginTop: '50px'}}>Top Product</div>
+                <div className="itext" style={{marginTop: '50px'}}>Product</div>
                 <div style={{position : 'relative'}}>
                     <div onClick={() => navigate('/contributor/store', {state : {prev: location.pathname}})} style={{color : 'var(--text)', fontFamily: 'var(--poppins)', fontSize: '0.8rem', position: 'absolute', top: '-5px', right: '5px', cursor: 'pointer' }}>See all</div>
                     <div className="overview-product" style={products.length !== 0 ? {marginTop: '25px', height: 'max-content'} : {marginTop: '25px', height: '150px'}}>
@@ -198,7 +198,7 @@ const Overview = () => {
                         create product
                     </div>
                 </div>
-                <div className="itext" style={{marginTop: '50px'}}>Withdraw</div>
+                <div className="itext" style={{marginTop: '50px'}}>Activity</div>
                 <div style={{position : 'relative'}}>
                     <div style={{color : 'var(--text)', fontFamily: 'var(--poppins)', fontSize: '0.8rem', position: 'absolute', top: '-5px', right: '5px', cursor: 'pointer' }}>See all</div>
                     <div className="overview-product" style={withdraw.length !== 0 ? {marginTop: '25px', height: '200px', overflow: 'hidden scroll'} : {marginTop: '25px', height: '200px'}}>
