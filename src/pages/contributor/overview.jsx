@@ -206,22 +206,22 @@ const Overview = () => {
                 <div className="itext" style={{marginTop: '50px'}}>Withdraw history</div>
                 <div style={{position : 'relative'}}>
                     <div style={{color : 'var(--text)', fontFamily: 'var(--poppins)', fontSize: '0.8rem', position: 'absolute', top: '-5px', right: '5px', cursor: 'pointer' }}>See all</div>
-                    <div className="overview-product" style={withdraw.length !== 0 ? {marginTop: '25px', height: '200px', overflow: 'hidden scroll', flexDirection: 'column', flexWrap: 'unset', gap: '20px', padding: '10px 20px'} : {marginTop: '25px', height: '200px'}}>
+                    <div className="overview-product" style={{flexDirection: 'column', marginTop: '25px'}}>
+                        <div style={{fontFamily: 'var(--poppins)', color: 'var(--text)', fontSize: '0.9rem'}}> <span>Total income : </span> {convertPrice(data.total_income)}</div>
+                        <div style={{fontFamily: 'var(--poppins)', color: 'var(--text)', fontSize: '0.9rem'}}> <span>Current balance : </span> {convertPrice(data.amount)}</div>
+                    </div>
+                    <div className="overview-product" style={withdraw.length !== 0 ? {marginTop: '10px', height: '200px', overflow: 'hidden scroll', flexDirection: 'column', flexWrap: 'unset', gap: '10px', padding: '10px 20px'} : {marginTop: '25px', height: '200px'}}>
                         {(withdraw.length != 0) ? 
                         withdraw.map((i, key) => {
                             return (
                             <div key={key} style={{width: '100%', height: 'max-content', backgroundColor: 'var(--primary)', boxShadow: 'var(--boxshadow)', borderRadius: '5px', padding: '10px', boxSizing: 'border-box'}}>
-                                <div className="overview-status" style={{color: 'var(--green)', marginBottom: '15px'}}>success</div>
+                                <div className="overview-status" style={{color: 'var(--green)', marginBottom: '15px', width: 'max-content'}}>success</div>
                                 <div style={{color : 'var(--yellow)', fontSize: '1rem', fontFamily: 'var(--poppins)'}}>{convertPrice(i.total)}</div>
                                 <div style={{color : 'var(--blue)', fontSize: '0.8rem', fontFamily: 'var(--poppins)'}}>{i.date} {i.time}</div>
                             </div>
                             )
                         }): 
                         <div className="title" style={{fontSize: '0.8rem', margin: 'auto', fontFamily: 'var(--quicksand)', textShadow: 'unset'}}>No withdrawal history.</div>}
-                    </div>
-                    <div className="overview-product" style={{flexDirection: 'column', marginTop: '10px'}}>
-                        <div style={{fontFamily: 'var(--poppins)', color: 'var(--text)', fontSize: '0.9rem'}}>Total income : {convertPrice(data.total_income)}</div>
-                        <div style={{fontFamily: 'var(--poppins)', color: 'var(--text)', fontSize: '0.9rem'}}>Current balance : {convertPrice(data.amount)}</div>
                     </div>
                 </div>
                 </>
