@@ -21,6 +21,7 @@ import AuthTransaction from "../middleware/authTransaction"
 import Forgot from "../middleware/forgotPassword"
 import changeclass from "../utils/randomize"
 import Overview from "../src/pages/contributor/overview"
+import Withdraw from "../src/pages/contributor/withdraw"
 
 const Routing = () => {
 
@@ -96,6 +97,7 @@ const Routing = () => {
 
           <Route path="/contributor/store" element={<Store/>}/>
           <Route path="/contributor/overview" element={<Overview/>}/>
+          <Route path="/contributor/withdraw" element={<Withdraw/>}/>
 
           <Route path="/forgot/password" element={<Forgot.requset/>}/>
           <Route path="/confirm/user" element={<Confirm.user/>}/>
