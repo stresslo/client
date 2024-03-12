@@ -73,7 +73,7 @@ const Withdraw = () => {
                     </div>
                     <div>
                         <div>Confirm password :</div>
-                        <input className='productinput' value={confirmPassword} type="password" placeholder='******' onChange={(e) => confirmPassword(e.target.value)} required/>
+                        <input className='productinput' value={confirmPassword} type="password" placeholder='******' onChange={(e) => setConfirmPassword(e.target.value)} required/>
                     </div>
                 </div>
                 <div onClick={() => request()} className="button-max" style={{backgroundColor: 'var(--yellow)'}}>Withdraw</div>
