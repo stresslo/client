@@ -13,30 +13,55 @@ const Withdraw = () => {
     const location = useLocation()
 
     const [state, setState] = useState(location.state)
-    const [error, setError] = useState('')
     const [vxsrf, setVxsrf] = useState('')
     const [amount, setAmount] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
-    console.log(amount, parseInt(amount))
 
     const request = () => {
-        axios.post(`${import.meta.env.VITE_API}/contributor/withdraw/request`,
-            {password, confirmPassword, amount : parseInt(amount)},
-            {headers: { 'xsrf-token' : vxsrf }}
-        )
-        .then((response) => swalert(response.data, 'success', 3000))
-        .then((res) => res.dismiss && navigate('/contributor/overview'))
-        .catch((error) => error.response ? setError(error.response.data) : () => { return Promise.reject(error) })
+        if (amount && password && confirmPassword) {
+            axios.post(`${import.meta.env.VITE_API}/contributor/withdraw/request`,
+                {password, confirmPassword, amount : parseInt(amount)},
+                {headers: { 'xsrf-token' : vxsrf }}
+            )
+            .then((response) => swalert(response.data, 'success', 3000))
+            .then((res) => res.dismiss && navigate('/contributor/overview'))
+            .catch((error) => { return Promise.reject(error) })
+        }   else {swalert('please complete your data', 'info', 3000)}
     }
 
-    useEffect(() => getvxsrf().then((result) => setVxsrf(result)), [])
+    useEffect(() =>  {
+        if (state.withdraw_status != 'requested' && state.amount > 50000) {
+            getvxsrf().then((result) => setVxsrf(result))
+        }
+    }, [])
+
+    if (state.withdraw_status == 'requested' || state.amount < 50000) {
+        return (
+            <div className="page">
+                <Topback location={-1}/>
+                <LazyLoadImage src="/img/withdraw.png" style={{width: '180px'}}/>
+                {(state.withdraw_status == 'requested') && 
+                <div style={{marginTop: '30px'}}>
+                    <div style={{fontFamily: 'var(--poppins)', fontSize: '1.2rem', color: 'var(--blue)'}}>You have made a request</div>
+                    <div style={{fontFamily: 'var(--poppins)', fontSize: '0.9rem', color: 'var(--text)'}}>Your request will be processed within 1 - 3 days</div>
+                </div>
+                }
+                {(state.amount < 50000) && 
+                <div style={{marginTop: '30px'}}>
+                    <div style={{fontFamily: 'var(--poppins)', fontSize: '1.2rem', color: 'var(--blue)'}}>Your balance hasn't reached RP 50.000,-</div>
+                    <div style={{fontFamily: 'var(--poppins)', fontSize: '0.9rem', color: 'var(--text)'}}>Let's increase your selling</div>
+                </div>
+                }
+            </div>
+        )
+    }
 
     return (
         <div className="page-max" style={{alignItems: 'center', flexDirection: 'column'}}>
             <Topback location={-1}/>
-            <LazyLoadImage src="/img/withdraw.png" style={{width: '250px', marginTop: '70px'}}/>
-            <div className="form" style={{marginTop: '20px', flexDirection: 'column'}}>
+            <LazyLoadImage src="/img/withdraw.png" style={{width: '180px', marginTop: '90px'}}/>
+            <div className="form" style={{marginTop: '25px', flexDirection: 'column'}}>
                 <div className="input-form">
                     <div>
                         <div>Amount :</div>
