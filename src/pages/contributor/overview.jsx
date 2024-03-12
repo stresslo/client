@@ -144,7 +144,7 @@ const Overview = () => {
                         <div style={{fontSize: '0.8rem', color: 'var(--yellow)', marginTop: '30px'}}>*Your account is being reviewed by our team.</div>
                         }
                         {(data.status == 'verified') &&
-                        <div className="button contact">Withdraw</div>
+                        <div className="button contact" onClick={() => navigate('/contributor/withdraw', { state: data })}>Withdraw</div>
                         }
                     </div>
                 </div>
