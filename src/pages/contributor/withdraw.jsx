@@ -49,7 +49,7 @@ const Withdraw = () => {
                 }
                 {(state.amount < 50000) && 
                 <div style={{marginTop: '30px'}}>
-                    <div style={{fontFamily: 'var(--poppins)', fontSize: '1.2rem', color: 'var(--blue)'}}><span>Your balance </span>hasn't reached Rp 50.000,-</div>
+                    <div style={{fontFamily: 'var(--poppins)', fontSize: '1.2rem', color: 'var(--blue)'}}><span>Your balance </span>is less than Rp 50.000,-</div>
                     <div style={{fontFamily: 'var(--poppins)', fontSize: '0.9rem', color: 'var(--text)', marginTop: '15px'}}>Let's increase your selling</div>
                 </div>
                 }
