@@ -149,23 +149,25 @@ const EditProduct = () => {
             <div>
                 <div>Software :</div>
                 <select style={{width: '100%'}} value={tech} onChange={(e) => setTech(e.target.value)} required>
-                  <option value=""></option>
+                  <option value="">-- SELECT SOFTWARE --</option>
                   <option value="Adobe After Effect">Adobe After Effect</option>
                   <option value="DaVinci Resolve">DaVinci Resolve</option>
                   <option value="Blender">Blender</option>
                   <option value="Apple Motion">Apple Motion</option>
                   <option value="Cinema 4D">Cinema 4D</option>
+                  <option value="Other">Other</option>
                 </select>
             </div>
             <div>
                 <div>Format : </div>
                 <select style={{width: '100%'}} value={format} onChange={(e) => setFormat(e.target.value)} required>
-                  <option value=""></option>
+                  <option value="">-- SELECT FORMAT --</option>
                   <option value=".aep">.aep</option>
                   <option value=".drp">.drp</option>
                   <option value=".blend">.blend</option>
                   <option value=".motn">.motn</option>
                   <option value=".c4d">.c4d</option>
+                  <option value="Other">Other</option>
                 </select>
             </div>
           </>
@@ -175,23 +177,25 @@ const EditProduct = () => {
             <div>
                 <div>Software :</div>
                 <select style={{width: '100%'}} value={tech} onChange={(e) => setTech(e.target.value)} required>
-                  <option value=""></option>
+                  <option value="">-- SELECT SOFTWARE --</option>
                   <option value="Adobe Illustration">Adobe Illustration</option>
                   <option value="Corel Draw">Corel Draw</option>
                   <option value="Pixelmator Pro">Pixelmator Pro</option>
                   <option value="Affinity Designer">Affinity Designer</option>
+                  <option value="Other">Other</option>
                 </select>
             </div>
             <div>
                 <div>Format : </div>
                 <select style={{width: '100%'}} value={format} onChange={(e) => setFormat(e.target.value)} required>
-                  <option value=""></option>
+                  <option value="">-- SELECT FORMAT --</option>
                   <option value=".ai">.ai</option>
                   <option value=".cdr">.cdr</option>
                   <option value=".psd">.psd</option>
                   <option value=".eps">.eps</option>
                   <option value=".svg">.svg</option>
                   <option value=".afdesign">.afdesign</option>
+                  <option value="Other">Other</option>
                 </select>
             </div>
           </>
@@ -201,22 +205,24 @@ const EditProduct = () => {
             <div>
                 <div>Software :</div>
                 <select style={{width: '100%'}} value={tech} onChange={(e) => setTech(e.target.value)} required>
-                  <option value=""></option>
+                  <option value="">-- SELECT SOFTWARE --</option>
                   <option value="Sketchup">SketchUp</option>
                   <option value="Blender">Blender</option>
                   <option value="Autodesk Maya">Autodesk Maya</option>
                   <option value="Cinema 4D">Cinema 4D</option>
+                  <option value="Other">Other</option>
                 </select>
             </div>
             <div>
                 <div>Format : </div>
                 <select style={{width: '100%'}} value={format} onChange={(e) => setFormat(e.target.value)} required>
-                  <option value=""></option>
+                  <option value="">-- SELECT FORMAT --</option>
                   <option value=".skp">.skp</option>
                   <option value=".ma">.ma</option>
                   <option value=".mb">.mb</option>
                   <option value=".blend">.blend</option>
                   <option value=".c4d">.c4d</option>
+                  <option value="Other">Other</option>
                 </select>
             </div>
           </>
