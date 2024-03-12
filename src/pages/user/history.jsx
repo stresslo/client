@@ -23,11 +23,7 @@ const History = () => {
             const response = await axios.get(`${import.meta.env.VITE_API}/transaction/history/${page}`)
             const decode = jwt(response.data)
             setData(decode.data)
-            let plus = 0
-            decode.data.forEach(index => {
-                plus += index.product_amount
-            })
-            setTotal(plus)
+            setTotal(decode.total)
         } catch (error) {
             if (error || error.response) {
                 swalert(error.response.data || "Forbidden request", 'error', 2000)

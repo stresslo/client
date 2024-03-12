@@ -67,6 +67,13 @@ const AuthTransaction = () => {
         }
     }
 
+    const deleteNotification = () => {
+        axios.get(`${import.meta.env.VITE_API}/transaction/delete/${i.order_id}`)
+        .then((response) => swalert(response.data, 'success', 1200))
+        .then((res) => { res.isDismissed ? window.location.href = '/' : '' })
+        .catch((error) => { return Promise.reject(error) })
+    }
+
     const repay = () => { 
         window.snap.pay(data.transaction_token, {
         onPending : () => { window.location.reload() }
@@ -95,6 +102,7 @@ const AuthTransaction = () => {
                 {data.transaction_status == 'settlement' && <div className='button-max' onClick={() => { donwloadProduct() }} style={{ backgroundColor: 'var(--yellow)' }}>Get product file</div>}
                 {data.transaction_status == 'pending' && <div className='button-max' onClick={() => repay()} style={{ backgroundColor: 'var(--yellow)' }}>Pay now</div>}
                 {data.transaction_status == 'created' && <div className='button-max' onClick={() => repay()} style={{ backgroundColor: 'var(--yellow)' }}>Pay now</div>}
+                {data.transaction_status == 'created' && <div className='button-max' onClick={() => deleteNotification()} style={{ backgroundColor: 'var(--oren)' }}>Cancel transaction</div>}
                 {data.transaction_status == 'settlement' && <p style={{color: 'var(--blue)', textAlign: 'center', cursor: 'pointer'}}>*Screenshot if needed</p>}
             </>
             }
