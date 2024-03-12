@@ -57,6 +57,7 @@ const Routing = () => {
       setUsername(decoded.username)
       setRole(decoded.role ? decoded.role : 'user')
       localStorage.setItem('role', decoded.role)
+      localStorage.setItem('vid', decoded.vid)
     } else {
       setRole('')
     }

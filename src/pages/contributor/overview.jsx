@@ -15,6 +15,7 @@ import "../../style/overview.css"
 
 const Overview = () => {
 
+    const vid = localStorage.getItem('vid')
     const endpoint = import.meta.env.VITE_API
     const refnumber = useRef(null)
     const context = useContext(Context)
@@ -87,7 +88,7 @@ const Overview = () => {
     const getData = async () => {
         try {
             setLoading(true)
-            const response = await axios.get(`${endpoint}/contributor/overview/data/${context.vid}`)
+            const response = await axios.get(`${endpoint}/contributor/overview/data/${vid}`)
             const decode = jwt(response.data)
             setData(decode.data)
             setBank(decode.data.bank_name)
@@ -102,7 +103,11 @@ const Overview = () => {
         }
     }
 
-    useEffect(() => { !data && getData(); getvxsrf().then((result) => setVxsrf(result)) }, [])
+    useEffect(() => {
+        if (!vid) return navigate('/')
+        !data && getData() 
+        getvxsrf().then((result) => setVxsrf(result)) 
+    }, [])
     if (loading) return <Loading/>
 
     return (
