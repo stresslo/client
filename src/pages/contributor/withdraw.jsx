@@ -38,7 +38,7 @@ const Withdraw = () => {
 
     if (state.withdraw_status == 'requested' || state.amount < 50000) {
         return (
-            <div className="page">
+            <div className="page" style={{flexDirection: 'column', gap: '20px'}}>
                 <Topback location={-1}/>
                 <LazyLoadImage src="/img/withdraw.png" style={{width: '180px'}}/>
                 {(state.withdraw_status == 'requested') && 
