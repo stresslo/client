@@ -15,7 +15,7 @@ const Withdraw = () => {
     const [state, setState] = useState(location.state)
     const [error, setError] = useState('')
     const [vxsrf, setVxsrf] = useState('')
-    const [amount, setAmount] = useState('0')
+    const [amount, setAmount] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
     console.log(amount, parseInt(amount))
@@ -40,7 +40,7 @@ const Withdraw = () => {
                 <div className="input-form">
                     <div>
                         <div>Amount :</div>
-                        <input className='productinput' value={amount ? formatPrice(amount) : amount} type="password" placeholder='Rp 0' onChange={(e) => setAmount(e.target.value.replace(/\D/g, ''))} required/>
+                        <input className='productinput' value={amount ? formatPrice(amount) : amount} type="text" placeholder='Rp 0' onChange={(e) => setAmount(e.target.value.replace(/\D/g, ''))} required/>
                     </div>
                     <div>
                         <div>Password :</div>
