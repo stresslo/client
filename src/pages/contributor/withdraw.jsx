@@ -42,15 +42,15 @@ const Withdraw = () => {
                 <Topback location={-1}/>
                 <LazyLoadImage src="/img/withdraw.png" style={{width: '180px'}}/>
                 {(state.withdraw_status == 'requested') && 
-                <div style={{marginTop: '30px', lineHeight: '35px'}}>
-                    <div style={{fontFamily: 'var(--poppins)', fontSize: '1.2rem', color: 'var(--blue)'}}>You have made a request</div>
-                    <div style={{fontFamily: 'var(--poppins)', fontSize: '0.9rem', color: 'var(--text)'}}>Your request will be processed within 1 - 3 days</div>
+                <div style={{marginTop: '30px'}}>
+                    <div style={{fontFamily: 'var(--poppins)', fontSize: '1.2rem', color: 'var(--blue)'}}><span>You have </span>made a request</div>
+                    <div style={{fontFamily: 'var(--poppins)', fontSize: '0.9rem', color: 'var(--text)', marginTop: '15px'}}>Your request will be processed within 1 - 3 days</div>
                 </div>
                 }
                 {(state.amount < 50000) && 
-                <div style={{marginTop: '30px', lineHeight: '35px'}}>
-                    <div style={{fontFamily: 'var(--poppins)', fontSize: '1.2rem', color: 'var(--blue)'}}>Your balance hasn't reached Rp 50.000,-</div>
-                    <div style={{fontFamily: 'var(--poppins)', fontSize: '0.9rem', color: 'var(--text)'}}>Let's increase your selling</div>
+                <div style={{marginTop: '30px'}}>
+                    <div style={{fontFamily: 'var(--poppins)', fontSize: '1.2rem', color: 'var(--blue)'}}><span>Your balance </span>hasn't reached Rp 50.000,-</div>
+                    <div style={{fontFamily: 'var(--poppins)', fontSize: '0.9rem', color: 'var(--text)', marginTop: '15px'}}>Let's increase your selling</div>
                 </div>
                 }
             </div>
