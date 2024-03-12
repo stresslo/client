@@ -211,10 +211,8 @@ const Overview = () => {
                         withdraw.map((i, key) => {
                             return (
                             <div key={key} style={{width: '100%', height: 'max-content', backgroundColor: 'var(--primary)', boxShadow: 'var(--boxshadow)', borderRadius: '5px', padding: '10px', boxSizing: 'border-box'}}>
-                                <div style={{display: 'flex', alignItems: 'center', gap: '5px'}}>
-                                    <div style={{color : 'var(--yellow)', fontSize: '1rem', fontFamily: 'var(--poppins)'}}>{convertPrice(i.total)}</div>
-                                    <div className="overview-status" style={{color: 'var(--green)'}}>success</div>
-                                </div>
+                                <div className="overview-status" style={{color: 'var(--green)', marginBottom: '15px'}}>success</div>
+                                <div style={{color : 'var(--yellow)', fontSize: '1rem', fontFamily: 'var(--poppins)'}}>{convertPrice(i.total)}</div>
                                 <div style={{color : 'var(--blue)', fontSize: '0.8rem', fontFamily: 'var(--poppins)'}}>{i.date} {i.time}</div>
                             </div>
                             )
