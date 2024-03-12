@@ -163,7 +163,7 @@ const Content = ({data, setData, setCount}) => {
                     ) : (
                         dataProduct.map((i, index) => {
                             return(
-                                <div style={{scale: '0.5'}} className='product-card' key={index} onClick={() => navigate(`/product/details/${i.vid}`, {state: i})}>
+                                <div style={{transform: 'scale(0.5)'}} className='product-card' key={index} onClick={() => navigate(`/product/details/${i.vid}`, {state: i})}>
                                     <LazyLoadImage className='product-img' src={(i.img) || ('img/img404.jpg')} loading='lazy' alt={`stresslo ${i.ctg} products`} effect='blur'/>
                                     <div className='wrapped-text'>
                                         <div className='product-title'>{i.title}</div>
