@@ -206,11 +206,11 @@ const Overview = () => {
                 <div className="itext" style={{marginTop: '50px'}}>Withdraw history</div>
                 <div style={{position : 'relative'}}>
                     <div style={{color : 'var(--text)', fontFamily: 'var(--poppins)', fontSize: '0.8rem', position: 'absolute', top: '-5px', right: '5px', cursor: 'pointer' }}>See all</div>
-                    <div className="overview-product" style={withdraw.length !== 0 ? {marginTop: '25px', height: '200px', overflow: 'hidden scroll', flexDirection: 'column', flexWrap: 'unset'} : {marginTop: '25px', height: '200px'}}>
+                    <div className="overview-product" style={withdraw.length !== 0 ? {marginTop: '25px', height: '200px', overflow: 'hidden scroll', flexDirection: 'column', flexWrap: 'unset', gap: '20px'} : {marginTop: '25px', height: '200px'}}>
                         {(withdraw.length != 0) ? 
                         withdraw.map((i, key) => {
                             return (
-                            <div key={key} style={{width: '100%', height: 'max-content', backgroundColor: 'var(--primary)', boxShadow: 'var(--boxshadow)', borderRadius: '5px', padding: '10px'}}>
+                            <div key={key} style={{width: '100%', height: 'max-content', backgroundColor: 'var(--primary)', boxShadow: 'var(--boxshadow)', borderRadius: '5px', padding: '10px', boxSizing: 'border-box'}}>
                                 <div style={{color : 'var(--yellow)', fontSize: '1rem', fontFamily: 'var(--poppins)'}}>{convertPrice(i.total)}</div>
                                 <div style={{color : 'var(--blue)', fontSize: '0.8rem', fontFamily: 'var(--poppins)'}}>{i.date} {i.time}</div>
                             </div>
