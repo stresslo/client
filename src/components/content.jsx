@@ -134,7 +134,7 @@ const Content = ({data, setData, setCount}) => {
                 <div className="text-wrapper">
                 <h1>Become a contributor</h1>
                 <div>Sell your best work</div>
-                <div onClick={() => navigate('/contributor/guidelines')} className="button contact">Get started</div>
+                <div onClick={() => navigate('/register')} className="button contact">Get started</div>
                 </div>
                 </div>
                 {(products.map((i,k) => {
