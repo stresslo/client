@@ -71,8 +71,9 @@ const Guidelines = () => {
                 If you have any questions or need assistance, please contact our project management team.
                 </p>
         
-                <p>Thank you for being part of our community and contributing to the success of our project!</p>
-                <div onClick={() => accepted()} className='button-max' style={{backgroundColor: 'var(--yellow)', marginTop: '10px'}}>Accept & Continue</div>
+                <p>Thank you for being part of our community and contributing to the success of stresslo!</p>
+                <p style={{marginTop: '20px'}}>I agree to the terms and conditions.</p>
+                <div onClick={() => accepted()} className='button-max' style={{backgroundColor: 'var(--yellow)'}}>Accept & Continue</div>
             </div> :
                 <div className='form' style={{flexDirection: 'column', textAlign: 'left', fontFamily: 'var(--poppins)', color: 'var(--text)', fontSize: '0.75rem', gap: '20px', marginTop: '70px'}}>
                 <div onClick={() => setLanguage('english')} style={{cursor: 'pointer', color: 'var(--text)', display: 'flex', alignItems: 'center', gap: '10px', fontSize: '1.25rem'}}>
@@ -132,8 +133,9 @@ const Guidelines = () => {
                 Jika Anda memiliki pertanyaan atau membutuhkan bantuan, silakan hubungi tim manajemen proyek kami.
                 </p>
             
-                <p>Terima kasih telah menjadi bagian dari komunitas kami dan berkontribusi pada kesuksesan proyek kami!</p>
-                <div onClick={() => accepted()} className='button-max' style={{backgroundColor: 'var(--yellow)', marginTop: '10px'}}>Setuju & Lanjutkan</div>
+                <p>Terima kasih telah menjadi bagian dari komunitas kami dan berkontribusi pada kesuksesan stresslo</p>
+                <p style={{marginTop: '20px'}}>saya menyetujui syarat dan ketentuan.</p>
+                <div onClick={() => accepted()} className='button-max' style={{backgroundColor: 'var(--yellow)'}}>Setuju & Lanjutkan</div>
                 </div>
             }
       </div>
