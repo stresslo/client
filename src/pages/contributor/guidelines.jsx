@@ -10,9 +10,9 @@ const Guidelines = () => {
             <Topback location={-1}/>
             {(language == 'english') ? 
             <div className='form' style={{flexDirection: 'column', textAlign: 'left', fontFamily: 'var(--poppins)', color: 'var(--text)', fontSize: '0.75rem', gap: '20px', marginTop: '70px'}}>
-                <div onClick={() => setLanguage('indonesia')} style={{cursor: 'pointer', color: 'var(--text)', display: 'flex', alignItems: 'center', gap: '10px', fontSize: '1.4rem'}}>
+                <div onClick={() => setLanguage('indonesia')} style={{cursor: 'pointer', color: 'var(--text)', display: 'flex', alignItems: 'center', gap: '10px', fontSize: '1.25rem'}}>
                     <div className='fa-solid fa-language fa-xl'></div>
-                    <div style={{color: 'var(--text)', fontFamily: 'var(--poppins)', fontSize: '1rem'}}>Indonesia</div>
+                    <div style={{color: 'var(--text)', fontFamily: 'var(--poppins)', fontSize: '1rem'}}>Bahasa Indonesia</div>
                 </div>
 
                 <h1><span>Welcome to </span> the <span>Contributor</span> Community!</h1>
@@ -70,7 +70,7 @@ const Guidelines = () => {
                 <p>Thank you for being part of our community and contributing to the success of our project!</p>
             </div> :
                 <div className='form' style={{flexDirection: 'column', textAlign: 'left', fontFamily: 'var(--poppins)', color: 'var(--text)', fontSize: '0.75rem', gap: '20px', marginTop: '70px'}}>
-                <div onClick={() => setLanguage('english')} style={{cursor: 'pointer', color: 'var(--text)', display: 'flex', alignItems: 'center', gap: '10px', fontSize: '1.4rem'}}>
+                <div onClick={() => setLanguage('english')} style={{cursor: 'pointer', color: 'var(--text)', display: 'flex', alignItems: 'center', gap: '10px', fontSize: '1.25rem'}}>
                     <div className='fa-solid fa-language fa-xl'></div>
                     <div style={{color: 'var(--text)', fontFamily: 'var(--poppins)', fontSize: '1rem'}}>English</div>
                 </div>
