@@ -191,11 +191,11 @@ const Overview = () => {
                             </div>
                             )
                         }): 
-                        <div className="title" style={{fontSize: '0.8rem', margin: 'auto', fontFamily: 'var(--quicksand)', textShadow: 'unset'}}>You don't have product data yet.</div>}
+                        <div className="title" style={{fontSize: '0.8rem', margin: 'auto', fontFamily: 'var(--quicksand)', textShadow: 'unset'}}>You don't have active product yet.</div>}
                     </div>
                     <div className="overview-product" style={{flexDirection: 'column', marginTop: '10px'}}>
                         <div style={{fontFamily: 'var(--poppins)', color: 'var(--text)', fontSize: '0.9rem'}}><span>Total product : </span> {data.total_product}</div>
-                        <div style={{fontFamily: 'var(--poppins)', color: 'var(--text)', fontSize: '0.9rem'}}><span>Total product : </span> {data.total_pending}</div>
+                        <div style={{fontFamily: 'var(--poppins)', color: 'var(--text)', fontSize: '0.9rem'}}><span>Total pending : </span> {data.total_pending}</div>
                         <div style={{fontFamily: 'var(--poppins)', color: 'var(--text)', fontSize: '0.9rem'}}><span>Total downloaded : </span> {data.total_paid}</div>
                     </div>
                     <div onClick={() => navigate('/create', { state : {prev : location.pathname} })} className="button-max" style={{marginTop: '20px', backgroundColor: 'var(--yellow)', boxShadow: 'var(--boxshadow)'}}>
