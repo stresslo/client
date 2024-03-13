@@ -1,6 +1,20 @@
 const about = 
 [
     {
+        ctg : "Contributor Guidelines",
+        data : 
+        [
+            {
+                title : "Contributor",
+                text : "guidelines docs for contributor.",
+                img : "img/rules.png",
+                color : "var(--text)",
+                link  : '/contributor/guidelines',
+                pricing : ['rules', 'guide']
+            },
+        ]
+    },
+    {
         ctg : "trouble on",
         data : 
         [
