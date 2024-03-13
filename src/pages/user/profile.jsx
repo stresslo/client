@@ -6,6 +6,7 @@ import Context from '../../../utils/context'
 import Loading from "../../../utils/loading"
 import swalert from '../../../utils/swalert'
 import axios from "axios"
+import Swal from 'sweetalert2'
 import Topback from '../../components/topback'
 
 const Profile = () => {
@@ -22,16 +23,33 @@ const Profile = () => {
 
     const logout = async() => {
         const filterUrl = context.role == 'contributor' ? `${url}/logout/contributor` : `${url}/logout`
-        try {
-            setLoading(true)
-            const response = await axios.get(filterUrl)
-            context.setToken('')
-            localStorage.removeItem('role')
-            swalert(response.data, "success", 3000)
-            .then((res) =>  { if(res.dismiss) { location.href = '/' } })
-        } 
-        catch (error) {{error.response && console.log(error.response.data)}}
-        finally{setLoading(false)}
+        Swal.fire({
+            icon: 'info',
+            text : 'are you sure want to logout?',
+            confirmButtonText : 'Logout',
+            showDenyButton: true,
+            focusConfirm: false,
+            focusDeny : false,
+            reverseButtons : true,
+            denyButtonText : 'Cancel',
+            background : 'var(--primary)',
+            color : 'var(--blue)',
+            customClass : { container: 'alertext' }
+        })
+        .then(async (res) => {
+            if (res.isConfirmed) {
+                try {
+                    setLoading(true)
+                    const response = await axios.get(filterUrl)
+                    context.setToken('')
+                    localStorage.removeItem('role')
+                    swalert(response.data, "success", 3000)
+                    .then((res) =>  { if(res.dismiss) { location.href = '/' } })
+                } 
+                catch (error) {{error.response && console.log(error.response.data)}}
+                finally{setLoading(false)}
+            }
+        })
     }
 
     const updateImage = async() => {
