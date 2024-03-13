@@ -5,7 +5,7 @@ const Guidelines = () => {
     return (
         <div className='page-max'>
             <Topback location={-1}/>
-            <div className='form' style={{flexDirection: 'column', textAlign: 'left', fontFamily: 'var(--poppins)', color: 'var(--text)', fontSize: '0.75rem', gap: '15px'}}>
+            <div className='form' style={{flexDirection: 'column', textAlign: 'left', fontFamily: 'var(--poppins)', color: 'var(--text)', fontSize: '0.75rem', gap: '10px', marginTop: '30px'}}>
                 <h1><span>Welcome to </span> the <span>Contributor</span> Community!</h1>
                 <p>
                 Thank you for your interest in contributing to our project. To ensure a fair and transparent experience for all contributors, please review and adhere to the following guidelines:
