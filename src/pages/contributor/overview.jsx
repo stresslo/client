@@ -181,13 +181,13 @@ const Overview = () => {
                 <div className="itext" style={{marginTop: '50px'}}>Product</div>
                 <div style={{position : 'relative'}}>
                     <div onClick={() => navigate('/contributor/store', {state : {prev: location.pathname}})} style={{color : 'var(--text)', fontFamily: 'var(--poppins)', fontSize: '0.8rem', position: 'absolute', top: '-5px', right: '5px', cursor: 'pointer' }}>See all</div>
-                    <div className="overview-product" style={products.length !== 0 ? {marginTop: '25px', height: 'max-content'} : {marginTop: '25px', height: '150px'}}>
+                    <div className="overview-product" style={products.length !== 0 ? {marginTop: '25px', height: '200px'} : {marginTop: '25px', height: '200px'}}>
                         {(products.length != 0) ? 
                         products.map((i, key) => {
                             return (
                             <div onClick={() => navigate(`/product/details/${i.vid}`, {state: {...i, status : 'active', prev : location.pathname}})} key={key} className="overview-product-card">
                                 <LazyLoadImage src={i.img} style={{height: '100px', width: '150px', objectFit: 'cover', borderRadius: '5px'}}/>
-                                <div style={{color : 'var(--yellow)', fontSize: '0.9rem', textAlign: 'center'}}>{i.paid}x download</div>
+                                <div style={{color : 'var(--yellow)', fontSize: '0.9rem', textAlign: 'center'}}>{i.paid} download</div>
                             </div>
                             )
                         }): 
@@ -195,6 +195,7 @@ const Overview = () => {
                     </div>
                     <div className="overview-product" style={{flexDirection: 'column', marginTop: '10px'}}>
                         <div style={{fontFamily: 'var(--poppins)', color: 'var(--text)', fontSize: '0.9rem'}}><span>Total product : </span> {data.total_product}</div>
+                        <div style={{fontFamily: 'var(--poppins)', color: 'var(--text)', fontSize: '0.9rem'}}><span>Total product : </span> {data.total_pending}</div>
                         <div style={{fontFamily: 'var(--poppins)', color: 'var(--text)', fontSize: '0.9rem'}}><span>Total downloaded : </span> {data.total_paid}</div>
                     </div>
                     <div onClick={() => navigate('/create', { state : {prev : location.pathname} })} className="button-max" style={{marginTop: '20px', backgroundColor: 'var(--yellow)', boxShadow: 'var(--boxshadow)'}}>
