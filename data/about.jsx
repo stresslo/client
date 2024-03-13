@@ -9,7 +9,7 @@ const about =
                 text : "report your problem to developer.",
                 img : "img/problem.png",
                 color : "var(--text)",
-                link  : 'mailto:dimasptraautmaa@gmail.com',
+                link  : 'mailto:stresslo.lab@gmail.com',
                 pricing : ['report', 'trouble']
             },
         ]
