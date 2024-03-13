@@ -3,8 +3,8 @@ import React from 'react'
 const Guidelines = () => {
     return (
         <div className='page-max'>
-            <div className='form' style={{flexDirection: 'column', textAlign: 'left', fontFamily: 'var(--poppins)', color: 'var(--text)', fontSize: '1rem'}}>
-                <h1>Welcome to the Contributor Community!</h1>
+            <div className='form' style={{flexDirection: 'column', textAlign: 'left', fontFamily: 'var(--poppins)', color: 'var(--text)', fontSize: '0.7rem', gap: '10px'}}>
+                <h1><span>Welcome to </span> the Contributor Community!</h1>
                 <p>
                 Thank you for your interest in contributing to our project. To ensure a fair and transparent experience for all contributors, please review and adhere to the following guidelines:
                 </p>
