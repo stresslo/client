@@ -18,7 +18,7 @@ const AboutStresslo = () => {
                     StressLo is here as your creative partner to rejuvenate and bring fresh inspiration to every design project. We understand that in the creative world, there are times when ideas seem to run dry, and stress begins to creep in. That's why we're here, to bring a new spirit and help you overcome creative stress.
                 </p>
 
-                <h2 style={{marginTop: '10px'}}> <span>Our</span>Mission:</h2>
+                <h2 style={{marginTop: '10px'}}> <span>Our</span> Mission:</h2>
                 <p>
                     Understand and meet your creative needs by providing a diverse range of high-quality design assets, from graphics and templates to design elements that can add a new dimension to every project.
                 </p>
@@ -50,12 +50,12 @@ const AboutStresslo = () => {
                   StressLo hadir sebagai mitra kreatif Anda untuk meremajakan dan memberikan inspirasi baru pada setiap proyek desain Anda. Kami memahami bahwa dalam dunia kreatif, ada saat-saat di mana ide tampaknya mengalami kekeringan, dan stres mulai menyelinap. Inilah mengapa kami ada di sini, untuk membawa semangat baru dan membantu Anda mengatasi stres dalam berkarya.
                 </p>
               
-                <h2 style={{marginTop: '10px'}}> <span>Misi</span>Kami:</h2>
+                <h2 style={{marginTop: '10px'}}> <span>Misi</span> Kami:</h2>
                 <p>
                   Memahami dan memenuhi kebutuhan kreatif Anda dengan menyediakan beragam aset desain berkualitas tinggi, mulai dari grafis dan template hingga elemen desain yang dapat memberikan dimensi baru pada setiap proyek.
                 </p>
               
-                <h2><span>Layanan</span>Kami:</h2>
+                <h2><span>Layanan</span> Kami:</h2>
                 <ul>
                   <li><strong>Koleksi Luas Aset Desain:</strong> Temukan ribuan elemen desain unik untuk memberikan inspirasi baru pada karya Anda. Dari ilustrasi hingga mockup, kami punya semuanya!</li>
                   <li><strong>Solusi Personalisasi:</strong> Tim kreatif kami siap membantu Anda menyesuaikan aset desain sesuai dengan kebutuhan proyek dan preferensi estetika Anda.</li>
