@@ -181,7 +181,7 @@ const Overview = () => {
                 <div className="itext" style={{marginTop: '50px'}}>Product</div>
                 <div style={{position : 'relative'}}>
                     <div onClick={() => navigate('/contributor/store', {state : {prev: location.pathname}})} style={{color : 'var(--text)', fontFamily: 'var(--poppins)', fontSize: '0.8rem', position: 'absolute', top: '-5px', right: '5px', cursor: 'pointer' }}>See all</div>
-                    <div className="overview-product" style={products.length !== 0 ? {marginTop: '25px', height: '200px'} : {marginTop: '25px', height: '200px'}}>
+                    <div className="overview-product" style={products.length !== 0 ? {marginTop: '25px', height: 'max-content'} : {marginTop: '25px', height: '200px'}}>
                         {(products.length != 0) ? 
                         products.map((i, key) => {
                             return (
@@ -196,7 +196,7 @@ const Overview = () => {
                     <div className="overview-product" style={{flexDirection: 'column', marginTop: '10px'}}>
                         <div style={{fontFamily: 'var(--poppins)', color: 'var(--text)', fontSize: '0.9rem'}}><span>Active product : </span> {data.total_product}</div>
                         <div style={{fontFamily: 'var(--poppins)', color: 'var(--text)', fontSize: '0.9rem'}}><span>Pending product : </span> {data.total_pending}</div>
-                        <div style={{fontFamily: 'var(--poppins)', color: 'var(--text)', fontSize: '0.9rem'}}><span>Total downloaded : </span> {data.total_paid}</div>
+                        <div style={{fontFamily: 'var(--poppins)', color: 'var(--text)', fontSize: '0.9rem'}}><span>Total product downloaded : </span> {data.total_paid}</div>
                     </div>
                     <div onClick={() => navigate('/create', { state : {prev : location.pathname} })} className="button-max" style={{marginTop: '20px', backgroundColor: 'var(--yellow)', boxShadow: 'var(--boxshadow)'}}>
                         <div className="fa-solid fa-circle-plus fa-xl" style={{color: 'var(--background)'}}/>
