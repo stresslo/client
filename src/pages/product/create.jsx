@@ -229,7 +229,7 @@ const Create = () => {
                 <div style={{ color: '#aaa', fontSize: '0.95rem' }}>Max size: 20 Mb</div>
               </div>
             </div>
-            <div className='button-max' onClick={() => createProduct()} style={(file && title && image && desc && price && ctg && tech) ? {backgroundColor: 'var(--yellow)', marginTop: '50px'} : {backgroundColor: '#aaa', marginTop: '50px'}}>Create</div>
+            <div className='button-max' onClick={() => createProduct()} style={(file && title && image && desc && price && ctg && tech) ? {backgroundColor: 'var(--yellow)', marginTop: '20px'} : {backgroundColor: '#aaa', marginTop: '20px'}}>Create</div>
             </div>
           </div>
         <div className='prev-form'>

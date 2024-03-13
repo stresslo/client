@@ -67,7 +67,7 @@ const Navbar = ({ count }) => {
           {(context.role == 'user') ? 
           <NavLink className='button' onClick={() => showNotification()}><div style={{color: 'var(--background)'}} className="i fa-solid fa-bell fa-xl"/></NavLink>
           : 
-          <NavLink className='button' to="/contributor/store"><div style={{color: 'var(--background)'}} className="i fa-solid fa-store fa-xl"/></NavLink>
+          <NavLink className='button' to="/profile"><div style={{color: 'var(--background)'}} className="i fa-solid fa-circle-user fa-xl"/></NavLink>
           }
           </>
           :
