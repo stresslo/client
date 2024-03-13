@@ -9,7 +9,8 @@ ul {
     flex-direction: column;
     gap: 10px;
     color: var(--text);
-    margin-left: 30px;
+    margin-left: 25px;
+    translate: 0 -5px;
 }
 
 :root {

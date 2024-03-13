@@ -9,17 +9,12 @@ const Guidelines = () => {
         <div className='page-max'>
             <Topback location={-1}/>
             {(language == 'english') ? 
-            <div onClick={() => setLanguage('indonesia')} style={{position: 'absolute', top: '20px', right: '20px', color: 'var(--text)', display: 'flex', alignItems: 'center', gap: '10px'}}>
-                <div className='fa-solid fa-language fa-xl'></div>
-                <div style={{color: 'var(--text)', fontFamily: 'var(--poppins)', fontSize: '1rem'}}>Indonesia</div>
-            </div>:
-            <div onClick={() => setLanguage('english')} style={{position: 'absolute', top: '20px', right: '20px', color: 'var(--text)', display: 'flex', alignItems: 'center', gap: '10px'}}>
-                <div className='fa-solid fa-language fa-xl'></div>
-                <div style={{color: 'var(--text)', fontFamily: 'var(--poppins)', fontSize: '1rem'}}>English</div>
-            </div>  
-            }
-            {(language == 'english') ? 
             <div className='form' style={{flexDirection: 'column', textAlign: 'left', fontFamily: 'var(--poppins)', color: 'var(--text)', fontSize: '0.75rem', gap: '20px', marginTop: '70px'}}>
+                <div onClick={() => setLanguage('indonesia')} style={{cursor: 'pointer', color: 'var(--text)', display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px'}}>
+                    <div className='fa-solid fa-language fa-xl'></div>
+                    <div style={{color: 'var(--text)', fontFamily: 'var(--poppins)', fontSize: '1rem'}}>Indonesia</div>
+                </div>
+
                 <h1><span>Welcome to </span> the <span>Contributor</span> Community!</h1>
                 <p style={{translate: '0 -5px'}}>
                 Thank you for your interest in contributing to our project. To ensure a fair and transparent experience for all contributors, please review and adhere to the following guidelines:
@@ -75,6 +70,11 @@ const Guidelines = () => {
                 <p>Thank you for being part of our community and contributing to the success of our project!</p>
             </div> :
                 <div className='form' style={{flexDirection: 'column', textAlign: 'left', fontFamily: 'var(--poppins)', color: 'var(--text)', fontSize: '0.75rem', gap: '20px', marginTop: '70px'}}>
+                <div onClick={() => setLanguage('english')} style={{cursor: 'pointer', color: 'var(--text)', display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px'}}>
+                    <div className='fa-solid fa-language fa-xl'></div>
+                    <div style={{color: 'var(--text)', fontFamily: 'var(--poppins)', fontSize: '1rem'}}>English</div>
+                </div>
+
                 <h1><span>Selamat datang di </span>Komunitas <span>Contributor</span>!</h1>
                 <p style={{translate: '0 -5px'}}>
                 Terima kasih atas minat Anda untuk berkontribusi pada proyek kami. Untuk memastikan pengalaman yang adil dan transparan bagi semua kontributor, silakan tinjau dan patuhi pedoman berikut:
