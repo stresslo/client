@@ -72,8 +72,8 @@ const Guidelines = () => {
                 </p>
         
                 <p>Thank you for being part of our community and contributing to the success of stresslo!</p>
-                <p style={{marginTop: '20px'}}>I agree to the terms and conditions.</p>
-                <div onClick={() => accepted()} className='button-max' style={{backgroundColor: 'var(--yellow)'}}>Accept & Continue</div>
+                <p style={{marginTop: '20px'}}> <span>*I agree to the terms and conditions.</span> </p>
+                <div onClick={() => accepted()} className='button-max' style={{backgroundColor: 'var(--yellow)'}}>Agree & Continue</div>
             </div> :
                 <div className='form' style={{flexDirection: 'column', textAlign: 'left', fontFamily: 'var(--poppins)', color: 'var(--text)', fontSize: '0.75rem', gap: '20px', marginTop: '70px'}}>
                 <div onClick={() => setLanguage('english')} style={{cursor: 'pointer', color: 'var(--text)', display: 'flex', alignItems: 'center', gap: '10px', fontSize: '1.25rem'}}>
@@ -134,7 +134,7 @@ const Guidelines = () => {
                 </p>
             
                 <p>Terima kasih telah menjadi bagian dari komunitas kami dan berkontribusi pada kesuksesan stresslo</p>
-                <p style={{marginTop: '20px'}}>saya menyetujui syarat dan ketentuan.</p>
+                <p style={{marginTop: '20px'}}> <span>*saya menyetujui syarat dan ketentuan.</span> </p>
                 <div onClick={() => accepted()} className='button-max' style={{backgroundColor: 'var(--yellow)'}}>Setuju & Lanjutkan</div>
                 </div>
             }
