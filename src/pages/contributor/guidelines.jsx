@@ -1,13 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Topback from '../../components/topback';
 
 const Guidelines = () => {
+
+    const [language, setLanguage] = useState('english')
+
     return (
         <div className='page-max'>
             <Topback location={-1}/>
-            <div className='form' style={{flexDirection: 'column', textAlign: 'left', fontFamily: 'var(--poppins)', color: 'var(--blue)', fontSize: '0.75rem', gap: '15px', marginTop: '80px'}}>
+            {(language == 'english') ? 
+            <div onClick={() => setLanguage('indonesia')} style={{position: 'absolute', top: '20px', right: '20px', color: 'var(--text)', display: 'flex', alignItems: 'center', gap: '10px'}}>
+                <div className='fa-solid fa-language fa-xl'></div>
+                <div style={{color: 'var(--text)', fontFamily: 'var(--poppins)', fontSize: '1rem'}}>Indonesia</div>
+            </div>:
+            <div onClick={() => setLanguage('english')} style={{position: 'absolute', top: '20px', right: '20px', color: 'var(--text)', display: 'flex', alignItems: 'center', gap: '10px'}}>
+                <div className='fa-solid fa-language fa-xl'></div>
+                <div style={{color: 'var(--text)', fontFamily: 'var(--poppins)', fontSize: '1rem'}}>English</div>
+            </div>  
+            }
+            {(language == 'english') ? 
+            <div className='form' style={{flexDirection: 'column', textAlign: 'left', fontFamily: 'var(--poppins)', color: 'var(--text)', fontSize: '0.75rem', gap: '20px', marginTop: '70px'}}>
                 <h1><span>Welcome to </span> the <span>Contributor</span> Community!</h1>
-                <p>
+                <p style={{translate: '0 -5px'}}>
                 Thank you for your interest in contributing to our project. To ensure a fair and transparent experience for all contributors, please review and adhere to the following guidelines:
                 </p>
         
@@ -59,7 +73,63 @@ const Guidelines = () => {
                 </p>
         
                 <p>Thank you for being part of our community and contributing to the success of our project!</p>
-            </div>
+            </div> :
+                <div className='form' style={{flexDirection: 'column', textAlign: 'left', fontFamily: 'var(--poppins)', color: 'var(--text)', fontSize: '0.75rem', gap: '20px', marginTop: '70px'}}>
+                <h1><span>Selamat datang di </span>Komunitas <span>Contributor</span>!</h1>
+                <p style={{translate: '0 -5px'}}>
+                Terima kasih atas minat Anda untuk berkontribusi pada proyek kami. Untuk memastikan pengalaman yang adil dan transparan bagi semua kontributor, silakan tinjau dan patuhi pedoman berikut:
+                </p>
+            
+                <h2 style={{marginTop: '20px'}}>1. <span>Kontribusi</span> Konten</h2>
+                <ul>
+                <li>Konten yang Anda kirimkan harus asli, tidak melanggar hak cipta, dan relevan dengan topik proyek.</li>
+                <li>Hindari konten yang bersifat ofensif, diskriminatif, atau melanggar standar etika.</li>
+                </ul>
+            
+                <h2>2. <span>Bagi Hasil</span> Pendapatan:</h2>
+                <ul>
+                <li>Kontributor akan menerima 90% dari total pendapatan yang dihasilkan dari penjualan kontennya.</li>
+                <li>Kami menyisihkan 10% dari penjualan total sebagai kontribusi untuk dukungan proyek dan pengembangan.</li>
+                </ul>
+            
+                <h2>3. <span>Pembayaran:</span></h2>
+                <ul>
+                <li>Pembayaran kepada kontributor akan diproses secara teratur sesuai dengan jadwal yang telah ditetapkan.</li>
+                <li>Pastikan informasi pembayaran Anda valid untuk menerima kompensasi.</li>
+                </ul>
+            
+                <h2>4. <span>Kualitas</span> Konten:</h2>
+                <ul>
+                <li>Konten yang diajukan harus memenuhi standar kualitas yang telah ditetapkan oleh proyek.</li>
+                <li>Konten yang tidak memenuhi kriteria dapat ditolak atau diminta untuk direvisi.</li>
+                </ul>
+            
+                <h2>5. <span>Verifikasi</span> Pembayaran:</h2>
+                <ul>
+                <li>Kontributor memiliki akses ke laporan penjualan dan pendapatan melalui dasbor pribadi mereka.</li>
+                <li>Semua transparansi pembayaran dan informasi akan dijelaskan secara rinci untuk kontributor.</li>
+                </ul>
+            
+                <h2>6. <span>Penghargaan</span> dan Pengakuan:</h2>
+                <ul>
+                <li>Kontributor yang berprestasi dan konsisten akan menerima penghargaan dan pengakuan dalam komunitas.</li>
+                <li>Keputusan tentang penghargaan akan didasarkan pada kuantitas dan kualitas kontribusi.</li>
+                </ul>
+            
+                <h2>7. <span>Perubahan</span> pada Ketentuan:</h2>
+                <ul>
+                <li>Ketentuan dan syarat ini dapat diperbarui dari waktu ke waktu untuk memastikan keadilan dan kesesuaian dengan perkembangan proyek.</li>
+                <li>Kontributor akan diberitahu tentang perubahan kebijakan yang signifikan.</li>
+                </ul>
+            
+                <h2 style={{marginTop: '20px'}}> <span>Pertanyaan</span> dan Bantuan:</h2>
+                <p>
+                Jika Anda memiliki pertanyaan atau membutuhkan bantuan, silakan hubungi tim manajemen proyek kami.
+                </p>
+            
+                <p>Terima kasih telah menjadi bagian dari komunitas kami dan berkontribusi pada kesuksesan proyek kami!</p>
+                </div>
+            }
       </div>
     )
 }
