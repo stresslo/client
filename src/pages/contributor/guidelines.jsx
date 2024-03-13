@@ -19,9 +19,9 @@ const Guidelines = () => {
                     <div style={{color: 'var(--text)', fontFamily: 'var(--poppins)', fontSize: '1rem'}}>Bahasa Indonesia</div>
                 </div>
 
-                <h1><span>Welcome to </span> the <span>Contributor</span> Community!</h1>
+                <h1><span>Welcome to </span> the stresslo<span>Contributor</span> Community!</h1>
                 <p style={{translate: '0 -5px'}}>
-                Thank you for your interest in contributing to our project. To ensure a fair and transparent experience for all contributors, please review and adhere to the following guidelines:
+                Thank you for your interest in contributing to stresslo. To ensure a fair and transparent experience for all contributors, please review and adhere to the following guidelines:
                 </p>
         
                 <h2 style={{marginTop: '20px'}}>1. <span>Content</span> Contribution:</h2>
@@ -80,9 +80,9 @@ const Guidelines = () => {
                     <div style={{color: 'var(--text)', fontFamily: 'var(--poppins)', fontSize: '1rem'}}>English</div>
                 </div>
 
-                <h1><span>Selamat datang di </span>Komunitas <span>Contributor</span>!</h1>
+                <h1><span>Selamat datang di </span>Komunitas <span>Contributor stresslo</span>!</h1>
                 <p style={{translate: '0 -5px'}}>
-                Terima kasih atas minat Anda untuk berkontribusi pada proyek kami. Untuk memastikan pengalaman yang adil dan transparan bagi semua kontributor, silakan tinjau dan patuhi pedoman berikut:
+                Terima kasih atas minat Anda untuk berkontribusi pada stresslo. Untuk memastikan pengalaman yang adil dan transparan bagi semua kontributor, silakan tinjau dan patuhi pedoman berikut:
                 </p>
             
                 <h2 style={{marginTop: '20px'}}>1. <span>Kontribusi</span> Konten</h2>
@@ -94,7 +94,7 @@ const Guidelines = () => {
                 <h2>2. <span>Bagi Hasil</span> Pendapatan:</h2>
                 <ul>
                 <li>Kontributor akan menerima 90% dari total pendapatan yang dihasilkan dari penjualan kontennya.</li>
-                <li>Kami menyisihkan 10% dari penjualan total sebagai kontribusi untuk dukungan proyek dan pengembangan.</li>
+                <li>Kami menyisihkan 10% dari penjualan total sebagai kontribusi untuk dukungan proyek dan pengembangan stresslo.</li>
                 </ul>
             
                 <h2>3. <span>Pembayaran:</span></h2>
