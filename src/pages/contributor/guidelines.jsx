@@ -1,15 +1,17 @@
 import React from 'react'
+import Topback from '../../components/topback';
 
 const Guidelines = () => {
     return (
         <div className='page-max'>
-            <div className='form' style={{flexDirection: 'column', textAlign: 'left', fontFamily: 'var(--poppins)', color: 'var(--text)', fontSize: '0.7rem', gap: '10px'}}>
-                <h1><span>Welcome to </span> the Contributor Community!</h1>
+            <Topback location={-1}/>
+            <div className='form' style={{flexDirection: 'column', textAlign: 'left', fontFamily: 'var(--poppins)', color: 'var(--text)', fontSize: '0.75rem', gap: '15px'}}>
+                <h1><span>Welcome to </span> the <span>Contributor</span> Community!</h1>
                 <p>
                 Thank you for your interest in contributing to our project. To ensure a fair and transparent experience for all contributors, please review and adhere to the following guidelines:
                 </p>
         
-                <h2>1. Content Contribution:</h2>
+                <h2 style={{marginTop: '10px'}}>1. Content Contribution:</h2>
                 <ul>
                 <li>Your submitted content should be original, non-copyright infringing, and relevant to the project's topic.</li>
                 <li>Avoid content that is offensive, discriminatory, or violates ethical standards.</li>
@@ -51,7 +53,7 @@ const Guidelines = () => {
                 <li>Contributors will be notified of significant policy changes.</li>
                 </ul>
         
-                <h2>Questions and Assistance:</h2>
+                <h2 style={{marginTop: '10px'}}>Questions and Assistance:</h2>
                 <p>
                 If you have any questions or need assistance, please contact our project management team.
                 </p>
