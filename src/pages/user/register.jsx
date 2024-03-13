@@ -53,7 +53,7 @@ const Register = () => {
                 </div>
                 <form onSubmit={createUser} className="login-input">
                     <input type="email" placeholder="email" value={email} onChange={(e) => setEmail(e.target.value)} required/>
-                    <input type="text" placeholder='name / username' value={username} onChange={(e) => setUsername(e.target.value)} required/>
+                    <input type="text" placeholder='name or username' value={username} onChange={(e) => setUsername(e.target.value)} required/>
                     <input type="password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
                     <div className="login-button">
                         <select onChange={(e) => setRole(e.target.value)} style={{width: '120px'}} required>
