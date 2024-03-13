@@ -23,6 +23,7 @@ import changeclass from "../utils/randomize"
 import Overview from "../src/pages/contributor/overview"
 import Withdraw from "../src/pages/contributor/withdraw"
 import Guidelines from "../src/pages/contributor/guidelines"
+import AboutStresslo from "../src/components/aboutstresslo"
 
 const Routing = () => {
 
@@ -93,6 +94,7 @@ const Routing = () => {
           <Route path="/products" element={<Main/>}/>
           <Route path="/about" element={<Main/>}/>
           
+          <Route path="/about/stresslo" element={<AboutStresslo/>}/>
           <Route path="/edit/product" element={<EditProduct/>}/>
           <Route path="/product/details/:vid" element={<Details/>}/>
 

@@ -37,6 +37,7 @@ const about =
                 text : "provides your technology design.",
                 img : "img/sl.png",
                 color : "var(--yellow)",
+                link : '/about/stresslo',
                 pricing : ['Tech', 'Design']
             },
             {
