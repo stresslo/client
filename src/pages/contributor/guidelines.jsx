@@ -19,7 +19,7 @@ const Guidelines = () => {
                     <div style={{color: 'var(--text)', fontFamily: 'var(--poppins)', fontSize: '1rem'}}>Bahasa Indonesia</div>
                 </div>
 
-                <h1><span>Welcome to </span> the stresslo<span>Contributor</span> Community!</h1>
+                <h1><span>Welcome to </span> the stresslo <span>Contributor</span> Community!</h1>
                 <p style={{translate: '0 -5px'}}>
                 Thank you for your interest in contributing to stresslo. To ensure a fair and transparent experience for all contributors, please review and adhere to the following guidelines:
                 </p>
