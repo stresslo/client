@@ -11,6 +11,7 @@ import Topback from '../../components/topback'
 const Register = () => {
 
     const navigate = useNavigate()
+    const accept = localStorage.getItem('accept')
 
     const [url, setUrl] = useState('')
     const [role, setRole] = useState('user')
@@ -38,7 +39,10 @@ const Register = () => {
 
     useEffect(() => {
         if (role == 'user') return setUrl(`${import.meta.env.VITE_API}/register`)
-        else return setUrl(`${import.meta.env.VITE_API}/register/contributor`)
+        else if (role == 'contributor') {
+            !accept && navigate('/contributor/guidelines')
+            return setUrl(`${import.meta.env.VITE_API}/register/contributor`)
+        }
     }, [role])
     useEffect(() => { getvxsrf().then((result) => setVxsrf(result)) }, [])
     if (loading) return <Loading/>

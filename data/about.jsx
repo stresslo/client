@@ -1,7 +1,7 @@
 const about = 
 [
     {
-        ctg : "Contributor Guidelines",
+        ctg : "Contributor",
         data : 
         [
             {

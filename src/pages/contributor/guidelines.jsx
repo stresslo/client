@@ -4,6 +4,10 @@ import Topback from '../../components/topback';
 const Guidelines = () => {
 
     const [language, setLanguage] = useState('english')
+    const accepted = () => {
+        localStorage.setItem('accept', 'accept')
+        location.href('/register')
+    }
 
     return (
         <div className='page-max'>
@@ -68,6 +72,7 @@ const Guidelines = () => {
                 </p>
         
                 <p>Thank you for being part of our community and contributing to the success of our project!</p>
+                <div onClick={() => accepted()} className='button-max' style={{backgroundColor: 'var(--yellow)'}}>Accept & Continue</div>
             </div> :
                 <div className='form' style={{flexDirection: 'column', textAlign: 'left', fontFamily: 'var(--poppins)', color: 'var(--text)', fontSize: '0.75rem', gap: '20px', marginTop: '70px'}}>
                 <div onClick={() => setLanguage('english')} style={{cursor: 'pointer', color: 'var(--text)', display: 'flex', alignItems: 'center', gap: '10px', fontSize: '1.25rem'}}>
@@ -128,6 +133,7 @@ const Guidelines = () => {
                 </p>
             
                 <p>Terima kasih telah menjadi bagian dari komunitas kami dan berkontribusi pada kesuksesan proyek kami!</p>
+                <div onClick={() => accepted()} className='button-max' style={{backgroundColor: 'var(--yellow)'}}>Setuju & Lanjutkan</div>
                 </div>
             }
       </div>
