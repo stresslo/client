@@ -126,7 +126,7 @@ const Details = () => {
                             Live Preview
                         </div>
                         }
-                        <div className='product-card' style={{ height: 'max-content', width: '100%', marginTop: "20px" }}>
+                        <div className='product-card' style={{ height: 'max-content', width: '100%', marginTop: "10px" }}>
                             <div className='wrapped-text'>
                                 <div className='product-title' style={{ fontSize: '1.4rem' }}>{i.title}</div>
                                 <div className='product-desc' style={{ display: "block", fontSize: '1.1rem', marginTop: '10px', fontFamily: 'var(--quicksand)', color: 'var(--blue)' }}>{i.desc}</div>
@@ -151,6 +151,7 @@ const Details = () => {
                                 <div className='wrapped-details' style={{margin: 0, paddingTop: '0', display: 'flex',alignItems: 'unset', flexDirection: "column", gap: '10px'}}>  
                                     <div className="product-desc-product"><span>Software : </span>{i.tech}</div>
                                     <div className="product-desc-product"><span>File Format : </span>{`[ ${i.format.toUpperCase()} ]`}</div>
+                                    <div className="product-desc-product"><span>File Size : </span>{i.size}</div>
                                 </div>
                             </div>
                         </div>
