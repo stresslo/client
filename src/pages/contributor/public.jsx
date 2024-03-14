@@ -35,7 +35,7 @@ const Public = () => {
             <Topback location={-1}/>
             {(data) && 
             <div className='form' style={{flexDirection: 'column', alignItems: 'center'}}>
-                <LazyLoadImage src={data.img} width={150} height={150} style={{borderRadius: '50%', objectFit: 'cover', boxSizing: 'border-box', marginTop: '20px'}}/>
+                <LazyLoadImage src={data.img} width={150} height={150} style={{borderRadius: '50%', objectFit: 'cover', boxSizing: 'border-box', marginTop: '30px'}}/>
                 <div className='itext' style={{marginTop: '5px', fontSize: '1.2rem'}}>{data.username}</div>
                 <div className='button-max' style={{backgroundColor: 'var(--primary)', boxShadow: 'var(--boxshadow)', marginTop: '30px', borderRadius: '30px', fontSize: '1rem'}}>
                     <div style={
