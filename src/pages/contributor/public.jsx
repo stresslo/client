@@ -11,7 +11,7 @@ const Public = () => {
     const { vid } = useParams();
     const navigate = useNavigate()
     const url = `${import.meta.env.VITE_API}`
-    const formatNumber = () => {return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");}
+    const formatNumber = (number) => {return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");}
     
     const [data, setData] = useState('')
     const [product, setProduct] = useState([])
