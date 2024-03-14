@@ -162,7 +162,7 @@ const Details = () => {
                         <div className='product-card' style={{ height: 'max-content', width: '100%', marginTop: '20px' }}>
                             <div className='wrapped-text'>
                                 <div className='wrapped-details' style={{margin: 0, paddingTop: '0', display: 'flex',alignItems: 'unset', flexDirection: "column", gap: '10px'}}>
-                                    <div className="product-desc-product">
+                                    <div className="product-desc-product" onClick={() => navigate(`/contributor/profile/${i.by}`)}>
                                         <span>Contributor </span>
                                         {(loading) ? 
                                             <div style={{marginTop: '10px',display: 'flex', gap: '10px', alignItems: 'center'}}>
