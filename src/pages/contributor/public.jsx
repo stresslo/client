@@ -32,10 +32,12 @@ const Public = () => {
     return (
         <div className='page-max'>
             <Topback location={-1}/>
+            {(data) && 
             <div className='form' style={{flexDirection: 'column'}}>
                 <LazyLoadImage src={data.img} width={100} height={100} style={{borderRadius: '50%', objectFit: 'cover', boxSizing: 'border-box'}}/>
                 <div className='itext'>{data.username}</div>
             </div>
+            }
         </div>
     )
 }
