@@ -41,7 +41,7 @@ const Public = () => {
                     <div className='itext' style={{marginTop: '5px', fontSize: '1.4rem'}}>{data.username}</div>
                     <div style={{color: 'var(--blue)', backgroundColor: 'var(--primary)'}} className='overview-status'>{formatNumber(data.points)} Points</div>
                 </div>
-                <div className='button-max' style={{backgroundColor: 'var(--primary)', width: '90%', boxShadow: 'var(--boxshadow)', marginTop: '30px', borderRadius: '30px', fontSize: '0.9rem'}}>
+                <div className='button-max' style={{backgroundColor: 'var(--background)', width: '90%', boxShadow: 'var(--boxshadow)', marginTop: '30px', borderRadius: '30px', fontSize: '0.9rem'}}>
                     <div style={
                         data.badge == 'Top contributor' ? { color: 'var(--green)' } :
                         data.badge == 'Expert' ? { color: 'var(--oren)' } :
