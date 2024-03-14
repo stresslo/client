@@ -82,7 +82,7 @@ const Create = () => {
 
   return (
     <div className='page-max' style={{gap:'30px', paddingBottom: '5px'}}>
-     <Topback location={location.state.prev || '/'}/>
+     <Topback location={location.state ? location.state.prev : '/'}/>
       <div className='form'>
         <div className='input-form'>
           <div>
