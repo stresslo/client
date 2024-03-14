@@ -11,6 +11,7 @@ const Public = () => {
     const { vid } = useParams();
     const navigate = useNavigate()
     const url = `${import.meta.env.VITE_API}`
+    const formatNumber = () => {return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");}
     
     const [data, setData] = useState('')
     const [product, setProduct] = useState([])
@@ -36,7 +37,10 @@ const Public = () => {
             {(data) && 
             <div className='form' style={{flexDirection: 'column', alignItems: 'center'}}>
                 <LazyLoadImage src={data.img} width={125} height={125} style={{borderRadius: '50%', objectFit: 'cover', boxSizing: 'border-box', marginTop: '30px'}}/>
-                <div className='itext' style={{marginTop: '5px', fontSize: '1.4rem'}}>{data.username}</div>
+                <div style={{display: 'flex', alignItems: 'center'}}>
+                    <div className='itext' style={{marginTop: '5px', fontSize: '1.4rem'}}>{data.username}</div>
+                    <div style={{color: 'var(--yellow)'}} className='overview-status'>{formatNumber(data.points)} Points</div>
+                </div>
                 <div className='button-max' style={{backgroundColor: 'var(--primary)', width: '90%', boxShadow: 'var(--boxshadow)', marginTop: '30px', borderRadius: '30px', fontSize: '0.9rem'}}>
                     <div style={
                         data.badge == 'Top contributor' ? { color: 'var(--green)' } :
