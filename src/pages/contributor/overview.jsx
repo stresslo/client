@@ -135,7 +135,12 @@ const Overview = () => {
                             {(data.status != 'verified') ? <div className="overview-status" style={data.status == 'review' ? {color: 'var(--oren)'} : {color : 'var(--green)'}}>{data.status}</div>
                             :
                             <div style={{display: 'flex', alignItems: 'center', gap: '3px'}}>
-                                <div className="overview-status" style={{color: 'var(--oren)'}}>{data.badge}</div>
+                                <div className="overview-status" style={
+                                    data.badge == 'Top contributor' ? { color: 'var(--green)' } :
+                                    data.badge == 'Expert contributor' ? { color: 'var(--oren)' } :
+                                    data.badge == 'Superstar' ? { color: 'var(--yellow)' } :
+                                    { color: 'var(--blue)' }
+                                }>{data.badge}</div>
                             </div>
                             }
                         </div>
