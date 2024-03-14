@@ -132,7 +132,12 @@ const Overview = () => {
                         <div style={{display: 'flex', alignItems: 'center', gap: '10px'}}>
                             <img src={context.img} style={{cursor: 'pointer', width: '35px', border: '2px solid var(--yellow)', height: '35px', objectFit: 'cover', borderRadius: '50%', boxSizing: 'border-box', boxShadow: 'var(--boxshadow)'}} alt="stresslo account" />
                             <div style={{fontSize: '1.2rem', color: 'var(--text)',}}>{data.username}</div>
-                            <div className="overview-status" style={data.status == 'review' ? {color: 'var(--oren)'} : {color : 'var(--green)'}}>{data.status}</div>
+                            {(data.status != 'verified') ? <div className="overview-status" style={data.status == 'review' ? {color: 'var(--oren)'} : {color : 'var(--green)'}}>{data.status}</div>
+                            :
+                            <div style={{display: 'flex', alignItems: 'center', gap: '3px'}}>
+                                <div className="overview-status" style={{color: 'var(--oren)'}}>{data.badge}</div>
+                            </div>
+                            }
                         </div>
                         <div style={{fontSize: '1.4rem', fontFamily: 'var(--poppins)', color: 'var(--yellow)', marginTop: '15px'}}>{convertPrice(data.amount)}</div>
                         <div style={{fontSize: '0.95rem', fontFamily: 'var(--poppins)', color: 'var(--text)', marginTop: '5px'}}>{(data.last_withdraw ? `Last withdraw : ${data.last_withdraw}` : 'No withdrawal history')}</div>
