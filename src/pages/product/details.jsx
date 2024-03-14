@@ -154,7 +154,7 @@ const Details = () => {
                                 <div className='wrapped-details' style={{margin: 0, paddingTop: '0', display: 'flex',alignItems: 'unset', flexDirection: "column", gap: '10px'}}>  
                                     <div className="product-desc-product"><span>Software : </span>{i.tech}</div>
                                     <div className="product-desc-product"><span>File Size : </span>{i.size}</div>
-                                    <div className="product-desc-product"><span>File Format : </span>{`[ ${i.format.toUpperCase()} ]`}</div>
+                                    <div className="product-desc-product"><span>File Format : </span>{i.format.toUpperCase()}</div>
                                 </div>
                             </div>
                         </div>
