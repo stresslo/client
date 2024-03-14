@@ -29,14 +29,22 @@ const Public = () => {
     }, [])
 
     if (loading) return <Loading/>
-    
+
     return (
         <div className='page-max'>
             <Topback location={-1}/>
             {(data) && 
-            <div className='form' style={{flexDirection: 'column'}}>
-                <LazyLoadImage src={data.img} width={100} height={100} style={{borderRadius: '50%', objectFit: 'cover', boxSizing: 'border-box'}}/>
+            <div className='form' style={{flexDirection: 'column', alignItems: 'center'}}>
+                <LazyLoadImage src={data.img} width={120} height={120} style={{borderRadius: '50%', objectFit: 'cover', boxSizing: 'border-box', marginTop: '20px'}}/>
                 <div className='itext'>{data.username}</div>
+                <div className='button-max' style={{backgroundColor: 'var(--primary)', boxShadow: 'var(--boxshadow)', marginTop: '10px', borderRadius: '30px'}}>
+                    <div style={
+                        data.badge == 'Top contributor' ? { color: 'var(--green)' } :
+                        data.badge == 'Expert' ? { color: 'var(--oren)' } :
+                        data.badge == 'Superstar' ? { color: 'var(--yellow)' } :
+                        { color: 'var(--blue)' }
+                    }>{!data.badge.includes('contributor') ? `${data.badge} contributor` : `${data.badge}`}</div>
+                </div>
             </div>
             }
         </div>
