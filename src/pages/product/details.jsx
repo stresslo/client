@@ -159,7 +159,7 @@ const Details = () => {
                             </div>
                         </div>
                         }
-                        <div onClick={() => navigate(`/profile/contributor/${i.by}`)} className='product-card' style={{ height: 'max-content', width: '100%', marginTop: '20px', cursor: 'pointer' }}>
+                        <div onClick={() => navigate(`/contributor/profile/${i.by}`)} className='product-card' style={{ height: 'max-content', width: '100%', marginTop: '20px', cursor: 'pointer' }}>
                             <div className='wrapped-text'>
                                 <div className='wrapped-details' style={{margin: 0, paddingTop: '0', display: 'flex',alignItems: 'unset', flexDirection: "column", gap: '10px'}}>
                                     <div className="product-desc-product">

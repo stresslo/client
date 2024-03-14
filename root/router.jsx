@@ -24,6 +24,7 @@ import Overview from "../src/pages/contributor/overview"
 import Withdraw from "../src/pages/contributor/withdraw"
 import Guidelines from "../src/pages/contributor/guidelines"
 import AboutStresslo from "../src/components/aboutstresslo"
+import Public from "../src/pages/contributor/public"
 
 const Routing = () => {
 
@@ -102,7 +103,7 @@ const Routing = () => {
           <Route path="/contributor/overview" element={<Overview/>}/>
           <Route path="/contributor/withdraw" element={<Withdraw/>}/>
           <Route path="/contributor/guidelines" element={<Guidelines/>}/>
-          <Route path="/profile/contributor/:vid" element={<Profile/>}/>
+          <Route path="/contributor/profile/:vid" element={<Public/>}/>
 
           <Route path="/forgot/password" element={<Forgot.requset/>}/>
           <Route path="/confirm/user" element={<Confirm.user/>}/>
