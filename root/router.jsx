@@ -87,7 +87,7 @@ const Routing = () => {
           <Route path="/" element={<Main/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/create" element={<Create/>}/>
-          <Route path="/Profile" element={<Profile/>}/>
+          <Route path="/profile" element={<Profile/>}/>
           <Route path="/register" element={<Register/>}/>
           <Route path="/product/:ctg" element={<Product/>}/>
           <Route path="/order/:vid" element={<Order/>}/>
@@ -102,7 +102,7 @@ const Routing = () => {
           <Route path="/contributor/overview" element={<Overview/>}/>
           <Route path="/contributor/withdraw" element={<Withdraw/>}/>
           <Route path="/contributor/guidelines" element={<Guidelines/>}/>
-          <Route path="/contributor/profile/:vid" element={<Profile/>}/>
+          <Route path="/profile/contributor/:vid" element={<Profile/>}/>
 
           <Route path="/forgot/password" element={<Forgot.requset/>}/>
           <Route path="/confirm/user" element={<Confirm.user/>}/>
