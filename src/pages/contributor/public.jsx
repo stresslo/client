@@ -39,7 +39,7 @@ const Public = () => {
                 <LazyLoadImage src={data.img} width={125} height={125} style={{borderRadius: '50%', objectFit: 'cover', boxSizing: 'border-box', marginTop: '30px'}}/>
                 <div style={{display: 'flex', alignItems: 'center', flexDirection: 'column', gap: '5px'}}>
                     <div className='itext' style={{marginTop: '5px', fontSize: '1.4rem'}}>{data.username}</div>
-                    <div style={{color: 'var(--green)', backgroundColor: 'var(--primary)'}} className='overview-status'>{formatNumber(data.points)} Points</div>
+                    <div style={{color: 'var(--blue)', backgroundColor: 'var(--primary)'}} className='overview-status'>{formatNumber(data.points)} Points</div>
                 </div>
                 <div className='button-max' style={{backgroundColor: 'var(--primary)', width: '90%', boxShadow: 'var(--boxshadow)', marginTop: '30px', borderRadius: '30px', fontSize: '0.9rem'}}>
                     <div style={
