@@ -16,8 +16,7 @@ const Public = () => {
     const [product, setProduct] = useState([])
     const [loading, setLoading] = useState(false)
 
-    if (loading) return <Loading/>
-
+    
     useEffect(() => {
         if (!vid) return navigate('/')
         if (vid) {
@@ -29,6 +28,8 @@ const Public = () => {
         }
     }, [])
 
+    if (loading) return <Loading/>
+    
     return (
         <div className='page-max'>
             <Topback location={-1}/>
