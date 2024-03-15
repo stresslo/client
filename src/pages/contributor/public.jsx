@@ -17,8 +17,6 @@ const Public = () => {
     const [data, setData] = useState('')
     const [product, setProduct] = useState([])
     const [loading, setLoading] = useState(false)
-
-    console.log(location)
     
     useEffect(() => {
         if (!vid) return navigate('/')
