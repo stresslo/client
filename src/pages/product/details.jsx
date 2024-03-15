@@ -110,7 +110,7 @@ const Details = () => {
 
     return (
         <div className='page-max'>
-            <div className="back" ref={backref} onClick={() => i ? i.prev ? navigate(i.prev, { state: { ...i} }) : navigate(`/product/${i.ctg}`, { state: i.pageHistory}) : navigate(`/product/${i.ctg}`, { state: i.pageHistory })}>
+            <div className="back" ref={backref} onClick={() => i ? i.prev ? navigate(i.prev, { state: { ...i, prev : `product/details${i.vid}`} }) : navigate(`/product/${i.ctg}`, { state: i.pageHistory}) : navigate(`/product/${i.ctg}`, { state: i.pageHistory })}>
                 <div className="fa-solid fa-arrow-left fa-xl active"></div>
                 <div className="nav-logo"><h1>stresslo</h1></div>
             </div>
