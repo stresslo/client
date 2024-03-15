@@ -42,7 +42,7 @@ const Public = () => {
                 </div>
             </div>
             {(data) && 
-            <div className='form' style={{flexDirection: 'column'}}>
+            <div className='form' style={{flexDirection: 'column', marginTop: '80px'}}>
                 <LazyLoadImage src={data.img || '/img/dui.jpg'} width={125} height={125} style={{borderRadius: '50%', objectFit: 'cover', boxSizing: 'border-box', marginTop: '50px', margin: 'auto'}}/>
                 <div style={{display: 'flex', alignItems: 'center', flexDirection: 'column', gap: '5px'}}>
                     <div className='itext' style={{marginTop: '5px', fontSize: '1.4rem'}}>{data.username}</div>
