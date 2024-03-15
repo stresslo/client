@@ -79,15 +79,7 @@ const Content = ({data, setData, setCount}) => {
                 </div>
                 : 
                 <>
-                <div className="developer">
-                    <img id="paimg" src="/img/greet.webp" className="dimasputra" alt="stresslo greeting" />
-                    <div className="text-wrapper">
-                    <h1>Welcome to stresslo</h1>
-                    <div>Let's explore with us.</div>
-                    <div className="button contact" onClick={() => navigate('/register')}>Sign up</div>
-                    </div>
-                </div>
-                <form className="form" style={{marginTop: '0px'}} onSubmit={(e) => {
+                <form className="form" style={{marginBottom: '10px', width: '100%', margin: '0px auto'}} onSubmit={(e) => {
                     e.preventDefault()
                     localStorage.setItem('search', query)
                 }}>
@@ -98,6 +90,14 @@ const Content = ({data, setData, setCount}) => {
                         </div>
                     </div>
                 </form>
+                <div className="developer">
+                    <img id="paimg" src="/img/greet.webp" className="dimasputra" alt="stresslo greeting" />
+                    <div className="text-wrapper">
+                    <h1>Welcome to stresslo</h1>
+                    <div>Let's explore with us.</div>
+                    <div className="button contact" onClick={() => navigate('/register')}>Sign up</div>
+                    </div>
+                </div>
                 </>
                 }
                 {(stresslo.map((i,k) => {
