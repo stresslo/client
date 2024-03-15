@@ -41,14 +41,14 @@ const Public = () => {
                     <div className='itext' style={{marginTop: '5px', fontSize: '1.4rem'}}>{data.username}</div>
                     <div style={{color: 'var(--blue)', backgroundColor: 'var(--primary)'}} className='overview-status'>{formatNumber(data.points)} Points</div>
                 </div>
-                <div className='button-max' style={{backgroundColor: 'var(--background)', width: '90%', boxShadow: 'var(--boxshadow)', marginTop: '30px', borderRadius: '30px', fontSize: '0.9rem'}}>
+                <div className='button-max' style={{backgroundColor: 'var(--background)', width: '90%', boxShadow: 'var(--boxshadow)', marginTop: '20px', borderRadius: '30px', fontSize: '0.9rem', margin: 'auto'}}>
                     <div style={
                         data.badge == 'Top contributor' ? { color: 'var(--green)' } :
                         data.badge == 'Superstar' ? { color: 'var(--yellow)' } :
                         { color: 'var(--blue)' }
                     }>{!data.badge.includes('contributor') ? `${data.badge} contributor` : `${data.badge}`}</div>
                 </div>
-                <div className='itext' style={{marginTop: '30px', textAlign: 'left'}}><span>Top</span> Products :</div>
+                <div className='itext' style={{marginTop: '50px', textAlign: 'left'}}><span>Top</span> Products :</div>
                 <div className="overview-product" style={product.length !== 0 ? {marginTop: '10px', height: '200px', flexWrap: 'wrap', flexDirection: 'column', overflow: 'hidden scroll'} : {marginTop: '10px', height: '200px'}}>
                         {(product.length != 0) ? 
                         product.map((i, key) => {
