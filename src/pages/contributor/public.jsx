@@ -36,7 +36,7 @@ const Public = () => {
             <Topback location={-1}/>
             {(data) && 
             <div className='form' style={{flexDirection: 'column', alignItems: 'center'}}>
-                <LazyLoadImage src={data.img || '/img/dpi.jpg'} width={125} height={125} style={{borderRadius: '50%', objectFit: 'cover', boxSizing: 'border-box', marginTop: '30px'}}/>
+                <LazyLoadImage src={data.img || '/img/dui.jpg'} width={125} height={125} style={{borderRadius: '50%', objectFit: 'cover', boxSizing: 'border-box', marginTop: '30px'}}/>
                 <div style={{display: 'flex', alignItems: 'center', flexDirection: 'column', gap: '5px'}}>
                     <div className='itext' style={{marginTop: '5px', fontSize: '1.4rem'}}>{data.username}</div>
                     <div style={{color: 'var(--blue)', backgroundColor: 'var(--primary)'}} className='overview-status'>{formatNumber(data.points)} Points</div>
