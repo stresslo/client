@@ -35,7 +35,7 @@ const Public = () => {
 
     return (
         <div className='page-max'>
-            <div className="back" onClick={() => location ? navigate(location.prev, { state: { ...location.state, prev: `/product/${location.state.ctg}`  } }) : navigate('/')}>
+            <div className="back" onClick={() => location ? navigate(location.state.prev, { state: { ...location.state, prev: `/product/${location.state.ctg}`  } }) : navigate('/')}>
                 <div className="fa-solid fa-arrow-left fa-xl active"></div>
                 <div className="nav-logo">
                     <h1>stresslo</h1>
