@@ -18,6 +18,7 @@ const Public = () => {
     const [product, setProduct] = useState([])
     const [loading, setLoading] = useState(false)
 
+    console.log(location)
     
     useEffect(() => {
         if (!vid) return navigate('/')
@@ -42,7 +43,7 @@ const Public = () => {
             </div>
             {(data) && 
             <div className='form' style={{flexDirection: 'column'}}>
-                <LazyLoadImage src={data.img || '/img/dui.jpg'} width={125} height={125} style={{borderRadius: '50%', objectFit: 'cover', boxSizing: 'border-box', marginTop: '30px', margin: 'auto'}}/>
+                <LazyLoadImage src={data.img || '/img/dui.jpg'} width={125} height={125} style={{borderRadius: '50%', objectFit: 'cover', boxSizing: 'border-box', marginTop: '50px', margin: 'auto'}}/>
                 <div style={{display: 'flex', alignItems: 'center', flexDirection: 'column', gap: '5px'}}>
                     <div className='itext' style={{marginTop: '5px', fontSize: '1.4rem'}}>{data.username}</div>
                     <div style={{color: 'var(--blue)', backgroundColor: 'var(--primary)'}} className='overview-status'>{formatNumber(data.points)} Points</div>
@@ -54,7 +55,7 @@ const Public = () => {
                         { color: 'var(--blue)' }
                     }>{!data.badge.includes('contributor') ? `${data.badge} contributor` : `${data.badge}`}</div>
                 </div>
-                <div className='itext' style={{marginTop: '30px', textAlign: 'left'}}><span>Top</span> Products :</div>
+                <div className='itext' style={{marginTop: '20px', textAlign: 'left'}}><span>Top</span> Products :</div>
                 <div className="overview-product" style={product.length !== 0 ? {marginTop: '10px', height: '250px', flexWrap: 'wrap', flexDirection: 'column', overflow: 'hidden scroll'} : {marginTop: '10px', height: '200px'}}>
                         {(product.length != 0) ? 
                         product.map((i, key) => {
