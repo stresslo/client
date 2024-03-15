@@ -79,7 +79,7 @@ const Content = ({data, setData, setCount}) => {
                 </div>
                 : 
                 <>
-                <form className="form" style={{marginBottom: '10px', width: '100%', margin: '0px auto'}} onSubmit={(e) => {
+                <form className="form" style={{marginBottom: '10px', width: '55%', margin: '0px auto'}} onSubmit={(e) => {
                     e.preventDefault()
                     localStorage.setItem('search', query)
                     navigate('/products/all')
