@@ -65,20 +65,6 @@ const Content = ({data, setData, setCount}) => {
             </div>
             {(path == '/') && 
             <div>
-                {(context.token) ? 
-                <div className="developer">
-                    {(window.innerWidth <= 550) && 
-                    <img onClick={() => navigate('/profile')} src={context.img} style={{position: 'absolute', cursor: 'pointer', top: '15px', right: '15px', width: '35px', border: '2px solid var(--yellow)', height: '35px', objectFit: 'cover', borderRadius: '50%', boxSizing: 'border-box', boxShadow: 'var(--boxshadow)'}} alt="stresslo account" />
-                    }
-                    <img id="paimg" src="/img/greet.webp" className="dimasputra" alt="stresslo greeting" />
-                    <div className="text-wrapper">
-                    <div>Hi {context.username.split(' ')[0]}!,</div>
-                    <div>Welcome back.</div>
-                    <div className="button contact" onClick={() => context.role == 'contributor' ? navigate('/contributor/overview') : navigate('/profile')}>{context.role == 'user' ? 'Profile' : `Overview`}</div>
-                </div>
-                </div>
-                : 
-                <>
                 <form className="form" style={{margin: '0px auto'}} onSubmit={(e) => {
                     e.preventDefault()
                     localStorage.setItem('search', query)
@@ -91,6 +77,20 @@ const Content = ({data, setData, setCount}) => {
                         </div>
                     </div>
                 </form>
+                {(context.token) ? 
+                <div className="developer" style={{marginTop: '80px'}}>
+                    {(window.innerWidth <= 550) && 
+                    <img onClick={() => navigate('/profile')} src={context.img} style={{position: 'absolute', cursor: 'pointer', top: '15px', right: '15px', width: '35px', border: '2px solid var(--yellow)', height: '35px', objectFit: 'cover', borderRadius: '50%', boxSizing: 'border-box', boxShadow: 'var(--boxshadow)'}} alt="stresslo account" />
+                    }
+                    <img id="paimg" src="/img/greet.webp" className="dimasputra" alt="stresslo greeting" />
+                    <div className="text-wrapper">
+                    <div>Hi {context.username.split(' ')[0]}!,</div>
+                    <div>Welcome back.</div>
+                    <div className="button contact" onClick={() => context.role == 'contributor' ? navigate('/contributor/overview') : navigate('/profile')}>{context.role == 'user' ? 'Profile' : `Overview`}</div>
+                </div>
+                </div>
+                : 
+                <>
                 <div className="developer" style={{marginTop: '80px'}}>
                     <img id="paimg" src="/img/greet.webp" className="dimasputra" alt="stresslo greeting" />
                     <div className="text-wrapper">
