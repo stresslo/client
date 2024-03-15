@@ -99,7 +99,7 @@ const Product = () => {
         if(!value && !filterHistory) {
             getProducts()
         }
-    }, [page, value, filterHistory, ctg])
+    }, [page, value, filterHistory, location.pathname])
 
     useEffect(() => { 
         if (update) {
