@@ -34,7 +34,12 @@ const Public = () => {
 
     return (
         <div className='page-max'>
-            <Topback location={-1}/>
+            <div className="back" onClick={() => location ? navigate(location.prev, { state: { ...location.state, prev: '' } }) : navigate('/')}>
+                <div className="fa-solid fa-arrow-left fa-xl active"></div>
+                <div className="nav-logo">
+                    <h1>stresslo</h1>
+                </div>
+            </div>
             {(data) && 
             <div className='form' style={{flexDirection: 'column'}}>
                 <LazyLoadImage src={data.img || '/img/dui.jpg'} width={125} height={125} style={{borderRadius: '50%', objectFit: 'cover', boxSizing: 'border-box', marginTop: '30px', margin: 'auto'}}/>
@@ -49,7 +54,7 @@ const Public = () => {
                         { color: 'var(--blue)' }
                     }>{!data.badge.includes('contributor') ? `${data.badge} contributor` : `${data.badge}`}</div>
                 </div>
-                <div className='itext' style={{marginTop: '50px', textAlign: 'left'}}><span>Top</span> Products :</div>
+                <div className='itext' style={{marginTop: '30px', textAlign: 'left'}}><span>Top</span> Products :</div>
                 <div className="overview-product" style={product.length !== 0 ? {marginTop: '10px', height: '250px', flexWrap: 'wrap', flexDirection: 'column', overflow: 'hidden scroll'} : {marginTop: '10px', height: '200px'}}>
                         {(product.length != 0) ? 
                         product.map((i, key) => {
