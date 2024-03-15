@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate, useParams } from "react-router-dom"
+import { useLocation, useNavigate, useParams } from "react-router-dom"
 import { LazyLoadImage } from "react-lazy-load-image-component"
 import Topback from "../../components/topback"
 import Loading from "../../../utils/loading"
@@ -9,6 +9,7 @@ import jwt from "jwt-decode"
 const Public = () => {
 
     const { vid } = useParams();
+    const location = useLocation()
     const navigate = useNavigate()
     const url = `${import.meta.env.VITE_API}`
     const formatNumber = (number) => {return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");}
@@ -33,7 +34,7 @@ const Public = () => {
 
     return (
         <div className='page-max'>
-            <Topback location={-1}/>
+            <Topback location={location.state ? location.state.prev : -1}/>
             {(data) && 
             <div className='form' style={{flexDirection: 'column'}}>
                 <LazyLoadImage src={data.img || '/img/dui.jpg'} width={125} height={125} style={{borderRadius: '50%', objectFit: 'cover', boxSizing: 'border-box', marginTop: '30px', margin: 'auto'}}/>
@@ -54,7 +55,7 @@ const Public = () => {
                         product.map((i, key) => {
                             const titleSort = i.title.length >= 20 ? i.title.substring(0,20) + '...' : i.title
                             return (
-                            <div onClick={() => navigate(`/product/details/${i.vid}`, {state: {...i, prev : location.pathname}})} key={key} className="overview-product-card">
+                            <div onClick={() => navigate(`/product/details/${i.vid}`, {state: {...i, prev : location.state.prev}})} key={key} className="overview-product-card">
                                 <LazyLoadImage src={i.img} style={{height: '100px', width: '150px', objectFit: 'cover', borderRadius: '5px'}}/>
                                 <div style={{color : 'var(--yellow)', fontSize: '0.9rem', textAlign: 'left'}}>{titleSort}</div>
                             </div>

@@ -159,7 +159,7 @@ const Details = () => {
                             </div>
                         </div>
                         }
-                        <div onClick={() => navigate(`/contributor/profile/${i.by}`)} className='product-card' style={{ height: 'max-content', width: '100%', marginTop: '20px', cursor: 'pointer', borderBottomLeftRadius: '0px', borderBottomRightRadius: '0px' }}>
+                        <div onClick={() => navigate(`/contributor/profile/${i.by}`, { state: { prev : location.pathname } })} className='product-card' style={{ height: 'max-content', width: '100%', marginTop: '20px', cursor: 'pointer', borderBottomLeftRadius: '0px', borderBottomRightRadius: '0px' }}>
                             <div className='wrapped-text'>
                                 <div className='wrapped-details' style={{margin: 0, paddingTop: '0', display: 'flex',alignItems: 'unset', flexDirection: "column", gap: '10px'}}>
                                     <div className="product-desc-product">
