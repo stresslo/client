@@ -126,10 +126,10 @@ const Details = () => {
                             Live Preview
                         </div>
                         }
-                        <div className='product-card' style={{ height: 'max-content', width: '100%', marginTop: "10px" }}>
+                        <div className='product-card' style={{ height: 'max-content', width: '100%', marginTop: "10px", borderTopLeftRadius: '0px', borderTopRightRadius: '0px' }}>
                             <div className='wrapped-text'>
-                                <div className='product-title' style={{ fontSize: '1.4rem' }}>{i.title}</div>
-                                <div className='product-desc' style={{ display: "block", fontSize: '1.1rem', marginTop: '10px', fontFamily: 'var(--quicksand)', color: 'var(--blue)' }}>{i.desc}</div>
+                                <div className='product-title' style={{ fontSize: '1.2rem', marginTop: '0px' }}>{i.title}</div>
+                                <div className='product-desc' style={{ display: "block", fontSize: '1rem', marginTop: '10px', fontFamily: 'var(--quicksand)', color: 'var(--blue)' }}>{i.desc}</div>
                             </div>
                         </div>
                         <div className='product-card' style={{ height: 'max-content', width: '100%', marginTop: '10px' }}>
@@ -159,7 +159,7 @@ const Details = () => {
                             </div>
                         </div>
                         }
-                        <div onClick={() => navigate(`/contributor/profile/${i.by}`)} className='product-card' style={{ height: 'max-content', width: '100%', marginTop: '20px', cursor: 'pointer' }}>
+                        <div onClick={() => navigate(`/contributor/profile/${i.by}`)} className='product-card' style={{ height: 'max-content', width: '100%', marginTop: '20px', cursor: 'pointer', borderBottomLeftRadius: '0px', borderBottomRightRadius: '0px' }}>
                             <div className='wrapped-text'>
                                 <div className='wrapped-details' style={{margin: 0, paddingTop: '0', display: 'flex',alignItems: 'unset', flexDirection: "column", gap: '10px'}}>
                                     <div className="product-desc-product">
