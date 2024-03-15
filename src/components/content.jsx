@@ -65,7 +65,7 @@ const Content = ({data, setData, setCount}) => {
             </div>
             {(path == '/') && 
             <div>
-                <form className="form" style={{margin: '0px auto', paddingBottom: '30px'}} onSubmit={(e) => {
+                <form className="form" style={{margin: '0px auto', paddingBottom: '20px'}} onSubmit={(e) => {
                     e.preventDefault()
                     localStorage.setItem('search', query)
                     navigate('/product/all')
