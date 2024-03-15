@@ -1,6 +1,6 @@
 import { LazyLoadImage } from "react-lazy-load-image-component"
 import { useNavigate } from "react-router-dom"
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import stresslo from "../../data/stresslo"
 import products from "../../data/product"
 import swalert from "../../utils/swalert"
@@ -14,6 +14,7 @@ const Content = ({data, setData, setCount}) => {
     const path = location.pathname
     const navigate = useNavigate()
     const context = useContext(Context)
+    const [query, setQuery] = useState('')
 
     const deleteNotification = async (id) => {
         try {
@@ -77,6 +78,7 @@ const Content = ({data, setData, setCount}) => {
                 </div>
                 </div>
                 : 
+                <>
                 <div className="developer">
                     <img id="paimg" src="/img/greet.webp" className="dimasputra" alt="stresslo greeting" />
                     <div className="text-wrapper">
@@ -84,7 +86,20 @@ const Content = ({data, setData, setCount}) => {
                     <div>Let's explore with us.</div>
                     <div className="button contact" onClick={() => navigate('/register')}>Sign up</div>
                     </div>
-                </div>}
+                </div>
+                <form className="form" style={{marginTop: '0px'}} onSubmit={(e) => {
+                    e.preventDefault()
+                    localStorage.setItem('search', query)
+                }}>
+                    <div className="input-form">
+                        <div>
+                            <div>Search</div>
+                            <input type="text" placeholder="find any products" onChange={(e) => setQuery(e.target.value)}/>
+                        </div>
+                    </div>
+                </form>
+                </>
+                }
                 {(stresslo.map((i,k) => {
                 return(
                     <div className="service" style={{paddingTop: "40px"}} key={k}>

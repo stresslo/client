@@ -16,7 +16,7 @@ const Product = () => {
     const historyPage = JSON.parse(localStorage.getItem('historyPageProduct'))
     const historySearch = localStorage.getItem('search')
     const filter = JSON.parse(localStorage.getItem('filterHistory'))
-    const { ctg } = useParams()
+    const [ ctg, setCtg ] = useState(useParams() || 'all')
     const [ data, setData ] = useState([])
     const [ status, setStatus ] = useState(200)
     const [ update, setUpdate] = useState(false)

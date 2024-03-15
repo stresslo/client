@@ -46,14 +46,14 @@ const Public = () => {
                     <div className='itext' style={{marginTop: '5px', fontSize: '1.4rem'}}>{data.username}</div>
                     <div style={{color: 'var(--blue)', backgroundColor: 'var(--primary)'}} className='overview-status'>{formatNumber(data.points)} Points</div>
                 </div>
-                <div className='button-max' style={{backgroundColor: 'var(--background)', width: '90%', boxShadow: 'var(--boxshadow)', borderRadius: '30px', fontSize: '0.9rem', margin: '30px auto'}}>
+                <div className='button-max' style={{backgroundColor: 'var(--background)', width: '90%', boxShadow: 'var(--boxshadow)', borderRadius: '30px', fontSize: '0.9rem', margin: '20px auto'}}>
                     <div style={
                         data.badge == 'Top contributor' ? { color: 'var(--green)' } :
                         data.badge == 'Superstar' ? { color: 'var(--yellow)' } :
                         { color: 'var(--blue)' }
                     }>{!data.badge.includes('contributor') ? `${data.badge} contributor` : `${data.badge}`}</div>
                 </div>
-                <div className='itext' style={{marginTop: '20px', textAlign: 'left'}}><span>Top</span> products </div>
+                <div className='itext' style={{marginTop: '10px', textAlign: 'left'}}><span>Top</span> products </div>
                 <div className="overview-product" style={product.length !== 0 ? {marginTop: '10px', height: '250px', flexWrap: 'wrap', flexDirection: 'column', overflow: 'hidden scroll'} : {marginTop: '10px', height: '200px'}}>
                         {(product.length != 0) ? 
                         product.map((i, key) => {
@@ -65,7 +65,7 @@ const Public = () => {
                             </div>
                             )
                         }): 
-                        <div className="title" style={{fontSize: '0.8rem', margin: 'auto', fontFamily: 'var(--quicksand)', textShadow: 'unset'}}>Contributor don't have active product yet.</div>}
+                        <div className="title" style={{fontSize: '0.8rem', margin: 'auto', fontFamily: 'var(--quicksand)', textShadow: 'unset'}}>Contributor don't have product yet.</div>}
                     </div>  
             </div>
             }
