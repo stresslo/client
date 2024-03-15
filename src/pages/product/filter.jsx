@@ -1,4 +1,5 @@
 import convertPrice from "../../../utils/price"
+import { useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react"
 import axios from "axios"
 import jwt from "jwt-decode"
@@ -6,6 +7,7 @@ import "../../style/filterbox.css"
 
 const FilterBox = ({ filterHistory , setLoading, setUpdate, setData, setPage, page, ctg }) => {
 
+    const navigate = useNavigate()
     const [forceUpdate, setForceUpdate] = useState(false)
 
     const [price, setPrice] = useState(filterHistory ? filterHistory.price : 0)
@@ -63,6 +65,16 @@ const FilterBox = ({ filterHistory , setLoading, setUpdate, setData, setPage, pa
                 </div>
                 </>
                 )}
+                <>
+                <div className="itext" style={{fontSize: '1.2rem', color: 'var(--text)'}}>Category</div>
+                <div style={{display: 'flex', flexWrap: 'wrap', gap: '10px', padding: '15px 0px', paddingBottom: '35px'}}>
+                    <div className="button" style={ ctg === 'all' ? {borderRadius: '10px', width: 'max-content', padding: '20px 15px', height: '0', boxShadow: 'unset', backgroundColor: 'var(--yellow)', color : 'var(--primary)'} : {borderRadius: '10px', width: 'max-content', height: '0', padding: '20px 15px    ', boxShadow: 'unset', backgroundColor: 'var(--prime)', color : '#aaa'}} onClick={() => ctg !== 'all' && navigate('/product/all')}>All</div>
+                    <div className="button" style={ ctg === 'Web' ? {borderRadius: '10px', width: 'max-content', padding: '20px 15px', height: '0', boxShadow: 'unset', backgroundColor: 'var(--yellow)', color : 'var(--primary)'} : {borderRadius: '10px', width: 'max-content', height: '0', padding: '20px 15px   ', boxShadow: 'unset', backgroundColor: 'var(--prime)', color : '#aaa'}} onClick={() => ctg !== 'Web' && navigate('/product/Web')}>Web Template</div>
+                    <div className="button" style={ ctg === 'Motion' ? {borderRadius: '10px', width: 'max-content', padding: '20px 15px', height: '0', boxShadow: 'unset', backgroundColor: 'var(--yellow)', color : 'var(--primary)'} : {borderRadius: '10px', width: 'max-content', height: '0', padding: '20px 15px  ', boxShadow: 'unset', backgroundColor: 'var(--prime)', color : '#aaa'}} onClick={() => ctg !== 'Motion' && navigate('/product/Motion')}>Motion Graphic</div>
+                    <div className="button" style={ ctg === '3D' ? {borderRadius: '10px', width: 'max-content', padding: '20px 15px', height: '0', boxShadow: 'unset', backgroundColor: 'var(--yellow)', color : 'var(--primary)'} : {borderRadius: '10px', width: 'max-content', height: '0', padding: '20px 15px   ', boxShadow: 'unset', backgroundColor: 'var(--prime)', color : '#aaa'}} onClick={() => ctg !== '3D' && navigate('/product/3D')}>3D</div>
+                    <div className="button" style={ ctg === 'Vector' ? {borderRadius: '10px', width: 'max-content', padding: '20px 15px', height: '0', boxShadow: 'unset', backgroundColor: 'var(--yellow)', color : 'var(--primary)'} : {borderRadius: '10px', width: 'max-content', height: '0', padding: '20px 15px', boxShadow: 'unset', backgroundColor: 'var(--prime)', color : '#aaa'}} onClick={() => ctg !== 'Vector' && navigate('/product/Vector')}>Vector</div>
+                </div>
+                </>
                 {(ctg == 'Web') && <>
                 <div className="itext" style={{fontSize: '1.2rem', color: 'var(--text)'}}>Framework</div>
                 <div style={{display: 'flex', flexWrap: 'wrap', gap: '10px', padding: '15px 0px', paddingBottom: '35px'}}>
