@@ -79,7 +79,7 @@ const Content = ({data, setData, setCount}) => {
                 </div>
                 : 
                 <>
-                <form className="form" style={{marginBottom: '40px', margin: '0px auto'}} onSubmit={(e) => {
+                <form className="form" style={{margin: '0px auto'}} onSubmit={(e) => {
                     e.preventDefault()
                     localStorage.setItem('search', query)
                     navigate('/product/all')
@@ -91,7 +91,7 @@ const Content = ({data, setData, setCount}) => {
                         </div>
                     </div>
                 </form>
-                <div className="developer">
+                <div className="developer" style={{marginTop: '80px'}}>
                     <img id="paimg" src="/img/greet.webp" className="dimasputra" alt="stresslo greeting" />
                     <div className="text-wrapper">
                     <h1>Welcome to stresslo</h1>
