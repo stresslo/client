@@ -12,7 +12,7 @@ import "../../style/product.css"
 const Product = () => {
 
     const navigate = useNavigate()
-    const ctg = useParams();
+    const {ctg} = useParams();
     const inputref = useRef(null)
     const historyPage = JSON.parse(localStorage.getItem('historyPageProduct'))
     const historySearch = localStorage.getItem('search')
