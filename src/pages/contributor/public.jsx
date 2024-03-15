@@ -49,6 +49,19 @@ const Public = () => {
                         { color: 'var(--blue)' }
                     }>{!data.badge.includes('contributor') ? `${data.badge} contributor` : `${data.badge}`}</div>
                 </div>
+                <div className='itext' style={{marginTop: '10px', textAlign: 'left'}}><span>Top</span> Products :</div>
+                <div className="overview-product" style={product.length !== 0 ? {marginTop: '10px', height: '200px', flexWrap: 'wrap', flexDirection: 'column', overflow: 'hidden scroll'} : {marginTop: '10px', height: '200px'}}>
+                        {(product.length != 0) ? 
+                        product.map((i, key) => {
+                            return (
+                            <div onClick={() => navigate(`/product/details/${i.vid}`, {state: {...i, prev : location.pathname}})} key={key} className="overview-product-card">
+                                <LazyLoadImage src={i.img} style={{height: '100px', width: '150px', objectFit: 'cover', borderRadius: '5px'}}/>
+                                <div style={{color : 'var(--yellow)', fontSize: '0.9rem', textAlign: 'center'}}>{i.title}</div>
+                            </div>
+                            )
+                        }): 
+                        <div className="title" style={{fontSize: '0.8rem', margin: 'auto', fontFamily: 'var(--quicksand)', textShadow: 'unset'}}>Contributor don't have active product yet.</div>}
+                    </div>  
             </div>
             }
         </div>
