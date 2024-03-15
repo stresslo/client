@@ -57,7 +57,7 @@ const Public = () => {
                 <div className="overview-product" style={product.length !== 0 ? {marginTop: '10px', height: '250px', flexWrap: 'wrap', flexDirection: 'column', overflow: 'hidden scroll'} : {marginTop: '10px', height: '200px'}}>
                         {(product.length != 0) ? 
                         product.map((i, key) => {
-                            const titleSort = i.title.length >= 20 ? i.title.substring(0,20) + '...' : i.title
+                            const titleSort = i.title.length >= 12 ? i.title.substring(0,12) + '...' : i.title
                             return (
                             <div onClick={() => navigate(`/product/details/${i.vid}`, {state: {...i, prev : location.pathname}})} key={key} className="overview-product-card">
                                 <LazyLoadImage src={i.img} style={{height: '100px', width: '150px', objectFit: 'cover', borderRadius: '5px'}}/>
