@@ -53,7 +53,7 @@ const Public = () => {
                         { color: 'var(--blue)' }
                     }>{!data.badge.includes('contributor') ? `${data.badge} contributor` : `${data.badge}`}</div>
                 </div>
-                <div className='itext' style={{marginTop: '15px', textAlign: 'left'}}>more products </div>
+                <div className='itext' style={{marginTop: '15px', textAlign: 'left'}}> <span>More</span> products </div>
                 <div className="overview-product" style={product.length !== 0 ? {marginTop: '10px', height: '250px', flexWrap: 'wrap', flexDirection: 'column', overflow: 'hidden scroll'} : {marginTop: '10px', height: '200px'}}>
                         {(product.length != 0) ? 
                         product.map((i, key) => {
