@@ -75,7 +75,13 @@ const Content = ({data, setData, setCount}) => {
                     <div className="input-form">
                         <div>
                             <div>Search</div>
-                            <input type="text" placeholder="find any products" onChange={(e) => setQuery(e.target.value)}/>
+                            <div style={{display: 'flex', alignItems: 'center', gap: '5px', width: '100%'}}>
+                                <input type="text" placeholder="find any products" onChange={(e) => setQuery(e.target.value)}/>
+                                <button type="submit" className="button" style={{backgroundColor: 'var(--yellow)', color: 'var(--background)'}}>
+                                    <div className="fa-solid fa-search fa-xl"></div>
+                                    Search
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </form>
