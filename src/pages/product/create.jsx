@@ -212,7 +212,7 @@ const Create = () => {
           }
           <div className='wrap-file'>
             <div>
-              <div>Image : </div>
+              <div>Image preview : </div>
               <div className='prevfile' onClick={() => imgref.current.click()}>
                 <div className={(image) ? 'fa-solid fa-check fa-xl' : 'fa-solid fa-image fa-xl'} style={{color: '#aaa', fontSize: '2rem'}}/>
                 <div style={{ color: '#aaa', fontSize: '0.7rem' }}>{'(JPEG, JPG, PNG, MP4)'}</div>
