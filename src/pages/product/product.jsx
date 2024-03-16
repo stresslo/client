@@ -68,7 +68,7 @@ const Product = () => {
             const response = await axios.get(`${import.meta.env.VITE_API}/products/${ctg}/${page}`)
             const result = response.data
             const decode = jwt(result)
-            !decode.data.length && setMessage(`- no result found for ${ctg} category -`)
+            !decode.data.length && setMessage(`- (${ctg}) this category is still empty -`)
             setData(decode.data)
         }   catch (error) {
             setStatus(error.response ? 404 : 500)
