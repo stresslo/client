@@ -66,7 +66,7 @@ const Register = () => {
                         </select>
                         <button type="submit" className="button" style={{fontFamily : "serif", width : "150px"}}>Create</button>
                     </div>
-                    <NavLink to='/login' style={{textDecoration : "none", color : "var(--text)", translate: '0 20px'}}>Have an account</NavLink>
+                    <NavLink to='/login' style={{textDecoration : "none", color : "var(--text)", translate: '0 20px'}}>have an account? Login</NavLink>
                 </form>
             </div>
         </div>
