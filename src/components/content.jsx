@@ -77,9 +77,8 @@ const Content = ({data, setData, setCount}) => {
                             <div>Search</div>
                             <div style={{display: 'flex', alignItems: 'center', gap: '5px', width: '100%'}}>
                                 <input type="text" placeholder="find any products" onChange={(e) => setQuery(e.target.value)}/>
-                                <button type="submit" className="button" style={{backgroundColor: 'var(--yellow)', color: 'var(--background)', height: '45px', fontSize: '1rem', gap: '5px', alignItems: 'center'}}>
+                                <button type="submit" className="button" style={{backgroundColor: 'var(--yellow)', color: 'var(--background)', height: '45px', width: '100px',fontWeight: 'unset', fontSize: '1rem', gap: '5px', alignItems: 'center'}}>
                                     <div className="fa-solid fa-search fa-xl"></div>
-                                    Search
                                 </button>
                             </div>
                         </div>
