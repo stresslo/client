@@ -117,17 +117,6 @@ const Overview = () => {
                 <>
                 <div className="itext" style={{marginTop: '10px'}}>Balance</div>
                 <div style={{position: 'relative'}}>
-                    {(!editBank) ? 
-                        <div style={{color: 'var(--text)', cursor: 'pointer', position: 'absolute', top: '-5px', right: '0'}} onClick={() => handle.editBank()} className="fa-solid fa-pen-to-square fa-xl"/>
-                        :
-                        <div style={{color: 'var(--text)', cursor: 'pointer', position: 'absolute', top: '-5px', right: '0'}} onClick={() => {
-                            const rek_bank = document.getElementById('rek_bank')
-                            rek_bank.setAttribute('readonly', true)
-                            setEditBank(false)
-                            setBank(data.bank_name)
-                            setRekening(data.bank_number)
-                        }} className="fa-solid fa-circle-xmark fa-xl"/>
-                    }
                     <div className="overview-card" style={{marginTop: '25px'}}>
                         <div style={{display: 'flex', alignItems: 'center', gap: '10px'}}>
                             <img src={context.img} style={{cursor: 'pointer', width: '35px', border: '2px solid var(--yellow)', height: '35px', objectFit: 'cover', borderRadius: '50%', boxSizing: 'border-box', boxShadow: 'var(--boxshadow)'}} alt="stresslo account" />
@@ -158,15 +147,13 @@ const Overview = () => {
                     </div>
                 </div>
                 <div style={{width: '100%', display: 'flex', alignItems: 'center', gap: '10px', marginTop: '10px', position: 'relative'}}>
-                    {(editBank) && 
-                        <select style={{position: 'absolute', opacity: '0', left: '0', zIndex: '3', width: '90px', height: '43px'}} value={bank} onChange={(e) => setBank(e.target.value)} required>
-                            <option value="" disabled>-- Select Bank --</option>
-                            <option value="BCA">BCA</option>
-                            <option value="Mandiri">Mandiri</option>
-                            <option value="BRI">BRI</option>
-                            <option value="BNI">BNI</option>
-                        </select>
-                    }
+                    <select style={{position: 'absolute', opacity: '0', left: '0', zIndex: '3', width: '90px', height: '43px'}} value={bank} onChange={(e) => setBank(e.target.value)} required>
+                        <option value="" disabled>-- Select Bank --</option>
+                        <option value="BCA">BCA</option>
+                        <option value="Mandiri">Mandiri</option>
+                        <option value="BRI">BRI</option>
+                        <option value="BNI">BNI</option>
+                    </select>
                     <div className="button" style={{zIndex: '2', boxShadow: 'var(--boxshadow)',width: '145px', fontSize: '0.95rem', fontFamily: 'var(--quicksand)' ,height: '43px', borderRadius: '10px', backgroundColor: 'var(--text)', color: 'var(--background)'}}>
                         {(!bank) ? 
                         <LazyLoadImage loading="lazy" effect="blur" width={26} src={'/img/bank.png'}/>
@@ -174,13 +161,11 @@ const Overview = () => {
                         <LazyLoadImage loading="lazy" effect="blur" width={50} src={logo()}/>
                         }
                     </div>
-                    <input ref={refnumber} id="rek_bank" type="text" style={{backgroundColor: 'var(--text)', zIndex: '2', height:'43px', color: 'var(--background)', fontSize: '0.9rem', cursor: 'text'}} className="button-max" value={rekening}  onChange={(e) => setRekening(e.target.value)} placeholder="rekening number" readOnly/>
+                    <input ref={refnumber} id="rek_bank" type="text" style={{backgroundColor: 'var(--text)', zIndex: '2', height:'43px', color: 'var(--background)', fontSize: '0.9rem', cursor: 'text'}} className="button-max" value={rekening}  onChange={(e) => setRekening(e.target.value)} placeholder="rekening number"/>
                 </div>
                 {(data.bank_name !== bank || data.bank_number !== rekening) &&
                 <div style={{display: 'flex', gap: '10px', marginTop: '30px'}}>
                     <div onClick={() => {
-                        const rek_bank = document.getElementById('rek_bank')
-                        rek_bank.setAttribute('readonly', true)
                         setEditBank(false)
                         setBank(data.bank_name)
                         setRekening(data.bank_number)
