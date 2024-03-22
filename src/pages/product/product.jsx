@@ -173,7 +173,7 @@ const Product = () => {
                                                 {(i.price == 0) ? 
                                                 <div style={{ backgroundColor: 'var(--background)', width: '95px', height: '30px', color: 'var(--blue)'}}>Free</div>
                                                 : 
-                                                <div style={{ backgroundColor: 'var(--background)', width: '95px', height: '30px'}}>{convertPrice(i.price).split(' ')[0].split('.')[0]}k</div>
+                                                <div style={{ backgroundColor: 'var(--background)', width: '95px', height: '30px'}}>{convertPrice(i.price).split(' ')[1].split('.')[0]}k</div>
                                                 }
                                              </div>
                                         </div>
