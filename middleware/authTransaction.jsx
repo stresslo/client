@@ -68,10 +68,12 @@ const AuthTransaction = () => {
     }
 
     const cancelTransaction = () => {
+        setLoading(true)
         axios.get(`${import.meta.env.VITE_API}/transaction/cancel/${order_id}`)
         .then((response) => swalert(response.data, 'success', 1200))
         .then((res) => { res.isDismissed ? window.location.href = '/' : '' })
         .catch((error) => { return Promise.reject(error) })
+        .finally(() => setLoading(false))
     }
 
     const repay = () => { 
