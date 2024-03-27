@@ -3,13 +3,13 @@ import Skeleton from "react-loading-skeleton"
 import convertPrice from "../../../utils/price"
 import { useLocation, useParams } from "react-router-dom"
 import { useContext, useEffect, useRef, useState } from "react"
-import { useNavigate } from "react-router-dom"
 import { LazyLoadImage } from "react-lazy-load-image-component"
+import { useNavigate } from "react-router-dom"
 import Context from "../../../utils/context"
 import swalert from "../../../utils/swalert"
 import axios from "axios"
-import "../../style/create.css"
 import Swal from "sweetalert2"
+import "../../style/create.css"
 
 const Details = () => {
 
@@ -171,7 +171,7 @@ const Details = () => {
                                             </div>
                                         : 
                                             <div style={{marginTop: '10px',display: 'flex', gap: '10px', alignItems: 'center'}}>
-                                                <LazyLoadImage src={cont.img ? cont.img : '/img/dui.jpg'} style={{width: '30px', height: '30px', objectFit: 'cover', borderRadius: '50%'}}/>
+                                                <LazyLoadImage loading="lazy" effect="blur" src={cont.img ? cont.img : '/img/dui.jpg'} style={{width: '30px', height: '30px', objectFit: 'cover', borderRadius: '50%'}}/>
                                                 <p style={{color: 'var(--blue)'}}>{cont.username && cont.username}</p>
                                             </div>
                                         }
